@@ -1,0 +1,11 @@
+title: KODINGWARRIOR QUEST
+email: kodingwarrior@mycodeis.sexy
+description: SWAG 넘치는 개발자가 되기 위한 코딩대전사의 여정은 계속됩니다.
+baseurl: ''
+url: ''
+twitter_username: codingwarrior_
+github_username: malkoG
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
