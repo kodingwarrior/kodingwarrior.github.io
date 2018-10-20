@@ -122,12 +122,142 @@ getpeername(unixfd, (SA *) &cli, &len);
 
 # 3.6 `inet_aton`, `inet_addr`, and `inet_ntoa` Functions
 
+IPv4 주소를 표현하는 방법으로는 사람이 읽어들일 수 있는 ASCII 문자열로 표현하는 방법과, 네트워크 바이트 순서의 32비트 정수로 나타내는 방법이 있다. 각 표현방법을 다른 표현방법으로 변환시킬 수 있는 유틸리티 함수가 있으며, 이는 `<arpa/inet.h>` 헤더파일에 정의되어 있다.
 
+* `int inet_aton(const char *strptr, struct in_addr *addrptr);` : ASCII 문자열로 나타낸 주소를 네트워크 바이트 순서의 32비트 정수로 변환하여 addrptr 포인터가 가리키는 값에 저장한다. 문자열이 올바르면 1, 오류가 발생하면 0를 반환한다.
+* `in_addr_t inet_addr(const char *strptr);` : `inet_aton`과 거의 같지만, deprecated 되었다. 
+* `char *inet_ntoa(struct in_addr inaddr);` : 네트워크 바이트 순서의 32비트 정수로 나타낸 주소를 dotted-decimal(십진법으로 나타낸 주소) 문자열로 변환후, 문자열에 대한 포인터를 반환한다. 이 때, 문자열은 static memory 에 저장되어 있으며, 이 함수는 `reentrant` 하지 않다. 함수의 인자에 구조체에 대한 포인터가 아닌 구조체를 넘겨준다는 점을 주목하자.
 
 # 3.7 `inet_pton` and `inet_ntop` Functions
+`inet_pton` 과 `inet_ntop` 은 3.6절에서 설명한 `inet_aton`, `inet_ntoa` 함수처럼 동작하지만, IPv4 주소 뿐만 아니라 IPv6 주소에 대해서도 적용할 수 있는 버전이라 볼 수 있다. 이도 역시 `<arpa/inet.h>` 헤더파일에 정의되어 있다.
 
-# 3.8 `sock_ntop` and Related Functions
+* `int inet_pton(int family, const char *strptr, void *addrptr)` : 문자열로 나타낸 IP 주소(strptr)를 네트워크 바이트 순서의 비트스트링으로 변환 후 포인터(addrptr)로 가리킨 변수에 저장한다. 성공하면 1을 반환하고, 유효하지 않은 주소표기법일 경우 0, 오류가 발생하면 -1을 반환한다. 
+* `const char *inet_ntop(int family, const void *addrptr, char *strptr, size_t len)` : 위의 함수와 반대방향의 변환을 수행하는 함수이며, 변환에 성공하면 결과에 대한 포인터를 반환하고, 성공하지 못하면 NULL 포인터를 반환한다.
+  * `len` 변수는 목적지가 되는 strptr 의 길이를 의미하며, caller의 버퍼를 오버플로우 하지 않도록 방지하기 위한 목적으로 쓰인다. `len` 변수를 어떻게 넘겨줄지는 `<netinet/in.h>` 헤더파일에 관련된 상수가 정의되어 있다. `len` 변수가 비트스트링으로 주어진 네트워크 주소를 ASCII 문자열로 변환하기에 너무 적은 수일 경우 NULL 포인터를 반환하며, `errno` 변수에는 `ENOSPC` 라는 상수가 세팅된다.
+  * 여기서 `strptr` 포인터에는 널포인터가 들어가면 안된다. 비트스트링으로 나타낸 네트워크 주소를 문자열로 나타낸 결과가 strptr 가 가리키는 값에 세팅되어야 하기 때문에, 위의 함수를 호출하기 전에 목적지의 주소에 적당한 크기의 메모리를 할당해야한다. 위의 함수에서 변환이 성공하면, `strptr` 주소가 반환된다.
+
+위의 두 함수에서 `family` 인자에는 AF_INET, AF_INET6가 들어갈 수 있으며,  `family`가 지원되지 않을 경우, `errno` 변수에 `EAFNOSUPPORT` 라는 상수를 세팅하고, 오류를 반환한다.
+
+
+`inet_pton` 함수와 `inet_ntop` 함수를 IPv4 주소만 지원하도록 직접 구현한다면 아래와 같이 구현할 수 있을 것이다.
+
+```c
+int
+inet_pton(int family, const char *strptr, void *addrptr)
+{
+	if(family == AF_INET) {
+		struct in_addr in_val;
+		if(inet_aton(strptr, &in_val)) {
+			memcpy(addrptr, &in_val, sizeof(struct in_addr));
+			return 1;
+		}  
+		return 0;
+	}
+	errno = EAFNOSUPPORT;
+	return -1;
+}
+```
+
+```c
+const char *
+inet_ntop(int family, const void *addrptr, char *strptr, size_t len)
+{
+	const u_char *p = (const u_char *) addrptr;
+	if(family == AF_INET) {
+		char temp[INET_ADDRSTRLEN];
+
+		snprintf(temp, sizeof(tmp), "%d.%d.%d.%d", p[0], p[1], p[2], p[3]);
+		if(strlen(temp) >= len) {
+			errno = ENOSPC;
+			return NULL;
+		}
+		strcpy(strptr, temp);
+		return strptr;
+	}
+	errno = EAFNOSUPPORT;
+	return NULL;
+}
+```
 
 # 3.9 `readn`, `writen` and `readline` Functions
 
-*
+일반적인 파일 IO와는 달리 TCP 소켓과 같은 스트림 소켓에 `read` 시스템콜이나 `write` 시스템콜을 이용하여 IO를 수행하는것은 왠만하면 금지되어 있다. 커널에서 소켓에 대해 입출력을 수행할때, 버퍼의 크기가 제한되어 있기 때문이다. `read` 시스템콜, `write` 시스템콜을 이용하여 IO를 수행했을때, 이만큼 IO를 해달라고 커널에 요청한 수에 비해 실제로 IO를 수행한 바이트의 수(이는 `read`, `write` 함수의 결과로 반환된다.) 가 적을 수 있으며, 이는 에러를 의미하는 것이 아니다. 따라서, IO를 완전하게 끝내기 위해서, IO를 수행하다가 남은 나머지 부분을 처리할때까지 다시 `read`, `write` 를 수행하도록 해야할 것이다.
+
+실제로 유닉스 일부 버전에서는 4096 바이트가 넘도록 파이프를 통해 write 를 수행하는 행위를 금지하고 있다. 
+
+socket 에 대해서도 `read`, `write` 를 수행할 수 있도록 하기 위해, 책에서는 아래와 같이 유틸리티 함수`readn`, `writen`, `readline` 를 정의하고 있다.
+
+```c
+ssize_t
+readn(int fd, void *vptr, size_t n) 
+{
+	size_t nleft;
+	ssize_t nread;
+	char *ptr;
+	
+	ptr = vptr;
+	nleft = n;
+	while(nleft > 0) {
+		if( (nread = read(fd, ptr, nleft)) < 0) {
+			if(errno == EINTR) // read 시스템콜을 수행하는 도중에 인터럽트가 발생한 경우(read 도중에 인터럽트가 발생하면 errno 에 EINTR 가 세팅된다.)
+				nread = 0; // 다시 read 를 호출하도록 초기화한다.
+			else
+				return -1;
+		} else if (nread == 0) 
+			break;  // EOF 를 만난 경우
+		
+		nleft -= nread; // 얼마나 더 읽어들여야하는지 남은 바이트 수를 갱신한다.
+		ptr += nread;  // 읽어들인 수만큼 포인터를 전진시킨다.
+	}
+	return (n - nleft);
+}
+
+ssize_t
+writen(int fd, const void *vptr, size_t n) 
+{
+	size_t nleft;
+	ssize_t nwritten;
+	const char *ptr;
+	
+	ptr = vptr;
+	nleft = n;
+	while(nleft > 0) {
+		if( (nwritten = write(fd, ptr, nleft)) <= 0) {
+			if(nwritten < 0 && errno == EINTR)
+				nwritten = 0; // 다시 write 를 호출하도록 초기화한다.
+			else
+				return -1;
+		}
+		nleft -= nwritten;
+		ptr += nwritten;
+	}
+	return (n);
+}
+
+ssize_t
+readline(int fd, void *vptr, size_t maxlen) 
+{
+	ssize_t n, rc;
+	char c, *ptr;
+	
+	ptr = vptr;
+	for(n = 1; n < maxlen; ++n) {
+		again:
+			if( (rc = read(fd, &c, 1)) == 1) {
+				*ptr++ = c;
+				if(c == '\n')
+					break;
+			} else if(rc == 0) {
+				*ptr = 0;
+				return (n-1);
+			} else {
+				if(errno == EINTR)
+					goto again;
+				return (-1);
+			}
+	}
+	
+	*ptr = 0;
+	return (n);
+}
+```
