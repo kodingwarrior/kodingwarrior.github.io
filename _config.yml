@@ -5,6 +5,8 @@ baseurl: ''
 url: ''
 twitter_username: codingwarrior_
 github_username: malkoG
+facebook_username: kodingwarrior
+google_analytics: UA-127979309-1
 markdown: kramdown
 theme: minima
 plugins:

@@ -90,5 +90,3 @@ TCP 소켓의 경우, 클라이언트에서 `connect` 함수를 호출하게 되
 # 4.8 Concurrent Servers
 
 # 4.9 `close` Function
-
-# 4.10 `getsockname` and `getpeername` Functions
