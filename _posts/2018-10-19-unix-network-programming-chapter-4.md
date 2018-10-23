@@ -81,12 +81,89 @@ TCP 소켓의 경우, 클라이언트에서 `connect` 함수를 호출하게 되
 
 두 번째 인자에는 소켓 주소 구조체에 대한 포인터를, 세 번째 인자에는 소켓 주소 구조체의 크기를 넘겨줘야 한다. TCP의 경우, IP 주소와 포트번호를 지정한 소켓 주소 구조체를 넘겨줘야 한다.
 
+아래의 테이블에서는 소켓 주소 구조체에 어떤 값을 넣었느냐에 따라 `bind` 함수를 호출했을때 소켓에 어떻게 바인딩되는지를 설명하고 있다. 
+
+| IP 주소 | 포트 번호 | 어떻게 바인딩 되는가? |
+|:--:|:--:|:--:|
+|*Wild Card*|0|커널이 알아서 IP주소와 포트 번호를 할당|
+|*Wild Card*|nonzero|커널이 알아서 IP 주소를 잡고, 포트 번호는 프로세스에서 정한대로 할당|
+|로컬 IP 주소|0|IP 주소는 프로세스에서 정한대로 쓰고, 포트 번호는 커널이 알아서 할당|
+|로컬 IP 주소|nonzero| 프로세스에서 정한 IP 주소와 포트번호를 이용해서 할당|
+
+* 위의 테이블에서 알 수 있듯이, **서버는 시작할 때 무조건 well-known 포트 번호를 명시**해야 한다. 여기서 well-known 포트 번호는 ftp, ssh 의 포트 번호와 같이 쓰임새가 공개적으로 알려져 있는 것이 아니라, 서버 전용으로 쓰기로 약속한 포트 번호를 넘겨줘야 한다는 의미이다. 만약, 포트 번호를 넘겨주지 않으면, 커널이 다이나믹(dynamic or ephemeral) 포트에서 임의대로 포트번호를 결정하게 되어버려서 다른 프로세스와 충돌이 일어날 수 있기 때문이다. 
+	* 예를 들면, 웹서버를 띄우고자 하는 경우, 서버 개발자 임의대로 8000 번 내지는 5000 번 포트 번호를 디폴트로 설정하는게 대표적이라 할 수 있다.
+	* 다이나믹 포트와 충돌이 일어날 일이 없도록, 다이나믹 포트의 범위를 보고 다이나믹 포트 범위의 하한값으로 서버의 포트번호를 잡는 것이 권장된다. 다이나믹 포트의 범위는 Linux 를 기준으로 `/proc/sys/net/ipv4/ip_local_port_range` 에서 알 수 있다.
+* IPv4에서 *와일드카드 주소* 는, `sin_addr` 멤버변수에 `INADDR_ANY` 를 넘겨주는 경우를 의미한다.
+* 커널이 소켓의 포트 번호와 IP 주소를 알아서 결정할 수 있긴 하지만, 소켓 주소 구조체의 포인터를 넘겨줬더라도 `const` 지정자를 같이 넘겨줬기 때문에, `bind` 함수가 리턴되더라도 소켓 주소 구조체에는 변화가 없다. 따라서, 커널에서 소켓에 할당한 주소와 포트번호를 얻으려면 `getsockname` 함수를 이용해야 한다.
+
 # 4.5 `listen` Function
+`listen` 함수는 TCP 서버에서만 호출되며, 크게 두 가지 역할을 한다.
+
+1. 커널이 클라이언트에서 오는 연결 요청(`connect()`)을 받아들일 수 있게, 연결되지 않은 소켓을 passive open 한다.  TCP state transition diagram 을 예로 들어 설명하면, `CLOSED` 상태에 있는 소켓은 `LISTEN` 상태가 된다. 
+2. `backlog` 인자를 통해 커널이 관리해야하는 connection queue 의 최대 사이즈를 결정할 수 있다.
+
+`listen` 함수는 `<sys/socket.h>` 헤더파일에 아래와 같이 정의되어 있다.
+
+* `int listen(int sockfd, int backlog)` : 성공할 경우 0, 에러가 발생할 경우 -1 을 반환
+
+`listen` 함수는 일반적으로 `socket`, `bind` 함수를 호출하고 나서야 쓰이는 편이며, **`accept` 함수를 호출하기 전에 무조건 `listen` 함수를 호출** 해야 한다.
+
+`backlog` 인자를 이해하기 전에, 커널이 listening socket 에 대해 두 개의 queue 를 관리하는 것을 알고 있어야 한다.
+
+1. **`incomplete connection queue`** : 클라이언트로부터 SYN 메시지를 받고, 서버 측에서 3-way handshaking 이 끝나기를 기다리는 소켓에 대한 엔트리를 포함한다. 여기서 각 소켓은 `SYN_RCVD` 상태이다.
+2. **`completed connection queue`** : TCP 3-way handshaking이 완료되어서 연결이 성립된 소켓에 대한 엔트리를 포함한다. 여기서 각 소켓은 `ESTABLISHED` 상태이다.
+
+큐의 엔트리는 SYN 메시지를 받자마자 incomplete queue 에서 처음으로 생성된다. incomplete queue에 있는 엔트리는 클라이언트로부터 ACK 메시지를 받거나, 혹은 타임아웃(RTT)이 될 때까지 계속해서 큐에 남게 된다. 클라이언트로부터 ACK 메시지를 받아서 3-way handshaking 이 성공하게 되면 incomplete queue에 있는 엔트리는 completed queue의 맨 마지막 엔트리로 옮겨지게 된다.
+
+프로세스가 `accept` 함수를 호출하게 되면, 프로세스에는 completed queue의 첫 번째 엔트리의 소켓이 프로세스에 반환된다. 큐가 비어있다면, `accept`를 호출한 프로세스는 completed queue에 엔트리가 들어올 때까지 block 상태가 된다.
 
 # 4.6 `accept` Function
 
-# 4.7 `fork` and `exec` Functions
+`accept` 함수는 TCP 서버에서 호출되며, completed queue의 첫 번째 엔트리에서 ESTABLISH 상태의 소켓의 디스크립터를 반환한다. completed connection queue가 비어있다면, `accept`를 호출한 프로세스는 BLOCK 상태가 된다.
 
+`accept` 함수는 `<sys/socket.h>` 헤더파일에 다음과 같이 정의되어 있다.
+
+* `int accept(int sockfd, struct sockaddr *cliaddr, socklen_t *addrlen)` : 성공했을 경우 음이 아닌 디스크립터, 
+에러일 경우 -1
+
+`cliaddr`, `addrlen`는 연결된 클라이언트의 프로토콜 주소에 대한 정보를 나타낸다. `accept` 함수가 성공하면, 커널에서 자동으로 생성한 디스크립터 번호가 반환되며, 이는 TCP 클라이언트에 연결된 소켓을 나타낸다. `accept` 함수의 첫번째 인자에는 **listening socket**을 넘겨줘야 하며, 그 결과로 반환되는 소켓을 **connected socket**이라 한다. **listening socket**은 서버가 시작할때 하나씩 만들어져서 서버가 죽을때까지 계속 유지되며, **connected socket**은 클라이언트와의 연결(TCP의 경우 3-way handshaking)이 성공할때마다 커널에서 만들어내는 소켓이다. 클라이언트의 요청을 처리하고 나면, connected socket은 close 된다.
 # 4.8 Concurrent Servers
 
+*iterative server* 는 요청을 하나 처리하고 나서 다음 요청을 처리하는 식으로 동작한다. 클라이언트의 요청 하나를 처리하는데 오래 걸린다면, 하나의 서버가 한 클라이언트만 담당하는 식으로 가게 될 수 있다. 이런 경우는 상당히 바람직하지 않으며, 한 서버가 여러 클라이언트의 요청을 동시에 처리할 수 있도록 해야 한다. 이를 해결할 수 있는 방법이 `concurrent server` 이며, 유닉스에서는 `fork` 시스템 콜을 호출하여 child 프로세스를 생성하고 각 child 프로세스가 각 클라이언트의 요청을 처리하는 방식으로 응용할 수 있다.
+
+다음은 전형적인 concurrent server 이다.
+
+```c
+pid_t pid;
+int listenfd, connfd;
+
+listenfd = Socket(...);
+
+Bind(listenfd, ... );
+Listen(listenfd, LISTENQ);
+
+for(; ; ) {
+	connfd = Accept(listenfd, ...);
+	
+	if( (pid = Fork() ) == 0 ) {
+		Close(listenfd);
+		doit(connfd);
+		Close(connfd);
+		exit(0);
+	}
+	
+	Close(connfd);
+}
+```
+
+연결이 성공하고 나서야 `accept` 함수가 리턴되며, 서버는 `fork` 를 호출하여 child 프로세스가 클라이언트(`connfd` 소켓으로 연결이 되어있는 클라이언트)의 요청을 처리하도록 하고 서버는 다시 다른 연결을 기다린다. child 프로세스가 새로 들어온 클라이언트의 요청을 처리할 수 있게, parent 프로세스는 클라이언트와 연결된 소켓을 close해야 한다.
+
 # 4.9 `close` Function
+
+Unix의 close 함수는 소켓을 close 하여 TCP 연결을 종료하는데 쓰이며, `<unistd.h>` 헤더파일에 아래와 같이 정의되어 있다.
+
+* `int close(int fd)` : 성공하면 0, 에러일 경우 -1 반환
+
+close 함수는 일반적으로는 descriptor의 레퍼런스 카운트를 줄이는 역할을 한다. close 함수를 호출하여 레퍼런스 카운트가 줄어든 시점에서, 레퍼런스 카운트가 0보다 크면 (concurrent server의 예시에서 볼 수 있듯이) 클라이언트와 연결된 소켓을 parent 프로세스와 child 프로세스 사이에서 공유하고 있을 수 있기 때문에 TCP 연결을 종료하지 않는다. 물론 레퍼런스 카운트가 0이면, 서버의 커널에서 TCP 연결을 종료하기 위해 FIN 메시지를 보내게 된다.
+
+레퍼런스 카운트가 남아있음에도 불구하고, FIN 메시지를 보내서 연결을 종료하고 싶다면 `shutdown` 함수를 이용할 수 있다.
