@@ -8,7 +8,7 @@ categories: post
 
 # 프로그래머스의 윈터코딩에 참여하다
 
-![윈터코딩 포스터](https://photos.app.goo.gl/P1TGuaCqzwpgMcJu6)
+![윈터코딩 포스터](https://lh3.googleusercontent.com/4rCkjWbJ4CPCZyGZTRJ4uRJDVAW2DFCbvtGVBt5bHocPc6kRvNyx_TgM8B6pWo-xjn0D5alar1suBUcNxK3ICxmLwLrNYZOVxPdOFnzUEryAnGpgU5RsT6E_6zefPm0WLu7N_ypfhIzFOb2xxtAraJOTuqf9loyjW2tNv2iBAMaWBei5dqMpk72i-_p5NYuJ3NtmxkRGmF4YSRe8U0Fh458xXcnhuOMXO7BN5WP8nwCinZUI_Xi4V0MrYqah9VF4icXRKLl19Y4qJyF8bV4EJaRyewLz_K_1JWI6Bc6EEVQP8pyxefBmaTA3SDABtfjFibaRqWSgln4evHocA4LrVgo-mj8HDaqyjyVcKQ9CM5SHqR49yeRFV5dGJNdXirLqQtjREKpJWjCWuL2akMUctPPuk07D3POBEXGOLisYd2Hij5GzVOdvdOQjj8_2Jo2z79GrSi_aQeCKZSGdgOUJzsVFLH3iU5wVGC4QZHm2QgnrdFOeezP9YFPTizau8veFdGdQ1Bf-U0DkNj1EVklBKV1eV2lKAegzUBuSy5zSCrpiDVDnSpR1J9jXuJcIogDYJejxlQPd6thJ1S0oIIWUchpt6J91aqJqiP8rrzdE-xErRMXUojXO1x4SGJC0zRzZaTXm5Tk2BP2AR-Over5-u-pYB26hjOYkjIvkkV8Lcwjp-eS7DK9W3D6U1wgv_iqGFO_Wk3dff8BFot12hg=w546-h728-no)
 
 나는 평소처럼 넋놓고 학교 게시판을 보고 있던 와중, 눈길을 끄는 어떤 포스터를 보게 되었다. 스타트업 겨울 인턴십 공고 포스터였다. 역시나 `작년에 봤던 것처럼 프로그래머스를 통한 인턴십 채용과 관련된 공고 포스터겠구나`하는 생각이 들었는데, 참여 기업 명단에 지그재그의 `Croquis`, `코인원`이 내 눈을 이끌었다. 스타트업을 가게 된다면 이 회사에서 일해보고 싶은 생각이 들었던 회사였는데, 이 때가 아니면 언제 여기서 일해볼 수 있을까라는 생각이 들어 망설일 틈이 없이 바로 지원을 하게 되었다. 굳이 인턴이 아니더라도, 혹시나 계속해서 일하게 된다면 졸업을 앞두고 휴학을 길게 잡을 생각할 정도로 간절했다.
 
@@ -19,7 +19,7 @@ categories: post
 4. 교육 프로그램 : 12월 초부터 12일 정도 기간 잡고 빡세게 OJT 하는 모양이다. 근데 기말고사 기간이다(....)
 5. 인턴 근무 : 12월 중순부터 실무에 투입하는 것 같다. 사실 이게 제일 기대된다.
 
-![CPU 3000% 풀가동](https://photos.app.goo.gl/QscMFHkXyZnZStNu9)
+![CPU 3000% 풀가동](https://lh3.googleusercontent.com/5eeGyxnhugf85NoJCszQeQx_QsEo6kfBXJnK82L5PrF3k1aHgKPXCoipg-DpZsVYAx9IgSTeqiUcvvakm1vGjKeI4sgh2XWusA7SZuDFBAswjeewbgyX_0bzJ2E0W3y4oedQ76n8mB6HQgxJe1d8Ht0RljafEYir4U8TvG5nqoUJipLR9Pkve-j9V3QfVbpVtr6Qv-gcIEx_q1H4daCmwmB7uwHReYQ6oOf_wGEaHlsO_iKbCLGS-dDBMN0yYB6SMjnlONpWl3DIiv6QGh9sM6y7T5NWe6I3oTPefrvCJOQYKdU_KGJJYGAqUzrBJKA9GajAMSePj5bWLpl4vPcXTQ-Oq2fLM1eS59-92SPWW824M4vwP8rLtdKiHYb53EniMHnatuTOgfIGMLN8DRb425O1gLYTbXiXnCxMhpxttERbqxja6NDmrp6KTvlpz_hg23PmF9jtFcepW5Vthx4PNHos-Fu9DX0-2c7dpJ0XKSsPE3yOPSs4WUtQQCwyThCLIgJoPJR1KePLlslUhiYaTZq5ds5nMR2Y75FdeWrBYqpFZPFzfPocT8gDU9i6VPpgX2hlYo3uxm_q6k9IC_irakLiiSQEEqVRT7CmvfwPAF244co74KnqHTQtjn0wr3ErhJ9mZjQZcrMWDUJfQf6XkrWL0ySi7ub8hKIB2XxSjcMQRR2vtXTgh3QDop39MqzblCLqa4PX_9P9PlerMg=w228-h220-no)
 
 이렇게 부푼 기대를 가슴에 안고 이력서를 쓰게 되었는데, 음.... 정말 적을 게 없었다. 이력서 양식에는 `회사에 속해서 개발자로서 얼마나/어떻게 일했는지를 적는 직무경험`을 적는 란이 있고, 개인적으로 만들어본 `토이 프로젝트`를 적는 란이 있었지만, 번역을 했던 경험이라던가 학술동아리에서 활동한 경험을 적을 수 있는 란도 없었고, **`오로지 개발 경험만`** 적어야 했다. 사실 프로젝트 엄청 옛날에 몇개 깔짝깔짝 만들어본 적이 있긴 했지만, `굳이 이런걸 써야하나?` 혹은 `이런걸 써도 되나?` 싶은 생각이 드는 프로젝트가 많았어서 일부러 이력서에 적지 않았다. 오로지, 학력 기재사항에만 밑에 짤막하게 `알고리즘 학회 창설멤버 및 학회장, 학회 위키 구축 및 운영 경험, 1년 반에 걸친 알고리즘 교육 경험` 정도만 적었다. 이런걸 예상하고는 있었지만, 스스로를 돌 볼 시간이 없었다는 점에 회의감이 들기도 했다.
 
@@ -34,7 +34,7 @@ categories: post
 
 그리고, 10월 27일 온라인 코딩테스트를 2시간 동안 치게 되었는데, 2시간에 3문제 정도 밖에 안 주길래 속으로 `띠용`하는 생각이 머릿속을 스쳤다. 처음 2문제는 BOJ의 `구현` 카테고리 문제만 풀 줄 알면 어느 정도 풀 수 있는 수준의 난이도였고, 마지막 문제는 이분탐색으로 슥삭할 수 있는 문제였다. 머리가 좀 빠릿빠릿하게 돌아갔으면, 40분 안에는 풀 수 있었을 것 같기도 한데, 엉뚱하게 접근한 것도 있었고 이상한 삽질을 많이 하다보니 1시간이 지나서야 겨우 올솔브했다. 난이도가 너무 낮아서 타임어택으로 떨어지는게 아닌가하고 속으로 걱정하기도 했고, `코딩 테스트 합격하더라도 최종 합격 여부는 개발 과제에서 결정나겠구나`라는 생각이 들기도 했다.
 
-![합격 통보 메일](https://photos.app.goo.gl/M5soWvy8HU9nAmNU7)
+![합격 통보 메일](https://lh3.googleusercontent.com/rulgIdr6MriSe-FGO1hKsq0sO8aZP6GDcSx8K8ofR8Fcb9CypTpshhH2cN5OcLXC1jiIFkISJp7_G9y1OzC-k4dp-mlJ33kge_bzJ9EJOVlP4CawcgBJ9gwSsNxhfRC399KRTKfnZr2auV8y1QUBAq-5pSTb7fYdVfkYy7TIyN5o7ZYMLgW1_zX6f37BGGqoK8qkA2eM5zcwyIqDVK1mZXPntC_Px50LXV8Z-D44DIXUcE7Yu8HgjXEKLD0Tc_3jm1bIMqMV8EhIbLAZOS-maVbXszpG1aMrpBqij0vaCeKZrn0kZ-YRRT_Wki7h2xXfMZ5uX0vmR0m3a3bN6KfYIGyMUXTKLcdrBi6EdFNyu55n_9ZJSVqLHLoBRcvVQdFCjtkX3Y3sxyhxAq4FNn_zW2n0sbzrGpBFaWb4a34C0xD7dfggc5kpsnSma-SPKPcBqL_dvILbmeZmKx8aNM57uzcLkGrJGd_b0xzWuJBVG9-mchc4icBGASP_dWHK2OPfTpduI5U6pxtPFRWvedBVZQBAmvQBN3OqxpmGK3sphVm_CNepSmW9Fev2tTl0_XIk9TFNNETVDMftn2PJa6akRqS83HaALHv-8jvcjl3qcp2Yx2EvYrkFvOFrzjiv8ewrErU3TLRhKY8F5mH3RCCZowi-X5N5XPFAjMHqI2DKxuF47yCID7z-S4-_E4WMUB90r_aFYyxOIVHsuJ5Vbg=w1896-h1052-no)
 
 이렇게 2일 동안 이런저런 생각을 하던 사이, 10월 29일 프로그래머스에서 윈터코딩 코딩테스트 합격 통보 메일을 받았다.
 
@@ -65,7 +65,7 @@ categories: post
 
 Django에는 모델을 다루는데 굉장히 쓸만한 여러가지 유틸리티 함수, 클래스가 내장되어 있었다. Django에는 자체적으로 ORM이 내장되어 있으며, ORM에는 데이터베이스에 있는 여러개의 레코드를 다루기 위한 `QuerySet`이라는 클래스가 있다. 데이터베이스의 `TodoEntry` 테이블에 있는 모든 레코드를 불러오고 싶다면 `TodoEntry.objects.all()` 코드를 실행하여 `TodoEntry` 테이블의 모든 레코드의 정보를 담고있는 `QuerySet` 인스턴스를 얻을 수 있다.
 
-![Todoist 홈 화면](https://photos.app.goo.gl/FNCW2u4yVNqf6UzH7)
+![Todoist 홈 화면](https://lh3.googleusercontent.com/jqBByjyfGug1RhHCW12RfJquePXkT0nG_ikkTCWOpdiUGMQ3vkGT0nOjZcZ6R-5Y5PqrnEYRvM2jQKMzb4H5XGFKDFTn6TuoRcXl_ebk4DsTE0E2MUudlBzDn1C83uvcL_S6uSPVpu309mlkayj0uLTgDHbCRLxr1E__hbU_vmyGhCGXTVgicTWh769bH1cMv-XxvrJYjKvnRX1iq4evHTOa_SOUMhXn3l5v5x1D3qraef0ObR16dTqAiq9R7bWew9nsb16R9mwBXvjYp_3FMWFYWFPHdyQmII6XxOGNcaumgp7usE9wMds-L1MBMVIgGEHwi_AWU9dwvcMrQZLHfud46ZqVfSFV69nmJiTVD7Ja-mVMI98Tw91yfCZHmqyytgSJvJ4t-vqhidP1mMK-AXQhghXx46SoYueSKcEzSNVuR8hPTplrfoepuYErFuE-lXPfImMzgGw-yFr5-Tuw9XpsNbTZ-PT4yQ5puiLq-KC3gjB9u7Uo6B5gyt2BroOw5BcOQkVSWbSgPmQ4c2ed_A4o389ZNkqCd4SMVzUfiekClS0NfaNMcibwm28CbRU9HQ6lezKRL5gkP6h_9n9PK1sZhE7zxYxLAig5hDxl7qrpauWAER3lb0RUkyW0kHiIfT5nxA7SoNPpvuXINOLCxZluQAkoMEDHquegMmeJNdLy-TJH-RGNC3LEEuGDcROPWmh36N1qT5wO172JAQ=w894-h576-no)
 
 앞에서 Todo 앱을 구현할 때, Todoist를 많이 참고했다고 언급했었다. Todoist의 홈 화면에는 기한이 지난 할 일 목록과 앞으로 처리해야할 할 일 목록을 따로 보여주는 방식으로 구현이 되어 있었는데, 이를 구현하려면 당연히 두 개의 리스트로 따로 나눠서 구현해 한다. 두 개의 리스트를 이용해서 React 같은 걸로 동적으로 렌더링해야할 것이다. 각 할일마다 마감기한이 있을 수도 있고, 마감기한이 없을 수도 있기 때문에(NULL을 허용하는 방식으로 구현할 수 있다) 다소 복잡한 로직이 들어갈 수도 있을 것이다. 마감기한은 기한이 지났는지 여부는 매시간마다 태스크를 수행하는 방식으로 구현하거나 칼럼을 따로 추가하는 방식으로 구현하기에는 너무 비효율적이라는 판단이 들었기 때문에, SQL 문을 실행하듯이 레코드의 모든 정보를 긁어오면서도 출력된 결과물의 각 레코드마다 추가적인 칼럼을 추가하는 방식으로 구현하기로 했다. 
 
