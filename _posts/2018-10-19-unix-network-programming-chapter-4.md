@@ -3,6 +3,7 @@ title: 'Unix Network Programming Chapter 4 : Elementary TCP Sockets'
 layout: post
 date: '2018-10-19 00:00:00'
 categories: post
+toc: true
 ---
 
 # 4.1 Introduction
