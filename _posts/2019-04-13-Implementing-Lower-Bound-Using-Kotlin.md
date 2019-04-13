@@ -154,7 +154,7 @@ val (lower,upper) = equal_range(arr, 0, N, target)
 
 ## 마치며
 
-**`Kotlin`**을 개발한 JetBrain에서 ACM-ICPC(세계 대학생 프로그래밍 대회)를 후원하고 있다. ACM-ICPC 공식 페이지에서도 Kotlin을 지원하게 될 것이라고 밝혔기 때문에, **`Kotlin을 이용한 알고리즘 문제 풀이`**에 대한 수요는 계속해서 증가할 것이라 본다.
+**Kotlin**을 개발한 JetBrain에서 ACM-ICPC(세계 대학생 프로그래밍 대회)를 후원하고 있다. [ACM-ICPC 공식 페이지에서도 Kotlin을 지원하게 될 것](https://blog.jetbrains.com/kr/2017/06/jetbrains-acm-icpc-%EA%B3%B5%EC%8B%9D-%ED%9B%84%EC%9B%90/)이라고 밝혔기 때문에, **`Kotlin을 이용한 알고리즘 문제 풀이`**에 대한 수요는 계속해서 증가할 것이라 본다.
 
 하지만, 아직까지는 국내에 **Kotlin**을 이용해서 알고리즘 문제를 풀이하는 방법을 소개하는 리소스가 많지 않다. **Kotlin**이라는 언어가 아직까지는 **`Java에 대한 배경지식을 요구한다는 인식`**이 지배적이며, **Kotlin**이 정규 교과과정에 들어가는 언어도 아니다보니 따로 공부하는 사람만 알고 있는 편이다. 
 
