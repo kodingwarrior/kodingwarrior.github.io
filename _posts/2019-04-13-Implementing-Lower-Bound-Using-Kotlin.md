@@ -40,7 +40,7 @@ toc: true
 ### **좋았던 점**
 
 - **Java**와 100% 호환되기 때문에, **Java**에서 제공하는 클래스를 그대로 끌어다 쓸 수 있다. (컨테이너 클래스는 **C++** 못지 않다)
-- **`Java`**로 코딩하는 방식에 비해, 불편한 점이 상당히 줄었다.
+- **Java**로 코딩하는 방식에 비해, 불편한 점이 상당히 줄었다.
     - **`Pair`**, **`Triple`** 자료구조를 지원한다.  (**Java**에서는 이런 자료구조까지 클래스와 생성자로 직접 정의해야 했고, 정렬할 때도 정렬 함수를 따로 정의해줘야 하는 불편함이 있다. 하지만 코틀린에서는? 그런거 없다. 이미 만들어져 있고, 생성자도 잘 정의되어 있고, 정렬 함수도 납득할만한 수준으로 잘 정의되어 있다. **C++**에서 옮겨와도 크게 불편함이 없을 수준이다.)
     - 디폴트 파라미터를 지원한다.
     - 연산자 오버로딩을 지원한다. (**Java**에서는 **`ArrayList`** 컬렉션에 random access를 할 때, `.at(idx)` 노테이션을 이용해서 접근해야 하는 불편함이 있었지만, **Kotlin**에서는 random access를 할 때 `[idx]` 노테이션으로 접근하기만 하면 된다. **`String`**도 마찬가지로 적용된다.)
@@ -59,6 +59,8 @@ toc: true
 알고리즘 문제 중에는 이분탐색으로 분류된 여러가지 문제가 있는데, 이분탐색으로 분류된 문제 중에는 **`lower_bound`**, **`upper_bound`** 함수를 이용해야만 편리하게 풀 수 있는 문제들이 있다. 하지만, 위에서 언급했다시피 **Kotlin에서는 이런 함수를 가져다 쓸 수가 없다**. 그러면 뭐다? 직접 만들어야지.
 
 ### **lower_bound**
+
+> C++에서 **`lower_bound`** 함수를 어떻게 활용하는지는 [여기](https://en.cppreference.com/w/cpp/algorithm/lower_bound)에서 볼 수 있다.
 
 **`lower_bound`**는 정렬된 리스트 내에서 특정 값 이상의 값이 처음 나타나는 위치를 반환하는 함수로 구현되어야 한다. 일단, 구현되는 원리는 이분탐색에서 기반한 거라고 주워들은 게 있었기 때문에, **Parametric Search**를 적용하던 방식을 떠올리기 시작했다. 
 
@@ -99,6 +101,8 @@ fun lower_bound(elements: ArrayList<Int>,
 
 ### **upper_bound**
 
+> C++에서 **`upper_bound`** 함수를 어떻게 활용하는지는 [여기](https://en.cppreference.com/w/cpp/algorithm/upper_bound)에서 볼 수 있다.
+
 **`upper_bound`**는 정렬된 리스트 내에서 특정 값을 넘는 값이 처음 나타나는 위치를 반환하는 함수로 구현되어야 한다. **`upper_bound`**는 **`lower_bound`**와 비슷하게 **`Parametric Search`**처럼 구현 가능하다.. 다만, 특정 원소보다 크거나 같은 값이 처음으로 나타나는 위치가 아닌 특정 원소보다 큰 값이 처음으로 나타나는 위치를 반환해야 하기 때문에, **`elements`**에 random access한 값이 찾고자 하는 값보다 작거나 같다면, 탐색해야 하는 범위는 뒤쪽에 있다고 가정해야 한다. 
 
 **`Parametric Search`**의 구현원리를 이용하여 **`Kotlin`**으로 **`upper_bound`** 함수를 구현한 코드는 아래와 같다. **`lower_bound`**와 비슷하지만, 등호 부분만 바꿔주면 된다.
@@ -127,6 +131,8 @@ fun upper_bound(elements: ArrayList<Int>,
 }
 ```
 ### **equal_range**
+
+> C++에서 **`equal_range`** 함수를 어떻게 활용하는지는 [여기](https://en.cppreference.com/w/cpp/algorithm/equal_range)에서 볼 수 있다.
 
 **`equal_range`**는 정렬된 리스트 내에서 특정 값이 나타나는 구간을 반열린 구간으로 반환하는 함수로 구현되어야 한다. **`equal_range`**를 구현하는 건 그렇게 어렵지 않다. **`lower_bound`**, **`upper_bound`**로 구성된 **`Pair`**를 반환하면 그만이다.
 
