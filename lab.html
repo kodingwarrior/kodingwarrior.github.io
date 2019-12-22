@@ -10,6 +10,8 @@ layout: default
 	{% assign item_size = item_list.size | minus: 1 %}
 	{% assign item_keys = item_list | keys %}
 
+	{{ item_keys }}
+
 	{% for key in item_keys %}
 	{{ key }} <br/>
 	{{ item_list | access: key }}
