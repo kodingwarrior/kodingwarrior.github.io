@@ -1,7 +1,7 @@
 module Jekyll
   module HashFilter
     def keys(input)
-      input.keys
+      input.keys.map(&:to_s)
     end
 
     def access(input, key)
