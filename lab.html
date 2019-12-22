@@ -12,8 +12,9 @@ layout: default
 
 	{{ item_keys }}
 
-	{% for key in item_keys %}
-	{{ key }} <br/>
-	{{ item_list | access: key }}
+	{% for key_idx in (0..item_size) %}
+		{% assign key = item_keys[key_idx] %}
+		{{ key }} <br/>
+		{{ item_list | access: key }} <br/>
 	{% endfor %}
 </section>
