@@ -82,3 +82,13 @@ hr {
   border-top: 2px dotted #bbb;
   margin: 3rem 0;
 }
+
+
+article blockquote p {
+  text-align: center;
+}
+
+article img {
+  width: 100%;
+  border: 0.125rem dashed black;
+}
