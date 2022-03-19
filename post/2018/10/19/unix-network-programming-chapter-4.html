@@ -8,7 +8,7 @@
 
 <meta name="description" content="Write an awesome description for your new site here. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.4MY5UYBR.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.WYTPMOFO.css" />
 <script src="/_bridgetown/static/index.PJZZ2K4I.js" defer></script>
 
 
@@ -30,7 +30,8 @@
     <main>
       <h1>Unix Network Programming Chapter 4 : Elementary TCP Sockets</h1>
 
-<h1 id="41-introduction">4.1 Introduction</h1>
+<article>
+    <h1 id="41-introduction">4.1 Introduction</h1>
 <p>4장에서는 TCP 서버/클라이언트를 구축하는데 필요한 기본 소켓 함수들을 다루고 있다. 4장에서 기본 소켓 함수들을 예시를 들어서 설명 후, 5장에서  TCP 서버/클라이언트를 점진적으로 개선한다.</p>
 
 <p>또한, <strong>여러개의 클라이언트가 서버와 동시에 연결이 되었을 때 동시성(concurrency)를 제공</strong> 하는 유닉스의 잘 알려진 기법인 동시 서버(concurrent server)를 다룬다. 여기서 각 클라이언트의 연결은 서버가 상대방 클라이언트에 대한 연결을 유지하기 위해 <code class="highlighter-rouge">fork</code> 시스템 콜을 호출하도록 한다. 4장에서는 <code class="highlighter-rouge">fork</code> 시스템콜을 이용하여 <strong>클라이언트마다 프로세스로 연결을 유지(one-process-per-client)</strong>하는 모델을 다루며, 26장에서는 스레드를 설명하면서 <strong>클라이언트마다 스레드로 연결을 유지(one-thread-per-client)</strong>하는 모델을 다룬다.</p>
@@ -349,6 +350,7 @@
 
 <p>레퍼런스 카운트가 남아있음에도 불구하고, FIN 메시지를 보내서 연결을 종료하고 싶다면 <code class="highlighter-rouge">shutdown</code> 함수를 이용할 수 있다.</p>
 
+</article>
 
 <!-- buy me a coffee -->
 <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#BB5794 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
