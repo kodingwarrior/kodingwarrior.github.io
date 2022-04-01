@@ -8,11 +8,11 @@ title: About
     <img width="250" src="{{ '/images/profile_image.jpg' | relative_url }}" />
   </div>
   <div class="text-right">
-  <b>솔직함</b>을 내세우면서, <br/>
-  한편으로는 <b>인간미</b>를 갖추고 싶은, <br/>
-  한편으로는 <b>프로로서의 길</b>을 갈고닦고픈,<br/>
+  <b>솔직함</b>을 내세우면서<br/>
+  한편으로는 <b>인간미</b>를 갖추고 싶은<br/>
+  한편으로는 <b>프로로서의 길</b>을 갈고닦고픈<br/>
   <b>이재열 개발자</b><br/><i>(alias. kodingwarrior, kojima)</i><br/>
-  입니다.
+  입니다
   </div>
 </div>
 
