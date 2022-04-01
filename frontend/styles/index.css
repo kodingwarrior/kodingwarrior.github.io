@@ -159,3 +159,11 @@ article #about p {
 li > ul {
   @apply ml-4;
 }
+
+article ol {
+  @apply list-decimal ml-8 my-6;
+}
+
+article ol li {
+  @apply my-2;
+}
