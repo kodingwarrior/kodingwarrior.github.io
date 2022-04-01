@@ -4,7 +4,7 @@ title: About
 ---
 
 <div class="sm:flex sm:justify-between sm:items-center">
-  <div class="py-2 mb-8 sm:mb-2">
+  <div class="flex py-2 mb-8 sm:mb-2 justify-center sm:justify-left">
     <img width="250" src="{{ '/images/profile_image.jpg' | relative_url }}" />
   </div>
   <div class="text-right">
