@@ -117,7 +117,7 @@ article pre {
 }
 
 article blockquote {
-  @apply pl-4 py-1 bg-slate-100 border-l-8 border-slate-400;
+  @apply pl-4 py-1 pr-2 bg-slate-100 border-l-8 border-slate-400;
 }
 
 /* Buy me coffee button image shrinks because of not applying '>' selector */
