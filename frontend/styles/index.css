@@ -60,6 +60,12 @@ article h3 {
   font-size: 1.25rem;
 }
 
+article h4 {
+  font-weight: 900;
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1.125rem;
+}
+
 body > header {
   margin: 1rem;
   text-align: center;
