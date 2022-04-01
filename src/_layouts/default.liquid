@@ -7,7 +7,9 @@
     {% render "navbar", metadata: site.metadata, resource: resource %}
 
     <main>
-      {{ content }}
+      <article>
+        {{ content }}
+      </article>
     </main>
 
     {% render "footer", metadata: site.metadata %}
