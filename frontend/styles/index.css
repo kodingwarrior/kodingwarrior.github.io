@@ -23,6 +23,8 @@ body {
   margin: 0 8px;
   font-size: 108%;
   line-height: 1.5;
+
+  word-break: keep-all;
 }
 
 a {
@@ -38,6 +40,26 @@ h1 {
   font-size: 2.5rem;
   color: var(--heading-color);
   line-height: 1.2;
+}
+
+article {
+  @apply overflow-x-auto;
+}
+
+article h1 {
+  @apply mt-8 mb-6;
+}
+
+article h2 {
+  font-weight: 900;
+  margin: 2rem 0 0.75rem;
+  font-size: 1.75rem;
+}
+
+article h3 {
+  font-weight: 900;
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.25rem;
 }
 
 body > header {
@@ -92,12 +114,42 @@ hr {
   margin: 3rem 0;
 }
 
-
-article blockquote p {
-  text-align: center;
+article pre {
+  @apply bg-slate-200 p-4 overflow-x-auto;
 }
 
-article img {
+article blockquote {
+  @apply pl-4 py-1 bg-slate-100 border-l-8 border-slate-400;
+}
+
+/* Buy me coffee button image shrinks because of not applying '>' selector */
+article > img {
+  @apply mt-6 mb-4;
+
   width: 100%;
   border: 0.125rem dashed black;
+}
+
+article p {
+  margin: 0.75rem 0;
+}
+
+article ul {
+  @apply list-disc ml-8 my-2;
+}
+
+article ul li {
+  margin-top: 0.5rem;
+}
+
+article p code {
+  @apply bg-amber-100 p-1 mx-1 my-2 border-2 border-amber-300 rounded-md;
+}
+
+article li code {
+  @apply bg-amber-100 p-1 mx-1 my-2 border-2 border-amber-300 rounded-md;
+}
+
+*:focus-visible {
+  outline: none;
 }
