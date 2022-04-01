@@ -155,3 +155,7 @@ article li code {
 article #about p {
   @apply ml-3;
 }
+
+li > ul {
+  @apply ml-4;
+}
