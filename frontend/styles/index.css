@@ -151,3 +151,7 @@ article li code {
 *:focus-visible {
   outline: none;
 }
+
+article #about p {
+  @apply ml-3;
+}
