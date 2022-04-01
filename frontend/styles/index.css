@@ -1,6 +1,7 @@
 /* If you need to add @import statements, do so up here */
 
 @import "jit-refresh.css"; /* triggers frontend rebuilds */
+@import "rouge-emacs-theme.css";
 
 /* Set up Tailwind imports */
 @tailwind base;
