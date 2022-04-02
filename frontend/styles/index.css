@@ -148,11 +148,11 @@ article ul li {
 }
 
 article p code {
-  @apply bg-amber-100 p-1 mx-1 my-2 border-2 border-amber-300 rounded-md;
+  @apply bg-amber-100 p-1 mx-1 my-2 border-2 border-amber-300 rounded-md text-sm font-bold;
 }
 
 article li code {
-  @apply bg-amber-100 p-1 mx-1 my-2 border-2 border-amber-300 rounded-md;
+  @apply bg-amber-100 p-1 mx-1 my-2 border-2 border-amber-300 rounded-md text-sm font-bold;
 }
 
 *:focus-visible {
