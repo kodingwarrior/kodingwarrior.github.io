@@ -26,8 +26,14 @@ jobs:
           cache: "yarn"
       - run: yarn install
 
-      - name: Build
-        run: bin/bridgetown deploy
+      - name: Refresh Cache
+        run: bin/bridgetown clean
+
+      - name: Build Frontend
+        run: bin/bridgetown frontend:build
+
+      - name: Build Static Site
+        run: bin/bridgetown build -V
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
