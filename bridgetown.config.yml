@@ -29,3 +29,6 @@ template_engine: liquid
 # timezone: America/Los_Angeles
 # pagination:
 #   enabled: true
+
+feed:
+  path: rss.xml
