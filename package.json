@@ -17,6 +17,7 @@
     "tailwindcss": "^3.0.23"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.8.1",
     "pretendard": "^1.2.2"
   }
 }
