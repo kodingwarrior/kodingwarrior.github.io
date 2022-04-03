@@ -4,6 +4,7 @@
 <title>{% if resource_title != "Index" %}{{ resource_title | escape }} | {{ metadata.title | escape }}{% else %}{{ metadata.title | escape }}: {{ metadata.tagline | escape }}{% endif %}</title>
 
 <meta name="description" content="{{ metadata.description }}" />
+{% feed_meta %}
 
 <link rel="stylesheet" href="{% asset_path css %}" />
 <script src="{% asset_path js %}" defer></script>
