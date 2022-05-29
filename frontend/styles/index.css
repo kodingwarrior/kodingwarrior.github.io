@@ -175,3 +175,7 @@ article ol {
 article ol li {
   @apply my-2;
 }
+
+.footnotes {
+  @apply mt-8 border-t-2 border-dashed border-slate-400;
+}
