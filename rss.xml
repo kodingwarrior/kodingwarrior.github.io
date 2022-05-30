@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.0.0">Bridgetown</generator><link href="/rss.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-05-30T00:37:27+00:00</updated><id>/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">『업무 시각화』 리뷰</title><link href="/post/2022/05/27/review-of-making-work-visible" rel="alternate" type="text/html" title="『업무 시각화』 리뷰" /><published>2022-05-27T23:59:59+00:00</published><updated>2022-05-27T23:59:59+00:00</updated><id>repo://posts.collection/_posts/2022-05-27-review-of-making-work-visible.md</id><content type="html" xml:base="/post/2022/05/27/review-of-making-work-visible">&lt;p class=&quot;flex justify-center&quot;&gt;&lt;img src=&quot;https://image.aladin.co.kr/product/22896/26/cover500/k602636940_1.jpg&quot; alt=&quot;업무 시각화 표지&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.0.0">Bridgetown</generator><link href="/rss.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-05-30T02:15:40+00:00</updated><id>/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">『업무 시각화』 리뷰</title><link href="/post/2022/05/27/review-of-making-work-visible" rel="alternate" type="text/html" title="『업무 시각화』 리뷰" /><published>2022-05-27T23:59:59+00:00</published><updated>2022-05-27T23:59:59+00:00</updated><id>repo://posts.collection/_posts/2022-05-27-review-of-making-work-visible.md</id><content type="html" xml:base="/post/2022/05/27/review-of-making-work-visible">&lt;p class=&quot;flex justify-center&quot;&gt;&lt;img src=&quot;https://image.aladin.co.kr/product/22896/26/cover500/k602636940_1.jpg&quot; alt=&quot;업무 시각화 표지&quot; /&gt;&lt;/p&gt;
 
 &lt;p class=&quot;text-center py-3&quot;&gt;&lt;a href=&quot;https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=228962643&quot;&gt;『업무 시각화』 구매 URL&lt;/a&gt;&lt;/p&gt;
 
@@ -95,7 +95,7 @@
 
 &lt;p&gt;개인적인 경험에 미루어 보았을때도 어디서나 통하는 모범 사례라는 건 절대로 존재하지 않았습니다. 흔히들 쓰는 표현이 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;은탄환은 존재하지 않는다.&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;시스템이 없는 상황이고 어떻게라도 시스템을 잡는게 목적이라면 참고자료로 활용하기에는 모범 사례가 더할 나위 없이 좋았습니다. 다만, &lt;strong&gt;‘상황에 맞게 도입할 만 한가?’&lt;/strong&gt;에 대한 비판적인 사고가 필요한 것 같습니다.&lt;/p&gt;
+&lt;p&gt;시스템이 없는 상황이고 어떻게라도 시스템을 잡는게 목적이라면 참고자료로 활용하기에는 모범 사례가 더할 나위 없이 좋았습니다. 다만, &lt;strong&gt;‘상황에 맞게 도입할 만 한가?’&lt;/strong&gt; 같은 비판적인 사고가 필요한 것 같습니다.&lt;/p&gt;
 
 &lt;h1 id=&quot;iii-결론&quot;&gt;III. 결론&lt;/h1&gt;
 
