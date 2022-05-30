@@ -1,4 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.0.0">Bridgetown</generator><link href="/rss.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-05-29T13:43:06+00:00</updated><id>/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">만우절에 해야 했을 블로그 컴백 선언을 하루 늦게 뒷북치게 된 놀랍도록 경악스럽고 충격적인 사건에 대하여</title><link href="/post/2022/04/02/i-am-back" rel="alternate" type="text/html" title="만우절에 해야 했을 블로그 컴백 선언을 하루 늦게 뒷북치게 된 놀랍도록 경악스럽고 충격적인 사건에 대하여" /><published>2022-04-02T00:00:00+00:00</published><updated>2022-04-02T00:00:00+00:00</updated><id>repo://posts.collection/_posts/2022-04-02-i-am-back.md</id><content type="html" xml:base="/post/2022/04/02/i-am-back">&lt;p&gt;안녕하세요. 이재열 개발자 a.k.a. KODING WARRIOR 입니다. 오랜만에 글을 남깁니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;본격적으로 블로그에 글을 남겨야지.. 이번에는 진짜 블로그 써야지...&lt;/code&gt;하다가 이제서야 글을 남기게 되네요.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.0.0">Bridgetown</generator><link href="/rss.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2022-05-30T00:21:33+00:00</updated><id>/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">「업무 시각화」 리뷰</title><link href="/post/2022/05/27/review-of-making-work-visible" rel="alternate" type="text/html" title="「업무 시각화」 리뷰" /><published>2022-05-27T23:59:59+00:00</published><updated>2022-05-27T23:59:59+00:00</updated><id>repo://posts.collection/_posts/2022-05-27-review-of-making-work-visible.md</id><content type="html" xml:base="/post/2022/05/27/review-of-making-work-visible">&lt;p&gt;5월 31일 기준으로, 지금 소속된 회사에 일을 하게 된 지 곧 4개월이 되어갑니다.&lt;/p&gt;
+
+&lt;p&gt;서비스 출시 초기부터 개발과 관련된 일은 내가 온전히 다 책임지는 상황이다보니 프로젝트 관리에 좀 더 신경을 써야겠다는 걸 피부로 뼈저리게 느끼기 시작했어요.&lt;/p&gt;
+
+&lt;p&gt;이 글에서 리뷰할 &lt;strong&gt;「업무 시각화」&lt;/strong&gt;라는 책 자체는 트위터 타임라인에서 영업글을 발견한 2021년 2월 쯤부터 시작해서 자기전에 읽는 것을 반복하다가 중간에 읽다 말긴 했었는데요. 현재 소속된 회사 프로젝트의 일정을 직접적으로 관리를 해야하는 입장 상 읽는 것을 미룰 수가 없었어요. 그래서, 2022년 3월 쯤에 들어서서 다시 읽기 시작했어요.&lt;/p&gt;
+
+&lt;h1 id=&quot;i-이-책에서는-어떤-내용을-다루나요&quot;&gt;I. 이 책에서는 어떤 내용을 다루나요?&lt;/h1&gt;
+
+&lt;p&gt;이 책은 크게 보자면, 5가지 업무 흐름 시스템을 설계하고 사용하는 것을 권장하고 있어요.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;업무 시각화&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;진행 중 업무 제한&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;업무 흐름 측정 및 관리&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;효과적인 우선순위 선정&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;피드백과 측정 항목을 통해 배운 것을 기반으로 조정&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;볼드 처리한 부분 위주로 소개해볼게요.&lt;/p&gt;
+
+&lt;h2 id=&quot;업무-시각화&quot;&gt;업무 시각화&lt;/h2&gt;
+
+&lt;p&gt;이 책에서는 업무를 시각화하는 방법 중 하나로 &lt;code class=&quot;highlighter-rouge&quot;&gt;칸반 보드&lt;/code&gt;를 이용하는 것을 권장하고 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;칸반 보드&lt;/code&gt;를 사용하는 방법 자체는 간단하지만, 이를 이용해서 업무의 진행을 가로막는 &lt;strong&gt;‘시간 도둑’&lt;/strong&gt;들을 드러내고,  최종적으로는 업무 생산성을 극대화시키기 위한 시스템을 만들 수 있도록 돕고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;업무가 어떻게 진행되고 있는지를 시각화하면서 어떤 업무를 놓치고 있는지, 어떤 사람에게 과중한 업무가 부과되어 있는지, 어떤 업무가 서로 얽혀있는지를 조직의 구성원들이 한눈에 파악할 수 있게 됩니다. 이는, 곧, 부서간의 정보 공유를 원활하게 해주고 의사소통 비용 감소로도 이어질 수 있다고 강조합니다.&lt;/p&gt;
+
+&lt;p&gt;업무를 시각화하는게 왜 좋은지 충분한 근거를 들면서 설명하고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;진행-중-업무-제한&quot;&gt;진행 중 업무 제한&lt;/h2&gt;
+
+&lt;p&gt;어떻게 보면 당연한 얘기기도 하겠지만, 한 번에 여러 개를 동시에 하려고 하면 생산성이 떨어질 수 밖에 없습니다. 한 업무에서 다른 업무로 왔다갔다 하다보면 다른 업무를 하기 위해서 생각하는 시간을 가지고, 다른 업무를 하기 위해 준비하는 시간이 포함되기 마련입니다. 한정된 시간 자원이라는 맥락 안에서 보면, 이것도 역시 불필요한 비용 중 하나이기도 합니다. 한정된 시간 자원 내에서 불필요한 비용이 비중을 차지하면, 제 시간에 해내야 하는 업무를 제 시간에 끝낼 수 없게 될 수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;컴퓨터 과학 분야에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭(문맥 전환)&lt;/code&gt;이라는 용어가 있습니다. 이 책에서도 위에서 언급한 문제를 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭&lt;/code&gt;이라는 용어를 언급하면서 비유하고 있는데요. &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭&lt;/code&gt; 비용을 줄이기 위해서라도 너무 많은 진행 중 업무를 줄일 수 있도록 강조하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이 책에서는 다음과 같이 해결책을 제시합니다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;진행 중 업무 갯수에 최대 할당량을 두자.&lt;/li&gt;
+  &lt;li&gt;잦은 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭&lt;/code&gt;을 줄이고자 한다면, &lt;code class=&quot;highlighter-rouge&quot;&gt;Pomodoro&lt;/code&gt; 기법을 사용해보자.&lt;/li&gt;
+  &lt;li&gt;일정이 꽉 차있다면, 추가 업무 요청에 ‘아니요’라고 말할 수 있도록 하자.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;효과적인-우선순위-선정&quot;&gt;효과적인 우선순위 선정&lt;/h2&gt;
+
+&lt;p&gt;개발팀의 우선순위와 운영팀의 우선순위와 경영진의 우선순위는 각자 다를 수 있습니다. 서로 다른 개발팀이라도 사정이 크게 다르지 않을 것입니다. 우선순위는 어떻게든 충돌하기 때문이죠.&lt;/p&gt;
+
+&lt;p&gt;우선순위를 명확하게 정하지 않으면, 모든 우선순위가 1순위가 되는 모순되는 상황이 발생할 수도 있으며, 너무 많은 진행 중 업무를 가지게 되는 문제로 이어질 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;이 책에서는 &lt;code class=&quot;highlighter-rouge&quot;&gt;A3 씽킹&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;지연비용률&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;HiPPO&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;약속선&lt;/code&gt; 등의 용어를 언급하면서 우선순위를 어떻게 효과적으로 선정할지 소개하는 한편, &lt;strong&gt;의사소통의 중요성&lt;/strong&gt;도 역시 강조하고 있습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;ii-개인적인-경험&quot;&gt;II. 개인적인 경험&lt;/h1&gt;
+
+&lt;h2 id=&quot;프로젝트-일정이-산으로-가는-까닭은&quot;&gt;프로젝트 일정이 산으로 가는 까닭은…&lt;/h2&gt;
+
+&lt;p&gt;감각으로 어림잡아서 프로젝트 일정을 보고했던 적이 많았습니다. 당연히, 어림잡았던 것과는 다르게 생각보다 시간을 많이 잡아먹던 경우가 많았구요.&lt;/p&gt;
+
+&lt;p&gt;이를테면, A라는 태스크가 ‘7일이면 다 끝날 수 있겠지’하고 어렴풋하게 추정해보기도 합니다. 하지만, 클라이언트로부터 클레임이 들어오거나 엄청나게 치명적인 버그를 발견해서 급하게 버그픽스를 하느라 시간이 다 가기도 했습니다. 혹은, 경험해보지 못했던 문제를 마주했거나, 기술부채를 뒤늦게 갚느라 많은 시간을 보내게 되기도 했었습니다. 책에서는 &lt;strong&gt;‘알려지지 않은 의존성’&lt;/strong&gt;이라 표현하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;약속했던 일정보다 과업이 늦게 끝났다면 왜 늦었는지에 대한 알리바이를 증명하면 됩니다. 하지만, 일정을 약속해놓고 빈번하게 약속한 일정보다 늦는 일이 상습적이면 안 된다고 생각합니다. 프로 개발자가 되고자 한다면 ‘그럴 수도 있지’하고 넘기는 것이 아니라, &lt;strong&gt;예정된 일정에 늦지 않을 수 있는 방법&lt;/strong&gt;을 고민해야 하거나 불확실한 변수를 고려하더라도 &lt;strong&gt;좀 더 정확하게 일정을 추정할 수 있는 방법&lt;/strong&gt;을 고민해야 할 것이라고 생각합니다.&lt;/p&gt;
+
+&lt;p&gt;사실, 이런 문제는 &lt;strong&gt;마땅한 해결방법을 찾지는 못했습니다&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;다만, 의도적으로 꾸준히 시간대별로 무슨 일을 했는지 일일보고를 작성하고 있습니다. 회고를 작성하는 단계까지 가지는 못했지만요. &lt;code class=&quot;highlighter-rouge&quot;&gt;Pomodoro&lt;/code&gt; 앱을 사용하면서 어떤 종류의 과업을 하는데 얼마 만큼의 시간을 들였는지 정량적인 기록도 남기고 있어요. 꾸준히 기록을 남겨 측정 데이터를 쌓으면서, 비슷한 업무를 받았을때 어느 정도 시간이 걸릴 것인지 예측할 수 있도록 하거나 이를 좀 더 최적화할 수 있도록 하고, 불확실한 변수가 껴있는 일이라면 어떻게 하면 덜 헤맬 수 있을지 방안을 찾아보고는 있어요.&lt;/p&gt;
+
+&lt;h2 id=&quot;내-생산성이-바닥을-기었던-이유에-대한-근본적인-의문&quot;&gt;내 생산성이 바닥을 기었던 이유에 대한 근본적인 의문&lt;/h2&gt;
+
+&lt;p&gt;개인적으로는 스터디/사이드 프로젝트/커뮤니티 등등 벌려놓은 일들이 많았습니다. 본업 이외에도 벌려놓은 일들에 파묻혀서 정신이 여기저기 분산되어 하나에 집중하기가 어려웠었고, 거기다가 주의력 결핍 증상에 시달리고 있었습니다.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;es&quot; dir=&quot;ltr&quot;&gt;RescueTime &lt;a href=&quot;https://t.co/VjcoUTXSOU&quot;&gt;https://t.co/VjcoUTXSOU&lt;/a&gt; &lt;a href=&quot;https://t.co/nFd2fRuYBi&quot;&gt;pic.twitter.com/nFd2fRuYBi&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lee Jae-yeol (@kodingwarrior) &lt;a href=&quot;https://twitter.com/kodingwarrior/status/1531065420832067584?ref_src=twsrc%5Etfw&quot;&gt;May 30, 2022&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;생산성이 저하되는 것을 손 놓고 지켜만 보고 있을 수는 없었기 때문에, 내가 과연 어디어디에 시간을 쓰고 있었는지 정량적으로 파악하기 위해 &lt;a href=&quot;https://www.rescuetime.com/&quot;&gt;RescueTime&lt;/a&gt;을 써보기도 했습니다. SNS에 시간을 불필요하게 써왔던 감이 없지 않았고, 정작 내가 필요한 곳에 선택과 집중을 하고 있는 것 같지도 않았습니다. 그래도 다행이었던 점이 있다면, &lt;strong&gt;생산적인 활동에 일주일에 몇시간까지는 써야겠다&lt;/strong&gt;라는 목표가 생겼습니다. 어떻게 보면, &lt;strong&gt;측정과 피드백&lt;/strong&gt;의 산물이라고 볼 수 있겠죠.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ko&quot; dir=&quot;ltr&quot;&gt;Toggl로 타이머 돌리면 내가 어디에 시간썼는지 차트 뽑아볼 수 있는데, 만족하면서 잘 쓰고 있음 &lt;a href=&quot;https://t.co/cISpXPbHU6&quot;&gt;pic.twitter.com/cISpXPbHU6&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lee Jae-yeol (@kodingwarrior) &lt;a href=&quot;https://twitter.com/kodingwarrior/status/1531061223013244928?ref_src=twsrc%5Etfw&quot;&gt;May 29, 2022&lt;/a&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;당연히, 생산성은 절대적인 시간의 투입량에 비례하는 것도 아닙니다. &lt;strong&gt;너무 많은 진행 중 업무&lt;/strong&gt;도 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭&lt;/code&gt; 비용이 발생하기 때문에, &lt;strong&gt;너무 많은 진행 중 업무&lt;/strong&gt;를 줄여야 합니다. 생산적인 활동에 투입할 수 있는 절대적인 시간의 양은 한정되어 있고, 이를 어떻게 분배할 지 전략을 세워야 합니다. ‘자기계발은 해야겠고, 내가 이루고 싶은 것 때문에 사이드프로젝트는 해야겠고, 본업에는 충실해야겠고, …’ 그래도 어느 쪽이든 진척은 어떻게든 나가야 합니다.&lt;/p&gt;
+
+&lt;p&gt;이에 대한 해결책으로, 카테고리 별로 시간할당제를 두기로 했습니다. 예를 들면, 개인 공부에는 주당 8시간 ~ 14시간, 사이드 프로젝트에는 주당 10시간 ~ 20시간 정도로 두는 겁니다. 그렇다면, 이렇게 정해둔 시간할당제를 어떻게 정확하게 맞출 수 있을까요? 개인적으로 내놓은 답은 &lt;code class=&quot;highlighter-rouge&quot;&gt;Pomodoro&lt;/code&gt; 타이머였습니다.&lt;/p&gt;
+
+&lt;p&gt;어떤 도구를 사용하든 상관없긴 하지만, 진행 중 업무에 시간 자원을 어떻게 사용할 지 의도적으로 제한함으로써 생산성 향상을 시도하고 있습니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;best-practice라도-case-by-case&quot;&gt;Best Practice라도 Case by Case&lt;/h2&gt;
+
+&lt;p&gt;과거의 나 자신에 대해 반성하자면, 모범 사례(Best Practice)를 도입하면 무조건 좋다고 생각하는 쪽에 가까웠어요. 최상의 결과를 이끌어내려면 최고의 툴셋을 써야한다고 봐왔던, 어떻게 보면 빌런에 가까운 사람이었다고 해도 과언이 아니었을 겁니다.&lt;/p&gt;
+
+&lt;p&gt;책의 후반부에서는 &lt;strong&gt;모범 사례를 무작정 도입하는 것의 위험성&lt;/strong&gt;을 강조했습니다. 개인적으로도 많이 와닿았던 구절이기도 했어서, 페이지의 일부를 카메라로 찍어서 트윗으로 공유하기도 했습니다.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ko&quot; dir=&quot;ltr&quot;&gt;베스트프랙티스는 전후관계를 알고 있을때만 😂😂😂 &lt;a href=&quot;https://t.co/LGUTArwmkG&quot;&gt;pic.twitter.com/LGUTArwmkG&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lee Jae-yeol (@kodingwarrior) &lt;a href=&quot;https://twitter.com/kodingwarrior/status/1513508437204008964?ref_src=twsrc%5Etfw&quot;&gt;April 11, 2022&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;모범 사례(Best Practice)를 도입하려면 How(어떻게)를 고민하기 전에 Why(왜)를 고민하는 것이 필요합니다. 협업하고 커뮤니케이션을 하면서 만들어가는 시스템은 조직을 이루는 구성원이 어떻게 일하는지에 대한 이해가 선행되지 않으면 실패할 확률이 큽니다.&lt;/p&gt;
+
+&lt;p&gt;개인적인 경험에 미루어 보았을때도 어디서나 통하는 모범 사례라는 건 절대로 존재하지 않았습니다. 흔히들 쓰는 표현이 있습니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;은탄환은 존재하지 않는다.&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;시스템이 없는 상황이고 어떻게라도 시스템을 잡는게 목적이라면 참고자료로 활용하기에는 모범 사례가 더할 나위 없이 좋았습니다. 다만, &lt;strong&gt;‘상황에 맞게 도입할 만 한가?’&lt;/strong&gt;에 대한 비판적인 사고가 필요한 것 같습니다.&lt;/p&gt;
+
+&lt;h1 id=&quot;iii-결론&quot;&gt;III. 결론&lt;/h1&gt;
+
+&lt;h2 id=&quot;️-주의할-것&quot;&gt;⚠️ &lt;strong&gt;주의할 것&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;이 책은 &lt;strong&gt;소프트웨어 개발 경험이 있거나, CS를 전공한 사람이라면&lt;/strong&gt; 재밌게 읽을 수 있을지도 모릅니다.&lt;/p&gt;
+
+&lt;p&gt;과연 이렇게 하는게 베스트였나 싶었는데요, 앞서 언급했듯이 &lt;code class=&quot;highlighter-rouge&quot;&gt;컨텍스트 스위칭&lt;/code&gt;이라던가 &lt;code class=&quot;highlighter-rouge&quot;&gt;대기열 이론&lt;/code&gt; 같은 &lt;strong&gt;SW 개발자나 이해할 법한 비유&lt;/strong&gt;가 종종 들어가기 때문에 SW 개발 경험이 있는게 아닌 사람에게는 진입장벽이 느껴질 수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;하지만, &lt;strong&gt;‘프로젝트 관리’&lt;/strong&gt;라는 문제를 어떻게 해결할 수 있는지에 대한 실마리를 신선한 관점에서 잘 설명하고 있습니다. 맥락을 이해하는 차원에서 적당히 읽어넘긴다면 개발 직군과 무관한 경험을 가졌더라도 약간의 인사이트는 얻어갈 수 있을 것이라 생각합니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;개인적으로는-강력히-추천&quot;&gt;개인적으로는 강력히 추천&lt;/h2&gt;
+
+&lt;p&gt;이 책은 아래 중 하나에 해당되는 사람이라면 읽어보는 것을 권장합니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;나는 나만의 프로젝트를 자발적으로 하고 있다.&lt;/li&gt;
+  &lt;li&gt;나는 어떤 프로젝트의 일정을 관리하는 책임자다.&lt;/li&gt;
+  &lt;li&gt;나 자신의 퍼포먼스(혹은 생산성)를 점진적으로 개선하고 싶다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;del&gt;즉, 프로젝트를 하는 사람이라면 반드시 봐야하는 책이라도 봐도 됩니다.&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;개인적인 경험을 거론하면서 언급했듯이, 이 책은 저에게 괜찮은 책이었습니다. 프로젝트를 매니징하는 사람을 타겟으로 쓰여진 책이긴 하지만, 스스로를 매니징을 하고자 하는 사람에게도 더할 나위없이 추천할 만한 책입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;꼭 보세요. 두번 보세요.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;이 책을 리뷰하면서, 생산성 도구에 적극적으로 관심을 두었던 얘기를 주저리주저리 읊었는데요. 추후에 생산성을 관리하기 위한 도구들을 추천하는 아티클 시리즈를 발행할 수 있도록 하겠습니다.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">만우절에 해야 했을 블로그 컴백 선언을 하루 늦게 뒷북치게 된 놀랍도록 경악스럽고 충격적인 사건에 대하여</title><link href="/post/2022/04/02/i-am-back" rel="alternate" type="text/html" title="만우절에 해야 했을 블로그 컴백 선언을 하루 늦게 뒷북치게 된 놀랍도록 경악스럽고 충격적인 사건에 대하여" /><published>2022-04-02T00:00:00+00:00</published><updated>2022-04-02T00:00:00+00:00</updated><id>repo://posts.collection/_posts/2022-04-02-i-am-back.md</id><content type="html" xml:base="/post/2022/04/02/i-am-back">&lt;p&gt;안녕하세요. 이재열 개발자 a.k.a. KODING WARRIOR 입니다. 오랜만에 글을 남깁니다. &lt;code class=&quot;highlighter-rouge&quot;&gt;본격적으로 블로그에 글을 남겨야지.. 이번에는 진짜 블로그 써야지...&lt;/code&gt;하다가 이제서야 글을 남기게 되네요.&lt;/p&gt;
 
 &lt;h2 id=&quot;변경된-점&quot;&gt;변경된 점&lt;/h2&gt;
 
