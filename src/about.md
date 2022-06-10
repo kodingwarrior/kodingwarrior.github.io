@@ -53,6 +53,20 @@ title: About
 
 끊임없이 새로운 것을 배우는 데 시간을 아끼지 않으며, 배움에는 분야를 가리지 않습니다. 새로운 프로그래밍 언어를 배우는데 흥미를 느끼며, 꾸준히 프로그래밍 퍼즐을 풀고 프로젝트를 만들면서 지적인 자극을 받기도 합니다.
 
+## Community
+
+개발자 커뮤니티에서는 **kodingwarrior**, **kokoko.kojima** 라는 이름으로 활동하고 있습니다.
+
+주로 사용하는 운영체제가 Arch Linux인 관계로 **Slack/Discord**로 소통하는 오픈소스 커뮤니티에 상주하고 있습니다.
+
+* [Python Korea Discord](https://discord.gg/wg7Rytx5fK?) : 모더레이터
+* [Ruby Korea Discord](https://discord.gg/uHQj7X68Mf) : 서버 개설
+
+아래의 디스코드 서버들은 직접적으로 사용하는 등의 접점은 많이 없지만, 부흥하기를 희망하며 상주하고 있습니다.
+
+* [Elixir Korea Discord](https://discord.gg/mVNjg3e)
+* [Reason Seoul Discord](https://discord.gg/RzShCNp)
+
 ## Contact
 
 관심이 생기셨나요? SNS를 통한 교류는 언제든지 열려있습니다. 부담가지지 말고 찾아와주세요 :)
@@ -60,6 +74,7 @@ title: About
 * [Twitter](https://twitter.com/kodingwarrior)
 * [facebook](https://facebook.com/kodingwarrior)
 * [Github](https://github.com/malkoG)
+* [Discord](https://discord.gg/cunes9kn6U) : 정보 공유하기 전에 버퍼로 활용하는 개인 디스코드 서버
 
 ## Miscellaneous
 
