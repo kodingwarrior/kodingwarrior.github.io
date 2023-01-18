@@ -1,6 +1,6 @@
 ---
 title: {{year}}-W{{week}}
-date:  {{date}}
+date:  {{sunday}}
 layout: wiki
 ---
 
