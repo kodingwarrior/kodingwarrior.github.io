@@ -1,6 +1,7 @@
 ---
 title: {{year}}-W{{week}}
 date:  {{date}}
+layout: wiki
 ---
 
 # Review Week {{week}} / {{year}}
@@ -11,10 +12,10 @@ date:  {{date}}
 - **this**!
 - that!
 
-## Monday     .........  [[{{monday}}]]
-## Tuesday    .........  [[{{tuesday}}]]
-## Wednesday  .........  [[{{wednesday}}]]
-## Thursday   .........  [[{{thursday}}]]
-## Friday     .........  [[{{friday}}]]
-## Saturday   .........  [[{{saturday}}]]
-## Sunday     .........  [[{{sunday}}]]
+## Monday     .........  [[daily/{{monday}}]]{{{monday}}}
+## Tuesday    .........  [[daily/{{tuesday}}]]{{{tuesday}}}
+## Wednesday  .........  [[daily{{wednesday}}]]{{{wednesday}}}
+## Thursday   .........  [[daily/{{thursday}}]]{{{thursday}}}
+## Friday     .........  [[daily/{{friday}}]]{{{friday}}}
+## Saturday   .........  [[daily/{{saturday}}]]{{{saturday}}}
+## Sunday     .........  [[daily/{{sunday}}]]{{{sunday}}}
