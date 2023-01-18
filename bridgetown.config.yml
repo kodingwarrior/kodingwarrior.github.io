@@ -29,6 +29,12 @@ template_engine: liquid
 # timezone: America/Los_Angeles
 # pagination:
 #   enabled: true
+collections:
+  wiki:
+    output: true
+    future: true
+    sort_by: date
+    sort_direction: descending
 
 feed:
   path: rss.xml
