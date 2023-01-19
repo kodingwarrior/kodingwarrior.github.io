@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>2023-01-19 | KODINGWARRIOR QUEST</title>
+<title>Neural Bridge | KODINGWARRIOR QUEST</title>
 
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -38,7 +38,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>2023-01-19</h1>
+<h1>Neural Bridge</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -52,19 +52,17 @@
 </div>
 
 <article>
-    <p>[[projects/neural-bridge]] 의 PoC를 올릴 수 있게된 기념적인 날이다. 혼자라도 축포를 쏘고 싶은 기분이다. 오늘을 기점으로 좀 더 풍성한 위키 형식의 제텔카스텐을 채워나갈 수 있을 것만 같다.</p>
+    <p>이름의 유래는 <code class="highlighter-rouge">neural network</code> + <code class="highlighter-rouge">bridgetown</code>.</p>
 
-<h3 id="frontend">Frontend</h3>
+<p><strong>신경망(Neural network)</strong>처럼 복잡하게 얽힌 지식들을 시각화하고자 하는 의도에서 출발했고, 본 사이트를 구축하는 엔진이 <strong><a href="https://bridgetownrb.com">bridgetown</a></strong>이기 때문에 지어진 이름이다.</p>
 
-<h4 id="force-graph"><a href="https://github.com/vasturiano/force-graph">force-graph</a></h4>
+<p>제텔카스텐을 RoamResearch 에서 [[VimPlugin/Telekasten.nvim]] 으로 옮겨가면서, 글 작성 + 개발 + 지식관리의 삼위일체를 이루어내고자 장기간 진행하고 있는 프로젝트이다.</p>
 
-<p>[[projects/neural-bridge]] 를 작업하면서, 문서와 문서가 이어져 있는 모습을 어떻게 시각화할까 고민하다가 제법 괜찮은 JS 라이브러리를 발견했다.</p>
+<p>실제로 [[Wezterm]] + [[tmuxinator]] 의 조합으로 워크스페이스를 분리해서 모든 작업을 진행하고 있는데, 프로젝트 별로 건너뛰고 싶을때는 <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua">wezterm configuration 파일</a>에서 정의한 키 조합을 사용하고, 워크스페이스 안에서 window 간 이동할때는 tmux 명령어를 사용하면 된다. 
+글 작성 프로그램 따로, 지식관리 프로그램 따로, 개발 프로그램 따로 켜놓고 <code class="highlighter-rouge">Super</code> + <code class="highlighter-rouge">Tab</code> 키 조합으로 화면을 바꾸는 것 자체가 번거로운 작업이었는데 모든 것을 [[Neovim]] 으로 해결하니 마음의 평안이 찾아오고 생산성도 퀀텀점프했다. Neovim을 사용해서 어떻게 워크플로우를 개선했는지에 대해서는 따로 아티클로 다루게 될 것 같다.</p>
 
-<p>요약하자면, <strong>그래프로 표현될 수 있는 데이터를 HTML 캔버스 위에다 시각화해주는 라이브러리</strong>라고 할 수 있다.</p>
+<p>아무튼, 본 위키 프로젝트는 [[VimPlugin/Telekasten.nvim]] 으로 작성한 문서들을 Bridgetown 기반으로 시각화해주는 프로젝트이기 때문에, 이를 사용하기 위해서는 <strong>telekasten.nvim</strong> 을 설치해야만 제대로 이용이 가능하다.</p>
 
-<p>Roam Research에서 telekasten 기반으로 옮겨가던 와중, <code class="highlighter-rouge">그래프 구조를 시각화해주는 기능을 어떻게 구현할 수 있을까</code> 라는 고민이 들었었는데, 레퍼런스로 참고하려고 벼르고 있던 <a href="https://github.com/anaclumos/extracranial/blob/main/src/pages/3d/index.tsx#L23">어떤 리포지토리의 소스코드</a> 를 보면서 단서를 얻을 수 있었다. 해당 소스코드는 react 위에서 동작하는 코드이긴 하지만, 굳이 react를 쓰지 않더라도 독립적으로 사용할 수 있는 것 같다.</p>
-
-<p>자바스크립트를 최대한 적게 쓰는 것을 지향하는 프로젝트 특성상 제법 괜찮은 라이브러리인 것 같다.</p>
 
 </article>
 
