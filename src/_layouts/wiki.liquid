@@ -42,3 +42,18 @@ layout: default
     crossorigin="anonymous"
     async>
 </script>
+
+<script>
+window.addEventListener("load", function(event) {
+	const before = document.body.innerHTML
+	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
+	
+	let after = before
+	results.forEach(function(result) {
+		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
+		after = after.replace(result[0], anchorHtml)
+	})
+
+	document.body.innerHTML = after
+})
+</script>
