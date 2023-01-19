@@ -9,7 +9,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.DVLHUEMZ.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.3OIJR6X2.css" />
 <script src="/_bridgetown/static/index.PJZZ2K4I.js" defer></script>
 
 
@@ -68,6 +68,21 @@
     theme="github-light"
     crossorigin="anonymous"
     async>
+</script>
+
+<script>
+window.addEventListener("load", function(event) {
+	const before = document.body.innerHTML
+	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
+	
+	let after = before
+	results.forEach(function(result) {
+		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
+		after = after.replace(result[0], anchorHtml)
+	})
+
+	document.body.innerHTML = after
+})
 </script>
 
       </article>
