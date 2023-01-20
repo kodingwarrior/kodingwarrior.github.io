@@ -25,19 +25,33 @@ window.addEventListener('load', function(e) {
 	  .nodeCanvasObject(function(node, ctx) {
 	    const label = node.id;
         const fontSize = 8;
-        ctx.font = `${fontSize}px Sans-Serif`;
+
+		// Rendering Text
+		ctx.font = `${fontSize}px Sans-Serif`;
         const textWidth = ctx.measureText(label).width;
         const bckgDimensions = [textWidth, fontSize].map(n => n + fontSize * 0.2); // some padding
-
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
-        ctx.fillRect(node.x - bckgDimensions[0] / 2, node.y - bckgDimensions[1] / 2, ...bckgDimensions);
-
-        ctx.textAlign = 'center';
+		ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillStyle = 'black';
-        ctx.fillText(label, node.x, node.y);
+        ctx.fillText(label, node.x, node.y + 12);
+
+		// Rendering Circle
+	  	const size = 12;
+		const radius = size / 2;
+		ctx.fillStyle = "rgba(0, 0, 0, 0.2)"
+		ctx.beginPath();
+		ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false)
+		ctx.fill()
 
         node.__bckgDimensions = bckgDimensions;
+	  })
+	  .nodePointerAreaPaint(function(node, color, ctx) {
+	  	const size = 12;
+		const radius = size / 2;
+		ctx.fillStyle = color
+		ctx.beginPath();
+		ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false)
+		ctx.fill()
 	  })
 	  .onNodeClick(function(node, event) {
 		const path = node.id
