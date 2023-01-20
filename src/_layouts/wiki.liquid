@@ -76,7 +76,9 @@ window.addEventListener("load", function(event) {
 	hyperlinks.forEach(function(element) {
 		// internal link
 		if (element.href.includes(document.location.host + "/wiki")) {
-			element.prepend(documentIcon.cloneNode(true))
+			if (!element.className.includes("footnote")) {
+				element.prepend(documentIcon.cloneNode(true))
+			}
 		}
 
 		// github
