@@ -25,7 +25,7 @@ layout: default
     </a>
 </div>
 
-<article>
+<article id="wiki-content">
     {{ content }}
 </article>
 
@@ -45,7 +45,8 @@ layout: default
 
 <script>
 window.addEventListener("load", function(event) {
-	const before = document.body.innerHTML
+	const target = document.querySelector('#wiki-content')
+	const before = target.innerHTML
 	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
 	
 	let after = before
@@ -54,6 +55,34 @@ window.addEventListener("load", function(event) {
 		after = after.replace(result[0], anchorHtml)
 	})
 
-	document.body.innerHTML = after
+	target.innerHTML = after
+
+	const hyperlinks = target.querySelectorAll('a')
+
+	const githubIcon = document.createElement('i')
+	githubIcon.classList.add('bi-github')
+
+	const documentIcon = document.createElement('i')
+	documentIcon.classList.add('bi-file-text')
+
+	const icons = [githubIcon, documentIcon]
+
+	icons.forEach(function(icon) {
+		icon.classList.add('bi')
+		icon.classList.add('mr-1')
+	})
+
+
+	hyperlinks.forEach(function(element) {
+		// internal link
+		if (element.href.includes(document.location.host + "/wiki")) {
+			element.prepend(documentIcon.cloneNode(true))
+		}
+
+		// github
+		if (element.href.includes("github.com")) {
+			element.prepend(githubIcon.cloneNode(true))
+		}
+	})
 })
 </script>
