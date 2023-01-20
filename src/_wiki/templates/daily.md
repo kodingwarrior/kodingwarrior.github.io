@@ -1,6 +1,6 @@
 ---
 title: {{date}}
-data: {{date}}
+date: {{date}}
 layout: wiki
 ---
 
