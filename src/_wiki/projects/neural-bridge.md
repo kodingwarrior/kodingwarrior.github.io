@@ -12,5 +12,16 @@ layout: wiki
 
 아무튼, 본 위키 프로젝트는 [[vim-plugin/telekasten.nvim]]{telekasten.nvim} 으로 작성한 문서들을 Bridgetown 기반으로 시각화해주는 프로젝트이기 때문에, 이를 사용하기 위해서는 **telekasten.nvim** 을 설치해야만 제대로 이용이 가능하다.  
 
+### Features
+
+* **Markdown 문법 기반으로 작성된 문서**
+* **문서 간의 연관 관계 시각화**
+* **[[vim-plugin/telekasten.nvim]]{telekasten.nvim} 과의 호환성**
+
+
+### Update Log
+
+* **2023-01-21** - 내부 링크로 연결되어 있는 문서는 그래프 구조로 생각할 수 있다. RoamResearch 처럼 이러한 그래프 구조를 시각화해야겠다고 막연하게 생각만 해왔지만, 여러가지 레퍼런스를 참고하면서 용기를 내서 작업할 수 있었다. 어떻게 구현되었는지는, [여기](/neural-network)에서 확인할 수 있다.
+
 
 [^1]: 실제로 [[wezterm]] + [[tmuxinator]] 의 조합으로 워크스페이스를 분리해서 모든 작업을 진행하고 있는데, 프로젝트 별로 건너뛰고 싶을때는 [wezterm configuration 파일](https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua)에서 정의한 키 조합을 사용하고, 워크스페이스 안에서 window 간 이동할때는 tmux 명령어를 사용하면 된다. <br/><br/> 글 작성 프로그램 따로, 지식관리 프로그램 따로, 개발 프로그램 따로 켜놓고 `Super` + `Tab` 키 조합으로 화면을 바꾸는 것 자체가 번거로운 작업이었는데 모든 것을 [[Neovim]] 으로 해결하니 마음의 평안이 찾아오고 생산성도 퀀텀점프했다. Neovim을 사용해서 어떻게 워크플로우를 개선했는지에 대해서는 따로 아티클로 다루게 될 것 같다.

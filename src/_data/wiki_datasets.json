@@ -201,6 +201,11 @@
     },
     {
       "source": "projects/neural-bridge",
+      "target": "vim-plugin/telekasten.nvim",
+      "value": 1
+    },
+    {
+      "source": "projects/neural-bridge",
       "target": "wezterm",
       "value": 1
     },
