@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Knowledge network | KODINGWARRIOR QUEST</title>
+
+<meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
+<link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
+
+<link rel="stylesheet" href="/_bridgetown/static/index.B32266RR.css" />
+<script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
+
+
+  </head>
+  <body class="page ">
+    
+<nav>
+  <ul>
+    <li><a href="/">/home</a></li>
+    <li><a href="/about">/about</a></li>
+    <li><a href="/posts">/posts</a></li>
+    <li><a href="/wiki">/wiki</a></li>
+  </ul>
+</nav>
+
+
+    <main>
+      <article>
+        <h1>Knowledge network</h1>
+
+<div id="neural-network">
+</div>
+
+<script>
+
+window.addEventListener('load', function(e) {
+	const KnowledgeGraph = window.$graph()
+
+	const targetElement = document.querySelector('#neural-network')
+
+	const dataset = ({"nodes":[{"id":"weekly/2023-W03","group":1},{"id":"daily/2023-01-16","group":1},{"id":"daily/2023-01-17","group":1},{"id":"daily/2023-01-18","group":1},{"id":"daily/2023-01-19","group":1},{"id":"daily/2023-01-20","group":1},{"id":"daily/2023-01-21","group":1},{"id":"daily/2023-01-22","group":1},{"id":"workbench","group":1},{"id":"wezterm","group":1},{"id":"neovim","group":1},{"id":"vim-plugin","group":1},{"id":"tmuxinator","group":1},{"id":"vim-plugin/telekasten.nvim","group":1},{"id":"vim","group":1},{"id":"vim-plugin/nvim-treesitter-context","group":1},{"id":"vim-plugin/vim-fugitive","group":1},{"id":"vim-plugin/vim-gitgutter","group":1},{"id":"symbol","group":1},{"id":"projects/neural-bridge","group":1},{"id":"Neovim","group":1}],"links":[{"source":"weekly/2023-W03","target":"daily/2023-01-16","value":1},{"source":"weekly/2023-W03","target":"daily/2023-01-17","value":1},{"source":"weekly/2023-W03","target":"daily/2023-01-18","value":1},{"source":"weekly/2023-W03","target":"daily/2023-01-19","value":1},{"source":"weekly/2023-W03","target":"daily/2023-01-20","value":1},{"source":"weekly/2023-W03","target":"daily/2023-01-21","value":1},{"source":"weekly/2023-W03","target":"daily/2023-01-22","value":1},{"source":"workbench","target":"wezterm","value":1},{"source":"workbench","target":"neovim","value":1},{"source":"workbench","target":"vim-plugin","value":1},{"source":"workbench","target":"tmuxinator","value":1},{"source":"vim-plugin","target":"vim","value":1},{"source":"vim-plugin","target":"neovim","value":1},{"source":"vim-plugin","target":"vim-plugin/nvim-treesitter-context","value":1},{"source":"vim-plugin","target":"vim-plugin/vim-fugitive","value":1},{"source":"vim-plugin","target":"vim-plugin/vim-gitgutter","value":1},{"source":"projects/neural-bridge","target":"wezterm","value":1},{"source":"projects/neural-bridge","target":"tmuxinator","value":1},{"source":"projects/neural-bridge","target":"Neovim","value":1},{"source":"daily/2023-01-19","target":"projects/neural-bridge","value":1},{"source":"daily/2023-01-19","target":"projects/neural-bridge","value":1}]})
+	console.log(dataset)
+
+	KnowledgeGraph(document.querySelector("#neural-network"))
+	  .graphData(dataset)
+	  .width(targetElement.offsetWidth)
+	  .height(targetElement.offsetWidth)
+
+})
+
+</script>
+
+
+
+      </article>
+    </main>
+
+    <footer class="flex justify-start sm:justify-center flex-col sm:flex-row">
+  <a class="my-2 mx-3 no-underline" href="/rss.xml">
+    <i class="bi bi-rss-fill text-2xl"></i> Feed
+  </a>
+  <a class="my-2 mx-3 no-underline" href="mailto:rijgndqw012@gmail.com">
+    <i class="bi bi-envelope-fill text-2xl"></i> Email
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://twitter.com/kodingwarrior">
+    <i class="bi bi-twitter text-2xl"></i> Twitter
+  </a>
+</footer>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127979309-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127979309-1');
+    </script>
+  </body>
+</html>
