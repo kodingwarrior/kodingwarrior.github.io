@@ -21,7 +21,7 @@ class Builders::BacklinkBuilder < SiteBuilder
         nodes << source
 
         wiki_content = wiki_document.content
-        internal_links = wiki_content.scan(/\[\[([\w\-\/\_\s]+)\]\]/)
+        internal_links = wiki_content.scan(/\[\[([\w\-\/\_\s\.]+)\]\]/)
         internal_links&.each do |link|
           link = link[0]
           nodes << link
