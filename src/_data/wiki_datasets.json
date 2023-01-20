@@ -1,0 +1,195 @@
+{
+  "nodes": [
+    {
+      "id": "weekly/2023-W03",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-16",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-17",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-18",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-19",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-20",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-21",
+      "group": 1
+    },
+    {
+      "id": "daily/2023-01-22",
+      "group": 1
+    },
+    {
+      "id": "workbench",
+      "group": 1
+    },
+    {
+      "id": "wezterm",
+      "group": 1
+    },
+    {
+      "id": "neovim",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/telekasten.nvim",
+      "group": 1
+    },
+    {
+      "id": "vim",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/nvim-treesitter-context",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/vim-fugitive",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/vim-gitgutter",
+      "group": 1
+    },
+    {
+      "id": "symbol",
+      "group": 1
+    },
+    {
+      "id": "projects/neural-bridge",
+      "group": 1
+    },
+    {
+      "id": "Neovim",
+      "group": 1
+    }
+  ],
+  "links": [
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-16",
+      "value": 1
+    },
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-17",
+      "value": 1
+    },
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-18",
+      "value": 1
+    },
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-19",
+      "value": 1
+    },
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-20",
+      "value": 1
+    },
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-21",
+      "value": 1
+    },
+    {
+      "source": "weekly/2023-W03",
+      "target": "daily/2023-01-22",
+      "value": 1
+    },
+    {
+      "source": "workbench",
+      "target": "wezterm",
+      "value": 1
+    },
+    {
+      "source": "workbench",
+      "target": "neovim",
+      "value": 1
+    },
+    {
+      "source": "workbench",
+      "target": "vim-plugin",
+      "value": 1
+    },
+    {
+      "source": "workbench",
+      "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "vim",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "neovim",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "vim-plugin/nvim-treesitter-context",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "vim-plugin/vim-fugitive",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "vim-plugin/vim-gitgutter",
+      "value": 1
+    },
+    {
+      "source": "projects/neural-bridge",
+      "target": "wezterm",
+      "value": 1
+    },
+    {
+      "source": "projects/neural-bridge",
+      "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "projects/neural-bridge",
+      "target": "Neovim",
+      "value": 1
+    },
+    {
+      "source": "daily/2023-01-19",
+      "target": "projects/neural-bridge",
+      "value": 1
+    },
+    {
+      "source": "daily/2023-01-19",
+      "target": "projects/neural-bridge",
+      "value": 1
+    }
+  ]
+}
