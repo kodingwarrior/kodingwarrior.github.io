@@ -65,7 +65,14 @@ window.addEventListener("load", function(event) {
 	const documentIcon = document.createElement('i')
 	documentIcon.classList.add('bi-file-text')
 
-	const icons = [githubIcon, documentIcon]
+	const wikipediaIcon = document.createElement('i')
+	wikipediaIcon.classList.add('bi-wikipedia')
+
+	const icons = [
+		wikipediaIcon,
+		githubIcon,
+		documentIcon,
+	]
 
 	icons.forEach(function(icon) {
 		icon.classList.add('bi')
@@ -84,6 +91,11 @@ window.addEventListener("load", function(event) {
 		// github
 		if (element.href.includes("github.com")) {
 			element.prepend(githubIcon.cloneNode(true))
+		}
+	
+		// wikipedia
+		if (element.href.includes("wikipedia.org")) {
+			element.prepend(wikipediaIcon.cloneNode(true))
 		}
 	})
 })
