@@ -186,5 +186,5 @@ article ol li {
 
 /* Wiki */
 .wiki-navbar {
-  @apply list-none flex justify-center items-center gap-x-8;
+  @apply list-none flex justify-center items-center gap-x-8 m-0;
 }
