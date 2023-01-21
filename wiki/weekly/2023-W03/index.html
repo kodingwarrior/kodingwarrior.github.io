@@ -9,7 +9,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.A2SEO2XR.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.YQ52FRCU.css" />
 <script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
 
 
@@ -28,7 +28,39 @@
 
     <main>
       <article>
-        <script type="text/javascript" async>
+        
+<header>
+  <ul class="wiki-navbar">
+	  <li>
+		  <a href="/wiki">
+			  <i class="bi bi-door-open mr-2"></i>Main
+		  </a>
+	  </li>
+	  <li>
+		  <a href="#" onclick="javascript:goToRandomDocument()">
+			  <i class="bi bi-dice-5 mr-2"></i>Random
+		  </a>
+	  </li>
+	  <li>
+		  <a href="/neural-network">
+			  <i class="bi bi-diagram-3 mr-2"></i>Graph
+		  </a>
+	  </li>
+  </ul>
+</header>
+
+<script>
+  function goToRandomDocument() {
+	const availableDocuments = (["weekly/2023-W03","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
+	
+	const size = availableDocuments.length;
+	const randomIdx = Math.floor(Math.random() * size);
+	window.location.assign("/wiki/" + availableDocuments[Math.max(0, randomIdx)]);
+  }
+</script>
+
+
+<script type="text/javascript" async>
     const url_default_fb = "https://www.facebook.com/sharer/sharer.php?u=";
     const url_default_tw_txt = "https://twitter.com/intent/tweet?text=";
     const url_default_tw_url = "&url=";
@@ -108,7 +140,14 @@ window.addEventListener("load", function(event) {
 	const documentIcon = document.createElement('i')
 	documentIcon.classList.add('bi-file-text')
 
-	const icons = [githubIcon, documentIcon]
+	const wikipediaIcon = document.createElement('i')
+	wikipediaIcon.classList.add('bi-wikipedia')
+
+	const icons = [
+		wikipediaIcon,
+		githubIcon,
+		documentIcon,
+	]
 
 	icons.forEach(function(icon) {
 		icon.classList.add('bi')
@@ -119,12 +158,19 @@ window.addEventListener("load", function(event) {
 	hyperlinks.forEach(function(element) {
 		// internal link
 		if (element.href.includes(document.location.host + "/wiki")) {
-			element.prepend(documentIcon.cloneNode(true))
+			if (!element.className.includes("footnote")) {
+				element.prepend(documentIcon.cloneNode(true))
+			}
 		}
 
 		// github
 		if (element.href.includes("github.com")) {
 			element.prepend(githubIcon.cloneNode(true))
+		}
+	
+		// wikipedia
+		if (element.href.includes("wikipedia.org")) {
+			element.prepend(wikipediaIcon.cloneNode(true))
 		}
 	})
 })
