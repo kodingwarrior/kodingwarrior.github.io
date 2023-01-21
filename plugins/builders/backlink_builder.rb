@@ -2,12 +2,7 @@ class Builders::BacklinkBuilder < SiteBuilder
   # See https://github.com/vasturiano/force-graph/blob/master/example/datasets/miserables.json
   def build
     hook :site, :pre_render do |site|
-      resources = site.resources
-      wiki_documents = 
-        site.resources
-          .select { |resource| resource.absolute_url.include?('/wiki/') }
-          .reject { |resource| resource.absolute_url.include?('/templates/') }
-          .reject { |resource| resource.absolute_url.end_with?('/wiki/') }
+      wiki_documents = collect_wiki_resources(site)
 
       nodes = Set.new
       links = []
