@@ -1,0 +1,30 @@
+
+<header>
+  <ul class="wiki-navbar">
+	  <li>
+		  <a href="{{ '/wiki' | relative_url }}">
+			  <i class="bi bi-door-open mr-2"></i>Main
+		  </a>
+	  </li>
+	  <li>
+		  <a href="#" onclick="javascript:goToRandomDocument()">
+			  <i class="bi bi-dice-5 mr-2"></i>Random
+		  </a>
+	  </li>
+	  <li>
+		  <a href="{{ '/neural-network' | relative_url }}">
+			  <i class="bi bi-diagram-3 mr-2"></i>Graph
+		  </a>
+	  </li>
+  </ul>
+</header>
+
+<script>
+  function goToRandomDocument() {
+	const availableDocuments = ({{ available_wiki_documents | jsonify }});
+	
+	const size = availableDocuments.length;
+	const randomIdx = Math.floor(Math.random() * size);
+	window.location.assign("/wiki/" + availableDocuments[Math.max(0, randomIdx)]);
+  }
+</script>

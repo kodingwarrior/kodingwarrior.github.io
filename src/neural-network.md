@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: wiki_main
 title: Knowledge network
 ---
 

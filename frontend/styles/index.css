@@ -183,3 +183,8 @@ article ol li {
 .twitter-tweet {
   margin: 2rem auto !important;
 }
+
+/* Wiki */
+.wiki-navbar {
+  @apply list-none flex justify-center items-center gap-x-8;
+}
