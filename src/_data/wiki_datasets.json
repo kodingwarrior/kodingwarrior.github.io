@@ -1,6 +1,18 @@
 {
   "nodes": [
     {
+      "id": "dogfooding-driven-development",
+      "group": 1
+    },
+    {
+      "id": "projects/neural-bridge",
+      "group": 1
+    },
+    {
+      "id": "neovim",
+      "group": 1
+    },
+    {
       "id": "weekly/2023-W03",
       "group": 1
     },
@@ -38,10 +50,6 @@
     },
     {
       "id": "wezterm",
-      "group": 1
-    },
-    {
-      "id": "neovim",
       "group": 1
     },
     {
@@ -85,15 +93,21 @@
       "group": 1
     },
     {
-      "id": "projects/neural-bridge",
-      "group": 1
-    },
-    {
       "id": "Neovim",
       "group": 1
     }
   ],
   "links": [
+    {
+      "source": "dogfooding-driven-development",
+      "target": "projects/neural-bridge",
+      "value": 1
+    },
+    {
+      "source": "dogfooding-driven-development",
+      "target": "neovim",
+      "value": 1
+    },
     {
       "source": "weekly/2023-W03",
       "target": "daily/2023-01-16",
