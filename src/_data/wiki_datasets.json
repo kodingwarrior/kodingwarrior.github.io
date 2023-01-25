@@ -1,6 +1,26 @@
 {
   "nodes": [
     {
+      "id": "cli/diff",
+      "group": 1
+    },
+    {
+      "id": "cli",
+      "group": 1
+    },
+    {
+      "id": "wezterm",
+      "group": 1
+    },
+    {
+      "id": "tmux",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
+      "group": 1
+    },
+    {
       "id": "dogfooding-driven-development",
       "group": 1
     },
@@ -49,15 +69,7 @@
       "group": 1
     },
     {
-      "id": "wezterm",
-      "group": 1
-    },
-    {
       "id": "vim-plugin",
-      "group": 1
-    },
-    {
-      "id": "tmuxinator",
       "group": 1
     },
     {
@@ -98,6 +110,26 @@
     }
   ],
   "links": [
+    {
+      "source": "cli",
+      "target": "cli/diff",
+      "value": 1
+    },
+    {
+      "source": "cli",
+      "target": "wezterm",
+      "value": 1
+    },
+    {
+      "source": "cli",
+      "target": "tmux",
+      "value": 1
+    },
+    {
+      "source": "cli",
+      "target": "tmuxinator",
+      "value": 1
+    },
     {
       "source": "dogfooding-driven-development",
       "target": "projects/neural-bridge",
