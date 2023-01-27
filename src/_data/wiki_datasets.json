@@ -1,6 +1,22 @@
 {
   "nodes": [
     {
+      "id": "vim-plugin/mind.nvim",
+      "group": 1
+    },
+    {
+      "id": "improving-productivity",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/telekasten.nvim",
+      "group": 1
+    },
+    {
       "id": "cli/diff",
       "group": 1
     },
@@ -14,10 +30,6 @@
     },
     {
       "id": "tmux",
-      "group": 1
-    },
-    {
-      "id": "tmuxinator",
       "group": 1
     },
     {
@@ -73,10 +85,6 @@
       "group": 1
     },
     {
-      "id": "vim-plugin/telekasten.nvim",
-      "group": 1
-    },
-    {
       "id": "vim-plugin/telescope.nvim",
       "group": 1
     },
@@ -110,6 +118,21 @@
     }
   ],
   "links": [
+    {
+      "source": "improving-productivity",
+      "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "improving-productivity",
+      "target": "vim-plugin/telekasten.nvim",
+      "value": 1
+    },
+    {
+      "source": "improving-productivity",
+      "target": "vim-plugin/mind.nvim",
+      "value": 1
+    },
     {
       "source": "cli",
       "target": "cli/diff",
@@ -233,6 +256,11 @@
     {
       "source": "vim-plugin",
       "target": "vim-plugin/telekasten.nvim",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "vim-plugin/mind.nvim",
       "value": 1
     },
     {
