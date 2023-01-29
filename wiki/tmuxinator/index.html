@@ -9,7 +9,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.EHHCOWB3.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.XD6HPQE5.css" />
 <script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
 
 
@@ -51,7 +51,7 @@
 
 <script>
   function goToRandomDocument() {
-	const availableDocuments = (["vim-plugin/mind.nvim","improving-productivity","cli/diff","cli","dogfooding-driven-development","weekly/2023-W03","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
+	const availableDocuments = (["vim-plugin/mind.nvim","prompt-engineering","improving-productivity","cli/diff","cli","dogfooding-driven-development","weekly/2023-W03","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
 	
 	const size = availableDocuments.length;
 	const randomIdx = Math.floor(Math.random() * size);
@@ -156,10 +156,14 @@ window.addEventListener("load", function(event) {
 	const wikipediaIcon = document.createElement('i')
 	wikipediaIcon.classList.add('bi-wikipedia')
 
+	const microsoftIcon = document.createElement('i')
+	microsoftIcon.classList.add('bi-windows')
+
 	const icons = [
 		wikipediaIcon,
 		githubIcon,
 		documentIcon,
+		microsoftIcon,
 	]
 
 	icons.forEach(function(icon) {
@@ -184,6 +188,11 @@ window.addEventListener("load", function(event) {
 		// wikipedia
 		if (element.href.includes("wikipedia.org")) {
 			element.prepend(wikipediaIcon.cloneNode(true))
+		}
+
+		// microsoft related documentation
+		if (element.href.includes("visualstudio.com")) {
+			element.prepend(microsoftIcon.cloneNode(true))
 		}
 	})
 })
