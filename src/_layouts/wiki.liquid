@@ -70,10 +70,14 @@ window.addEventListener("load", function(event) {
 	const wikipediaIcon = document.createElement('i')
 	wikipediaIcon.classList.add('bi-wikipedia')
 
+	const microsoftIcon = document.createElement('i')
+	microsoftIcon.classList.add('bi-windows')
+
 	const icons = [
 		wikipediaIcon,
 		githubIcon,
 		documentIcon,
+		microsoftIcon,
 	]
 
 	icons.forEach(function(icon) {
@@ -98,6 +102,11 @@ window.addEventListener("load", function(event) {
 		// wikipedia
 		if (element.href.includes("wikipedia.org")) {
 			element.prepend(wikipediaIcon.cloneNode(true))
+		}
+
+		// microsoft related documentation
+		if (element.href.includes("visualstudio.com")) {
+			element.prepend(microsoftIcon.cloneNode(true))
 		}
 	})
 })
