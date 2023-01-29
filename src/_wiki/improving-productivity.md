@@ -24,3 +24,8 @@ layout: wiki
   * neovim이 켜져있다면 어느 작업환경에 있든지 즉석으로 메모를 남길 수 있다.
   * Dropbox와도 연동하기 좋다.
 
+## ETC.
+
+* [[prompt-engineering]]{프롬프트 엔지니어링}
+  * ChatGPT, Github Copilot 등 업무를 보조하기 위해 인공지능을 활용하는 사례가 늘어나고 있다. 연구 필요
+

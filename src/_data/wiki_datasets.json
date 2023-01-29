@@ -5,6 +5,10 @@
       "group": 1
     },
     {
+      "id": "prompt-engineering",
+      "group": 1
+    },
+    {
       "id": "improving-productivity",
       "group": 1
     },
@@ -131,6 +135,11 @@
     {
       "source": "improving-productivity",
       "target": "vim-plugin/mind.nvim",
+      "value": 1
+    },
+    {
+      "source": "improving-productivity",
+      "target": "prompt-engineering",
       "value": 1
     },
     {
