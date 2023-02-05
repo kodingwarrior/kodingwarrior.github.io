@@ -17,15 +17,23 @@
       "group": 1
     },
     {
+      "id": "digital-garden",
+      "group": 1
+    },
+    {
+      "id": "projects/neural-bridge",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/telekasten.nvim",
+      "group": 1
+    },
+    {
       "id": "prompt-engineering",
       "group": 1
     },
     {
       "id": "improving-productivity",
-      "group": 1
-    },
-    {
-      "id": "vim-plugin/telekasten.nvim",
       "group": 1
     },
     {
@@ -46,10 +54,6 @@
     },
     {
       "id": "dogfooding-driven-development",
-      "group": 1
-    },
-    {
-      "id": "projects/neural-bridge",
       "group": 1
     },
     {
@@ -138,6 +142,16 @@
     {
       "source": "vim-plugin/flutter-tools.nvim",
       "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "digital-garden",
+      "target": "projects/neural-bridge",
+      "value": 1
+    },
+    {
+      "source": "digital-garden",
+      "target": "vim-plugin/telekasten.nvim",
       "value": 1
     },
     {
