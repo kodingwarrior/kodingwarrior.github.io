@@ -1,6 +1,18 @@
 {
   "nodes": [
     {
+      "id": "vim-plugin/flutter-tools.nvim",
+      "group": 1
+    },
+    {
+      "id": "flutter",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
+      "group": 1
+    },
+    {
       "id": "vim-plugin/mind.nvim",
       "group": 1
     },
@@ -10,10 +22,6 @@
     },
     {
       "id": "improving-productivity",
-      "group": 1
-    },
-    {
-      "id": "tmuxinator",
       "group": 1
     },
     {
@@ -122,6 +130,16 @@
     }
   ],
   "links": [
+    {
+      "source": "vim-plugin/flutter-tools.nvim",
+      "target": "flutter",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin/flutter-tools.nvim",
+      "target": "tmuxinator",
+      "value": 1
+    },
     {
       "source": "improving-productivity",
       "target": "tmuxinator",
@@ -240,6 +258,11 @@
     {
       "source": "vim-plugin",
       "target": "neovim",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin",
+      "target": "vim-plugin/flutter-tools.nvim",
       "value": 1
     },
     {

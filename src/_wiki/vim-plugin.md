@@ -6,7 +6,11 @@ layout: wiki
 
 이 문서에서는 직접 쓰면서 괜찮았다고 생각이 들었던 [[vim]]/[[neovim]] 플러그인들을 소개할 것이다.
 
-WIP
+## Developer Experience
+
+### Flutter 
+
+* [[vim-plugin/flutter-tools.nvim]] 
 
 ## Treesitter
 
