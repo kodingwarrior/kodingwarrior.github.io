@@ -18,9 +18,6 @@ title: About
 
 ## Career
 
-* **???**
-  * Tech stack : Django, Next.js(TypeScript)
-  * Feb. 2022 ~ Present : **Dev. Team Lead**
 * **주식회사 코드박스 <sub>Kodebox co., Ltd</sub>**
   * Tech stack : Django, React(TypeScript)
   * Jan. 2021 ~ Apr. 2021 : **Software Engineer**
@@ -61,6 +58,7 @@ title: About
 
 * [Python Korea Discord](https://discord.gg/wg7Rytx5fK?) : 모더레이터
 * [Ruby Korea Discord](https://discord.gg/uHQj7X68Mf) : 서버 개설
+* [Koream Vim User Group](https://discord.gg/dc3RqkD3MR) : 모더레이터, 서버 개설
 
 아래의 디스코드 서버들은 직접적으로 사용하는 등의 접점은 많이 없지만, 부흥하기를 희망하며 상주하고 있습니다.
 
