@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>mind.nvim | KODINGWARRIOR QUEST</title>
+<title>Mastodon | KODINGWARRIOR QUEST</title>
 
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -70,7 +70,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>mind.nvim</h1>
+<h1>Mastodon</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -84,25 +84,38 @@
 </div>
 
 <article id="wiki-content">
-    <p>Private 한 문서들을 Notion과 같이 트리 구조로 관리할 수 있게 해주는 플러그인이다. 문서는 마크다운 파일로 관리가 가능하다. 자세한 설명은 vim help가 더 친절하고 정확하기 때문에,  <code class="highlighter-rouge">:h mind-usage</code> 명령으로 사용법을 확인하는 것을 권장한다.</p>
+    <p>Mastodon은 오픈 소스 SNS 플랫폼이다. 누구나 자신의 소셜 네트워크 인스턴스를 생성하고 자신의 소셜 네트워크를 관리할 수 있다. 사용자는 다른 사용자들과 글, 사진, 비디오 등을 공유할 수 있다. 또한, 사용자는 다른 사용자들과 소통하고 관계를 맺을 수 있다. <strong>트위터</strong>와 비슷하다.</p>
 
-<p>개인적으로는 <code class="highlighter-rouge">:MindOpenMain</code> 명령어를 키면서 사용하고 있는데, 어떤 프로젝트를 열고 있더라도 메모장처럼 띄워서 사용할 수 있는 것이 큰 장점이다. Dropbox와 연동하면, 그 장점이 두배가 된다.</p>
+<p>마스토돈은 시스템 내부적으로 <code class="highlighter-rouge">ActivityPub</code> 이라는 프로토콜을 사용하고 있으며, <code class="highlighter-rouge">ActivityPub</code> 프로토콜을 사용하는 구현체는 마스토돈 뿐만이 아니라, Misskey/Akkoma/Pleroma 등 다양하게 있다. <code class="highlighter-rouge">ActivityPub</code> 프로토콜을 사용하는 구현체들로 연결된 인스턴스의 네트워크를 <strong>연합우주(fediverse)</strong>라고 표현한다.</p>
 
-<h2 id="recipe-1--dropbox-와-연동하기">Recipe 1 : Dropbox 와 연동하기</h2>
+<p>개발자의 관점에서는 토이프로젝트 맛집으로 접근하기에도 좋다.</p>
 
-<p>mind.nvim은 내부적으로 사용하고 있는 데이터를 <code class="highlighter-rouge">~/.lcoal/share/mind.nvim</code> 경로에서 관리하고 있다.</p>
+<h2 id="fediverse-인스턴스-사례">Fediverse 인스턴스 사례</h2>
 
-<p>아래와 같이 관리할 데이터의 경로를 Dropbox 전용 경로로 지정해두면 Dropbox에서도 내가 작성한 문서를 바로바로 확인이 가능하며, 다른 개발환경에서도 즉시 접근이 가능하다. 사실상 neovim 환경에서 notion 을 사용하는 경험과 비슷한 경험을 누릴 수 있다.</p>
+<h3 id="한국어권-마스토돈-인스턴스">한국어권 마스토돈 인스턴스</h3>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span> <span class="o">=</span> <span class="k">function</span><span class="p">()</span>
-  <span class="nb">require</span><span class="s1">'mind'</span><span class="p">.</span><span class="n">setup</span><span class="p">({</span>
-	<span class="n">persistence</span> <span class="o">=</span> <span class="p">{</span>
-	  <span class="n">state_path</span> <span class="o">=</span> <span class="s2">"/home/kodingwarrior/Dropbox/mind-vault/mind.json"</span><span class="p">,</span>
-	  <span class="n">data_dir</span> <span class="o">=</span> <span class="s2">"/home/kodingwarrior/Dropbox/mind-vault/data"</span><span class="p">,</span>
-	<span class="p">}</span>
-  <span class="p">})</span>
-<span class="k">end</span>
-</code></pre></div></div>
+<ul>
+  <li><a href="https://twingyeo.kr">트잉여</a> – 트위터를 했던 혹은 지금도 트위터를 하고 있는 유저들을 중심으로 구성된 인스턴스</li>
+  <li><a href="https://planet.moe">플래닛모에</a> – 범용 목적의 인스턴스</li>
+  <li><a href="https://qdon.space">큐돈</a> – LGBT에 친화적인 인스턴스</li>
+  <li><a href="https://soical.silicon.moe">SiliconNetwork</a> – 한국어권 이공계열에 특화된 인스턴스</li>
+</ul>
+
+<h3 id="개발자-커뮤니티-관련-인스턴스">개발자 커뮤니티 관련 인스턴스</h3>
+
+<ul>
+  <li><a href="https://emacs.ch">emacs.ch</a> – Emacs</li>
+  <li><a href="https://functional.cafe/">functional.cafe</a> – Functional Programming</li>
+  <li><a href="https://genserver.social/">genserver.social</a> – Erlang/Elixir</li>
+  <li><a href="https://ruby.social">ruby.social</a> – Ruby</li>
+</ul>
+
+<h2 id="mastodon-client">Mastodon Client</h2>
+
+<ul>
+  <li><a href="https://github.com/elk-zone/elk">Elk</a> – Nuxt.JS 기반으로 개발된 마스토돈 클라이언트</li>
+  <li><a href="https://github.com/kode-team/mastodon.nvim">mastodon.nvim</a> – Neovim에서 마스토돈을 이용할 수 있는 클라이언트</li>
+</ul>
 
 </article>
 
