@@ -9,7 +9,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.GUGIGA6I.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.XMVEFPHY.css" />
 <script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
 
 
@@ -100,6 +100,27 @@
   <li>Outline window</li>
 </ul>
 
+<h2 id="commands">Commands</h2>
+
+<p>플러터 앱을 실행할때는 <code class="highlighter-rouge">:FlutterRun</code>, <code class="highlighter-rouge">:FlutterDevices</code> 명령을 사용한다. 당연히, 모바일 환경에서 플러터 앱을 실행하려면 <code class="highlighter-rouge">:FlutterEmulators</code> 명령을 사용하여, 플러터앱을 구동할 기기 에뮬레이터를 띄워야 한다. 플러터 앱이 실행이 되면 <code class="highlighter-rouge">__FLUTTER_DEV_LOG__</code> 라는 이름의 버퍼<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>에 실시간으로 로그가 기록된다.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">:FlutterLogClear</code> - Flutter 로그가 기록되는 버퍼(<code class="highlighter-rouge">__FLUTTER_DEV_LOG__</code>)를 비운다.</li>
+  <li><code class="highlighter-rouge">:FlutterQuit</code> - 현재 실행 중인 앱을 종료한다.</li>
+  <li><code class="highlighter-rouge">:FlutterRestart</code> - 현재 실행 중인 앱을 재시작한다.
+    <ul>
+      <li>다만, 이는 <strong>Hot Reloading</strong>이기 때문에, <strong>fully restart</strong> 하려면 다음과 같은 절차를 진행해야 한다.
+        <ul>
+          <li><strong>1)</strong> (Terminal) 프로젝트 루트 디렉토리에서 <code class="highlighter-rouge">flutter clean</code> 명령을 실행하여, 빌드 파일 및 캐시를 비운다.</li>
+          <li><strong>2)</strong> (Terminal) 다시 <code class="highlighter-rouge">flutter pub get</code> 명령을 실행하여 디펜던시를 설치한다.</li>
+          <li><strong>3)</strong> (Neovim) <code class="highlighter-rouge">:FlutterQuit</code> 명령으로 실행중이던 플러터 앱을 종료한다.</li>
+          <li><strong>4)</strong> (Neovim) <code class="highlighter-rouge">:FlutterRun</code> 혹은 <code class="highlighter-rouge">:FlutterDevices</code> 명령을 실행하여 다시 앱을 빌드 후 실행한다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="recipes">Recipes</h2>
 
 <h3 id="recipe-1--p2p-채팅-어플리케이션-테스트하기">Recipe 1 : P2P 채팅 어플리케이션 테스트하기</h3>
@@ -128,6 +149,14 @@
   <li><strong>3)</strong> 각각의 프로세스에서 <code class="highlighter-rouge">:FlutterDevices</code> 명령을 실행하여, <strong>2)</strong> 에서 띄웠던 디바이스를 각각 다르게 지정하여 어플리케이션을 실행한다.</li>
   <li><strong>4)</strong> <strong>3)</strong>에서 실행된 각각의 어플리케이션에 다른 인증정보로 접근하여 채팅이 잘 되는지 확인한다.</li>
 </ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>로그가 기록되는 버퍼 대신 다른 파일을 열고 있더라도, <strong>telescope.nvim</strong> 유저라면, 로그가 기록되는 버퍼로 이동할때 <code class="highlighter-rouge">builtin.buffers</code> 유틸리티 함수를 이용해서 다시 이동할 수 있다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
 </article>
 
