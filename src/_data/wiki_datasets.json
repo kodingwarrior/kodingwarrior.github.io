@@ -1,6 +1,14 @@
 {
   "nodes": [
     {
+      "id": "quarterly/2023-Q1",
+      "group": 1
+    },
+    {
+      "id": "projects/neural-bridge",
+      "group": 1
+    },
+    {
       "id": "vim-plugin/flutter-tools.nvim",
       "group": 1
     },
@@ -22,10 +30,6 @@
     },
     {
       "id": "digital-garden",
-      "group": 1
-    },
-    {
-      "id": "projects/neural-bridge",
       "group": 1
     },
     {
@@ -138,6 +142,11 @@
     }
   ],
   "links": [
+    {
+      "source": "quarterly/2023-Q1",
+      "target": "projects/neural-bridge",
+      "value": 1
+    },
     {
       "source": "vim-plugin/flutter-tools.nvim",
       "target": "flutter",
