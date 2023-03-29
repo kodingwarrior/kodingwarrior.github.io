@@ -1,6 +1,14 @@
 {
   "nodes": [
     {
+      "id": "quarterly/2023-Q1",
+      "group": 1
+    },
+    {
+      "id": "projects/neural-bridge",
+      "group": 1
+    },
+    {
       "id": "vim-plugin/flutter-tools.nvim",
       "group": 1
     },
@@ -22,10 +30,6 @@
     },
     {
       "id": "digital-garden",
-      "group": 1
-    },
-    {
-      "id": "projects/neural-bridge",
       "group": 1
     },
     {
@@ -62,38 +66,6 @@
     },
     {
       "id": "neovim",
-      "group": 1
-    },
-    {
-      "id": "weekly/2023-W03",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-16",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-17",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-18",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-19",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-20",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-21",
-      "group": 1
-    },
-    {
-      "id": "daily/2023-01-22",
       "group": 1
     },
     {
@@ -135,9 +107,18 @@
     {
       "id": "Neovim",
       "group": 1
+    },
+    {
+      "id": "daily/2023-01-19",
+      "group": 1
     }
   ],
   "links": [
+    {
+      "source": "quarterly/2023-Q1",
+      "target": "projects/neural-bridge",
+      "value": 1
+    },
     {
       "source": "vim-plugin/flutter-tools.nvim",
       "target": "flutter",
@@ -206,41 +187,6 @@
     {
       "source": "dogfooding-driven-development",
       "target": "neovim",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-16",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-17",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-18",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-19",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-20",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-21",
-      "value": 1
-    },
-    {
-      "source": "weekly/2023-W03",
-      "target": "daily/2023-01-22",
       "value": 1
     },
     {
