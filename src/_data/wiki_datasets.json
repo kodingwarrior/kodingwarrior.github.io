@@ -25,6 +25,14 @@
       "group": 1
     },
     {
+      "id": "rfc",
+      "group": 1
+    },
+    {
+      "id": "rfc/2616",
+      "group": 1
+    },
+    {
       "id": "mastodon",
       "group": 1
     },
@@ -127,6 +135,11 @@
     {
       "source": "vim-plugin/flutter-tools.nvim",
       "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "rfc",
+      "target": "rfc/2616",
       "value": 1
     },
     {
