@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>RFC 2616 (HTTP 1.1) | KODINGWARRIOR QUEST</title>
+
+<meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
+<link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
+
+<link rel="stylesheet" href="/_bridgetown/static/index.5LKQANYO.css" />
+<script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
+
+
+  </head>
+  <body class="wiki ">
+    
+<nav>
+  <ul>
+    <li><a href="/">/home</a></li>
+    <li><a href="/about">/about</a></li>
+    <li><a href="/posts">/posts</a></li>
+    <li><a href="/wiki">/wiki</a></li>
+  </ul>
+</nav>
+
+
+    <main>
+      <article>
+        
+<header>
+  <ul class="wiki-navbar">
+	  <li>
+		  <a href="/wiki">
+			  <i class="bi bi-door-open mr-2"></i>Main
+		  </a>
+	  </li>
+	  <li>
+		  <a href="#" onclick="javascript:goToRandomDocument()">
+			  <i class="bi bi-dice-5 mr-2"></i>Random
+		  </a>
+	  </li>
+	  <li>
+		  <a href="/neural-network">
+			  <i class="bi bi-diagram-3 mr-2"></i>Graph
+		  </a>
+	  </li>
+  </ul>
+</header>
+
+<script>
+  function goToRandomDocument() {
+	const availableDocuments = (["quarterly/2023-Q1","vim-plugin/flutter-tools.nvim","vim-plugin/mind.nvim","rfc","rfc/2616","mastodon","digital-garden","prompt-engineering","improving-productivity","cli/diff","cli","dogfooding-driven-development","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
+	
+	const size = availableDocuments.length;
+	const randomIdx = Math.floor(Math.random() * size);
+	window.location.assign("/wiki/" + availableDocuments[Math.max(0, randomIdx)]);
+  }
+</script>
+
+
+<script type="text/javascript" async>
+    const url_default_fb = "https://www.facebook.com/sharer/sharer.php?u=";
+    const url_default_tw_txt = "https://twitter.com/intent/tweet?text=";
+    const url_default_tw_url = "&url=";
+    const url_this_page = encodeURIComponent(location.href);
+    const title_this_page = encodeURIComponent(document.title);
+    const url_combine_fb = url_default_fb + url_this_page;
+    const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
+</script>
+
+<h1>RFC 2616 (HTTP 1.1)</h1>
+
+<div class="flex justify-end mb-6">
+    <!-- Facebook share button -->
+    <a href="" class="mx-4" title="페이스북으로 공유하기" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600');">
+        <i class="bi bi-facebook text-4xl"></i>
+    </a>
+    <!-- Twitter share button -->
+    <a href="" title="트위터로 공유하기" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600');">
+        <i class="bi bi-twitter text-4xl"></i>
+    </a>
+</div>
+
+<article id="wiki-content">
+    <p><strong>RFC 2616</strong>은 HTTP/1.1 웹 통신 프로토콜에 대한 규격을 설명한 문서이다.</p>
+
+<h2 id="section-1---introduction">Section 1 - Introduction</h2>
+
+<p>주로 HTTP/1.1의 목적과 전반적인 특징을 설명한다. HTTP는 인터넷에서의 요청-응답 메커니즘을 위한 어플리케이션 프로토콜로, 클라이언트와 서버 간에 웹 자원(HTML 문서, 이미지 등)을 주고 받는 데 사용된다.</p>
+
+<p>HTTP 1.0에 대한 설명은 <strong>RFC 1945</strong> 를 확인해보면 된다.</p>
+
+<p>HTTP/1.1은 이전 버전인 HTTP/1.0에 비해 여러 개선점이 있으며, 특히 연결 관리, 캐싱, 메시지 전달의 견고성, 범위 요청 등의 기능을 개선하고 확장하였다.</p>
+
+<p>제1장에서는 이러한 개선점들을 간략하게 소개하며, HTTP/1.1의 전반적인 특성에 대한 이해를 돕는다. 전체 RFC 문서를 통해 HTTP/1.1의 자세한 사항들이 각 섹션별로 설명되어 있다.</p>
+
+<h2 id="section-2---notational-conventions-and-generic-grammar">Section 2 - Notational Conventions and Generic Grammar</h2>
+
+<p>이 장에서는 문서 전체에 걸쳐 사용되는 문법과 표기법을 설명한다. 요약하면 다음과 같다.</p>
+
+<p>제 2장에서는 ABNF(Augmented Backus-Naur Form)라는 문법 표기법을 사용하여 HTTP/1.1 프로토콜의 구조와 구성 요소를 정의한다. ABNF는 구문 규칙을 명확하게 표현하는 데 사용되는 메타 문법으로, 여러 통신 프로토콜이나 명세서에서 널리 채택되어 있다.</p>
+
+<p>HTTP/1.1에서 사용하는 몇 가지 기본 토큰과 표기법은 다음과 같다:</p>
+
+<ul>
+  <li>CHAR: US-ASCII 문자 집합의 모든 문자를 나타낸다.</li>
+  <li>CRLF: 캐리지 리턴(Carriage Return, CR)과 라인 피드(Line Feed, LF)의 쌍을 나타내는 줄바꿈 문자이다.</li>
+  <li>LWS: 선형 공백(Linear White Space)으로, 요청 및 응답 메시지의 구문 요소를 구분하는 데 사용된다.</li>
+  <li>TEXT: 인쇄 가능한 US-ASCII 문자와 탭(TAB), 공백(SPACE), 줄바꿈(CRLF) 문자를 포함한다.</li>
+  <li>OCTET: 8비트 데이터 단위로, 값의 범위는 0부터 255까지이다.</li>
+</ul>
+
+<p>이 장에서는 이러한 기본적인 토큰들과 HTTP/1.1에서 사용되는 다양한 헤더, 메소드, 상태 코드 등에 대한 문법 규칙을 설명한다. 이는 프로토콜의 구조를 이해하는 데 중요한 기반이 되며, 나머지 장에서의 설명에 도움을 준다.</p>
+
+<h2 id="section-3---protocol-parameters">Section 3 - Protocol Parameters</h2>
+
+<p>이 장에서는 HTTP/1.1에서 사용되는 기본적인 데이터 타입과 포맷을 정의하고 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>Charsets</strong>: HTTP 메시지 내의 문자 데이터를 해석하기 위한 문자 집합을 나타낸다. 일반적인 예로는 “ISO-8859-1” 및 “UTF-8”이 있다.</li>
+  <li><strong>Language Tags</strong>: 메시지나 엔터티에서 사용되는 자연어를 나타내기 위한 태그이다. RFC 1766에 따라 구성되며, 예를 들어 “en”은 영어, “ko”는 한국어를 나타낸다.</li>
+  <li><strong>Transfer Codings</strong>: 메시지 본문의 전송을 위해 사용되는 인코딩 메커니즘이다. 예를 들어 “chunked”는 메시지를 여러 개의 조각으로 전송하는 방식을 나타낸다.</li>
+  <li><strong>Content Codings</strong>: 메시지의 엔터티 본문에 적용되는 인코딩이나 압축 방식을 나타낸다. 일반적인 예로는 “gzip”과 “deflate”가 있다.</li>
+  <li><strong>Media Types</strong>: 메시지 엔터티의 콘텐츠 형식을 정의하는 식별자이다. 주로 <code class="highlighter-rouge">main_type/sub_type</code> 형식으로 표현되며, 예를 들어 “text/html”은 HTML 텍스트, “image/jpeg”은 JPEG 이미지를 나타낸다.</li>
+  <li><strong>URI(Uniform Resource Identifier)</strong>: 웹 자원의 위치와 식별자를 나타내는 문자열이다. 일반적으로 스킴(scheme)과 호스트(host), 경로(path) 등의 구성요소로 이루어져 있다.</li>
+  <li><strong>HTTP 날짜(Dates)</strong>: HTTP/1.1에서 사용되는 날짜와 시간 포맷이다. 주로 “요일, 일-월-년 시:분:초 GMT” 형식으로 표현된다.</li>
+</ul>
+
+<p>제 3장에서는 이러한 프로토콜 매개변수들을 정의하고 설명하며, 이를 통해 메시지의 구성 요소와 전송 과정을 이해하는 데 도움을 준다. 이후 장에서는 이러한 매개변수들이 실제 메시지 구조와 작동 방식에 어떻게 적용되는지를 자세히 설명한다.</p>
+
+<h2 id="section-4---http-message">Section 4 - HTTP Message</h2>
+
+<p>이 장에서는 HTTP/1.1에서 사용되는 요청 메시지와 응답 메시지의 기본 구조와 구성 요소를 설명한다. 요약하면 다음과 같다.</p>
+
+<p>HTTP 메시지는 시작줄(Start-Line), 헤더(Header), 그리고 Optional하게는 본문(Body)으로 구성되어 있다.</p>
+
+<ul>
+  <li><strong>시작줄(Start-Line)</strong>: 메시지의 첫 줄로, 요청 메시지에서는 <code class="highlighter-rouge">메소드(Method) URI HTTP/버전</code> 형식이며, 응답 메시지에서는 <code class="highlighter-rouge">HTTP/버전 상태코드(Status-Code) 상태문구(Reason-Phrase)</code> 형식으로 나타낸다.</li>
+  <li><strong>헤더(Header)</strong>: 메시지의 메타데이터를 담고 있는 구성 요소로, 콜론(:)으로 구분된 필드 이름과 필드 값의 쌍으로 이루어져 있다. 헤더는 각각의 요청과 응답에 대한 세부 정보를 제공한다.</li>
+  <li><strong>본문(Body)</strong>: 메시지의 실제 콘텐츠를 담고 있는 구성 요소로, 요청에서는 전송되는 데이터, 응답에서는 요청된 자원의 표현(representation)을 담고 있다. 본문은 모든 메시지에 포함되지는 않는다.</li>
+</ul>
+
+<p>또한, 이 장에서는 메시지 구문 요소를 구분하기 위해 사용되는 줄바꿈 문자(CRLF) 및 선형 공백 문자(LWS)에 대해 설명하고, 메시지 길이를 결정하는 방법에 대해서도 설명한다. 이러한 내용은 개발자가 HTTP 메시지를 제대로 구성하고 처리하는 데 중요한 지침을 제공한다.</p>
+
+<h2 id="section-5---request">Section 5 - Request</h2>
+
+<p>이 장에서는 클라이언트가 서버에 보내는 HTTP/1.1 요청 메시지의 구조와 구성 요소를 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>요청 시작줄(Request-Line)</strong>: 요청 메시지의 첫 줄로, 메소드(Method), 요청 URI(Request-URI), 그리고 HTTP 버전을 포함하고 있다. 예를 들면, “GET /index.html HTTP/1.1”과 같은 형식이다.
+    <ul>
+      <li><strong>메소드(Method)</strong>: 클라이언트가 수행하려는 작업을 나타내는 동사이다. 대표적인 메소드로는 GET, POST, PUT, DELETE, HEAD 등이 있다.</li>
+      <li><strong>요청 URI(Request-URI)</strong>: 클라이언트가 요청하는 자원의 식별자로, 절대 URI(예: “http://example.com/index.html”)나 경로 구성 요소(예: “/index.html”)로 나타낼 수 있다.</li>
+    </ul>
+  </li>
+  <li><strong>헤더 필드(Header Fields)</strong>: 요청에 대한 추가 정보를 제공하는 메타데이터로, 예를 들어 User-Agent, Host, Accept, Content-Type 등과 같은 헤더를 포함할 수 있다.</li>
+</ul>
+
+<p>제 5장에서는 이러한 요청 메시지의 구성 요소와 메시지 구조에 대해 설명하며, 요청 메시지를 올바르게 구성하고 처리하는 데 필요한 지침을 제공한다. 이해를 돕기 위해 예제 요청 메시지가 제공되기도 한다.</p>
+
+<h2 id="section-6---response">Section 6 - Response</h2>
+
+<p>이 장에서는 서버가 클라이언트에게 보내는 HTTP/1.1 응답 메시지의 구조와 구성 요소를 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>상태 줄(Status-Line)</strong>: 응답 메시지의 첫 줄로, HTTP 버전, 상태 코드(Status-Code), 그리고 상태 문구(Reason-Phrase)를 포함하고 있다. 예를 들면, “HTTP/1.1 200 OK”와 같은 형식이다.
+    <ul>
+      <li><strong>상태 코드(Status-Code)</strong>: 서버가 요청을 처리한 결과를 나타내는 3자리 숫자이다. 상태 코드는 1xx(정보), 2xx(성공), 3xx(리다이렉션), 4xx(클라이언트 오류), 5xx(서버 오류)와 같은 범주로 분류된다.</li>
+      <li><strong>상태 문구(Reason-Phrase)</strong>: 상태 코드에 대한 간략한 설명으로, 숫자 코드만으로는 이해하기 어려운 사람들을 위해 제공된다.</li>
+    </ul>
+  </li>
+  <li><strong>헤더 필드(Header Fields)</strong>: 응답에 대한 추가 정보를 제공하는 메타데이터로, 예를 들어 Date, Server, Content-Length, Content-Type 등과 같은 헤더를 포함할 수 있다.</li>
+</ul>
+
+<p>제 6장에서는 이러한 응답 메시지의 구성 요소와 메시지 구조에 대해 설명하며, 응답 메시지를 올바르게 구성하고 처리하는 데 필요한 지침을 제공한다. 이해를 돕기 위해 예제 응답 메시지가 제공되기도 한다.</p>
+
+<h2 id="section-7---entity">Section 7 - Entity</h2>
+
+<p>이 장에서는 요청 및 응답 메시지에 포함되어 있는 실제 데이터를 나타내는 엔터티의 개념과 구성 요소를 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>엔터티(Entity)</strong>: 요청과 응답 메시지에서 데이터를 포함하는 본문(Body)을 의미하며, 자원(Resource)의 표현(Representation)을 나타낸다.</li>
+  <li><strong>엔터티 헤더(Entity Header)</strong>: 엔터티 본문과 관련된 메타데이터를 제공하는 헤더로, 예를 들어 Content-Type, Content-Length, Content-Encoding 등과 같은 헤더를 포함할 수 있다.</li>
+  <li><strong>미디어 타입(Media Type)</strong>: 엔터티 본문의 콘텐츠 형식을 나타내는 식별자로, <code class="highlighter-rouge">main_type/sub_type</code> 형식으로 표현되며, 예를 들어 “text/html”, “application/json”, “image/jpeg” 등이 있다.</li>
+  <li><strong>콘텐츠 인코딩(Content-Encoding)</strong>: 엔터티 본문에 적용된 인코딩이나 압축 방식을 나타낸다. 일반적인 인코딩 방식으로는 “gzip”과 “deflate”가 있다.</li>
+  <li><strong>콘텐츠 언어(Content-Language)</strong>: 엔터티 본문에 사용된 자연어를 나타내는 태그로, 예를 들어 “en”, “ko”와 같이 나타낼 수 있다.</li>
+  <li><strong>콘텐츠 위치(Content-Location)</strong>: 엔터티의 대체 위치를 나타내는 URI로, 클라이언트가 엔터티를 다른 위치에서 검색할 수 있도록 한다.</li>
+</ul>
+
+<p>제 7장에서는 이러한 엔터티의 개념과 구성 요소에 대해 설명하며, 클라이언트와 서버가 메시지를 효과적으로 처리하고 전송하는 데 필요한 지침을 제공한다.</p>
+
+<h2 id="section-8---connections">Section 8 - Connections</h2>
+
+<p>이 장에서는 HTTP/1.1에서의 클라이언트와 서버 간 연결을 관리하는 방법을 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>Persistent Connections</strong>: HTTP/1.1에서 기본적으로 사용되는 연결 유지 방식으로, 여러 요청과 응답을 순차적으로 하나의 연결에서 처리할 수 있도록 한다. 이로 인해 네트워크 오버헤드가 줄어들고, 전체적인 통신 성능이 향상된다.</li>
+  <li><strong>Pipelining</strong>: 지속적 연결을 기반으로 동시에 여러 요청을 보내고, 응답 순서에 따라 처리하는 방식이다. 이를 통해 대역폭 사용과 전체 응답 시간을 개선할 수 있다.</li>
+  <li><strong>Connection Control</strong>: “Connection” 헤더를 사용하여 클라이언트와 서버가 연결을 관리할 수 있다. 예를 들어, “close” 옵션으로 연결 종료를 명시하거나, “keep-alive” 옵션으로 지속적 연결의 타임아웃을 설정할 수 있다.</li>
+  <li><strong>Proxy and Gateway Connections</strong>: 클라이언트와 서버 사이에 위치하는 중간 요소로, 프록시와 게이트웨이를 사용하는 경우에도 연결 관리 원칙이 적용된다.</li>
+</ul>
+
+<p>제 8장에서는 HTTP/1.1 연결 관리의 기본 원칙과 연결을 효율적으로 관리하는 방법에 대해 설명하며, 웹 애플리케이션의 성능 향상에 도움을 준다.</p>
+
+<h2 id="section-9---method-definitions">Section 9 - Method Definitions</h2>
+
+<p>이 장에서는 HTTP/1.1에서 사용되는 주요 HTTP 메소드의 정의와 각 메소드가 수행하는 작업에 대해 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>OPTIONS</strong>: 서버가 지원하는 특정 리소스에 대한 통신 옵션을 조회한다. 이를 통해 클라이언트는 서버가 어떤 메소드를 지원하는지 확인할 수 있다.</li>
+  <li><strong>GET</strong>: 리소스의 표현(Representation)을 요청한다. GET은 안전하고 멱등성이 있는 메소드로, 리소스를 수정하지 않고 조회하는 데 사용된다.</li>
+  <li><strong>HEAD</strong>: GET과 비슷하지만, 응답의 본문을 제외한 리소스의 메타데이터만을 요청한다. HEAD는 리소스의 존재 여부 및 헤더 정보를 확인하는 데 사용된다.</li>
+  <li><strong>POST</strong>: 서버에 새로운 리소스를 생성하거나, 서버가 처리할 데이터를 제출하는 데 사용된다. POST는 안전하지 않고 멱등성이 없는 메소드이다.</li>
+  <li><strong>PUT</strong>: 리소스를 갱신하거나, 리소스가 없는 경우 생성하는 데 사용된다. PUT은 멱등성이 있는 메소드로, 동일한 요청을 여러 번 전송해도 결과가 같다.</li>
+  <li><strong>DELETE</strong>: 지정된 리소스를 삭제하는 데 사용된다. DELETE는 멱등성이 있는 메소드이다.</li>
+  <li><strong>TRACE</strong>: 클라이언트의 요청 메시지를 그대로 반환하여, 프록시 등 중간 요소에 의한 변경 사항을 확인하는 데 사용된다.</li>
+  <li><strong>CONNECT</strong>: 네트워크 리소스로의 네트워크 연결을 설정하는 데 사용된다. 주로 SSL/TLS 프록시에 대한 연결 설정에 사용된다.</li>
+</ul>
+
+<p>제 9장에서는 이러한 HTTP 메소드의 작동 방식과 용도에 대해 설명하며, 웹 개발자들이 HTTP 통신을 이해하고 올바른 메소드를 선택하는 데 도움을 준다.</p>
+
+<h2 id="section-10---status-code-definitions">Section 10 - Status Code Definitions</h2>
+
+<p>이 장에서는 HTTP/1.1에서 사용되는 상태 코드의 의미와 각 코드가 나타내는 상황에 대해 설명한다. 상태 코드는 3자리 숫자로 분류되며, 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>1xx (Informational)</strong>: 임시 응답으로, 요청 처리 중에 전달되며 클라이언트는 추가 조치를 취해야 한다.
+    <ul>
+      <li>예: 100 Continue, 101 Switching Protocols</li>
+    </ul>
+  </li>
+  <li><strong>2xx (Successful)</strong>: 요청이 성공적으로 처리되었음을 나타낸다.
+    <ul>
+      <li>예: 200 OK, 201 Created, 202 Accepted, 204 No Content</li>
+    </ul>
+  </li>
+  <li><strong>3xx (Redirection)</strong>: 요청 완료를 위해 추가 조치가 필요하며, 주로 클라이언트에게 다른 리소스로의 이동을 나타낸다.
+    <ul>
+      <li>예: 300 Multiple Choices, 301 Moved Permanently, 302 Found, 304 Not Modified</li>
+    </ul>
+  </li>
+  <li><strong>4xx (Client Error)</strong>: 클라이언트의 요청에 오류가 있음을 나타낸다. 클라이언트는 요청을 수정하거나 다시 시도해야 한다.
+    <ul>
+      <li>예: 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found</li>
+    </ul>
+  </li>
+  <li><strong>5xx (Server Error)</strong>: 서버가 요청을 처리하는 과정에서 오류가 발생했음을 나타낸다. 일반적으로 서버 측의 문제로 인한 상태이다.
+    <ul>
+      <li>예: 500 Internal Server Error, 501 Not Implemented, 503 Service Unavailable</li>
+    </ul>
+  </li>
+</ul>
+
+<p>제 10장에서는 이러한 상태 코드의 세부적인 의미와 웹 개발자들이 상태 코드를 올바르게 사용하여 클라이언트와 서버 간의 통신을 처리하는 데 도움이 되는 방법에 대해 설명한다.</p>
+
+<h2 id="section-11---access-authentication">Section 11 - Access Authentication</h2>
+
+<p>이 장에서는 클라이언트와 서버 간에 신원을 인증하는 기본 접근 인증 스키마에 대해 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>인증(Authentication)</strong>: 웹 리소스에 대한 접근 권한을 제어하기 위해, 클라이언트는 사용자 이름과 비밀번호 등의 인증 정보를 제공해야 한다. 인증은 서버에 요청이 유효한 사용자로부터 발생했음을 확인하는 과정이다.</li>
+  <li><strong>인증 헤더(Authentication Headers)</strong>: “WWW-Authenticate” 헤더를 사용하여 서버는 클라이언트에게 인증을 요청할 수 있다. 반대로 클라이언트는 “Authorization” 헤더를 사용하여 인증 정보를 제공한다.</li>
+  <li><strong>기본 인증 스키마(Basic Authentication Scheme)</strong>: 사용자 이름과 비밀번호를 Base64 인코딩하여 “Authorization” 헤더에 전송하는 간단한 인증 방식이다. 이 방식은 암호화되지 않은 텍스트로 인증 정보가 전송되므로 보안에 취약하다. 따라서 HTTPS와 같은 보안 프로토콜과 함께 사용하는 것이 좋다.</li>
+</ul>
+
+<p>제 11장에서는 기본 인증 스키마를 사용하여 웹 애플리케이션의 접근 권한을 제어하는 방법에 대해 설명하며, 클라이언트와 서버가 인증 프로세스를 올바르게 수행하는 데 도움을 준다. 하지만 실제 상황에서는 더 안전한 인증 방식인 OAuth, JWT 등을 사용하는 것이 권장된다.</p>
+
+<h2 id="section-12---content-negotiation">Section 12 - Content Negotiation</h2>
+
+<p>이 장에서는 클라이언트와 서버 간에 적합한 리소스 표현을 선택하는 과정에 대해 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>Content Negotiation</strong>: 서버가 여러 가지 표현(representations)을 가진 리소스를 제공할 때, 클라이언트의 요구 사항과 서버의 가능한 표현 사이에서 가장 적절한 표현을 선택하는 과정이다.</li>
+  <li><strong>Negotiation Headers</strong>: 클라이언트는 서버에게 원하는 표현의 특성을 나타내는 헤더를 전송할 수 있다. 이러한 헤더에는 “Accept”, “Accept-Language”, “Accept-Encoding”, “Accept-Charset” 등이 포함된다.</li>
+  <li><strong>Server-Driven Negotiation</strong>: 서버가 클라이언트가 제공한 Negotiation Header를 기반으로 가장 적절한 표현을 선택하는 Negotiation 방식입니다.</li>
+  <li><strong>Transparent Negotiation</strong>: Server-Driven Negitiation과 Agent-Driven Negotiation의 혼합 형태로, 클라이언트와 서버 모두 Negotiation 과정에 참여한다. 서버는 클라이언트에게 가능한 표현 목록을 제공하고, 클라이언트는 이 중에서 최종 선택을 한다.</li>
+</ul>
+
+<p>제 12장에서는 Content Negotiation의 원칙과 각 협상 방식을 이해하고 적용하는 방법에 대해 설명한다. 이를 통해 웹 개발자들은 클라이언트의 요구 사항에 맞춰 최적의 리소스 표현을 제공할 수 있다.</p>
+
+<h2 id="section-13---caching-in-http">Section 13 - Caching in HTTP</h2>
+
+<p>이 장에서는 HTTP/1.1에서 캐싱 동작 및 캐싱 처리를 위한 헤더를 설명한다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>Caching</strong>: 서버로부터 받은 응답을 일정 시간 동안 로컬 저장소에 저장하고, 동일한 요청이 들어올 때 저장된 응답을 반환하여 성능을 향상시키는 기능이다.</li>
+  <li><strong>Cache Headers</strong>: 캐시 동작을 제어하는데 사용되는 헤더로, “Cache-Control”, “Expires”, “ETag”, “Last-Modified” 등이 포함된다.
+    <ul>
+      <li><strong>“Cache-Control”</strong>은 캐시 동작을 지시하는 디렉티브를 포함한다. 예를 들어, “no-cache”, “private”, “public”, “max-age” 등이 있다.</li>
+      <li><strong>“Expires”</strong>는 리소스가 만료되는 시점을 나타내며, 이 시점 이후에는 캐시된 응답을 사용하지 않는다.</li>
+      <li><strong>“ETag”</strong>는 리소스의 특정 버전을 식별하는 토큰이다. 클라이언트가 조건부 요청을 보낼 때 사용되어 리소스 변경 여부를 판단한다.</li>
+      <li><strong>“Last-Modified”</strong>는 리소스가 마지막으로 변경된 시간을 나타낸다. ETag와 유사한 목적으로 사용된다.</li>
+    </ul>
+  </li>
+  <li><strong>Freshness Determination</strong>: 캐시된 응답이 여전히 Fresh한지 아닌지를 판단하는 과정이다. “Cache-Control” 및 “Expires” 헤더를 기반으로 판단하며, 만료된 경우 서버에 다시 요청할 수 있다.</li>
+  <li><strong>Validation</strong>: 캐시된 리소스의 Freshness가 만료되었을 때, 서버에 리소스 변경 여부를 확인하는 요청을 보내는 과정이다. “ETag” 및 “Last-Modified” 헤더를 사용하여 리소스가 변경되지 않았다면, 캐시된 응답을 재사용할 수 있다.</li>
+</ul>
+
+<p>제 13장에서는 HTTP 캐싱의 원칙, 캐시 제어 헤더, 그리고 캐싱 동작을 제어하는 방법에 대해 설명한다. 이를 통해 웹 개발자들은 네트워크 지연을 줄이고, 대역폭 사용량을 최소화하며, 전반적인 애플리케이션 성능을 향상시킬 수 있다.</p>
+
+<h2 id="section-14---header-field-definitions">Section 14 - Header Field Definitions</h2>
+
+<p>이 장에서는 HTTP/1.1에서 사용되는 모든 헤더 필드에 대해 설명하고 있다. 여기에는 요청 및 응답에서 사용되는 다양한 헤더가 포함되어 있으며, 헤더의 목적 및 사용 방법에 대해 자세히 설명한다.</p>
+
+<p>제 14장의 주요 헤더 필드는 다음과 같다.</p>
+
+<ul>
+  <li><strong>일반 헤더(General Headers)</strong>: 클라이언트와 서버 모두에서 사용되는 헤더로, “Cache-Control”, “Connection”, “Date”, “Pragma”, “Transfer-Encoding” 등이 포함된다.</li>
+  <li><strong>요청 헤더(Request Headers)</strong>: 클라이언트가 서버에 요청을 보낼 때 사용하는 헤더로, “Accept”, “Accept-Charset”, “Accept-Encoding”, “Accept-Language”, “Authorization”, “From”, “Host”, “If-Match”, “If-Modified-Since”, “If-None-Match”, “If-Range”, “If-Unmodified-Since”, “Max-Forwards”, “Proxy-Authorization”, “Range”, “Referer”, “User-Agent” 등이 포함된다.</li>
+  <li><strong>응답 헤더(Response Headers)</strong>: 서버가 클라이언트에 응답을 보낼 때 사용하는 헤더로, “Accept-Ranges”, “Age”, “ETag”, “Location”, “Proxy-Authenticate”, “Retry-After”, “Server”, “Vary”, “WWW-Authenticate” 등이 포함된다.</li>
+  <li><strong>엔터티 헤더(Entity Headers)</strong>: 메시지에 포함된 엔터티에 대한 메타데이터를 제공하는 헤더로, “Allow”, “Content-Encoding”, “Content-Language”, “Content-Length”, “Content-Location”, “Content-MD5”, “Content-Range”, “Content-Type”, “Expires”, “Last-Modified” 등이 포함된다.</li>
+</ul>
+
+<p>제 14장에서는 이러한 헤더들의 목적, 사용 방법 및 예제를 상세하게 설명하여 웹 개발자들이 HTTP 요청과 응답을 정확하게 구성할 수 있도록 도움을 준다.</p>
+
+<h2 id="section-15---security-considerations">Section 15 - Security Considerations</h2>
+
+<p>이 장에서는 HTTP/1.1 프로토콜을 사용할 때 고려해야 할 주요 보안 이슈와 위험 요소에 대해 설명하고 있다. 요약하면 다음과 같다.</p>
+
+<ul>
+  <li><strong>기밀성(Confidentiality)</strong>: HTTP는 기본적으로 암호화되지 않은 텍스트로 데이터를 전송하므로, 제3자가 데이터를 도청하거나 탈취할 수 있다. 이를 방지하기 위해 SSL/TLS와 같은 암호화 프로토콜을 사용해야 한다.</li>
+  <li><strong>인증(Authentication)</strong>: 기본 인증 스키마는 사용자 이름과 비밀번호를 암호화되지 않은 형태로 전송한다. 이로 인해 보안 위험이 발생할 수 있으므로, 더 안전한 인증 방식을 사용해야 한다. 예를 들어, OAuth, JWT 등의 인증 방식을 사용할 수 있다.</li>
+  <li><strong>메시지 무결성(Message Integrity)</strong>: HTTP 메시지는 전송 중에 변경될 수 있으므로, 이를 방지하기 위해 메시지의 무결성을 검증해야 한다. 이를 위해 “Content-MD5” 헤더를 사용하여 메시지 본문의 체크섬을 전송하거나, HTTPS를 사용하여 전체 메시지의 무결성을 보장할 수 있다.</li>
+  <li><strong>캐싱과 개인 정보(Caching and Privacy)</strong>: 캐싱된 데이터가 개인 정보를 포함할 수 있으므로, “Cache-Control” 헤더를 사용하여 적절한 캐시 동작을 지정해야 한다. 예를 들어, “private” 지시자를 사용하여 특정 사용자에게만 데이터가 공개되도록 할 수 있다.</li>
+</ul>
+
+<p>제 15장에서는 이러한 보안 이슈를 인식하고 이를 완화하기 위한 방법을 이해하여, 웹 개발자들이 안전한 웹 애플리케이션을 구축할 수 있도록 도움을 준다.</p>
+
+
+</article>
+
+<!-- buy me a coffee -->
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#BB5794 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+
+<div class="text-center my-4">
+    <a class="bmc-button" target="_blank" href="https://qr.kakaopay.com/Ej8T6e8CM5dc06009"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</div>
+<script src="https://utteranc.es/client.js"
+    repo="kodingwarrior/kodingwarrior.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+window.addEventListener("load", function(event) {
+	const target = document.querySelector('#wiki-content')
+	const before = target.innerHTML
+	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
+	
+	let after = before
+	results.forEach(function(result) {
+		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
+		after = after.replace(result[0], anchorHtml)
+	})
+
+	target.innerHTML = after
+
+	const hyperlinks = target.querySelectorAll('a')
+
+	const githubIcon = document.createElement('i')
+	githubIcon.classList.add('bi-github')
+
+	const documentIcon = document.createElement('i')
+	documentIcon.classList.add('bi-file-text')
+
+	const wikipediaIcon = document.createElement('i')
+	wikipediaIcon.classList.add('bi-wikipedia')
+
+	const microsoftIcon = document.createElement('i')
+	microsoftIcon.classList.add('bi-windows')
+
+	const icons = [
+		wikipediaIcon,
+		githubIcon,
+		documentIcon,
+		microsoftIcon,
+	]
+
+	icons.forEach(function(icon) {
+		icon.classList.add('bi')
+		icon.classList.add('mr-1')
+	})
+
+
+	hyperlinks.forEach(function(element) {
+		// internal link
+		if (element.href.includes(document.location.host + "/wiki")) {
+			if (!element.className.includes("footnote")) {
+				element.prepend(documentIcon.cloneNode(true))
+			}
+		}
+
+		// github
+		if (element.href.includes("github.com")) {
+			element.prepend(githubIcon.cloneNode(true))
+		}
+	
+		// wikipedia
+		if (element.href.includes("wikipedia.org")) {
+			element.prepend(wikipediaIcon.cloneNode(true))
+		}
+
+		// microsoft related documentation
+		if (element.href.includes("visualstudio.com")) {
+			element.prepend(microsoftIcon.cloneNode(true))
+		}
+	})
+})
+</script>
+
+      </article>
+    </main>
+
+    <footer class="flex justify-start sm:justify-center flex-col sm:flex-row">
+  <a class="my-2 mx-3 no-underline" href="/rss.xml">
+    <i class="bi bi-rss-fill text-2xl"></i> Feed
+  </a>
+  <a class="my-2 mx-3 no-underline" href="mailto:rijgndqw012@gmail.com">
+    <i class="bi bi-envelope-fill text-2xl"></i> Email
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://twitter.com/kodingwarrior">
+    <i class="bi bi-twitter text-2xl"></i> Twitter
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://github.com/kodingwarrior/kodingwarrior.github.io">
+    <i class="bi bi-github text-2xl"></i> Github
+  </a>
+</footer>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127979309-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127979309-1');
+    </script>
+  </body>
+</html>
