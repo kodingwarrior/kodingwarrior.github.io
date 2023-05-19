@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Telekasten.nvim | KODINGWARRIOR QUEST</title>
+<title>제 2회 EXCELCON - Neovim으로 생산성 퀀텀점프하기 | KODINGWARRIOR QUEST</title>
 
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -70,7 +70,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>Telekasten.nvim</h1>
+<h1>제 2회 EXCELCON - Neovim으로 생산성 퀀텀점프하기</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -84,38 +84,27 @@
 </div>
 
 <article id="wiki-content">
-    <p><del>Neovim에 강력한 검색 기능을 제공하는 킹갓제네럴엠퍼러</del> [[vim-plugin/telescope.nvim]] 기반으로 동작하는 zettelkasten management plugin</p>
+    <h3 id="note-taking">Note Taking</h3>
 
-<h2 id="keymap">Keymap</h2>
+<ul>
+  <li><a href="https://castel.dev/post/lecture-notes-1/">How I’m able to take notes in mathematics lectures using LaTeX and Vim</a> - 수학과 학생이 Vim 으로 강의노트를 작성한 후기
+    <ul>
+      <li><a href="https://castel.dev/post/lecture-notes-3/">How I manage my LaTeX lecture notes</a> - LaTeX 기반으로 작성한 강의노트를 관리하는 방법을 소개</li>
+    </ul>
+  </li>
+</ul>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Telekasten</span>
-<span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_create_autocmd</span><span class="p">(</span><span class="s1">'FileType'</span><span class="p">,</span> <span class="p">{</span>
-  <span class="n">pattern</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'markdown'</span><span class="p">},</span>
-  <span class="n">group</span> <span class="o">=</span> <span class="n">augroup</span><span class="p">,</span>
-  <span class="n">desc</span> <span class="o">=</span> <span class="s1">'Only works on markdown files'</span><span class="p">,</span>
-  <span class="n">callback</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zf"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').find_notes()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zd"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').find_daily_notes()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zz"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').follow_link()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zT"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').goto_today()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zW"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').goto_thisweek()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zn"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').new_note()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zc"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').show_calendar()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zC"</span><span class="p">,</span> <span class="s2">":CalendarT&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zt"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').toggle_todo()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zb"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').show_backlinks()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
+<h3 id="miscellaneous">Miscellaneous</h3>
 
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;z"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').panel()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-
-    <span class="n">map</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;["</span><span class="p">,</span> <span class="s2">"&lt;cmd&gt;:lua require('telekasten').insert_link({ i=true })&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zt"</span><span class="p">,</span> <span class="s2">"&lt;cmd&gt;:lua require('telekasten').toggle_todo({ i=true })&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;#"</span><span class="p">,</span> <span class="s2">"&lt;cmd&gt;lua require('telekasten').show_tags({i = true})&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-
-    <span class="c1">-- custom tricky commands</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;Zt"</span><span class="p">,</span> <span class="s2">":lua require('telescope.builtin').live_grep(); vim.api.nvim_feedkeys('TODO', 'n', true);&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="p">})</span>
-</code></pre></div></div>
+<ul>
+  <li><a href="https://helix-editor.com/">Helix Editor</a>
+    <ul>
+      <li>Vim의 뒤를 잇는 또 하나의 multi-modal 텍스트 에디터입니다. (Rust 기반으로 개발)</li>
+      <li>Neovim에서는 플러그인 설치해야만 이용할 수 있었던 좋은 기능들을 Helix는 All-in-one으로 제공하려고 하는 느낌입니다.</li>
+      <li>2023년 6월 3일 기준으로는 플러그인 시스템이 탑재되어 있지 않습니다.</li>
+    </ul>
+  </li>
+</ul>
 
 </article>
 
