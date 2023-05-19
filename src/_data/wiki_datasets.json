@@ -25,6 +25,14 @@
       "group": 1
     },
     {
+      "id": "appendix/excelcon-2nd",
+      "group": 1
+    },
+    {
+      "id": "appendix",
+      "group": 1
+    },
+    {
       "id": "rfc",
       "group": 1
     },
@@ -135,6 +143,11 @@
     {
       "source": "vim-plugin/flutter-tools.nvim",
       "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "appendix",
+      "target": "appendix/excelcon-2nd",
       "value": 1
     },
     {
