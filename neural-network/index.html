@@ -9,7 +9,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.XCQKONDN.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.QIVRZVAM.css" />
 <script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
 
 
@@ -75,6 +75,13 @@ window.addEventListener('load', function(e) {
 	const dataset = ({"nodes":[{"id":"quarterly/2023-Q1","group":1},{"id":"projects/neural-bridge","group":1},{"id":"vim-plugin/flutter-tools.nvim","group":1},{"id":"flutter","group":1},{"id":"tmuxinator","group":1},{"id":"vim-plugin/mind.nvim","group":1},{"id":"appendix/excelcon-2nd","group":1},{"id":"appendix","group":1},{"id":"rfc","group":1},{"id":"rfc/2616","group":1},{"id":"mastodon","group":1},{"id":"digital-garden","group":1},{"id":"vim-plugin/telekasten.nvim","group":1},{"id":"prompt-engineering","group":1},{"id":"improving-productivity","group":1},{"id":"cli/diff","group":1},{"id":"cli","group":1},{"id":"wezterm","group":1},{"id":"tmux","group":1},{"id":"dogfooding-driven-development","group":1},{"id":"neovim","group":1},{"id":"workbench","group":1},{"id":"vim-plugin","group":1},{"id":"vim-plugin/telescope.nvim","group":1},{"id":"vim","group":1},{"id":"vim-plugin/nvim-treesitter-context","group":1},{"id":"vim-plugin/vim-fugitive","group":1},{"id":"vim-plugin/vim-gitgutter","group":1},{"id":"vim-plugin/octo.nvim","group":1},{"id":"symbol","group":1},{"id":"Neovim","group":1},{"id":"daily/2023-01-19","group":1}],"links":[{"source":"quarterly/2023-Q1","target":"projects/neural-bridge","value":1},{"source":"vim-plugin/flutter-tools.nvim","target":"flutter","value":1},{"source":"vim-plugin/flutter-tools.nvim","target":"tmuxinator","value":1},{"source":"appendix","target":"appendix/excelcon-2nd","value":1},{"source":"rfc","target":"rfc/2616","value":1},{"source":"digital-garden","target":"projects/neural-bridge","value":1},{"source":"digital-garden","target":"vim-plugin/telekasten.nvim","value":1},{"source":"improving-productivity","target":"tmuxinator","value":1},{"source":"improving-productivity","target":"vim-plugin/telekasten.nvim","value":1},{"source":"improving-productivity","target":"vim-plugin/mind.nvim","value":1},{"source":"improving-productivity","target":"prompt-engineering","value":1},{"source":"cli","target":"cli/diff","value":1},{"source":"cli","target":"wezterm","value":1},{"source":"cli","target":"tmux","value":1},{"source":"cli","target":"tmuxinator","value":1},{"source":"dogfooding-driven-development","target":"projects/neural-bridge","value":1},{"source":"dogfooding-driven-development","target":"neovim","value":1},{"source":"workbench","target":"wezterm","value":1},{"source":"workbench","target":"neovim","value":1},{"source":"workbench","target":"vim-plugin","value":1},{"source":"workbench","target":"tmuxinator","value":1},{"source":"vim-plugin/telekasten.nvim","target":"vim-plugin/telescope.nvim","value":1},{"source":"vim-plugin","target":"vim","value":1},{"source":"vim-plugin","target":"neovim","value":1},{"source":"vim-plugin","target":"vim-plugin/flutter-tools.nvim","value":1},{"source":"vim-plugin","target":"vim-plugin/nvim-treesitter-context","value":1},{"source":"vim-plugin","target":"vim-plugin/vim-fugitive","value":1},{"source":"vim-plugin","target":"vim-plugin/vim-gitgutter","value":1},{"source":"vim-plugin","target":"vim-plugin/octo.nvim","value":1},{"source":"vim-plugin","target":"vim-plugin/telekasten.nvim","value":1},{"source":"vim-plugin","target":"vim-plugin/mind.nvim","value":1},{"source":"projects/neural-bridge","target":"vim-plugin/telekasten.nvim","value":1},{"source":"projects/neural-bridge","target":"vim-plugin/telekasten.nvim","value":1},{"source":"projects/neural-bridge","target":"vim-plugin/telekasten.nvim","value":1},{"source":"projects/neural-bridge","target":"wezterm","value":1},{"source":"projects/neural-bridge","target":"tmuxinator","value":1},{"source":"projects/neural-bridge","target":"Neovim","value":1},{"source":"daily/2023-01-19","target":"projects/neural-bridge","value":1},{"source":"daily/2023-01-19","target":"projects/neural-bridge","value":1}]})
 	console.log(dataset)
 
+    const icons = {}
+
+    const vimIcon = new Image()
+    vimIcon.src = "/images/vim-icon.png"
+
+    icons['vim-plugin'] = vimIcon
+
 	KnowledgeGraph(document.querySelector("#neural-network"))
 	  .graphData(dataset)
 	  .width(targetElement.offsetWidth)
@@ -84,6 +91,7 @@ window.addEventListener('load', function(e) {
         const fontSize = 8;
 
         const hierarchyNodes = path.split("/");
+        const category = hierarchyNodes[0];
         const label = hierarchyNodes[hierarchyNodes.length - 1];
 
 		// Rendering Text
@@ -95,13 +103,31 @@ window.addEventListener('load', function(e) {
         ctx.fillStyle = 'black';
         ctx.fillText(label, node.x, node.y + 12);
 
+        ctx.beginPath()
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)"
+        ctx.roundRect(
+          node.x - textWidth / 2 - 6, 
+          node.y + fontSize / 2 + 2, 
+          textWidth + 12, 
+          fontSize + 4, 
+          5
+        );
+        ctx.fill()
+
+        const hasIcon = ['vim-plugin'].includes(category);
+        const size = 12;
+
 		// Rendering Circle
-	  	const size = 12;
-		const radius = size / 2;
-		ctx.fillStyle = "rgba(0, 0, 0, 0.2)"
-		ctx.beginPath();
-		ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false)
-		ctx.fill()
+        if (hasIcon) {
+          const img = icons[category];
+          ctx.drawImage(img, node.x - size / 2, node.y - size / 2, size, size);
+        } else {
+          const radius = size / 2;
+          ctx.fillStyle = "rgba(0, 0, 0, 0.2)"
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI, false)
+          ctx.fill()
+        }
 
         node.__bckgDimensions = bckgDimensions;
 	  })
