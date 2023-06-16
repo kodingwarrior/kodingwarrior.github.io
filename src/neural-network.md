@@ -23,8 +23,11 @@ window.addEventListener('load', function(e) {
 	  .width(targetElement.offsetWidth)
 	  .height(targetElement.offsetWidth)
 	  .nodeCanvasObject(function(node, ctx) {
-	    const label = node.id;
+	    const path = node.id;
         const fontSize = 8;
+
+        const hierarchyNodes = path.split("/");
+        const label = hierarchyNodes[hierarchyNodes.length - 1];
 
 		// Rendering Text
 		ctx.font = `${fontSize}px Sans-Serif`;
