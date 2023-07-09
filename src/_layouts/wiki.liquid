@@ -73,11 +73,27 @@ window.addEventListener("load", function(event) {
 	const microsoftIcon = document.createElement('i')
 	microsoftIcon.classList.add('bi-windows')
 
+	const bookIcon = document.createElement('i')
+	bookIcon.classList.add('bi-book')
+
+	const youtubeIcon = document.createElement('i')
+	youtubeIcon.classList.add('bi-youtube')
+
+	const twitterIcon = document.createElement('i')
+	twitterIcon.classList.add('bi-twitter')
+
+	const blueskyIcon = document.createElement('i')
+	blueskyIcon.classList.add('bi-cloud-sun')
+
 	const icons = [
 		wikipediaIcon,
 		githubIcon,
 		documentIcon,
 		microsoftIcon,
+		bookIcon,
+		youtubeIcon,
+		twitterIcon,
+		blueskyIcon,
 	]
 
 	icons.forEach(function(icon) {
@@ -107,6 +123,26 @@ window.addEventListener("load", function(event) {
 		// microsoft related documentation
 		if (element.href.includes("visualstudio.com")) {
 			element.prepend(microsoftIcon.cloneNode(true))
+		}
+
+		// aladin
+		if (element.href.includes("aladin.co.kr")) {
+			element.prepend(bookIcon.cloneNode(true))
+		}
+
+		// youtube 
+		if (element.href.includes("youtube.com")) {
+			element.prepend(youtubeIcon.cloneNode(true))
+		}
+
+		// twitter
+		if (element.href.includes("twitter.com")) {
+			element.prepend(twitterIcon.cloneNode(true))
+		}
+
+		// bluesky 
+		if (element.href.includes("bsky.app")) {
+			element.prepend(blueskyIcon.cloneNode(true))
 		}
 	})
 })
