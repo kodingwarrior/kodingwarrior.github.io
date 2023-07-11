@@ -26,6 +26,8 @@ Mastodon은 오픈 소스 SNS 플랫폼이다. 누구나 자신의 소셜 네트
 * [genserver.social](https://genserver.social/) -- Erlang/Elixir
 * [ruby.social](https://ruby.social) -- Ruby
 
+> 마스토돈을 처음 접하는 개발자들을 위한 계정 추천은 [[mastodon/recommendations]]{여기}를 참고해주세요.
+
 ## Mastodon Client
 
 * [Elk](https://github.com/elk-zone/elk) -- Nuxt.JS 기반으로 개발된 마스토돈 클라이언트

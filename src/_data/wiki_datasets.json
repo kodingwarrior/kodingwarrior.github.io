@@ -1,11 +1,11 @@
 {
   "nodes": [
     {
-      "id": "quarterly/2023-Q2",
+      "id": "mastodon/recommendations",
       "group": 1
     },
     {
-      "id": "appendix/excelcon-2nd",
+      "id": "archive",
       "group": 1
     },
     {
@@ -13,27 +13,11 @@
       "group": 1
     },
     {
-      "id": "projects/neural-bridge",
+      "id": "quarterly/2023-Q2",
       "group": 1
     },
     {
-      "id": "vim-plugin/flutter-tools.nvim",
-      "group": 1
-    },
-    {
-      "id": "flutter",
-      "group": 1
-    },
-    {
-      "id": "tmuxinator",
-      "group": 1
-    },
-    {
-      "id": "vim-plugin/mind.nvim",
-      "group": 1
-    },
-    {
-      "id": "archive",
+      "id": "appendix/excelcon-2nd",
       "group": 1
     },
     {
@@ -49,7 +33,23 @@
       "group": 1
     },
     {
+      "id": "projects/neural-bridge",
+      "group": 1
+    },
+    {
       "id": "mastodon",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/flutter-tools.nvim",
+      "group": 1
+    },
+    {
+      "id": "flutter",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
       "group": 1
     },
     {
@@ -62,6 +62,10 @@
     },
     {
       "id": "prompt-engineering",
+      "group": 1
+    },
+    {
+      "id": "vim-plugin/mind.nvim",
       "group": 1
     },
     {
@@ -139,26 +143,6 @@
   ],
   "links": [
     {
-      "source": "quarterly/2023-Q2",
-      "target": "appendix/excelcon-2nd",
-      "value": 1
-    },
-    {
-      "source": "quarterly/2023-Q1",
-      "target": "projects/neural-bridge",
-      "value": 1
-    },
-    {
-      "source": "vim-plugin/flutter-tools.nvim",
-      "target": "flutter",
-      "value": 1
-    },
-    {
-      "source": "vim-plugin/flutter-tools.nvim",
-      "target": "tmuxinator",
-      "value": 1
-    },
-    {
       "source": "archive",
       "target": "quarterly/2023-Q1",
       "value": 1
@@ -169,6 +153,11 @@
       "value": 1
     },
     {
+      "source": "quarterly/2023-Q2",
+      "target": "appendix/excelcon-2nd",
+      "value": 1
+    },
+    {
       "source": "appendix",
       "target": "appendix/excelcon-2nd",
       "value": 1
@@ -176,6 +165,26 @@
     {
       "source": "rfc",
       "target": "rfc/2616",
+      "value": 1
+    },
+    {
+      "source": "quarterly/2023-Q1",
+      "target": "projects/neural-bridge",
+      "value": 1
+    },
+    {
+      "source": "mastodon",
+      "target": "mastodon/recommendations",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin/flutter-tools.nvim",
+      "target": "flutter",
+      "value": 1
+    },
+    {
+      "source": "vim-plugin/flutter-tools.nvim",
+      "target": "tmuxinator",
       "value": 1
     },
     {
