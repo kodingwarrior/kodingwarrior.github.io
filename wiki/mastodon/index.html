@@ -9,7 +9,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/index.EJOGPHDA.css" />
+<link rel="stylesheet" href="/_bridgetown/static/index.EM7LMSL3.css" />
 <script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
 
 
@@ -51,7 +51,7 @@
 
 <script>
   function goToRandomDocument() {
-	const availableDocuments = (["quarterly/2023-Q2","quarterly/2023-Q1","vim-plugin/flutter-tools.nvim","vim-plugin/mind.nvim","archive","appendix/excelcon-2nd","appendix","rfc","rfc/2616","mastodon","digital-garden","prompt-engineering","improving-productivity","cli/diff","cli","dogfooding-driven-development","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
+	const availableDocuments = (["mastodon/recommendations","archive","quarterly/2023-Q2","appendix/excelcon-2nd","appendix","rfc","rfc/2616","quarterly/2023-Q1","mastodon","vim-plugin/flutter-tools.nvim","digital-garden","prompt-engineering","vim-plugin/mind.nvim","improving-productivity","cli/diff","cli","dogfooding-driven-development","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
 	
 	const size = availableDocuments.length;
 	const randomIdx = Math.floor(Math.random() * size);
@@ -109,6 +109,10 @@
   <li><a href="https://genserver.social/">genserver.social</a> – Erlang/Elixir</li>
   <li><a href="https://ruby.social">ruby.social</a> – Ruby</li>
 </ul>
+
+<blockquote>
+  <p>마스토돈을 처음 접하는 개발자들을 위한 계정 추천은 [[mastodon/recommendations]]{여기}를 참고해주세요.</p>
+</blockquote>
 
 <h2 id="mastodon-client">Mastodon Client</h2>
 
@@ -173,6 +177,9 @@ window.addEventListener("load", function(event) {
 	const blueskyIcon = document.createElement('i')
 	blueskyIcon.classList.add('bi-cloud-sun')
 
+	const mastodonIcon = document.createElement('i')
+	mastodonIcon.classList.add('bi-mastodon')
+
 	const icons = [
 		wikipediaIcon,
 		githubIcon,
@@ -182,6 +189,7 @@ window.addEventListener("load", function(event) {
 		youtubeIcon,
 		twitterIcon,
 		blueskyIcon,
+		mastodonIcon,
 	]
 
 	icons.forEach(function(icon) {
@@ -231,6 +239,11 @@ window.addEventListener("load", function(event) {
 		// bluesky 
 		if (element.href.includes("bsky.app")) {
 			element.prepend(blueskyIcon.cloneNode(true))
+		}
+
+		// mastodon 
+		if (element.href.includes("__type=mastodon")) {
+			element.prepend(mastodonIcon.cloneNode(true))
 		}
 	})
 })
