@@ -29,6 +29,8 @@ layout: wiki
 Twitter/Threads에서는 자체적인 추천 알고리즘을 통해 어떤 계정을 팔로하면 괜찮을지 제안을 하기도 합니다. 하지만, 마스토돈은 그런 기능 쪽으로는 미비하다시피합니다. 
 
 개발 관련 정보를 구독하고 싶은 분들의 입장에서는 굉장히 치명적일 수도 있습니다. 아래에서는 어떤 개발자에게든 팔로할 것을 권장하는 계정들을 소개합니다.
+<br/>
+<br/>
 
 **개발 관련 뉴스**
 * [Geeknews Bot](https://twingyeo.kr/@geeknewsbot?__type=mastodon) -- [GeekNews](https://news.hada.io)의 피드를 실시간으로 받아볼 수 있습니다.
@@ -41,11 +43,10 @@ Twitter/Threads에서는 자체적인 추천 알고리즘을 통해 어떤 계�
 * [discu.eu Weekly newsletter](https://discu.eu/weekly/) - 각종 분야별로 newsletter를 받아볼 수 있습니다.
   * [Python weekly](https://mastodon.social/@python_discussions?__type=mastodon), [Haskell weekly](https://mastodon.social/@haskell_discussions?__type=mastodon) 등등의 마스토돈 공식 계정이 있습니다.
 
-
 **오픈소스 컨트리뷰터**
 * [Eugen Rochko](https://mastodon.social/@Gargron?__type=mastodon) -- Mastodon 코어 컨트리뷰터입니다.
 * [Armin Ronacher](https://hachyderm.io/@mitsuhiko?__type=mastodon) -- Flask 로 유명한 개발자입니다.
 * [Asahi Lina](https://vt.social/@lina?__type=mastodon) -- Asahi Linux에 기여하는 모습을 생중계하는 버츄얼 유튜버입니다.
 
-
-그 외에도, 관심이 가는 분야가 있으시다면 해당 분야 쪽 사람들이 모여있는 인스턴스를 눈여겨보시는 것을 권장합니다.
+<br/>
+그 외에도, 관심이 가는 분야가 있으시다면 해당 분야 쪽 사람들이 모여있는 인스턴스를 눈여겨보시는 것을 권장합니다. 팔로우할 계정을 추천해주는 서비스를 찾으신다면 [이것](https://followgraph.vercel.app/)도 고려해보세요! (추천해주신 [@rghw](https://mastodon.social/@rghw?__type=mastodon)님 감사합니다.)
