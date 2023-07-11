@@ -85,6 +85,9 @@ window.addEventListener("load", function(event) {
 	const blueskyIcon = document.createElement('i')
 	blueskyIcon.classList.add('bi-cloud-sun')
 
+	const mastodonIcon = document.createElement('i')
+	mastodonIcon.classList.add('bi-mastodon')
+
 	const icons = [
 		wikipediaIcon,
 		githubIcon,
@@ -94,6 +97,7 @@ window.addEventListener("load", function(event) {
 		youtubeIcon,
 		twitterIcon,
 		blueskyIcon,
+		mastodonIcon,
 	]
 
 	icons.forEach(function(icon) {
@@ -143,6 +147,11 @@ window.addEventListener("load", function(event) {
 		// bluesky 
 		if (element.href.includes("bsky.app")) {
 			element.prepend(blueskyIcon.cloneNode(true))
+		}
+
+		// mastodon 
+		if (element.href.includes("__type=mastodon")) {
+			element.prepend(mastodonIcon.cloneNode(true))
 		}
 	})
 })
