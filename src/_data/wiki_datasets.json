@@ -1,6 +1,10 @@
 {
   "nodes": [
     {
+      "id": "workbench/cheatsheet",
+      "group": 1
+    },
+    {
       "id": "mastodon/recommendations",
       "group": 1
     },
@@ -265,6 +269,11 @@
     {
       "source": "workbench",
       "target": "tmuxinator",
+      "value": 1
+    },
+    {
+      "source": "workbench",
+      "target": "workbench/cheatsheet",
       "value": 1
     },
     {
