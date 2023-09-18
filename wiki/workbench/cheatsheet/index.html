@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>사회의 암묵적인 약속 | KODINGWARRIOR QUEST</title>
+<title>오로지 키보드로만 모든 것을 해결하기 위한 Cheatsheet | KODINGWARRIOR QUEST</title>
 
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -70,7 +70,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>사회의 암묵적인 약속</h1>
+<h1>오로지 키보드로만 모든 것을 해결하기 위한 Cheatsheet</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -84,11 +84,38 @@
 </div>
 
 <article id="wiki-content">
-    <h2 id="기호-표기">기호 표기</h2>
+    <p>사용하기 편한 단축키를 그 중 일부는 머슬메모리로서 체화할 필요가 있는 것들이다.
+Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 어플리케이션을 사용할때 요긴하게 쓸만한 단축키들을 나열할 예정이다.</p>
+
+<h3 id="amethyst">Amethyst</h3>
+
+<blockquote>
+  <p><strong>TL;DR</strong> - 마우스의 도움이 없이도 창을 전환하고 윈도우의 레이아웃 배치를 입맛대로 할 수 있다.</p>
+</blockquote>
+
+<p><strong>Layouts</strong></p>
 
 <ul>
-  <li>※ - 중요하다는 것을 강조하기 위해 쓰인다. 한국어권에서는 당구장마크라고 표현을 하는 경우가 많은데, <a href="https://en.wikipedia.org/wiki/Reference_mark">위키피디아</a>에 따르면 <code class="highlighter-rouge">Reference mark</code>라고 표현한다. 재밌게도 일본어권과 중국어권에서 표현하는 방식이 다르다. <code class="highlighter-rouge">쌀 미</code> 한자를 닮았다고 하여, rice asterisk로 읽는 것 같다.</li>
+  <li><code class="highlighter-rouge">mod1 + space</code>, <code class="highlighter-rouge">mod2 + space</code> - 레이아웃 배치를 변경할 수 있다. 레이아웃 배치를 변경하는 방식은 <code class="highlighter-rouge">.amethyst.yml</code> 파일에서 선언한 layouts 리스트에서 cycle을 도는 방식이다.</li>
 </ul>
+
+<p><strong>Windows</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">mod1 + w</code> - 첫번째 스크린에 있는 main-window가 포커스 모드가 된다.</li>
+  <li><code class="highlighter-rouge">mod1 + e</code> - 두번째 스크린에 있는 main-window가 포커스 모드가 된다.</li>
+  <li><code class="highlighter-rouge">mod2 + w</code> - 현재 포커스 모드에 있는 윈도우를 첫번째 스크린으로 옮길 수 있다.</li>
+  <li><code class="highlighter-rouge">mod2 + e</code> - 현재 포커스 모드에 있는 윈도우를 두번째 스크린으로 옮길 수 있다.</li>
+</ul>
+
+<p><strong>Swap</strong></p>
+
+<ul>
+  <li><code class="highlighter-rouge">mod2 + j</code> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.</li>
+  <li><code class="highlighter-rouge">mod2 + k</code> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 반시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.</li>
+  <li><code class="highlighter-rouge">mod1 + enter</code> - 현재 스크린에서 main-window 가 배치되는 위치를 swap 할 때 사용된다.</li>
+</ul>
+
 
 </article>
 
