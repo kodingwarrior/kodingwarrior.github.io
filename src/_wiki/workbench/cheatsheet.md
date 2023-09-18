@@ -28,3 +28,7 @@ Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 
 * `mod2 + k` - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 반시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.
 * `mod1 + enter` - 현재 스크린에서 main-window 가 배치되는 위치를 swap 할 때 사용된다.
 
+### Wezterm
+
+* `Ctrl + PgUp/PgDown` - counter-clockwise/clockwise 방향으로 활성화할 탭을 변경할 수 있다.
+* `Ctrl + Shift + PgUp/PgDown` - counter-clockwise/clockwise 방향으로 현재 활성화된 탭의 위치를 옮길 수 있다.
