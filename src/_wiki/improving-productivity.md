@@ -23,6 +23,11 @@ layout: wiki
 * [[vim-plugin/mind.nvim]]
   * neovim이 켜져있다면 어느 작업환경에 있든지 즉석으로 메모를 남길 수 있다.
   * Dropbox와도 연동하기 좋다.
+* [Glasp](https://glasp.co/) - 블로그 아티클, Web 기반으로 배포된 책, PDF 파일 등을 줄치면서 읽을 수 있다. 아마존 킨들과도 연동이 잘 된다.
+  * 어떻게 활용하고 있는지는 [여기서](https://glasp.co/#/kodingwarrior) 확인할 수 있다.
+  * Hatch라는 기능도 있어서, 각각 다른 교재의 highlight를 조합해서 새로운 insight를 도출해내도록 하는 것도 가능하다.
+  * highlight 데이터가 많이 쌓일수록, Digital Me 페이지에서 이용할 수 있는 AI 기반 질의응답 기능의 퀄리티가 더 높아질 수 있다.
+* [SplitPDF](https://www.ilovepdf.com/split_pdf) - 여러개의 챕터로 구성된 PDF를 챕터 단위로 쪼개고 싶을때 도움이 된다.
 
 ## ETC.
 
