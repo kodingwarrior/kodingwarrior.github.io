@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>2023 Q3 Review | KODINGWARRIOR QUEST</title>
+
+<meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
+<link type="application/atom+xml" rel="alternate" href="/rss.xml" title="KODINGWARRIOR QUEST" />
+
+<link rel="stylesheet" href="/_bridgetown/static/index.5JTZANC5.css" />
+<script src="/_bridgetown/static/index.FFIMB2ME.js" defer></script>
+
+
+  </head>
+  <body class="wiki ">
+    
+<nav>
+  <ul>
+    <li><a href="/">/home</a></li>
+    <li><a href="/about">/about</a></li>
+    <li><a href="/posts">/posts</a></li>
+    <li><a href="/wiki">/wiki</a></li>
+  </ul>
+</nav>
+
+
+    <main>
+      <article>
+        
+<header>
+  <ul class="wiki-navbar">
+	  <li>
+		  <a href="/wiki">
+			  <i class="bi bi-door-open mr-2"></i>Main
+		  </a>
+	  </li>
+	  <li>
+		  <a href="#" onclick="javascript:goToRandomDocument()">
+			  <i class="bi bi-dice-5 mr-2"></i>Random
+		  </a>
+	  </li>
+	  <li>
+		  <a href="/neural-network">
+			  <i class="bi bi-diagram-3 mr-2"></i>Graph
+		  </a>
+	  </li>
+  </ul>
+</header>
+
+<script>
+  function goToRandomDocument() {
+	const availableDocuments = (["quarterly/2023-Q3","workbench/cheatsheet","mastodon/recommendations","archive","quarterly/2023-Q2","appendix/excelcon-2nd","appendix","rfc","rfc/2616","quarterly/2023-Q1","mastodon","vim-plugin/flutter-tools.nvim","digital-garden","prompt-engineering","vim-plugin/mind.nvim","improving-productivity","cli/diff","cli","dogfooding-driven-development","workbench","wezterm","vim-plugin/telekasten.nvim","vim-plugin","tmuxinator","symbol","neovim","projects/neural-bridge","daily/2023-01-19"]);
+	
+	const size = availableDocuments.length;
+	const randomIdx = Math.floor(Math.random() * size);
+	window.location.assign("/wiki/" + availableDocuments[Math.max(0, randomIdx)]);
+  }
+</script>
+
+
+<script type="text/javascript" async>
+    const url_default_fb = "https://www.facebook.com/sharer/sharer.php?u=";
+    const url_default_tw_txt = "https://twitter.com/intent/tweet?text=";
+    const url_default_tw_url = "&url=";
+    const url_this_page = encodeURIComponent(location.href);
+    const title_this_page = encodeURIComponent(document.title);
+    const url_combine_fb = url_default_fb + url_this_page;
+    const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
+</script>
+
+<h1>2023 Q3 Review</h1>
+
+<div class="flex justify-end mb-6">
+    <!-- Facebook share button -->
+    <a href="" class="mx-4" title="페이스북으로 공유하기" onclick="window.open(url_combine_fb, '', 'scrollbars=no, width=600, height=600');">
+        <i class="bi bi-facebook text-4xl"></i>
+    </a>
+    <!-- Twitter share button -->
+    <a href="" title="트위터로 공유하기" onclick="window.open(url_combine_tw, '', 'scrollbars=no, width=600, height=600');">
+        <i class="bi bi-twitter text-4xl"></i>
+    </a>
+</div>
+
+<article id="wiki-content">
+    <h1 id="timeline">Timeline</h1>
+
+<ul>
+  <li>2023-07-23 - <a href="https://x.com/kodingwarrior/status/1683092921694953472?s=20">vim 스티커를 주문 제작해서 뿌리기 시작했다.</a></li>
+  <li>2023-07-26 - <a href="https://social.silicon.moe/@akastwit?__type=mastodon">aka</a> 님을 독촉해서 <a href="https://social.silicon.moe/@zenn_dev_trend_bot?__type=mastodon">zenn.dev</a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> 에 트렌드로 올라간 글들을 자동으로 포스팅하는 봇을 만들었다.</li>
+  <li>2023-08-12 ~ 2023-08-13 – 파이콘 2023 참가
+    <ul>
+      <li>스폰서 부스를 돌아다니면서, 열린 공간을 돌아다니면서 Vim 스티커를 뿌리고 다녔다. 스폰서 부스에서 굿즈를 받아가는게 일반적인건데, 일반 참가자가 스폰서 부스에 굿즈를 뿌리는건 어떨까라는 역발상에서 해본건데 나름 재밌었다.</li>
+      <li><a href="https://github.com/balpan-rs/balpan">Balpan CLI</a> 0.1 버전을 릴리즈하면서 파이콘 1일차 라이트닝토크에서 소개했다.<a href="https://docs.google.com/presentation/d/1Vp18jPyOoez9J7ooLWHxyvl6mSEcahqCeqNsEK6BTTY/edit">(발표자료)</a>
+        <ul>
+          <li>하필이면 라이트닝토크하는 시기에 발표하고자 했던 것도 나름대로의 이유는 있었다. Docker가 소개되기 시작했던 시기가 언제였는지 기억하는 사람이 얼마나 있을까?</li>
+          <li>이미 알고 있는 사람도 많이 있겠지만, Docker는 PyCon US 2013에 소개가 되었다. Balpan CLI도 내가 의도한 만큼의 퀄리티로 만들어진 상태는 아니지만, <code class="highlighter-rouge">시작은 미약하나 끝은 창대하리라</code> 라는 자기암시를 하고 싶었다. 어떻게 보면 상징적인 퍼포먼스를 하고 싶었다고 볼 수도 있겠다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>2023-09-19 – 생일을 좀 조용하게 보내고 싶었어서 프로필에 적어놓은 생일 일부러 다 바꿔놓고, 소중한 사람들 한명 한명 찾아가서 시간을 보냈다. 잊혀지면서 지내는 삶에 좀 더 익숙해질 필요가 있다는 자각이 있었다.</li>
+  <li>2023-09-30 – mastodon.nvim v0.2 출시
+    <ul>
+      <li>2022년 12월 25일, 그러니까 딱 크리스마스를 기점으로 reddit에 홍보를 돌리고 트위터에도 홍보를 돌리고 hackernews에도 홍보를 돌리고 홍보를 위해서 수단과 방법을 다 동원했었지만 그렇게 큰 주목을 받지는 못했었다.</li>
+      <li>추석 연휴이기도 하니, 중간중간에 영감이 떠올랐던 것들을 정리해서 겸사겸사 묵은 이슈들을 쳐냈고, 더 이상 쳐낼 수 있는건 없겠다는 판단이 들어 v0.2 릴리즈를 출시했다.</li>
+      <li>홍보를 하기에는 telescope.nvim을 연결한다던가 nvim-cmp를 연결한다던가 좀 더 작업이 필요하다. UX를 좀 더 대폭적으로 손을 봐야 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="highlights">Highlights</h1>
+
+<h2 id="prompt-engineering-삼매경">Prompt engineering 삼매경</h2>
+
+<p>프롬프트 엔지니어링에 재미가 들리기 시작했다. 사실 인공지능 스터디를 옛날에도 몇번 해본적은 있었는데, 당장 쓸 일이 없는 블랙박스인 것 같다는 생각에 공부를 하다 말았던 적이 수십번은 있었던 것 같다. 그런데, 왜 프롬프트 엔지니어링에 재미가 들렸냐면, <strong>Neovim에서 OpenAI API를 응용할 수 있기 때문이다.</strong></p>
+
+<p>OpenAI API를 응용할 수 있는 가능성은 <a href="https://github.com/Nutlope/aicommits">여기</a>에서도 약간이나마 희망을 맛볼 수 있었는데, Neovim 생태계에도 OpenAI API를 응용하는 여러가지 플러그인도 있었다. 그 중에서 그나마 UX가 괜찮은 것이 <a href="https://github.com/Bryley/neoai.nvim">NeoAI</a> 였는데, 유지보수는 잘 안되고 있긴 해도 기본적으로 제공하는 기능 자체가 UI/UX가 괜찮은 편이었고, <strong>내가 직접 프롬프트를 넣어서 원하는대로 커스터마이징이 가능했던 것</strong>이 큰 장점이었다.</p>
+
+<p>Neovim에서 어떻게 프롬프트를 넣는지는 이미 dotfiles에도 공개가 되어 있다. 다듬을 여지가 많이 필요하지만, 아직까지는 만족하면서 쓰고 있다.</p>
+
+<ul>
+  <li><a href="https://github.com/malkoG/dotfiles/commit/81190cbd077626c5f9bd60d904989275bed9d2e5">커밋 메시지 자동 생성</a></li>
+  <li><a href="https://github.com/malkoG/dotfiles/commit/aede58916d529a8d500d3137f57ccc82382f2b1c">Docstring 자동 생성</a></li>
+  <li><a href="https://github.com/malkoG/dotfiles/commit/07c0e00f5ee5bfe77e6cffef05c6d3b8332bb326">커밋 메시지 수정</a></li>
+</ul>
+
+<p>프롬프트를 넣으면서 느끼는 점이 있다면, <strong>생각하거나 쥐어짜내기 귀찮은 것을 LLM에다가 외주를 줄 수 있다</strong>는 점이다. 심지어 시급도 저렴하다. 한번 프롬프트를 넣는데 10센트도 안된다. 적당한 멘트를 뽑아내고, 적당한 이름을 생각해보고, 고민하는데 드는 시간이 10분에서 30분까지 갈때가 있는데 GPT4 와 핑퐁하면 5분 안에 끝날때도 많다. 야매로 프롬프트를 넣을때도 적당히 괜찮은 퀄리티의 응답을 받을 수 있는데, 제대로 프롬프트를 넣으면 어떨까 싶은 생각을 자주 하고 있다.</p>
+
+<p>물론, ChatGPT가 정확한 답을 내놓지는 않을때가 많다는 것은 알고 있다. 아무리 포맷을 명확하게 지정해주더라도 100% 내가 원하는 것을 내놓지 않을때도 굉장히 많다. 나같은 경우에는 정확한 대답을 원한다기 보다는 <strong>접근 방식</strong>, 혹은 <strong>대략적인 그림</strong>을 원하는 것이었기 때문에, 정확도에는 크게 기대하지 않았고 어떻게 흐름을 유지하고 어디에 포커스를 둘지를 생각하면서 프롬프트를 넣기 때문에 만족하면서 써왔던 것 같다.</p>
+
+<p>프롬프트 엔지니어링을 진지하게 공부하려고 고민 중이었기에, <a href="https://www.promptingguide.ai/kr">DAIR AI에서 만든 프롬프트 엔지니어링 가이드</a>도 하루 30분 할당량을 두고 읽고 있다.</p>
+
+<h2 id="뒤늦게-피부-관리">뒤늦게 피부 관리</h2>
+
+<p>얼굴까고 스트리밍 해야한다고 생각하니 억지로 한다는 생각으로 하다말고를 반복했던 피부관리에 동기부여가 강하게 생겼다.</p>
+
+<p>9월 중순부터 스트리밍을 진지하게 생각해보기 시작했던 것 같다. 사실 훨씬 이전부터 버튜버로 활동하려고 생각만 계속 하고 있었다. Asahi lina 라는 훌륭한 레퍼런스도 있고, 정상적인 개발 스트리머 중에는 ThePrimeagen, TJ Devries 같은 사람들도 있어서 틈틈이 보면서 연구중이기도 하다. 당장 실천하기에는 기술적으로 고려해야할 사항이 많았기 때문에 계속 미루고 있다. <del>요즘은 이세돌의 고세구도 자주 챙겨보고 있다</del></p>
+
+<p>그렇지만, 세팅하는데 병목이 있다고 해서 계속 미루기만 할 수는 없을 노릇이다. 계속 미루다가 그냥 영영 안할바에는 차라리 빨간약<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>을 먼저 복용하고, 파일럿 방송을 조금씩 오픈하면서 방송에 대한 감을 잡는걸 병행해야겠다는 판단이 들었다. <a href="twitch.tv/kodingwarrior">twitch</a></p>
+
+<p>모든 것을 한번에 준비하려고 해서는 안된다고 생각한다. 모든 문제는 부분적으로 쪼갤 수 있고 부분적으로 해결할 수 있다면 당장 해결할 수 있는 것부터 해결하는 것이 최종적으로는 목표에 도달할 수 있는 확률이 더 높아진다고 생각한다.</p>
+
+<h1 id="books">Books</h1>
+
+<p>이번 분기에는 번아웃이 좀 심하게 와서 책을 제대로 읽지는 못했다. 지난 분기보다는 2배 정도는 읽어야지 하는 각오는 있었지만, 동기부여가 되는 흐름을 만들어내지 못해서 읽었다고 할 수 있는거라고 해봐야 3권 정도가 고작이다.</p>
+
+<ul>
+  <li><a href="">Rust programming language</a>
+    <ul>
+      <li>위에서 언급했던 Balpan CLI을 맨땅에 헤딩하면서 작업하다가 ownership, lifetime 부분에서 머리가 깨질 것 같아서 한번 각 잡고 공부했었는데, 생각보다 진도가 빨리 나갔다. 한 주말에 온종일 투자해서 2일 컷. 챕터 10까지는 2시간 컷으로 빠르게 훑어볼 수 있었던 것 같다.</li>
+    </ul>
+  </li>
+  <li>요약이 힘이다</li>
+  <li>개발자의 하루를 바꾸는 코파일럿&amp;챗GPT</li>
+</ul>
+
+<h1 id="thoughts">Thoughts</h1>
+
+<ul>
+  <li>Note taking vs Note making</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>8월 말부터 시작해서 번아웃이 좀 심하게 왔다. 밥을 먹는 것도, 씻는 것도, 몸뚱이를 움직이는 것도 모든 것이 그냥 귀찮기만 하다. 생명을 유지하면서 살아야 하는 이유가 무엇인지, 내 삶이 그렇게 가치가 있는 삶인지도 모르겠고 그냥 허무주의 그 자체의 삶을 살고 있다. 이런게 딱히 부정적이라는 생각은 들지는 않고, 그냥 받아들이고 있다. 세상에 고립되는 사람이 나뿐만이 아니라는 자각도 있고, 고립되는 것을 받아들일 줄 알아야 한다고 생각한다.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>한국으로 치자면 velog 같은 개발자 전용 블로그 호스팅 서비스라고 생각하면 된다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>매트릭스라는 영화에서 현실을 자각하게 해주는 약으로 등장하는데, 버튜버가 실물을 공개하는것을 은유적으로 표현할때 이런 워딩을 사용한다. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+</article>
+
+<!-- buy me a coffee -->
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#BB5794 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing:0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+
+<div class="text-center my-4">
+    <a class="bmc-button" target="_blank" href="https://qr.kakaopay.com/Ej8T6e8CM5dc06009"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</div>
+<script src="https://utteranc.es/client.js"
+    repo="kodingwarrior/kodingwarrior.github.io"
+    issue-term="title"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>
+</script>
+
+<script>
+window.addEventListener("load", function(event) {
+	const target = document.querySelector('#wiki-content')
+	const before = target.innerHTML
+	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
+	
+	let after = before
+	results.forEach(function(result) {
+		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
+		after = after.replace(result[0], anchorHtml)
+	})
+
+	target.innerHTML = after
+
+	const hyperlinks = target.querySelectorAll('a')
+
+	const githubIcon = document.createElement('i')
+	githubIcon.classList.add('bi-github')
+
+	const documentIcon = document.createElement('i')
+	documentIcon.classList.add('bi-file-text')
+
+	const wikipediaIcon = document.createElement('i')
+	wikipediaIcon.classList.add('bi-wikipedia')
+
+	const microsoftIcon = document.createElement('i')
+	microsoftIcon.classList.add('bi-windows')
+
+	const bookIcon = document.createElement('i')
+	bookIcon.classList.add('bi-book')
+
+	const youtubeIcon = document.createElement('i')
+	youtubeIcon.classList.add('bi-youtube')
+
+	const twitterIcon = document.createElement('i')
+	twitterIcon.classList.add('bi-twitter')
+
+	const blueskyIcon = document.createElement('i')
+	blueskyIcon.classList.add('bi-cloud-sun')
+
+	const mastodonIcon = document.createElement('i')
+	mastodonIcon.classList.add('bi-mastodon')
+
+	const icons = [
+		wikipediaIcon,
+		githubIcon,
+		documentIcon,
+		microsoftIcon,
+		bookIcon,
+		youtubeIcon,
+		twitterIcon,
+		blueskyIcon,
+		mastodonIcon,
+	]
+
+	icons.forEach(function(icon) {
+		icon.classList.add('bi')
+		icon.classList.add('mr-1')
+	})
+
+
+	hyperlinks.forEach(function(element) {
+		// internal link
+		if (element.href.includes(document.location.host + "/wiki")) {
+			if (!element.className.includes("footnote")) {
+				element.prepend(documentIcon.cloneNode(true))
+			}
+		}
+
+		// github
+		if (element.href.includes("github.com")) {
+			element.prepend(githubIcon.cloneNode(true))
+		}
+	
+		// wikipedia
+		if (element.href.includes("wikipedia.org")) {
+			element.prepend(wikipediaIcon.cloneNode(true))
+		}
+
+		// microsoft related documentation
+		if (element.href.includes("visualstudio.com")) {
+			element.prepend(microsoftIcon.cloneNode(true))
+		}
+
+		// aladin
+		if (element.href.includes("aladin.co.kr")) {
+			element.prepend(bookIcon.cloneNode(true))
+		}
+
+		// youtube 
+		if (element.href.includes("youtube.com")) {
+			element.prepend(youtubeIcon.cloneNode(true))
+		}
+
+		// twitter
+		if (element.href.includes("twitter.com") || element.href.includes("x.com")) {
+			element.prepend(twitterIcon.cloneNode(true))
+		}
+
+		// bluesky 
+		if (element.href.includes("bsky.app")) {
+			element.prepend(blueskyIcon.cloneNode(true))
+		}
+
+		// mastodon 
+		if (element.href.includes("__type=mastodon")) {
+			element.prepend(mastodonIcon.cloneNode(true))
+		}
+	})
+})
+</script>
+
+      </article>
+    </main>
+
+    <footer class="flex justify-start sm:justify-center flex-col sm:flex-row">
+  <a class="my-2 mx-3 no-underline" href="/rss.xml">
+    <i class="bi bi-rss-fill text-2xl"></i> Feed
+  </a>
+  <a class="my-2 mx-3 no-underline" href="mailto:rijgndqw012@gmail.com">
+    <i class="bi bi-envelope-fill text-2xl"></i> Email
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://twitter.com/kodingwarrior">
+    <i class="bi bi-twitter text-2xl"></i> Twitter
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://github.com/kodingwarrior/kodingwarrior.github.io">
+    <i class="bi bi-github text-2xl"></i> Github
+  </a>
+</footer>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127979309-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127979309-1');
+    </script>
+  </body>
+</html>
