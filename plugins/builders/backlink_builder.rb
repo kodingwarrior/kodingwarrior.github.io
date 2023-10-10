@@ -5,6 +5,7 @@ class Builders::BacklinkBuilder < SiteBuilder
       wiki_documents = collect_wiki_resources(site)
 
       nodes = Set.new
+      node_groups = Set.new
       links = []
       wiki_documents.each do |wiki_document|
         pathname = wiki_document.relative_path.to_s
@@ -16,6 +17,18 @@ class Builders::BacklinkBuilder < SiteBuilder
         nodes << source
 
         wiki_content = wiki_document.content
+
+        tags = wiki_document.data.tags
+        tags.each do |tag|
+          group_name = "##{tag}"
+          node_groups << group_name
+          links << { 
+            "source": group_name,
+            "target": source,
+            "value": 100,
+          }
+        end
+
         internal_links = wiki_content.scan(/\[\[([\w\-\/\_\s\.]+)\]\]/)
         internal_links&.each do |link|
           link = link[0]
@@ -29,7 +42,10 @@ class Builders::BacklinkBuilder < SiteBuilder
       end
 
       reference_graph = { 
-        "nodes": nodes.to_a.map { |name| ({ id: name, group: 1 }) },
+        "nodes": [ 
+          *nodes.to_a.map { |name| ({ id: name, group: 1 }) },
+          *node_groups.to_a.map { |name| ({ id: name, group: 2 }) }
+        ],
         "links": links,
       } 
 

@@ -2,6 +2,7 @@
 title: tmuxinator
 date:  2023-01-20
 layout: wiki
+tags: cli productivity
 ---
 
 터미널에서 벗어나지 못하게 해준 장본인 중 하나라고 볼 수 있을 정도로 쓸만하다.

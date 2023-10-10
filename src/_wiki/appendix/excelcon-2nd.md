@@ -2,6 +2,7 @@
 title: 제 2회 EXCELCON - Neovim으로 생산성 퀀텀점프하기
 date: 2023-05-19
 layout: wiki
+tags: archive productivity vim
 ---
 
 > Q&A는 취합해서 6월 중순 쯤에 업데이트해서 공유하겠습니다.

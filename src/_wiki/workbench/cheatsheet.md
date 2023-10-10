@@ -2,6 +2,7 @@
 title: 오로지 키보드로만 모든 것을 해결하기 위한 Cheatsheet
 date:  2023-09-18
 layout: wiki
+tags: productivity
 ---
 
 사용하기 편한 단축키를 그 중 일부는 머슬메모리로서 체화할 필요가 있는 것들이다.

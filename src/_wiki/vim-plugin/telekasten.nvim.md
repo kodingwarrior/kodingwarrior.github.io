@@ -2,6 +2,7 @@
 title: Telekasten.nvim
 date:  2023-01-20
 layout: wiki
+tags: vim
 ---
 
 ~~Neovim에 강력한 검색 기능을 제공하는 킹갓제네럴엠퍼러~~ [[vim-plugin/telescope.nvim]] 기반으로 동작하는 zettelkasten management plugin

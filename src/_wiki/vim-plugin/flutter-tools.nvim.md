@@ -2,6 +2,7 @@
 title: akinsho/flutter-tools.nvim
 date:  2023-02-05
 layout: wiki
+tags: vim
 ---
 
 > Build flutter and dart applications in neovim using the native LSP. It adds the ability to easily launch flutter applications, debug them, as well as extending/exposing LSP functionality such as the widget guides, an outline view of your widgets, and hot reloading.

@@ -147,9 +147,44 @@
     {
       "id": "daily/2023-01-19",
       "group": 1
+    },
+    {
+      "id": "#archive",
+      "group": 2
+    },
+    {
+      "id": "#productivity",
+      "group": 2
+    },
+    {
+      "id": "#vim",
+      "group": 2
+    },
+    {
+      "id": "#cli",
+      "group": 2
+    },
+    {
+      "id": "#project",
+      "group": 2
     }
   ],
   "links": [
+    {
+      "source": "#archive",
+      "target": "quarterly/2023-Q3",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "workbench/cheatsheet",
+      "value": 100
+    },
+    {
+      "source": "#archive",
+      "target": "archive",
+      "value": 100
+    },
     {
       "source": "archive",
       "target": "quarterly/2023-Q1",
@@ -166,9 +201,34 @@
       "value": 1
     },
     {
+      "source": "#archive",
+      "target": "quarterly/2023-Q2",
+      "value": 100
+    },
+    {
       "source": "quarterly/2023-Q2",
       "target": "appendix/excelcon-2nd",
       "value": 1
+    },
+    {
+      "source": "#archive",
+      "target": "appendix/excelcon-2nd",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "appendix/excelcon-2nd",
+      "value": 100
+    },
+    {
+      "source": "#vim",
+      "target": "appendix/excelcon-2nd",
+      "value": 100
+    },
+    {
+      "source": "#archive",
+      "target": "appendix",
+      "value": 100
     },
     {
       "source": "appendix",
@@ -181,6 +241,11 @@
       "value": 1
     },
     {
+      "source": "#archive",
+      "target": "quarterly/2023-Q1",
+      "value": 100
+    },
+    {
       "source": "quarterly/2023-Q1",
       "target": "projects/neural-bridge",
       "value": 1
@@ -189,6 +254,11 @@
       "source": "mastodon",
       "target": "mastodon/recommendations",
       "value": 1
+    },
+    {
+      "source": "#vim",
+      "target": "vim-plugin/flutter-tools.nvim",
+      "value": 100
     },
     {
       "source": "vim-plugin/flutter-tools.nvim",
@@ -211,6 +281,11 @@
       "value": 1
     },
     {
+      "source": "#productivity",
+      "target": "improving-productivity",
+      "value": 100
+    },
+    {
       "source": "improving-productivity",
       "target": "tmuxinator",
       "value": 1
@@ -229,6 +304,16 @@
       "source": "improving-productivity",
       "target": "prompt-engineering",
       "value": 1
+    },
+    {
+      "source": "#cli",
+      "target": "cli/diff",
+      "value": 100
+    },
+    {
+      "source": "#cli",
+      "target": "cli",
+      "value": 100
     },
     {
       "source": "cli",
@@ -261,6 +346,11 @@
       "value": 1
     },
     {
+      "source": "#productivity",
+      "target": "workbench",
+      "value": 100
+    },
+    {
       "source": "workbench",
       "target": "wezterm",
       "value": 1
@@ -284,6 +374,21 @@
       "source": "workbench",
       "target": "workbench/cheatsheet",
       "value": 1
+    },
+    {
+      "source": "#cli",
+      "target": "wezterm",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "wezterm",
+      "value": 100
+    },
+    {
+      "source": "#vim",
+      "target": "vim-plugin/telekasten.nvim",
+      "value": 100
     },
     {
       "source": "vim-plugin/telekasten.nvim",
@@ -334,6 +439,26 @@
       "source": "vim-plugin",
       "target": "vim-plugin/mind.nvim",
       "value": 1
+    },
+    {
+      "source": "#cli",
+      "target": "tmuxinator",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "tmuxinator",
+      "value": 100
+    },
+    {
+      "source": "#cli",
+      "target": "neovim",
+      "value": 100
+    },
+    {
+      "source": "#project",
+      "target": "projects/neural-bridge",
+      "value": 100
     },
     {
       "source": "projects/neural-bridge",

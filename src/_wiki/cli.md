@@ -2,6 +2,7 @@
 title: CLI
 date:  2023-01-25
 layout: wiki
+tags: cli
 ---
 
 이 문서에서는 주로 사용하는 CLI 도구를 다룰 것이고, 적당히 쓸만했던 CLI 명령어 조합을 나열하게 될 것이다.

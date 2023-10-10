@@ -2,6 +2,7 @@
 title: 생산성 개선
 date:  2023-01-27
 layout: wiki
+tags: productivity
 ---
 
 이 문서에서는 개인적으로 생산성 개선에 큰 도움이 되었던 도구들을 소개한다.

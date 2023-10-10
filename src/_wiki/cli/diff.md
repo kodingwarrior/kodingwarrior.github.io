@@ -2,6 +2,7 @@
 title: CLI/diff
 date:  2023-01-25
 layout: wiki
+tags: cli
 ---
 
 [diff](https://en.wikipedia.org/wiki/Diff) 명령어는 겉으로 보기에 비슷해보이는 두 개의 파일이 있을때, 어떤 부분이 다른지 파악하기 쉽게 해주는 유닉스 명령어이다. ~~운영체제 과제를 하면서 친해질 수 밖에 없는 친구이다~~

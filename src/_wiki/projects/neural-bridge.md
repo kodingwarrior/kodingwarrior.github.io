@@ -2,6 +2,7 @@
 title: Neural Bridge
 date: 2023-01-19
 layout: wiki
+tags: project
 ---
 
 이름의 유래는 `neural network` + `bridgetown`.

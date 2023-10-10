@@ -2,6 +2,7 @@
 title: kodingwarrior's workbench
 date:  2023-01-20
 layout: wiki
+tags: productivity
 ---
 
 이 문서에서는 작업 환경을 어떻게 구성하고 있는지 기록할 것이다.
