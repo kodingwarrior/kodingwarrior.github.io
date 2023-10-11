@@ -108,7 +108,6 @@ window.addEventListener('load', function(e) {
         }
 	  })
 	  .nodePointerAreaPaint(function(node, color, ctx) {
-        console.log(color)
         if (node.group == 1) {
 	  	  const size = 12;
 		  const radius = size / 2;
