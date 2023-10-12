@@ -42,4 +42,5 @@ Bridgetown.configure do |config|
   # visit: https://edge.bridgetownrb.com/docs/configuration/initializers/
   url "https://kodingwarrior.github.io"
   init :"bridgetown-webfinger", static: true
+  init :"bridgetown-feed"
 end
