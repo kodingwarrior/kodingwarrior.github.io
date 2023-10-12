@@ -1,0 +1,14 @@
+---
+# This account will be represented as acct:kodingwarrior@<your host>
+kodingwarrior:
+  webfinger:
+    # Aliases are URIs that represent the same person
+    aliases:
+      - https://twitter.com/kodingwarrior
+      - https://social.silicon.moe/@kodingwarrior
+
+    links:
+      # - href: https://example.com/myphoto.png
+      #   rel: http://webfinger.net/rel/avatar
+      #   type: image/png
+
