@@ -21,10 +21,12 @@
 
 <script>
   function goToRandomDocument() {
-	const availableDocuments = ({{ available_wiki_documents | jsonify }});
-	
-	const size = availableDocuments.length;
-	const randomIdx = Math.floor(Math.random() * size);
-	window.location.assign("/wiki/" + availableDocuments[Math.max(0, randomIdx)]);
+    const event = new CustomEvent("go-to-random-page", { });
+    document.dispatchEvent(event);
   }
 </script>
+
+<is-land on:visible import="{% asset_path islands/random_page_redirection.js %}">
+  <random-page-redirection>
+  </random-page-redirection>
+</is-land>
