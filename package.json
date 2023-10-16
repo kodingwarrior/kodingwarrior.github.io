@@ -17,6 +17,7 @@
     "tailwindcss": "^3.0.23"
   },
   "dependencies": {
+    "@11ty/is-land": "^4.0.0",
     "bootstrap-icons": "^1.10.0",
     "force-graph": "^1.42.18",
     "pretendard": "^1.2.2"
