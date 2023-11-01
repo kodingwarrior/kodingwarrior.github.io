@@ -27,7 +27,7 @@ tags: archive productivity vim
 Neovim을 시작하는 데 있어서 가장 부담이 되는 것은 플러그인을 설치하고 dotfiles를 구성하는 것입니다. 다행히도 그런 분들을 위한 스타터킷이 여럿 있습니다. 아래에 있는 것 중에 본인에게 맞는 것을 찾아서 시도해보는 것을 권장합니다.
 
 * [AstroNvim](https://github.com/AstroNvim/AstroNvim) - VSCode, IntelliJ 등의 IDE와 비슷하게 구성한 Neovim 개발환경입니다.
-* [Ecovim](https://github.com/eceosse3/nvim) - 프론트엔드 개발 맞춤형 Neovim 개발환경입니다. 
+* [Ecovim](https://github.com/ecosse3/nvim) - 프론트엔드 개발 맞춤형 Neovim 개발환경입니다.
 * [LazyVim](https://github.com/lazyvim/lazyvim) - Neovim 플러그인 개발자로 유명한 folke가 구성한 Neovim 개발환경입니다.
 
 플러그인도 굉장히 다양한 종류가 있는데요. 일본의 어떤 개발자가 Neovim 플러그인을 정리해 놓은 아티클이 있으니 참고가 되었으면 합니다. [(참고)](https://zenn.dev/yutakatay/articles/neovim-plugins-2022)
