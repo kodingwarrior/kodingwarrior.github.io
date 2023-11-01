@@ -1,11 +1,19 @@
 {
   "nodes": [
     {
-      "id": "quarterly/2023-Q3",
+      "id": "vim/builtins",
+      "group": 1
+    },
+    {
+      "id": "vim",
       "group": 1
     },
     {
       "id": "workbench/cheatsheet",
+      "group": 1
+    },
+    {
+      "id": "quarterly/2023-Q3",
       "group": 1
     },
     {
@@ -117,10 +125,6 @@
       "group": 1
     },
     {
-      "id": "vim",
-      "group": 1
-    },
-    {
       "id": "vim-plugin/nvim-treesitter-context",
       "group": 1
     },
@@ -149,7 +153,7 @@
       "group": 1
     },
     {
-      "id": "#archive",
+      "id": "#vim",
       "group": 2,
       "fx": -73.98267743385807,
       "fy": 67.77419285757288
@@ -161,7 +165,7 @@
       "fy": -100.19224370508499
     },
     {
-      "id": "#vim",
+      "id": "#archive",
       "group": 2,
       "fx": 61.29738964898668,
       "fy": 79.9515902047973
@@ -181,13 +185,33 @@
   ],
   "links": [
     {
-      "source": "#archive",
-      "target": "quarterly/2023-Q3",
+      "source": "#vim",
+      "target": "vim/builtins",
       "value": 100
+    },
+    {
+      "source": "#vim",
+      "target": "vim",
+      "value": 100
+    },
+    {
+      "source": "vim",
+      "target": "vim/builtins",
+      "value": 1
     },
     {
       "source": "#productivity",
       "target": "workbench/cheatsheet",
+      "value": 100
+    },
+    {
+      "source": "workbench/cheatsheet",
+      "target": "vim/builtins",
+      "value": 1
+    },
+    {
+      "source": "#archive",
+      "target": "quarterly/2023-Q3",
       "value": 100
     },
     {

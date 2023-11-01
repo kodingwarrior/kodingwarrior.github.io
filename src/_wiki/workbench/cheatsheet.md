@@ -8,6 +8,10 @@ tags: productivity
 사용하기 편한 단축키를 그 중 일부는 머슬메모리로서 체화할 필요가 있는 것들이다.
 Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 어플리케이션을 사용할때 요긴하게 쓸만한 단축키들을 나열할 예정이다.
 
+### Vim
+
+자세한 내용은 [[vim/builtins]]{Vim에서 제공하는 기본 기능} 문서를 참고
+
 ### Amethyst
 
 > **TL;DR** - 마우스의 도움이 없이도 창을 전환하고 윈도우의 레이아웃 배치를 입맛대로 할 수 있다.
