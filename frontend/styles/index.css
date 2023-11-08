@@ -58,9 +58,22 @@ article h2 {
 }
 
 article h3 {
+  position: relative;
   font-weight: 800;
   margin: 1.5rem 0 0.75rem;
   font-size: 1.25rem;
+}
+
+article h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 5.5rem;
+  height: 0.5rem;
+  transform: skew(-25deg) translateX(-50%);
+  background: rgba(238,230,87,0.5);
+  z-index: 2;
 }
 
 article h4 {
