@@ -1,6 +1,10 @@
 {
   "nodes": [
     {
+      "id": "vim/versus-neovim",
+      "group": 1
+    },
+    {
       "id": "vim/builtins",
       "group": 1
     },
@@ -10,6 +14,10 @@
     },
     {
       "id": "workbench/cheatsheet",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
       "group": 1
     },
     {
@@ -62,10 +70,6 @@
     },
     {
       "id": "flutter",
-      "group": 1
-    },
-    {
-      "id": "tmuxinator",
       "group": 1
     },
     {
@@ -155,35 +159,51 @@
     {
       "id": "#vim",
       "group": 2,
-      "fx": -73.98267743385807,
-      "fy": 67.77419285757288
+      "fx": -73.95921288971117,
+      "fy": 67.7526974130244
+    },
+    {
+      "id": "#developer-experience",
+      "group": 2,
+      "fx": 8.788229067382858,
+      "fy": -100.13733744565687
     },
     {
       "id": "#productivity",
       "group": 2,
-      "fx": 8.793047737395423,
-      "fy": -100.19224370508499
-    },
-    {
-      "id": "#archive",
-      "group": 2,
-      "fx": 61.29738964898668,
-      "fy": 79.9515902047973
+      "fx": 61.2540954942755,
+      "fy": 79.89512064654117
     },
     {
       "id": "#cli",
       "group": 2,
-      "fx": -99.33978419647497,
-      "fy": -17.57180907912445
+      "fx": -99.25687814658176,
+      "fy": -17.5571441662498
+    },
+    {
+      "id": "#archive",
+      "group": 2,
+      "fx": 85.1387348615402,
+      "fy": -54.15829405309217
     },
     {
       "id": "#project",
       "group": 2,
-      "fx": 85.21928477605212,
-      "fy": -54.2095333152586
+      "fx": -26.220034795050346,
+      "fy": 97.53722251195362
     }
   ],
   "links": [
+    {
+      "source": "#vim",
+      "target": "vim/versus-neovim",
+      "value": 100
+    },
+    {
+      "source": "#developer-experience",
+      "target": "vim/versus-neovim",
+      "value": 100
+    },
     {
       "source": "#vim",
       "target": "vim/builtins",
@@ -200,6 +220,11 @@
       "value": 1
     },
     {
+      "source": "vim",
+      "target": "vim/versus-neovim",
+      "value": 1
+    },
+    {
       "source": "#productivity",
       "target": "workbench/cheatsheet",
       "value": 100
@@ -208,6 +233,16 @@
       "source": "workbench/cheatsheet",
       "target": "vim/builtins",
       "value": 1
+    },
+    {
+      "source": "#cli",
+      "target": "tmuxinator",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "tmuxinator",
+      "value": 100
     },
     {
       "source": "#archive",
@@ -473,16 +508,6 @@
       "source": "vim-plugin",
       "target": "vim-plugin/mind.nvim",
       "value": 1
-    },
-    {
-      "source": "#cli",
-      "target": "tmuxinator",
-      "value": 100
-    },
-    {
-      "source": "#productivity",
-      "target": "tmuxinator",
-      "value": 100
     },
     {
       "source": "#cli",
