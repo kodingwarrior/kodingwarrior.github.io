@@ -9,8 +9,8 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.D5LSLKB6.css" />
-<script src="/_bridgetown/static/frontend/javascript/index.564WETOT.js" defer></script>
+<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.6VAT53W3.css" />
+<script src="/_bridgetown/static/frontend/javascript/index.NCPQ4MN2.js" defer></script>
 
 
   </head>
@@ -86,6 +86,8 @@
 </div>
 
 <article id="wiki-content">
+    
+
     <p>Mastodon은 오픈 소스 SNS 플랫폼이다. 누구나 자신의 소셜 네트워크 인스턴스를 생성하고 자신의 소셜 네트워크를 관리할 수 있다. 사용자는 다른 사용자들과 글, 사진, 비디오 등을 공유할 수 있다. 또한, 사용자는 다른 사용자들과 소통하고 관계를 맺을 수 있다. <strong>트위터</strong>와 비슷하다.</p>
 
 <p>마스토돈은 시스템 내부적으로 <code class="highlighter-rouge">ActivityPub</code> 이라는 프로토콜을 사용하고 있으며, <code class="highlighter-rouge">ActivityPub</code> 프로토콜을 사용하는 구현체는 마스토돈 뿐만이 아니라, Misskey/Akkoma/Pleroma 등 다양하게 있다. <code class="highlighter-rouge">ActivityPub</code> 프로토콜을 사용하는 구현체들로 연결된 인스턴스의 네트워크를 <strong>연합우주(fediverse)</strong>라고 표현한다.</p>
@@ -131,6 +133,7 @@
 <div class="text-center my-4">
     <a class="bmc-button" target="_blank" href="https://qr.kakaopay.com/Ej8T6e8CM5dc06009"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
 </div>
+
 <script src="https://utteranc.es/client.js"
     repo="kodingwarrior/kodingwarrior.github.io"
     issue-term="title"
@@ -139,12 +142,13 @@
     async>
 </script>
 
+
 <script>
 window.addEventListener("load", function(event) {
 	const target = document.querySelector('#wiki-content')
 	const before = target.innerHTML
 	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
-	
+
 	let after = before
 	results.forEach(function(result) {
 		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
@@ -212,7 +216,7 @@ window.addEventListener("load", function(event) {
 		if (element.href.includes("github.com")) {
 			element.prepend(githubIcon.cloneNode(true))
 		}
-	
+
 		// wikipedia
 		if (element.href.includes("wikipedia.org")) {
 			element.prepend(wikipediaIcon.cloneNode(true))
@@ -228,7 +232,7 @@ window.addEventListener("load", function(event) {
 			element.prepend(bookIcon.cloneNode(true))
 		}
 
-		// youtube 
+		// youtube
 		if (element.href.includes("youtube.com")) {
 			element.prepend(youtubeIcon.cloneNode(true))
 		}
@@ -238,12 +242,12 @@ window.addEventListener("load", function(event) {
 			element.prepend(twitterIcon.cloneNode(true))
 		}
 
-		// bluesky 
+		// bluesky
 		if (element.href.includes("bsky.app")) {
 			element.prepend(blueskyIcon.cloneNode(true))
 		}
 
-		// mastodon 
+		// mastodon
 		if (element.href.includes("__type=mastodon")) {
 			element.prepend(mastodonIcon.cloneNode(true))
 		}

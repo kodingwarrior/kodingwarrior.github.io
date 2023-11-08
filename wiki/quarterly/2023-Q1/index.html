@@ -9,8 +9,8 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.D5LSLKB6.css" />
-<script src="/_bridgetown/static/frontend/javascript/index.564WETOT.js" defer></script>
+<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.6VAT53W3.css" />
+<script src="/_bridgetown/static/frontend/javascript/index.NCPQ4MN2.js" defer></script>
 
 
   </head>
@@ -86,6 +86,8 @@
 </div>
 
 <article id="wiki-content">
+    
+
     <p>주기적으로 회고를 해야지하고 다짐만 하다가 2022년 회고도 못쓰고 월간 회고도 못쓰고 주간 회고는 어림도 없는 상황이 다가왔다.</p>
 
 <p>월간 회고도 못해서 땅치고 있을 시간에, 지속적으로 유지할 수 있는 루틴을 만들어가는 것이 중요하다는 판단이 들어 분기별 회고라도 해보고자 한다.</p>
@@ -149,6 +151,7 @@
 <div class="text-center my-4">
     <a class="bmc-button" target="_blank" href="https://qr.kakaopay.com/Ej8T6e8CM5dc06009"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
 </div>
+
 <script src="https://utteranc.es/client.js"
     repo="kodingwarrior/kodingwarrior.github.io"
     issue-term="title"
@@ -157,12 +160,13 @@
     async>
 </script>
 
+
 <script>
 window.addEventListener("load", function(event) {
 	const target = document.querySelector('#wiki-content')
 	const before = target.innerHTML
 	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
-	
+
 	let after = before
 	results.forEach(function(result) {
 		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
@@ -230,7 +234,7 @@ window.addEventListener("load", function(event) {
 		if (element.href.includes("github.com")) {
 			element.prepend(githubIcon.cloneNode(true))
 		}
-	
+
 		// wikipedia
 		if (element.href.includes("wikipedia.org")) {
 			element.prepend(wikipediaIcon.cloneNode(true))
@@ -246,7 +250,7 @@ window.addEventListener("load", function(event) {
 			element.prepend(bookIcon.cloneNode(true))
 		}
 
-		// youtube 
+		// youtube
 		if (element.href.includes("youtube.com")) {
 			element.prepend(youtubeIcon.cloneNode(true))
 		}
@@ -256,12 +260,12 @@ window.addEventListener("load", function(event) {
 			element.prepend(twitterIcon.cloneNode(true))
 		}
 
-		// bluesky 
+		// bluesky
 		if (element.href.includes("bsky.app")) {
 			element.prepend(blueskyIcon.cloneNode(true))
 		}
 
-		// mastodon 
+		// mastodon
 		if (element.href.includes("__type=mastodon")) {
 			element.prepend(mastodonIcon.cloneNode(true))
 		}

@@ -9,8 +9,8 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.D5LSLKB6.css" />
-<script src="/_bridgetown/static/frontend/javascript/index.564WETOT.js" defer></script>
+<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.6VAT53W3.css" />
+<script src="/_bridgetown/static/frontend/javascript/index.NCPQ4MN2.js" defer></script>
 
 
   </head>
@@ -86,6 +86,8 @@
 </div>
 
 <article id="wiki-content">
+    
+
     <p>Private 한 문서들을 Notion과 같이 트리 구조로 관리할 수 있게 해주는 플러그인이다. 문서는 마크다운 파일로 관리가 가능하다. 자세한 설명은 vim help가 더 친절하고 정확하기 때문에,  <code class="highlighter-rouge">:h mind-usage</code> 명령으로 사용법을 확인하는 것을 권장한다.</p>
 
 <p>개인적으로는 <code class="highlighter-rouge">:MindOpenMain</code> 명령어를 키면서 사용하고 있는데, 어떤 프로젝트를 열고 있더라도 메모장처럼 띄워서 사용할 수 있는 것이 큰 장점이다. Dropbox와 연동하면, 그 장점이 두배가 된다.</p>
@@ -114,6 +116,7 @@
 <div class="text-center my-4">
     <a class="bmc-button" target="_blank" href="https://qr.kakaopay.com/Ej8T6e8CM5dc06009"><img src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
 </div>
+
 <script src="https://utteranc.es/client.js"
     repo="kodingwarrior/kodingwarrior.github.io"
     issue-term="title"
@@ -122,12 +125,13 @@
     async>
 </script>
 
+
 <script>
 window.addEventListener("load", function(event) {
 	const target = document.querySelector('#wiki-content')
 	const before = target.innerHTML
 	const results = [...before.matchAll(/\[\[([\w\s\/\.\-\_]*)\]\](\{.*\})?/g)]
-	
+
 	let after = before
 	results.forEach(function(result) {
 		const anchorHtml = result[2] !== undefined ? '<a href="/wiki/' + result[1] + '">' + result[2].slice(1, -1) + '</a>' : '<a href="/wiki/' + result[1] + '">' + result[1] + '</a>';
@@ -195,7 +199,7 @@ window.addEventListener("load", function(event) {
 		if (element.href.includes("github.com")) {
 			element.prepend(githubIcon.cloneNode(true))
 		}
-	
+
 		// wikipedia
 		if (element.href.includes("wikipedia.org")) {
 			element.prepend(wikipediaIcon.cloneNode(true))
@@ -211,7 +215,7 @@ window.addEventListener("load", function(event) {
 			element.prepend(bookIcon.cloneNode(true))
 		}
 
-		// youtube 
+		// youtube
 		if (element.href.includes("youtube.com")) {
 			element.prepend(youtubeIcon.cloneNode(true))
 		}
@@ -221,12 +225,12 @@ window.addEventListener("load", function(event) {
 			element.prepend(twitterIcon.cloneNode(true))
 		}
 
-		// bluesky 
+		// bluesky
 		if (element.href.includes("bsky.app")) {
 			element.prepend(blueskyIcon.cloneNode(true))
 		}
 
-		// mastodon 
+		// mastodon
 		if (element.href.includes("__type=mastodon")) {
 			element.prepend(mastodonIcon.cloneNode(true))
 		}
