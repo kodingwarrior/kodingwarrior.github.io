@@ -198,6 +198,10 @@ article ol li {
   @apply mt-8 border-t-2 border-dashed border-slate-400;
 }
 
+kbd {
+  @apply px-2 py-2 bg-gray-100 border-2 border-gray-300 mx-1 rounded-xl text-xs font-bold;
+}
+
 .twitter-tweet {
   margin: 2rem auto !important;
 }
