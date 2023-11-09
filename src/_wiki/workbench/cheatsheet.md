@@ -35,5 +35,9 @@ Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 
 
 ### Wezterm
 
-* `Ctrl + PgUp/PgDown` - counter-clockwise/clockwise 방향으로 활성화할 탭을 변경할 수 있다.
-* `Ctrl + Shift + PgUp/PgDown` - counter-clockwise/clockwise 방향으로 현재 활성화된 탭의 위치를 옮길 수 있다.
+* <kbd>Ctrl</kbd> + (<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 활성화할 탭을 변경할 수 있다.
+* <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + (<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 현재 활성화된 탭의 위치를 옮길 수 있다.
+* (custom) <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + (<kbd>z</kbd> or <kbd>x</kbd>) - 터미널의 opacity를 조절한다. [관련 코드](https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua#L87-L103)
+  * 노트북 한 화면만 보고 작업해야할때 종종 사용한다. 백그라운드에 UI 화면 띄우고, 터미널 띄우고 개발하면서 Hot Module Reloading으로 화면에 바로바로 반영되는 것을 투명도 조절하면서 확인하는 용도로 사용하고 있다.
+* (custom) <kbd>Ctrl</kbd> + <kbd>`</kbd> - 현재 열고 있는 탭의 title을 변경할 수 있는 프롬프트를 띄운다. [관련 코드](https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua#L105-L119)
+  * 터미널의 각 탭이 어떤 역할을 하고 있는지 한 눈에 파악할 필요가 있는데, 현재 띄워놓은 탭의 title을 변경할때 주로 사용한다. (ex. 프로젝트1 / 프로젝트1 서버 프로세스 / 프로젝트 2 / 저널링 / 블로그)
