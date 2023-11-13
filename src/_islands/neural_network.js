@@ -6,6 +6,24 @@ class NeuralNetwork extends HTMLElement {
   }
 
   connectedCallback() {
+    this.init();
+  }
+
+  static get observedAttributes() {
+    return ["defer-hydration"];
+  }
+
+  attributeChangedCallback(name, previousValue, newValue) {
+    if(name ==="defer-hydration" && newValue === null) {
+      this.init();
+    }
+  }
+
+  init() {
+    if(this.hasAttribute("defer-hydration")) {
+      return;
+    }
+
     window.addEventListener('load', function(e) {
       const KnowledgeGraph = window.$graph()
 
