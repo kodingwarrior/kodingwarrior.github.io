@@ -13,15 +13,23 @@
       "group": 1
     },
     {
-      "id": "workbench/cheatsheet",
-      "group": 1
-    },
-    {
       "id": "tmuxinator",
       "group": 1
     },
     {
+      "id": "productivity",
+      "group": 1
+    },
+    {
+      "id": "improving-productivity",
+      "group": 1
+    },
+    {
       "id": "quarterly/2023-Q3",
+      "group": 1
+    },
+    {
+      "id": "workbench/cheatsheet",
       "group": 1
     },
     {
@@ -86,10 +94,6 @@
     },
     {
       "id": "vim-plugin/mind.nvim",
-      "group": 1
-    },
-    {
-      "id": "improving-productivity",
       "group": 1
     },
     {
@@ -169,13 +173,13 @@
       "fy": -100.13733744565687
     },
     {
-      "id": "#productivity",
+      "id": "#cli",
       "group": 2,
       "fx": 61.2540954942755,
       "fy": 79.89512064654117
     },
     {
-      "id": "#cli",
+      "id": "#productivity",
       "group": 2,
       "fx": -99.25687814658176,
       "fy": -17.5571441662498
@@ -225,16 +229,6 @@
       "value": 1
     },
     {
-      "source": "#productivity",
-      "target": "workbench/cheatsheet",
-      "value": 100
-    },
-    {
-      "source": "workbench/cheatsheet",
-      "target": "vim/builtins",
-      "value": 1
-    },
-    {
       "source": "#cli",
       "target": "tmuxinator",
       "value": 100
@@ -245,9 +239,29 @@
       "value": 100
     },
     {
+      "source": "#productivity",
+      "target": "productivity",
+      "value": 100
+    },
+    {
+      "source": "productivity",
+      "target": "improving-productivity",
+      "value": 1
+    },
+    {
       "source": "#archive",
       "target": "quarterly/2023-Q3",
       "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "workbench/cheatsheet",
+      "value": 100
+    },
+    {
+      "source": "workbench/cheatsheet",
+      "target": "vim/builtins",
+      "value": 1
     },
     {
       "source": "#archive",
