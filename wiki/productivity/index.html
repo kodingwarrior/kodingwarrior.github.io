@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Vim (TBD) | KODINGWARRIOR QUEST</title>
+<title>생산성 | KODINGWARRIOR QUEST</title>
 
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -72,7 +72,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>Vim (TBD)</h1>
+<h1>생산성</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -87,23 +87,23 @@
 
 <article id="wiki-content">
     
-        
-<pre class="mx-0 md:mx-8 mb-8 rounded-xl py-6 px-6 bg-lime-100 text-gray-900 overflow-visible break-words"><div class="flex flex-col md:flex-row justify-start items-start md:items-center"><i class="bi w-16 text-4xl mb-2 md:mb-0 bi-info-circle font-extrabold"></i><p class="m-0 p-0 leading-6 md:leading-8 text-sm md:text-lg">혹시 이 글을 읽고 Vim에 관심을 가지게 되셨나요?<br/>Vim에 관심있는 사람들을 위한 Discord 커뮤니티 <br/><a href="https://vim.kr">vim.kr</a> 바로 여러분들을 위한 커뮤니티입니다.</p></div></pre>
-
-
-    
 
     <h2 id="개인적인-견해">개인적인 견해</h2>
 
 <ul>
-  <li>플러그인을 만들어온 개인적인 경험에 기반하면, Vim/Neovim 플러그인을 개발하는 행위는 어떻게 보면 문자열 알고리즘 문제를 푸는 것과 같다고 느낄때가 많다. 버퍼에서 라인을 읽어들이는 것은 stdin에서 문자열을 입력받는 것과 같고, 버퍼에 라인을 집어넣는 것은 stdout에 출력하는 것과 같은 느낌이다. mastodon.nvim 프로젝트를 진행하고 있을때도 간만에 HTML 파서 구현체를 만들어서 버퍼에 알맞게 뿌리는 작업을 구현했던 적도 있었고, treesitter라는 파서 제네레이터를 응용해서 2차원 배열로서 다룰 수 있는 버퍼 내부의 소스코드를 트리 형태로 변환해서 문제를 접근할 수도 있었다. 알고리즘 문제 푸는걸 좋아했던 입장에서는 이만한 지적유희거리가 없다.</li>
+  <li><a href="https://two-wrongs.com/typing-fast-is-about-latency-not-throughput">typing fast is about latency not throughput</a> - 2023년 중후반쯤부터 키보드 레이아웃을 어떻게 구성했느니 같은걸로 해커뉴스가 불타오르곤 했었다. 어디에서는 키보드 레이아웃 그런거 생산성에 큰 영향이 없다는 글이 소개된 적이 있었는데, 이 글은 <strong>분당 타이핑 같은 기계적인 속도보다는 생각하고 타이핑까지 이어지는 레이턴시가 중요하다</strong>는 관점을 소개하는 글.
+    <ul>
+      <li>자주 사용하는 코드를 찍어내는 속도를 최소화하기 위해 스니펫을 찍어내기도 했었고, 반복적으로 하게 되는 빌드작업을 자동화하기 위해서 CLI 도구 만들어서 alias 걸기도 했었고, 반복적으로 코드를 짜야 하는 불필요한 노동 시간을 줄이기 위해서 메타프로그래밍을 본격적으로 파고 들어서 DSL을 만들기도 했었다.</li>
+      <li>의미론적 단위는 머릿속에서 완성되어있는데도, 고려해야하는 가짓수를 최대한 줄이고, 의미론적인 조합을 만드는데 필요한 노가다를 줄이는게 얼마나 컸던 것을 생각하면 이 글이 전적으로 공감되는 부분이 많다.</li>
+      <li>의미론적으로는 동일하지만, 적은 양의 코드, 적은 양의 명령어를 입력하는 것 만으로도 더 많은 가치를 뽑아내는 것을 이미 경험해본 적이 있다. 코드를 찍어내는 속도가 중요한 것이 아니라, <strong>같은 의미론 단위의 코드/글을 생성하더라도 다음의 의미론적인 맥락까지 생각이 움직이기까지의 시간이 짧을수록 생산성이 올라가는 것이 자명했다.</strong></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="관련-문서">관련 문서</h2>
 
 <ul>
-  <li>[[vim/builtins]]{Vim에서 제공하는 기본 기능}</li>
-  <li>[[vim/versus-neovim]]{Neovim과의 차이점}</li>
+  <li>[[improving-productivity]]{생산성 개선하기}</li>
 </ul>
 
 </article>
