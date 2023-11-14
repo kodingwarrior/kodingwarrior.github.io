@@ -6,11 +6,24 @@
   <body class="{{ resource.data.layout }} {{ resource.data.page_class }}">
     {% render "navbar", metadata: site.metadata, resource: resource %}
 
-    <main>
-      <article>
-        {{ content }}
-      </article>
-    </main>
+    <div class="article-wrapper">
+        <main class="z-20">
+          <article>
+            {{ content }}
+          </article>
+        </main>
+
+        <div class="sticky left-0 w-screen top-4 z-10">
+            <div class="toc-layer">
+                <div class="toc-aside">
+                </div>
+                <div class="toc-padding">
+                </div>
+                <div class="toc-aside">
+                </div>
+            </div>
+        </div>
+    </div>
 
     {% render "footer", metadata: site.metadata %}
 

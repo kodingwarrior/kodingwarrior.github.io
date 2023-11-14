@@ -111,6 +111,7 @@ body > nav a {
 main {
   margin: 2rem auto 2rem;
   max-width: 65rem;
+  width: 100%;
   min-height: calc(100vh - 200px);
   padding: 25px 25px 50px;
   background: white;
@@ -120,6 +121,40 @@ main {
   @media (max-width: 500px) {
     padding: 16px 16px 50px;
   }
+}
+
+.article-wrapper {
+  display: grid;
+}
+
+.article-wrapper > * {
+  grid-area: 1 / 1;
+}
+
+.toc-padding {
+  position: relative;
+  max-width: 65rem;
+  width: 100%;
+}
+
+.toc-aside {
+  top: 0.5rem;
+  max-width: 12rem;
+  width: 100%;
+
+  min-height: 10rem;
+}
+
+.toc-layer {
+  position: sticky;
+  top: 2rem;
+
+  display: flex;
+  justify-content: center;
+  margin: 6.5rem auto 2rem;
+
+  gap: 2rem;
+  /* z-index: 2 */
 }
 
 footer {
