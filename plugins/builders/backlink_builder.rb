@@ -13,7 +13,7 @@ class Builders::BacklinkBuilder < SiteBuilder
         _, *tokens = pathname.split('/') # Removes _wiki/
         filename = tokens.join('/')
         source = filename[..-4] # Removes file extension name
-        
+
         nodes << source
 
         wiki_content = wiki_document.content
@@ -22,7 +22,7 @@ class Builders::BacklinkBuilder < SiteBuilder
         tags.each do |tag|
           group_name = "##{tag}"
           node_groups << group_name
-          links << { 
+          links << {
             "source": group_name,
             "target": source,
             "value": 100,
@@ -41,13 +41,13 @@ class Builders::BacklinkBuilder < SiteBuilder
         end
       end
 
-      reference_graph = { 
-        "nodes": [ 
+      reference_graph = {
+        "nodes": [
           *nodes.to_a.map { |name| ({ id: name, group: 1 }) },
           *rearrange_coordinates(node_groups.to_a.map { |name| ({ id: name, group: 2 }) })
         ],
         "links": links,
-      } 
+      }
 
       target_file = site.in_root_dir("src", "_data", "wiki_datasets.json")
       File.write target_file, JSON.pretty_generate(reference_graph)
@@ -59,12 +59,13 @@ class Builders::BacklinkBuilder < SiteBuilder
     #
     # See https://demonstrations.wolfram.com/SunflowerSeedArrangements/
     def rearrange_coordinates(node_groups)
-      node_groups.zip(sunflower(node_groups.size)).map { |f, s| f.merge(s) }
+      node_groups.delete_if { |obj| obj[:id] == "meta-document" }
+      [*node_groups.to_a, { id: "meta-document", group: 2 }].zip(sunflower(node_groups.size )).map { |f, s| f.merge(s) }
     end
 
     def sunflower(n, alpha = 0, geodesic = false)
       phi = (1.0 + Math.sqrt(5)) / 2.0
-      
+
       points = []
       angle_stride = if geodesic
         360.0 * phi
@@ -74,12 +75,18 @@ class Builders::BacklinkBuilder < SiteBuilder
 
       b = (alpha * Math.sqrt(n)) # number of boundary points
       (1..n).each do |k|
-        r = 100 + radius(k, n, b)
+        r = 200 + radius(k, n, b)
         theta = k * angle_stride
-        
+
         # calculates fixed (x,y) coordinates for hashtag nodes with randomness
         points << { fx: r * Math.cos(theta), fy: r * Math.sin(theta) }
       end
+
+      cx = points.reduce(0) { |acc, elem| elem[:fx] } / points.size.to_f
+      cy = points.reduce(0) { |acc, elem| elem[:fy] } / points.size.to_f
+
+      # meta-document tag is the center
+      points << { fx: cx, fy: cy }
 
       points
     end
