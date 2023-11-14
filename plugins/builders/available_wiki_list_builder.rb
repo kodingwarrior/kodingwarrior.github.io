@@ -1,6 +1,7 @@
 class Builders::AvailableWikiListBuilder < SiteBuilder
-  def build 
+  def build
     hook :site, :pre_render do |site|
+      next if ENV['BRIDGETOWN__DISABLE_BUILDERS'] == "true"
       wiki_documents = collect_wiki_resources(site)
 
       list = Set.new
@@ -13,7 +14,7 @@ class Builders::AvailableWikiListBuilder < SiteBuilder
 
         list << source
       end
- 
+
       target_file = site.in_root_dir("src", "_data", "available_wiki_documents.json")
       File.write target_file, list.to_a.to_json
     end

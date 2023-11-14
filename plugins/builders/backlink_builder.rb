@@ -2,6 +2,7 @@ class Builders::BacklinkBuilder < SiteBuilder
   # See https://github.com/vasturiano/force-graph/blob/master/example/datasets/miserables.json
   def build
     hook :site, :pre_render do |site|
+      next if ENV['BRIDGETOWN__DISABLE_BUILDERS'] == "true"
       wiki_documents = collect_wiki_resources(site)
 
       nodes = Set.new
