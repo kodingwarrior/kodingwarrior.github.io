@@ -17,7 +17,7 @@
 url: "" # the base hostname & protocol for your site, e.g. https://example.com
 
 permalink: pretty_ext
-template_engine: liquid
+template_engine: erb
 
 # Other options you might want to investigate:
 #

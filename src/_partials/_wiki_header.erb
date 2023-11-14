@@ -2,7 +2,7 @@
 <header>
   <ul class="wiki-navbar">
 	  <li>
-		  <a href="{{ '/wiki' | relative_url }}">
+		  <a href="/wiki">
 			  <i class="bi bi-door-open mr-2"></i>Main
 		  </a>
 	  </li>
@@ -12,7 +12,7 @@
 		  </a>
 	  </li>
 	  <li>
-		  <a href="{{ '/neural-network' | relative_url }}">
+		  <a href="/neural-network">
 			  <i class="bi bi-diagram-3 mr-2"></i>Graph
 		  </a>
 	  </li>
@@ -26,7 +26,7 @@
   }
 </script>
 
-<is-land on:visible import="{% asset_path islands/random_page_redirection.js %}">
+<is-land on:visible import="<%= asset_path 'islands/random_page_redirection.js' %>">
   <random-page-redirection>
   </random-page-redirection>
 </is-land>

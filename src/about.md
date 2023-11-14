@@ -5,7 +5,7 @@ title: About
 
 <div class="sm:flex sm:justify-between sm:items-center">
   <div class="flex py-2 mb-8 sm:mb-2 justify-center sm:justify-left">
-    <img width="250" src="{{ '/images/profile_image.jpg' | relative_url }}" />
+    <img width="250" src="/images/profile_image.jpg" />
   </div>
   <div class="text-right">
   <b>솔직함</b>을 내세우면서<br/>
@@ -24,7 +24,7 @@ title: About
 * **주식회사 펫트너 <sub>Petner co.</sub>**
   * Tech stack : Ruby On Rails, Flutter, Vue.js
   * May. 2020 ~ Jan. 2021 : **Software Engineer**
-  * Apr. 2021 ~ Nov. 2021 : **Part-time Developer** 
+  * Apr. 2021 ~ Nov. 2021 : **Part-time Developer**
 * **주식회사 아쳐랩 <sub>ACHER Lab co.</sub>**
   * Tech stack : React Native, Vue.js(TypeScript)
   * Jun. 2019 ~ Mar. 2020 : **Software Engineer**

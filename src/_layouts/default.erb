@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="{{ site.locale }}">
+<html lang="<%= site.locale %>">
   <head>
-    {% render "head", metadata: site.metadata, title: page.title %}
+    <%= render "head", metadata: site.metadata, title: resource.data.title %>
   </head>
-  <body class="{{ resource.data.layout }} {{ resource.data.page_class }}">
-    {% render "navbar", metadata: site.metadata, resource: resource %}
+  <body class="<%= resource.data.layout %> <%= resource.data.page_class %>">
+    <%= render "navbar", metadata: site.metadata, resource: resource %>
 
     <div class="article-wrapper">
         <main class="z-20">
           <article>
-            {{ content }}
+            <%= content %>
           </article>
         </main>
 
@@ -20,12 +20,14 @@
                 <div class="toc-padding">
                 </div>
                 <div class="toc-aside">
+                    <%# {% render "toc" %} %>
+                    <%= "hello world" %>
                 </div>
             </div>
         </div>
     </div>
 
-    {% render "footer", metadata: site.metadata %}
+    <%= render "footer", metadata: site.metadata %>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127979309-1"></script>

@@ -12,7 +12,7 @@ layout: default
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>{{ page.title }}</h1>
+<h1><%= resource.data.title %></h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -26,7 +26,7 @@ layout: default
 </div>
 
 <article>
-    {{ content }}
+    <%= content %>
 </article>
 
 <!-- buy me a coffee -->
