@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<%= slot :toc do %>
+  <%= toc resource.untransformed_content %>
+<% end %>
+
 <%= render "wiki_header", available_wiki_documents: site.data.available_wiki_documents %>
 
 <script type="text/javascript" async>
