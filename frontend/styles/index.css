@@ -139,7 +139,8 @@ main {
 
 .toc-aside {
   top: 0.5rem;
-  max-width: 12rem;
+  font-size: 1rem;
+  max-width: 22rem;
   width: 100%;
 
   min-height: 10rem;
@@ -155,6 +156,15 @@ main {
 
   gap: 2rem;
   /* z-index: 2 */
+}
+
+.toc-layer ul {
+  margin: 0.25rem 1.25rem;
+  list-style-type: disc;
+}
+
+.toc-layer ul,li {
+  line-height: 1.75
 }
 
 footer {
