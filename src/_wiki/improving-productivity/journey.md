@@ -2,7 +2,7 @@
 title: 생산성 개선을 위한 여정
 date:  2023-11-16
 layout: wiki
-tag: productivity
+tags: productivity metacognition
 ---
 
 ## 2023년
