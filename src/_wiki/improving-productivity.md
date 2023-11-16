@@ -32,6 +32,7 @@ tags: productivity
 
 ## ETC.
 
+* [[improving-productivity/journey]]{이 문서} 에는 생산성을 개선하기 위해 워크플로우에 생산성 도구를 도입하는 일련의 과정을 타임라인으로 정리했다.
 * [[prompt-engineering]]{프롬프트 엔지니어링}
   * ChatGPT, Github Copilot 등 업무를 보조하기 위해 인공지능을 활용하는 사례가 늘어나고 있다. 연구 필요
 

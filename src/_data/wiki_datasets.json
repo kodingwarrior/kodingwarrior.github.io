@@ -17,6 +17,10 @@
       "group": 1
     },
     {
+      "id": "improving-productivity/journey",
+      "group": 1
+    },
+    {
       "id": "productivity",
       "group": 1
     },
@@ -246,6 +250,11 @@
     },
     {
       "source": "#productivity",
+      "target": "improving-productivity/journey",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
       "target": "productivity",
       "value": 100
     },
@@ -387,6 +396,11 @@
     {
       "source": "improving-productivity",
       "target": "vim-plugin/mind.nvim",
+      "value": 1
+    },
+    {
+      "source": "improving-productivity",
+      "target": "improving-productivity/journey",
       "value": 1
     },
     {
