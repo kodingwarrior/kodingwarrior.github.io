@@ -1,6 +1,22 @@
 {
   "nodes": [
     {
+      "id": "vim/versus-neovim",
+      "group": 1
+    },
+    {
+      "id": "vim/builtins",
+      "group": 1
+    },
+    {
+      "id": "vim",
+      "group": 1
+    },
+    {
+      "id": "tmuxinator",
+      "group": 1
+    },
+    {
       "id": "metacognition",
       "group": 1
     },
@@ -14,18 +30,6 @@
     },
     {
       "id": "productivity",
-      "group": 1
-    },
-    {
-      "id": "vim/versus-neovim",
-      "group": 1
-    },
-    {
-      "id": "vim/builtins",
-      "group": 1
-    },
-    {
-      "id": "vim",
       "group": 1
     },
     {
@@ -85,10 +89,6 @@
       "group": 1
     },
     {
-      "id": "tmuxinator",
-      "group": 1
-    },
-    {
       "id": "digital-garden",
       "group": 1
     },
@@ -141,22 +141,6 @@
       "group": 1
     },
     {
-      "id": "vim-plugin/nvim-treesitter-context",
-      "group": 1
-    },
-    {
-      "id": "vim-plugin/vim-fugitive",
-      "group": 1
-    },
-    {
-      "id": "vim-plugin/vim-gitgutter",
-      "group": 1
-    },
-    {
-      "id": "vim-plugin/octo.nvim",
-      "group": 1
-    },
-    {
       "id": "symbol",
       "group": 1
     },
@@ -169,37 +153,37 @@
       "group": 1
     },
     {
-      "id": "#metacognition",
+      "id": "#vim",
       "group": 2,
       "fx": -147.67828494634415,
       "fy": 135.2854061516923
     },
     {
-      "id": "#productivity",
+      "id": "#developer-experience",
       "group": 2,
       "fx": 17.527142903073972,
       "fy": -199.7127532619089
     },
     {
-      "id": "#vim",
+      "id": "#cli",
       "group": 2,
       "fx": 122.06510995894888,
       "fy": 159.21232055112048
     },
     {
-      "id": "#developer-experience",
+      "id": "#productivity",
       "group": 2,
       "fx": -197.66527921370596,
       "fy": -34.96420468405162
     },
     {
-      "id": "#archive",
+      "id": "#metacognition",
       "group": 2,
       "fx": 169.4531058038772,
       "fy": -107.79219525943165
     },
     {
-      "id": "#cli",
+      "id": "#archive",
       "group": 2,
       "fx": -52.15966220860875,
       "fy": 194.03134354153482
@@ -218,36 +202,6 @@
     }
   ],
   "links": [
-    {
-      "source": "#metacognition",
-      "target": "metacognition",
-      "value": 100
-    },
-    {
-      "source": "metacognition",
-      "target": "improving-productivity",
-      "value": 1
-    },
-    {
-      "source": "#productivity",
-      "target": "improving-productivity/journey",
-      "value": 100
-    },
-    {
-      "source": "#metacognition",
-      "target": "improving-productivity/journey",
-      "value": 100
-    },
-    {
-      "source": "#productivity",
-      "target": "productivity",
-      "value": 100
-    },
-    {
-      "source": "productivity",
-      "target": "improving-productivity",
-      "value": 1
-    },
     {
       "source": "#vim",
       "target": "vim/versus-neovim",
@@ -276,6 +230,46 @@
     {
       "source": "vim",
       "target": "vim/versus-neovim",
+      "value": 1
+    },
+    {
+      "source": "#cli",
+      "target": "tmuxinator",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "tmuxinator",
+      "value": 100
+    },
+    {
+      "source": "#metacognition",
+      "target": "metacognition",
+      "value": 100
+    },
+    {
+      "source": "metacognition",
+      "target": "improving-productivity",
+      "value": 1
+    },
+    {
+      "source": "#productivity",
+      "target": "improving-productivity/journey",
+      "value": 100
+    },
+    {
+      "source": "#metacognition",
+      "target": "improving-productivity/journey",
+      "value": 100
+    },
+    {
+      "source": "#productivity",
+      "target": "productivity",
+      "value": 100
+    },
+    {
+      "source": "productivity",
+      "target": "improving-productivity",
       "value": 1
     },
     {
@@ -530,43 +524,8 @@
     },
     {
       "source": "vim-plugin",
-      "target": "vim-plugin/nvim-treesitter-context",
-      "value": 1
-    },
-    {
-      "source": "vim-plugin",
-      "target": "vim-plugin/vim-fugitive",
-      "value": 1
-    },
-    {
-      "source": "vim-plugin",
-      "target": "vim-plugin/vim-gitgutter",
-      "value": 1
-    },
-    {
-      "source": "vim-plugin",
-      "target": "vim-plugin/octo.nvim",
-      "value": 1
-    },
-    {
-      "source": "vim-plugin",
       "target": "vim-plugin/telekasten.nvim",
       "value": 1
-    },
-    {
-      "source": "vim-plugin",
-      "target": "vim-plugin/mind.nvim",
-      "value": 1
-    },
-    {
-      "source": "#cli",
-      "target": "tmuxinator",
-      "value": 100
-    },
-    {
-      "source": "#productivity",
-      "target": "tmuxinator",
-      "value": 100
     },
     {
       "source": "#cli",
