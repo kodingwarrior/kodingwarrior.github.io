@@ -157,6 +157,13 @@ class NeuralNetwork extends HTMLElement {
             window.location.assign("/wiki/" + path)
           }
         })
+        .linkWidth(function(link) {
+          if (link.value == 200) {
+            return 3;
+          }
+
+          return 1;
+        })
 		})
   }
 }
