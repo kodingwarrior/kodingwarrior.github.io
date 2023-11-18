@@ -153,52 +153,112 @@
       "group": 1
     },
     {
-      "id": "#vim",
-      "group": 2,
-      "fx": -147.67828494634415,
-      "fy": 135.2854061516923
+      "id": "#prelude",
+      "fx": 0,
+      "fy": 0,
+      "group": 2
     },
     {
-      "id": "#developer-experience",
-      "group": 2,
-      "fx": 17.527142903073972,
-      "fy": -199.7127532619089
+      "id": "#misc",
+      "fx": 200.0,
+      "fy": 0.0,
+      "group": 2
     },
     {
-      "id": "#cli",
-      "group": 2,
-      "fx": 122.06510995894888,
-      "fy": 159.21232055112048
+      "id": "#fediverse",
+      "fx": -147.47377561566395,
+      "fy": 135.09805885230477,
+      "group": 2
     },
     {
       "id": "#productivity",
-      "group": 2,
-      "fx": -197.66527921370596,
-      "fy": -34.96420468405162
+      "fx": 17.485144943391976,
+      "fy": -199.23420817296557,
+      "group": 2
+    },
+    {
+      "id": "#ai-assistant",
+      "fx": 24.479202920748765,
+      "fy": -278.9278914421518,
+      "group": 2
+    },
+    {
+      "id": "#cli",
+      "fx": 66.16025382170098,
+      "fy": -135.7461480696299,
+      "group": 2
+    },
+    {
+      "id": "#developer-experience",
+      "fx": -61.291933881842326,
+      "fy": -213.1687642033105,
+      "group": 2
+    },
+    {
+      "id": "#vim",
+      "fx": -92.80276541193604,
+      "fy": -218.7425866154485,
+      "group": 2
     },
     {
       "id": "#metacognition",
-      "group": 2,
-      "fx": 169.4531058038772,
-      "fy": -107.79219525943165
+      "fx": 84.98556852838375,
+      "fy": -242.1724523830714,
+      "group": 2
+    },
+    {
+      "id": "#computer-science",
+      "fx": 121.68777219577251,
+      "fy": 158.72015025833917,
+      "group": 2
+    },
+    {
+      "id": "#network",
+      "fx": 170.3628810740815,
+      "fy": 222.20821036167484,
+      "group": 2
+    },
+    {
+      "id": "#algorithm",
+      "fx": 42.91069337053821,
+      "fy": 144.78559422799424,
+      "group": 2
+    },
+    {
+      "id": "#development",
+      "fx": -196.94269706308575,
+      "fy": -34.836390075862326,
+      "group": 2
+    },
+    {
+      "id": "#webdev",
+      "fx": -275.71977588832004,
+      "fy": -48.770946106207255,
+      "group": 2
+    },
+    {
+      "id": "#software-engineering",
+      "fx": -129.44227347809397,
+      "fy": -77.77463428596815,
+      "group": 2
+    },
+    {
+      "id": "#oop",
+      "fx": -217.71104145520482,
+      "fy": 42.42081587419993,
+      "group": 2
     },
     {
       "id": "#archive",
-      "group": 2,
-      "fx": -52.15966220860875,
-      "fy": 194.03134354153482
+      "fx": 168.75105896247945,
+      "fy": -107.34561052526455,
+      "group": 2
     },
     {
       "id": "#project",
-      "group": 2,
-      "fx": -92.64231196738722,
-      "fy": -178.37713427829618
-    },
-    {
-      "id": "meta-document",
-      "group": 2,
-      "fx": -13.23461599534103,
-      "fy": -25.48244775404231
+      "fx": 236.25148254747123,
+      "fy": -150.28385473537037,
+      "group": 2
     }
   ],
   "links": [
@@ -343,6 +403,11 @@
       "value": 1
     },
     {
+      "source": "#network",
+      "target": "rfc",
+      "value": 100
+    },
+    {
       "source": "rfc",
       "target": "rfc/2616",
       "value": 1
@@ -356,6 +421,11 @@
       "source": "quarterly/2023-Q1",
       "target": "projects/neural-bridge",
       "value": 1
+    },
+    {
+      "source": "#fediverse",
+      "target": "mastodon",
+      "value": 100
     },
     {
       "source": "mastodon",
@@ -528,6 +598,11 @@
       "value": 1
     },
     {
+      "source": "#misc",
+      "target": "symbol",
+      "value": 100
+    },
+    {
       "source": "#cli",
       "target": "neovim",
       "value": 100
@@ -576,6 +651,91 @@
       "source": "daily/2023-01-19",
       "target": "projects/neural-bridge",
       "value": 1
+    },
+    {
+      "source": "#prelude",
+      "target": "#misc",
+      "value": 200
+    },
+    {
+      "source": "#prelude",
+      "target": "#fediverse",
+      "value": 200
+    },
+    {
+      "source": "#productivity",
+      "target": "#ai-assistant",
+      "value": 200
+    },
+    {
+      "source": "#productivity",
+      "target": "#cli",
+      "value": 200
+    },
+    {
+      "source": "#developer-experience",
+      "target": "#vim",
+      "value": 200
+    },
+    {
+      "source": "#productivity",
+      "target": "#developer-experience",
+      "value": 200
+    },
+    {
+      "source": "#productivity",
+      "target": "#metacognition",
+      "value": 200
+    },
+    {
+      "source": "#prelude",
+      "target": "#productivity",
+      "value": 200
+    },
+    {
+      "source": "#computer-science",
+      "target": "#network",
+      "value": 200
+    },
+    {
+      "source": "#computer-science",
+      "target": "#algorithm",
+      "value": 200
+    },
+    {
+      "source": "#prelude",
+      "target": "#computer-science",
+      "value": 200
+    },
+    {
+      "source": "#development",
+      "target": "#webdev",
+      "value": 200
+    },
+    {
+      "source": "#development",
+      "target": "#software-engineering",
+      "value": 200
+    },
+    {
+      "source": "#development",
+      "target": "#oop",
+      "value": 200
+    },
+    {
+      "source": "#prelude",
+      "target": "#development",
+      "value": 200
+    },
+    {
+      "source": "#archive",
+      "target": "#project",
+      "value": 200
+    },
+    {
+      "source": "#prelude",
+      "target": "#archive",
+      "value": 200
     }
   ]
 }
