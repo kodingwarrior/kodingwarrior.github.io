@@ -8,6 +8,7 @@ tags: vim developer-experience
 주변에서 하도 계속 물어봐서 Vim과 Neovim의 결정적인 차이점을 문서로 남긴다. 당장은 생각나는대로 나열했기 때문에, 추후에 내용이 더 추가될 순 있다.
 
 ## 사용하는 언어부터 다르다 (VimScript / Lua)
+{:#s-1}
 
 Vim을 커스터마이징할때는 **VimScript**를 쓰지만, Neovim을 커스터마이징할때는 **lua**를 사용한다.
 
@@ -16,12 +17,15 @@ Vim을 커스터마이징할때는 **VimScript**를 쓰지만, Neovim을 커스�
 반면. lua는 vimscript에 비하면 가독성이 적당히 나쁜 편은 아니다. 언어 자체의 기능으로 보자면 Python/Ruby/Javascript 등의 언어와 비교했을때 굉장히 좀 난해하게 느껴질 수는 있다.[^1] 다만, lua는 macOS에서 사용하는 자동화 툴인 [hammerspoon](https://www.hammerspoon.org/)이라던가, 터미널 에뮬레이터인 [wezterm](https://wezfurlong.org/wezterm/index.html)이라던가 **Unix 계열의 CLI 프로그램의 configuration을 작성하는데 있어서 사실상 De facto의 역할**을 하고 있다. 언어 자체가 마음에 들지 않는 부분은 어느 정도 있긴 하지만, 가독성이나 개발편의성이 엄청 나쁜 것은 아니기 때문에 거부할 이유는 딱히 없다고 생각하고 쓰고 있다.
 
 ## luarocks 패키지와 호환이 된다
+{:#s-2}
+
 Neovim을 커스터마이징할때 활용하는 lua는 luarocks라는 패키지매니저가 있기 때문에, 필요하다면 얼마든지 가져다 쓸 수 있다.
 
 luarocks를 이용하는 Neovim 플러그인은 그렇게 많지는 않지만, (실질적인 쓸모의 유무를 떠나서) luarocks를 활용한 플러그인도 종종 보이긴 한다. 확실한건, lua 기반으로 개발되어 온 ecosystem을 등에 업고 언제든지 활용할 수 있다.
 
 
 ## 플러그인 생태계도 제법 괜찮은 편이다.
+{:#s-3}
 **telescope** / **nvim-cmp** / **treesitter** 같은 키워드 위주로만 찾아봐도 이걸 응용한 괜찮은 기능의 플러그인들을 많이 살펴볼 수 있다.
 
 ### telescope
@@ -55,6 +59,7 @@ pwd 기준의 경로 자동 완성 / emoji / 버퍼 내에서 반복적으로 �
 이에 대해 좀 더 직관적으로 와닿을 수 있는 예시는 [ziontee113/syntax-tree-surfer](https://github.com/ziontee113/syntax-tree-surfer)인데, 함수가 정의되어 있는 위치를 바꾸는 demo 영상을 살펴보자. Syntax tree로 나타내면 두 함수의 위치는 Tree의 관점에서 보면 sibling으로 볼 수 있다. **두 함수가 정의되어 있는 위치를 바꾸는것은 사실상 트리 노드의 위치를 바꾸는 아주 간단한 문제**로 환원이 된다.
 
 ## 그 외에도 두드러지는 점들
+{:#s-4}
 
 language server 지원도 나름 나쁘지는 않은 편인데, 제대로 세팅하려면 각각 language server마다 걸맞는 configuration을 해줘야 하는 수고로움이 생길 순 있지만, [coc-nvim](https://github.com/neoclide/coc.nvim) 세팅해놔도 개인적으론 크게 문제가 없었다.
 

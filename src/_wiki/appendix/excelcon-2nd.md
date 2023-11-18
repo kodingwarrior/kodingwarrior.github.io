@@ -13,6 +13,7 @@ tags: archive productivity vim
 
 
 # I. Neovim 입문하기
+{:#s-1}
 
 주변 사람들의 온보딩 없이 CLI 기반의 에디터에 익숙해지는게 마냥 쉽지는 않습니다.
 
@@ -23,6 +24,7 @@ tags: archive productivity vim
 물어볼 사람이 있다는 것, 주변 사람들을 통해서 괜찮은 리소스를 알게 된다는 것이 생각보다 의미가 크다는 것을 알았어요. 이 글을 읽는 분들에게는 Neovim 입문에 도움이 되실 수 있기를 바랍니다.
 
 ## All-in-one 패키지를 원하는 분들을 위해...
+{:#s-1-1}
 
 Neovim을 시작하는 데 있어서 가장 부담이 되는 것은 플러그인을 설치하고 dotfiles를 구성하는 것입니다. 다행히도 그런 분들을 위한 스타터킷이 여럿 있습니다. 아래에 있는 것 중에 본인에게 맞는 것을 찾아서 시도해보는 것을 권장합니다.
 
@@ -33,6 +35,7 @@ Neovim을 시작하는 데 있어서 가장 부담이 되는 것은 플러그인
 플러그인도 굉장히 다양한 종류가 있는데요. 일본의 어떤 개발자가 Neovim 플러그인을 정리해 놓은 아티클이 있으니 참고가 되었으면 합니다. [(참고)](https://zenn.dev/yutakatay/articles/neovim-plugins-2022)
 
 ## dotfiles
+{:#s-1-2}
 
 좋은 코드를 짜려면, 다른 사람들이 짠 좋은 코드를 보다 보면 늘게 된다는 건 흔히 알려져 있는 사실입니다. dotfiles를 구성하는 것도 마찬가지입니다. 다른 사람들이 만들어놓은 dotfiles를 살펴보면서 나에게 필요하겠다싶은것들을 적절히 취사선택해서 도입하면 생산성에 유의미한 변화가 생길 수 있을 것입니다.
 
@@ -44,10 +47,12 @@ Neovim을 시작하는 데 있어서 가장 부담이 되는 것은 플러그인
 * [JohnGrib님의 dotfiles](https://github.com/johngrib/dotfiles)
 
 # II. 세션에서 다루지 못했던 주제들
+{:#s-2}
 
 30분이라는 제약된 시간 상 어쩔 수 없이 생략할 수 밖에 없었던 다양한 주제가 있었는데요. 그 중, 몇 가지를 소개하고자 합니다
 
 ## textobject
+{:#s-2-1}
 
 textobject는 텍스트를 블록 단위로 선택할 수 있게 해주는 기능입니다. 블록 단위로 선택할 수 있게 되면, 블록에 대해 다양한 명령어를 사용할 수 있습니다. 예를 들어, 블록을 복사하고 붙여넣기, 블록을 이동시키기, 블록을 삭제하기, 블록을 변경하기 등의 작업을 할 수 있습니다.
 
@@ -62,6 +67,7 @@ textobject는 텍스트를 블록 단위로 선택할 수 있게 해주는 기�
 그 외에도, 아래에서 설명할 `nvim-treesitter-textobject` 와 함께라면 더욱 개발하는데 가속도가 붙습니다.
 
 ## Treesitter (neovim only)
+{:#s-2-2}
 
 Treesitter는 Neovim에서 사용하는 텍스트 파서입니다. 텍스트를 분석하여 AST(Abstract Syntax Tree)를 만들고, 텍스트를 수정할 때마다 AST를 업데이트합니다. 이렇게 AST를 만들어두면, 텍스트를 더욱 정교하게 분석할 수 있습니다. 예를 들어, `if` 문을 만나면 `endif` 문을 만날 때까지의 내용을 모두 선택하고 싶다면, AST를 이용하면 쉽게 구현할 수 있습니다.
 
@@ -70,10 +76,12 @@ Treesitter는 `nvim-treesitter`라는 이름으로 Neovim에서 사용할 수 �
 Neovim에서 사용가능한 Treesitter 플러그인이 많지만, 대표적인 플러그인 몇 가지 정도만 소개하겠습니다.
 
 ### [Neovim treesitter playground](https://github.com/nvim-treesitter/playground)
+{:#s-2-2-1}
 
 내가 편집하고 있는 소스코드를 트리시터가 파싱했을때 **Syntax Tree** 구조가 어떻게 만들어지는지 시각화해주는 도구입니다. 주로 treesitter 커스텀 쿼리를 작성하거나, treesitter를 응용한 플러그인을 만들때 자주 사용되기도 하지만, treesitter 기반으로 만들어진 플러그인이 어떻게 동작하는지 파악하기에 좋습니다.
 
 ### [nvim-treesitter-textobject](https://github.com/nvim-treesitter/nvim-treesitter-textobjects)
+{:#s-2-2-2}
 
 `nvim-treesitter-textobject`는 `nvim-treesitter`와 `textobject`를 연결해주는 플러그인입니다. `nvim-treesitter-textobject`를 이용하면, 텍스트를 분석하여 AST를 만들고, AST를 이용하여 다양한 작업을 할 수 있습니다. `nvim-treesitter-textobject`를 사용하면, `textobject`의 범위를 함수, 클래스, 모듈로 확장이 가능합니다.
 
@@ -90,6 +98,7 @@ Neovim에서 사용가능한 Treesitter 플러그인이 많지만, 대표적인 
 - `try`문을 만나면 `catch`문과 `finally`문을 모두 선택
 
 ### [syntax-tree-surfer](https://github.com/ziontee113/syntax-tree-surfer)
+{:#s-2-2-3}
 
 트리시터를 응용해서 플러그인을 만든다고 했을 때, 어떻게 하면 생산성을 끌어올리는 방향으로 사용할 수 있을지를 잘 보여주는 사례입니다.
 
@@ -105,6 +114,7 @@ Neovim에서 사용가능한 Treesitter 플러그인이 많지만, 대표적인 
 물론, 위에서 언급한 Playground를 같이 켜서 관찰해보면 어떻게 동작하는지 대략적으로 파악이 가능합니다.
 
 ## [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) (Neovim)
+{:#s-2-3}
 
 **nvim-cmp**는 말 그대로 자동완성을 도와주는 플러그인입니다. 자동완성이라면 Language Server와 연동해서 자동완성하는것을 생각할 수도 있는데요. 그뿐만이 아니라, 스니펫 자동완성도 가능하고, 심지어 **git commit hash**까지 자동완성을 해줍니다. 개인적으로는 [Telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)과 맞먹을 수준으로 굉장한 플러그인이라고 생각하고 있습니다.
 
@@ -118,15 +128,18 @@ Neovim에서 사용가능한 Treesitter 플러그인이 많지만, 대표적인 
 
 
 # III. 개인적으로 관심있게 보는 주제들
+{:#s-3}
 
 
 
 ## Note Taking
+{:#s-3-1}
 
 * [How I'm able to take notes in mathematics lectures using LaTeX and Vim](https://castel.dev/post/lecture-notes-1/) - 수학과 학생이 Vim 으로 강의노트를 작성한 후기
   * [How I manage my LaTeX lecture notes](https://castel.dev/post/lecture-notes-3/) - LaTeX 기반으로 작성한 강의노트를 관리하는 방법을 소개
 
 ## Miscellaneous
+{:#s-3-2}
 
 * [Helix Editor](https://helix-editor.com/)
   * Vim의 뒤를 잇는 또 하나의 multi-modal 텍스트 에디터입니다. (Rust 기반으로 개발)
@@ -142,6 +155,7 @@ Neovim에서 사용가능한 Treesitter 플러그인이 많지만, 대표적인 
   * 개발자 뿐만이 아니라 아카데믹한 분야에서도 Neovim을 쓰는 사람들이 제법 있다는것을 알게 되었습니다.
 
 # IV. 마치며
+{:#s-4}
 
 이것저것 영업하고 싶은 마음에 얘기가 좀 길어졌습니다. 개인적으로는 Neovim이 굉장히 파워풀한 도구라고 생각하고 이것저것 소개하긴 했습니다만, 다른 분들은 어떻게 생각할지는 모르겠어요. **검색해서 도달가능한 한국어로 된 자료를 하나 더 만든다**에 큰 의미를 두고 싶어요.
 
