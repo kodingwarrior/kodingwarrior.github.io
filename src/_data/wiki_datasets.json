@@ -1,19 +1,11 @@
 {
   "nodes": [
     {
-      "id": "vim/versus-neovim",
-      "group": 1
-    },
-    {
-      "id": "vim/builtins",
-      "group": 1
-    },
-    {
-      "id": "vim",
-      "group": 1
-    },
-    {
       "id": "tmuxinator",
+      "group": 1
+    },
+    {
+      "id": "rfc/visualization",
       "group": 1
     },
     {
@@ -30,6 +22,18 @@
     },
     {
       "id": "productivity",
+      "group": 1
+    },
+    {
+      "id": "vim/versus-neovim",
+      "group": 1
+    },
+    {
+      "id": "vim/builtins",
+      "group": 1
+    },
+    {
+      "id": "vim",
       "group": 1
     },
     {
@@ -263,36 +267,6 @@
   ],
   "links": [
     {
-      "source": "#vim",
-      "target": "vim/versus-neovim",
-      "value": 100
-    },
-    {
-      "source": "#developer-experience",
-      "target": "vim/versus-neovim",
-      "value": 100
-    },
-    {
-      "source": "#vim",
-      "target": "vim/builtins",
-      "value": 100
-    },
-    {
-      "source": "#vim",
-      "target": "vim",
-      "value": 100
-    },
-    {
-      "source": "vim",
-      "target": "vim/builtins",
-      "value": 1
-    },
-    {
-      "source": "vim",
-      "target": "vim/versus-neovim",
-      "value": 1
-    },
-    {
       "source": "#cli",
       "target": "tmuxinator",
       "value": 100
@@ -330,6 +304,36 @@
     {
       "source": "productivity",
       "target": "improving-productivity",
+      "value": 1
+    },
+    {
+      "source": "#vim",
+      "target": "vim/versus-neovim",
+      "value": 100
+    },
+    {
+      "source": "#developer-experience",
+      "target": "vim/versus-neovim",
+      "value": 100
+    },
+    {
+      "source": "#vim",
+      "target": "vim/builtins",
+      "value": 100
+    },
+    {
+      "source": "#vim",
+      "target": "vim",
+      "value": 100
+    },
+    {
+      "source": "vim",
+      "target": "vim/builtins",
+      "value": 1
+    },
+    {
+      "source": "vim",
+      "target": "vim/versus-neovim",
       "value": 1
     },
     {
@@ -406,6 +410,11 @@
       "source": "#network",
       "target": "rfc",
       "value": 100
+    },
+    {
+      "source": "rfc",
+      "target": "rfc/visualization",
+      "value": 1
     },
     {
       "source": "rfc",
