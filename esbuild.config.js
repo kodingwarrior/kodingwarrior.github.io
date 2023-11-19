@@ -1,4 +1,6 @@
 const build = require("./config/esbuild.defaults.js")
+const { plugins } = require("./config/esbuild-plugins.js")
+
 
 // Update this if you need to configure a destination folder other than `output`
 const outputFolder = "output"

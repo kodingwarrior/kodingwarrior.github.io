@@ -43,4 +43,5 @@ Bridgetown.configure do |config|
   url "https://kodingwarrior.github.io"
   init :"bridgetown-webfinger", static: true
   init :"bridgetown-feed"
+  init :"bridgetown-lit-renderer" 
 end

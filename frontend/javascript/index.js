@@ -1,4 +1,5 @@
 import '$styles/index.css'
+import "bridgetown-lit-renderer"
 
 import "@11ty/is-land/is-land.js"
 import "@11ty/is-land/is-land-autoinit.js"
