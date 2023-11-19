@@ -7,7 +7,9 @@ import "@11ty/is-land/is-land-autoinit.js"
 // Import all JavaScript & CSS files from src/_components
 import components from "bridgetownComponents/**/*.{js,jsx,js.rb,css}"
 import ForceGraph from 'force-graph'
+import mermaid from 'mermaid'
 
 console.info("Bridgetown is loaded!")
 
 window.$graph = ForceGraph;
+mermaid.initialize({ startOnLoad: true });

@@ -239,6 +239,10 @@ article ol li {
   @apply my-2;
 }
 
+pre.mermaid {
+  @apply bg-transparent mx-auto flex justify-center;
+}
+
 .footnotes {
   @apply mt-8 border-t-2 border-dashed border-slate-400;
 }

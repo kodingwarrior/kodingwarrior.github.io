@@ -24,6 +24,10 @@ class Builders::TocBuilder < SiteBuilder
 
       html = ["<ul>"]
       toc_node.children.each do |child|
+        if child.value.options[:raw_text].present?
+          text = child.value.options[:raw_text]
+          next if text.include?('Mermaid.new')
+        end
         html << "<li>"
         if child.value.options[:raw_text].present?
           anchor_node = child
