@@ -33,4 +33,6 @@ gem "bridgetown-feed", "~> 2.1", :group => :bridgetown_plugins
 
 gem "bridgetown-webfinger", "~> 0.1.0"
 
+gem "solargraph", :group => :development
+
 gem "bridgetown-lit-renderer", "= 2.1.0.beta2"
