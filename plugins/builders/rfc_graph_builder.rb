@@ -42,7 +42,7 @@ class Builders::RfcGraphBuilder < SiteBuilder
 
       reference_graph = {
         'nodes': [
-          *nodes.to_a.map { |name| { id: name, group: 1, title: titles[name] || name } }
+          *nodes.to_a.map { |name| { id: name, group: 1, name: titles[name] || name } }
         ],
         'links': [*links]
       }

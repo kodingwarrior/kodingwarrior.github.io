@@ -58,25 +58,6 @@ class RfcNetwork extends HTMLElement {
           );
           ctx.fill()
 
-          // Rendering Title
-          ctx.font = `${fontSize}px Sans-Serif`;
-          const titleWidth = ctx.measureText(node.title).width;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.fillStyle = 'black';
-          ctx.fillText(node.title, node.x, node.y + 25);
-
-          ctx.beginPath()
-          ctx.fillStyle = "rgba(0, 0, 0, 0.05)"
-          ctx.roundRect(
-            node.x - titleWidth / 2 - 6,
-            node.y + fontSize / 2 + 2 + 12,
-            titleWidth + 12,
-            fontSize + 4,
-            5
-          );
-          ctx.fill()
-
           const size = 12;
 
           const radius = size / 2;

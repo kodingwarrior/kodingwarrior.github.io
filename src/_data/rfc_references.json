@@ -3,17 +3,17 @@
     {
       "id": "rfc2616",
       "group": 1,
-      "title": "HTTP/1.1"
+      "name": "HTTP/1.1"
     },
     {
       "id": "rfc7033",
       "group": 1,
-      "title": "WebFinger"
+      "name": "WebFinger"
     },
     {
       "id": "rfc7565",
       "group": 1,
-      "title": "acct uri scheme"
+      "name": "acct uri scheme"
     }
   ],
   "links": [
