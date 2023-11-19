@@ -244,7 +244,7 @@ article ol li {
 }
 
 kbd {
-  @apply px-2 py-2 bg-gray-100 border-2 border-gray-300 mx-1 rounded-xl text-xs font-bold;
+  @apply px-1 py-1 bg-gray-100 border-2 border-gray-300 mx-1 rounded-xl text-xs font-bold;
 }
 
 .twitter-tweet {
