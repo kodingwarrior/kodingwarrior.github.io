@@ -12,7 +12,7 @@
 <meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
 
-<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.73TCDUET.css" />
+<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.QSLSCHCX.css" />
 <script src="/_bridgetown/static/frontend/javascript/index.V4VEMWGU.js" defer></script>
 
 
@@ -97,7 +97,29 @@ Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 
 
 <h3 id="vim">Vim</h3>
 
-<p>자세한 내용은 [[vim/builtins]]{Vim에서 제공하는 기본 기능} 문서를 참고</p>
+<p>기본적인 기능에 대한 설명은 [[vim/builtins]]{Vim에서 제공하는 기본 기능} 문서를 참고</p>
+
+<h4 id="s-1-1">Vim 안에서 terminal 모드 사용하기</h4>
+
+<p>터미널 모드는 Vim 버퍼 안에서 zsh 터미널을 사용하고 싶을때 주로 사용한다.
+터미널 모드를 이용할때는 커맨드 모드로 진입해서<code class="highlighter-rouge">:terminal</code> 명령을 입력하면 된다.</p>
+
+<p>커맨드 모드에서 쉘 커맨드를 실행하고 싶으면 <code class="highlighter-rouge">:! (실행할 명령어)</code> 명령을 입력할 수도 있지만,  상호작용이 필요한 명령어를 실행해야 한다면 한계가 있다. 다른 터미널 탭을 켜서 그때그때 CLI를 실행할 수는 있지만, 정신적으로 산만하다.</p>
+
+<p>심지어 <code class="highlighter-rouge">alias</code>도 먹히지 않는다. alias가 동작하도록 할 수 있는 방법이 있지만 <code class="highlighter-rouge">shellcmdflag</code> 옵션을 세팅하는 경우에는 Neovim을 실행하는 중에 동작하는 다른 프로세스에도 매번 영향을 미치기 때문에 퍼포먼스가 굉장히 느려진다.</p>
+
+<p>따라서 터미널 모드를 이용하는 것이 이득이 될 때도 종종 있다.
+특히, github cli를 이용할때도 도움이 되는데, github cli는 상호작용이 요구되는 CLI 툴이다. Vim에서 제공하는 터미널 모드는 상호작용이 필요한 CLI 도구와도 궁합이 잘맞다.</p>
+
+<h4 id="s-1-2">커스텀 키맵</h4>
+
+<ul>
+  <li>(custom) <kbd>Ctrl</kbd>+<kbd>w</kbd> -&gt; <kbd>V</kbd>  : equivalent to <code class="highlighter-rouge">:vsplit term://zsh</code>
+    <ul>
+      <li>버퍼를 수직방향으로 분할하고, 분할한 화면을 터미널로 사용한다.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="amethyst">Amethyst</h3>
 
@@ -108,37 +130,37 @@ Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 
 <p><strong>Layouts</strong></p>
 
 <ul>
-  <li><code class="highlighter-rouge">mod1 + space</code>, <code class="highlighter-rouge">mod2 + space</code> - 레이아웃 배치를 변경할 수 있다. 레이아웃 배치를 변경하는 방식은 <code class="highlighter-rouge">.amethyst.yml</code> 파일에서 선언한 layouts 리스트에서 cycle을 도는 방식이다.</li>
+  <li><kbd>mod1</kbd>+<kbd>space</kbd>, <kbd>mod2</kbd>+<kbd>space</kbd> - 레이아웃 배치를 변경할 수 있다. 레이아웃 배치를 변경하는 방식은 <code class="highlighter-rouge">.amethyst.yml</code> 파일에서 선언한 layouts 리스트에서 cycle을 도는 방식이다.</li>
 </ul>
 
 <p><strong>Windows</strong></p>
 
 <ul>
-  <li><code class="highlighter-rouge">mod1 + w</code> - 첫번째 스크린에 있는 main-window가 포커스 모드가 된다.</li>
-  <li><code class="highlighter-rouge">mod1 + e</code> - 두번째 스크린에 있는 main-window가 포커스 모드가 된다.</li>
-  <li><code class="highlighter-rouge">mod2 + w</code> - 현재 포커스 모드에 있는 윈도우를 첫번째 스크린으로 옮길 수 있다.</li>
-  <li><code class="highlighter-rouge">mod2 + e</code> - 현재 포커스 모드에 있는 윈도우를 두번째 스크린으로 옮길 수 있다.</li>
+  <li><kbd>mod1</kbd>+<kbd>w</kbd> - 첫번째 스크린에 있는 main-window가 포커스 모드가 된다.</li>
+  <li><kbd>mod1</kbd>+<kbd>e</kbd> - 두번째 스크린에 있는 main-window가 포커스 모드가 된다.</li>
+  <li><kbd>mod2</kbd>+<kbd>w</kbd> - 현재 포커스 모드에 있는 윈도우를 첫번째 스크린으로 옮길 수 있다.</li>
+  <li><kbd>mod2</kbd>+<kbd>e</kbd> - 현재 포커스 모드에 있는 윈도우를 두번째 스크린으로 옮길 수 있다.</li>
 </ul>
 
 <p><strong>Swap</strong></p>
 
 <ul>
-  <li><code class="highlighter-rouge">mod2 + j</code> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.</li>
-  <li><code class="highlighter-rouge">mod2 + k</code> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 반시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.</li>
-  <li><code class="highlighter-rouge">mod1 + enter</code> - 현재 스크린에서 main-window 가 배치되는 위치를 swap 할 때 사용된다.</li>
+  <li><kbd>mod2</kbd>+<kbd>j</kbd> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.</li>
+  <li><kbd>mod2</kbd>+<kbd>k</kbd> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 반시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.</li>
+  <li><kbd>mod1</kbd>+<kbd>enter</kbd> - 현재 스크린에서 main-window 가 배치되는 위치를 swap 할 때 사용된다.</li>
 </ul>
 
 <h3 id="wezterm">Wezterm</h3>
 
 <ul>
-  <li><kbd>Ctrl</kbd> + (<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 활성화할 탭을 변경할 수 있다.</li>
-  <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + (<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 현재 활성화된 탭의 위치를 옮길 수 있다.</li>
-  <li>(custom) <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + (<kbd>z</kbd> or <kbd>x</kbd>) - 터미널의 opacity를 조절한다. <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua#L87-L103">관련 코드</a>
+  <li><kbd>Ctrl</kbd>+(<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 활성화할 탭을 변경할 수 있다.</li>
+  <li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+(<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 현재 활성화된 탭의 위치를 옮길 수 있다.</li>
+  <li>(custom) <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+(<kbd>z</kbd> or <kbd>x</kbd>) - 터미널의 opacity를 조절한다. <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua#L87-L103">관련 코드</a>
     <ul>
       <li>노트북 한 화면만 보고 작업해야할때 종종 사용한다. 백그라운드에 UI 화면 띄우고, 터미널 띄우고 개발하면서 Hot Module Reloading으로 화면에 바로바로 반영되는 것을 투명도 조절하면서 확인하는 용도로 사용하고 있다.</li>
     </ul>
   </li>
-  <li>(custom) <kbd>Ctrl</kbd> + <kbd>`</kbd> - 현재 열고 있는 탭의 title을 변경할 수 있는 프롬프트를 띄운다. <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua#L105-L119">관련 코드</a>
+  <li>(custom) <kbd>Ctrl</kbd>+<kbd>`</kbd> - 현재 열고 있는 탭의 title을 변경할 수 있는 프롬프트를 띄운다. <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/wezterm/keymaps.lua#L105-L119">관련 코드</a>
     <ul>
       <li>터미널의 각 탭이 어떤 역할을 하고 있는지 한 눈에 파악할 필요가 있는데, 현재 띄워놓은 탭의 title을 변경할때 주로 사용한다. (ex. 프로젝트1 / 프로젝트1 서버 프로세스 / 프로젝트 2 / 저널링 / 블로그)</li>
     </ul>
@@ -287,7 +309,9 @@ window.addEventListener("load", function(event) {
                 <div class="toc-aside">
                     
 <ul><li><a href="#vim">Vim
-</a></li><li><a href="#amethyst">Amethyst
+</a></li><ul><li><a href="#s-1-1">Vim 안에서 terminal 모드 사용하기
+</a></li><li><a href="#s-1-2">커스텀 키맵
+</a></li></ul><li><a href="#amethyst">Amethyst
 </a></li><li><a href="#wezterm">Wezterm
 </a></li></ul>
 
