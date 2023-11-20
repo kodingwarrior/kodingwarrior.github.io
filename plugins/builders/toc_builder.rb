@@ -26,7 +26,7 @@ class Builders::TocBuilder < SiteBuilder
       toc_node.children.each do |child|
         if child.value.options[:raw_text].present?
           text = child.value.options[:raw_text]
-          next if text.include?('Mermaid.new')
+          next if text.include?('mermaid do')
         end
         html << "<li>"
         if child.value.options[:raw_text].present?

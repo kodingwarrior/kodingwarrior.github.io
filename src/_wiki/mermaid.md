@@ -7,7 +7,7 @@ tags: prelude
 
 ## Flowchart
 
-<%= render(Mermaid.new) do %>
+<%= mermaid do %>
 flowchart LR
     A[Hard edge] -->|Link text| B(Round edge)
     B --> C{Decision}
@@ -17,7 +17,7 @@ flowchart LR
 
 ## Class diagram
 
-<%= render(Mermaid.new) do  %>
+<%= mermaid do  %>
 classDiagram
     class Animal
     Vehicle <|-- Car
@@ -25,7 +25,7 @@ classDiagram
 
 ## State diagram
 
-<%= render(Mermaid.new) do %>
+<%= mermaid do %>
 ---
 title: Simple sample
 ---
@@ -43,7 +43,7 @@ stateDiagram-v2
 ## Git Commit Diagram
 
 
-<%= render(Mermaid.new) do %>
+<%= mermaid do %>
 ---
 title: Example Git diagram
 ---
@@ -62,7 +62,7 @@ gitGraph
 
 ## Mindmap
 
-<%= render(Mermaid.new) do  %>
+<%= mermaid do  %>
 mindmap
   root((mindmap))
     Origins
