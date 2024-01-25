@@ -5,9 +5,11 @@ title: Posts
 
 <ul>
   <% collections.posts.resources.each do |post| %>
-    <li>
-      <a href="<%= post.relative_url %>"><%= post.data.title %></a>
-    </li>
+    <% unless post.data.hidden %>
+      <li>
+        <a href="<%= post.relative_url %>"><%= post.data.title %></a>
+      </li>
+    <% end %>
   <% end %>
 </ul>
 
