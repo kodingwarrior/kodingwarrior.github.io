@@ -55,6 +55,10 @@ Tmux/Amethyst/Wezterm 뿐만이 아니라 Chrome(Vimium)/Slack 등 데스크톱 
 * <kbd>mod2</kbd>+<kbd>k</kbd> - 현재 포커스 모드에 있는 윈도우를 레이아웃 배치상 반시계방향에 위치한 윈도우와 위치를 바꿔치기 할 수 있다.
 * <kbd>mod1</kbd>+<kbd>enter</kbd> - 현재 스크린에서 main-window 가 배치되는 위치를 swap 할 때 사용된다.
 
+### Tmux
+
+* C-b + w => tmux session을 switching
+
 ### Wezterm
 
 * <kbd>Ctrl</kbd>+(<kbd>PgUp</kbd> or <kbd>PgDown</kbd>) - counter-clockwise/clockwise 방향으로 활성화할 탭을 변경할 수 있다.
