@@ -1,4 +1,89 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.3.1">Bridgetown</generator><link href="https://kodingwarrior.github.io/rss.xml" rel="self" type="application/atom+xml" /><link href="https://kodingwarrior.github.io/" rel="alternate" type="text/html" /><updated>2024-02-04T16:59:24+00:00</updated><id>https://kodingwarrior.github.io/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">2027년 낙장불입 해피엔딩 3개년 계획</title><link href="https://kodingwarrior.github.io/post/2023/12/29/farewell-for-future" rel="alternate" type="text/html" title="2027년 낙장불입 해피엔딩 3개년 계획" /><published>2023-12-29T10:05:00+00:00</published><updated>2023-12-29T10:05:00+00:00</updated><id>repo://posts.collection/_posts/2023-12-29-farewell-for-future.md</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2023/12/29/farewell-for-future">&lt;p&gt;2027년 쯤에는 아마 종적을 감추고 있을지도 모른다. &lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.3.1">Bridgetown</generator><link href="https://kodingwarrior.github.io/rss.xml" rel="self" type="application/atom+xml" /><link href="https://kodingwarrior.github.io/" rel="alternate" type="text/html" /><updated>2024-03-09T06:41:20+00:00</updated><id>https://kodingwarrior.github.io/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">이메일 클라이언트 구매 후기 (with hey.com)</title><link href="https://kodingwarrior.github.io/post/2024/03/08/hey-as-productivity-tool" rel="alternate" type="text/html" title="이메일 클라이언트 구매 후기 (with hey.com)" /><published>2024-03-08T00:00:00+00:00</published><updated>2024-03-08T00:00:00+00:00</updated><id>repo://posts.collection/_posts/2024-03-08-hey-as-productivity-tool.md</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2024/03/08/hey-as-productivity-tool">&lt;p&gt;&lt;a href=&quot;/wiki/quarterly/2023-Q4&quot;&gt;2023년도 4/4분기 결산&lt;/a&gt; 에서 쓸까말까하다가 이걸 다 담기에는 4/4분기 결산 퇴고하는걸 미루게 될 것만 같아서 블로그 포스트로 따로 분리하기로 했다. 2023년 9월 쯤부터 유료 이메일 서비스를 구매하면서부터 뉴스레터를 구독하기 시작했던 특이점이 있었는데, 이에 대해서 설명하기에는 분량이 상당히 길어질 수도 있고 커피챗에서도 1시간 이상을 떠들어댈 수 있는 소재이기도 했기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;내가 사랑하는 여러가지 것들을 커피챗마다 가서 전도하고 싶은 마음은 굴뚝같지만, 만나고 싶어도 시간이 부족해서 못 만나는 사람, 꼭 만나서 전도해보고 싶은 마음은 굴뚝같지만 만날 시간이 없는 사람 등등을 고려해서 내가 사용하고 있는 유료 이메일 서비스에 대한 간증과 그리고 내가 왜 뉴스레터를 구독하고 있는지에 대해서 두 개의 아티클로 나눠서 설명하게 될 것 같다.&lt;/p&gt;
+
+&lt;p&gt;Hey.com 라는 이메일 서비스가 있다.
+Hey.com 에서 내세우는 기능 중에 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;내 계정 핸들&amp;gt;@hey.com&lt;/code&gt; 로 이메일을 보내면 블로그 포스트처럼 글을 발행할 수 있는 기능이 있다.
+여러 가지의 서비스를 사용해보고 케이스스터디를 해야하는 관점에서 통크게 이 기능을 시험삼아 적용해보고 싶었다.
+하지만, &lt;strong&gt;유료결제를 해야만 이용할 수 있는 서비스&lt;/strong&gt;였고 글을 발행하기 위한 목적으로 쓰기에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;$99/year&lt;/code&gt; 를 쓰는건 개인적으론 부담이었다.&lt;/p&gt;
+
+&lt;p&gt;vim.kr&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; 관련해서도 이메일 업무를 해야하는 일이 많아지게 된 입장으로서 이메일 업무를 도와주는 생산성 도구를 찾아보긴 해야하는 입장이기도 했다.
+이메일은 계속해서 쌓여만 가고 있었고, 구독 신청만 누르고 있었던 뉴스레터는 읽을 일도 없이 계속해서 스킵하고만 있었고, 쌓인 이메일만 네자릿수가 넘어갔다.
+당시, 주변에서 &lt;a href=&quot;https://www.superhuman.com&quot;&gt;SuperHuman&lt;/a&gt;을 썼더니 “내 인생이 달라졌더라” 내지는 “삶의 질이 달라졌더라” 같은 간증이 들려오긴 했지만, &lt;code class=&quot;highlighter-rouge&quot;&gt;$300/year&lt;/code&gt;는 너무 부담스러운 가격이었다.
+아까 설명했던 hey.com에 비하면 &lt;code class=&quot;highlighter-rouge&quot;&gt;$99/year&lt;/code&gt;와 &lt;code class=&quot;highlighter-rouge&quot;&gt;$300/year&lt;/code&gt;는 너무나도 차이가 나는 것이기도 했고, 내가 그나마 &lt;strong&gt;매력적으로 느껴졌던 기능들이 hey.com도 충분히 충족하고 있었기 때문에&lt;/strong&gt; hey.com를 구매해서 쓰는 결정을 하게 되었다.&lt;/p&gt;
+
+&lt;h1 id=&quot;heycom을-쓰고나서-일어난-변화&quot;&gt;Hey.com을 쓰고나서 일어난 변화&lt;/h1&gt;
+
+&lt;p&gt;hey.com을 쓰고 나서부터는 이메일을 처리하는 방식이 많이 달라졌다.&lt;/p&gt;
+
+&lt;p&gt;적어도, 내가 확인해야 함에도 불구하고 매일마다 쌓이는 이메일이 줄고 있다는 점에선 확실히 달라졌다. 언젠가는 봐야지하고 미루는 것들도, 바로바로 처리하거나 혹은 시간이 지나고 난 뒤 유효하지 않다고 판단되면 과감하게 지울 수도 있게 되었다. 뉴스레터가 특히 그렇다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이메일을-kanban-board-처럼-활용하기&quot;&gt;이메일을 Kanban Board 처럼 활용하기&lt;/h2&gt;
+
+&lt;p&gt;이메일 업무를 단순히 게시판 마냥 여러개의 게시글이 있으면 그 게시글을 일일이 확인하고, 거기다가 코멘트를 다는 접근 방식으로 바라볼 수 밖에 없었다.
+왜냐면, 이메일 클라이언트의 생김새가 우리가 통상적으로 생각하는 게시판의 UI처럼 생겨먹었기 때문이다.
+h
+UX만으로도 사람의 생각을 바꿀 수 있다는 표현을 지나가다 주워들은 적이 있는데, 이런 것이 바로 적절한 예시가 아닐까 싶다.&lt;/p&gt;
+
+&lt;p&gt;hey.com에는 workflow라는 기능이 있는데, 이는 이메일을 칸반보드처럼 활용할 수 있게 해준다.
+엄밀하게는 각각의 이메일 쓰레드가 어떤 단계에 있는지를 표시해주고 각각의 단계에 맞게 lane에 배치핼 수 있게 해주는 기능이다.
+국내 B2B 업무관리 도구 중에 Dooray! 라는 SaaS 도구가 이런 기능을 제공해주긴 하지만, 개인 이메일 클라이언트 단에서 이런 기능을 제공해주는 것은 신선한 경험이기도 했다.&lt;/p&gt;
+
+&lt;center&gt;
+    &lt;iframe src=&quot;https://social.silicon.moe/@kodingwarrior/112064159434723326/embed&quot; class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0&quot; width=&quot;400&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://social.silicon.moe/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;
+&lt;/center&gt;
+
+&lt;p&gt;(추후에 뉴스레터를 읽는 노하우를 소개할 때도 다룰 내용이긴 하지만) 이와 비슷한 방식으로, 언젠가는 읽을 이메일은 reply later로 분류하고 회신을 위해서 계속해서 Follow-up 해야 하는 이메일은 Set Aside로 분류를 해서 처리를 할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;분류를 하는 행위에 대한 인지부하가 줄어들었기 때문에, 이메일을 처리하는데 드는 시간이 전반적으로 많이 줄었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;이메일을-자동으로-분류해준다고&quot;&gt;이메일을… 자동으로… 분류해준다고…?&lt;/h2&gt;
+
+&lt;p&gt;내가 이메일 서비스를 적극적으로 이용하지는 않았기 때문에 이메일 서비스에 이런 기능이 있는지는 모르겠지만, hey.com에는 이메일이 들어오는 출처를 보고 그 이메일이 어떤 유형의 이메일인지를 자동으로 분류해주는 기능이 있다.&lt;/p&gt;
+
+&lt;p&gt;스팸 메일이라고 판단되면 Spam,
+뉴스레터라고 판단되면 The Feed,
+영수증 청구 이메일이라고 판단되면 Paper Trail,
+그 외에는 메인 화면 상에서 표시되는 Imbox,
+이런 식으로 분류해주는데 어떤 목적으로 이메일 클라이언트를 들여보느냐에 따라 초점을 맞춰야 하는 부분을 UX 상에서 완전히 다른 영역으로서 분리를 해준다.&lt;/p&gt;
+
+&lt;p&gt;그때그때 신경써야 하는 영역을 확실하게 분리를 해주다보니, 이메일을 읽거나 혹은 읽지도 않고 바로 휴지통에 버리는 행위에 대한 부담이 확실히 줄어들었다.&lt;/p&gt;
+
+&lt;center&gt;
+&lt;iframe src=&quot;https://social.silicon.moe/@kodingwarrior/112064270089350146/embed&quot; class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0&quot; width=&quot;400&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://social.silicon.moe/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;
+&lt;div class=&quot;my-2&quot;&gt;
+&lt;i class=&quot;my-2&quot;&gt;뉴스레터 처리하기&lt;/i&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;/center&gt;
+
+&lt;center&gt;
+&lt;iframe src=&quot;https://social.silicon.moe/@kodingwarrior/112064279573261015/embed&quot; class=&quot;mastodon-embed&quot; style=&quot;max-width: 100%; border: 0&quot; width=&quot;400&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;script src=&quot;https://social.silicon.moe/embed.js&quot; async=&quot;async&quot;&gt;&lt;/script&gt;
+&lt;div class=&quot;my-2&quot;&gt;
+&lt;i class=&quot;my-2&quot;&gt;영수증 청구 이메일 처리하기&lt;/i&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;/center&gt;
+
+&lt;h1 id=&quot;결론&quot;&gt;결론&lt;/h1&gt;
+
+&lt;p&gt;확실한 것은, 사람들이 돈을 쓰고 사용하는 소프트웨어들은 다들 그럴만한 가치가 있다. 돈이 달달이 나갈때마다 통장이 좀 아프긴 하지만, 이런 도구라도 사용해야 내가 감당하는 인지부하가 줄어드는 것은 자명한 사실이고, &lt;strong&gt;달달이 나가는 구독료는 인지부하를 줄이기 위한 비용이라 생각하면 그렇게 비싸지는 않다&lt;/strong&gt;. 생산성 도구를 사용하는 것이 다 그런 것이라 생각한다.&lt;/p&gt;
+
+&lt;p&gt;어떤 생산성 도구는 가격이 부담스럽다고 한들, 막상 계산기를 두들겨보면 그럴만한 가치가 있는 물건이라는 생각이 들 때가 많다. 앞에서 설명한 것처럼, hey.com을 사용하면서 이메일을 처리하는데 드는 시간이 줄어들었는데, 이걸 시급이라는 기준으로 환산해보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;$99 / 12개월&lt;/code&gt; ~= &lt;code class=&quot;highlighter-rouge&quot;&gt;$8.25 / 30일&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;$0.275 / 1일&lt;/code&gt; 이라는 계산이 나온다. 하루에 500원씩 아낀다고 생각해보면, 그렇게 비싼 금액은 아니다.&lt;/p&gt;
+
+&lt;p&gt;Todoist도 그런 의미에서 다시 결제하기 시작했는데, Todo 앱에서 단축키를 지원하고 커스텀 쿼리를 조합해서 사용할 수 있는 것이 얼마나 매력적인 기능인지를 지금와서야 처음 알았다. 어딘가에다가 할일 목록을 작성하고, 그것을 온라인/오프라인 가리지 않고 언제 어디서든 기록할 수 있어야 하며, 심지어 UX가 간편한 것이라면 당연히 돈을 쓰는 것이 안 아까울 수 밖에 없다. 단축키 지원으로 워크플로우가 최적화될 수 있다는 점은 이미 Vim을 1년 넘게 체화하고 현재도 사용하고 있는 지금의 시점에서 많이 체감하고 있다.&lt;/p&gt;
+
+&lt;p&gt;언젠가는 언급할 주제이긴 하지만, 당연히 &lt;strong&gt;사용하는 생산성 도구의 가짓수를 늘리는 것은 굉장히 위험&lt;/strong&gt;하다. 생산성 도구는 가능하면 적게 사용하는 것이 좋지만, &lt;strong&gt;내 워크플로우에 잘 맞는 도구이며 내 워크플로우를 최적화할 수 있다면 결제하는 것 정도야 그렇게 아깝지 않은 비용&lt;/strong&gt;이라는 것을 말하고 싶었다.&lt;/p&gt;
+
+&lt;p&gt;생산성 도구를 구매할까 말까 고민하고 있다면, 특히, 이메일 클라이언트를 구매하는 쪽으로 고민이 들고 있다면 충분히 참고자료가 되었으면 좋겠다.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;실제로 &lt;a href=&quot;https://au-vimenter.github.io/post/2023-12-23-au-vimenter&quot;&gt;VimEnter 2023&lt;/a&gt; 행사를 진행할때, 후원사와 이메일을 주고뱓으면서 큰 도움을 받을 수 있었다. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author></entry><entry><title type="html">2027년 낙장불입 해피엔딩 3개년 계획</title><link href="https://kodingwarrior.github.io/post/2023/12/29/farewell-for-future" rel="alternate" type="text/html" title="2027년 낙장불입 해피엔딩 3개년 계획" /><published>2023-12-29T10:05:00+00:00</published><updated>2023-12-29T10:05:00+00:00</updated><id>repo://posts.collection/_posts/2023-12-29-farewell-for-future.md</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2023/12/29/farewell-for-future">&lt;p&gt;2027년 쯤에는 아마 종적을 감추고 있을지도 모른다. &lt;br /&gt;
 삶을 지속하는 것에 회의감을 느끼던 2020년 쯤부터 결심했던 일이다. &lt;br /&gt;
 꾸준히 언급은 해왔기 때문에, 오래 알고 지낸 지인들도 충분히 예상이 가능한 결말이다.&lt;/p&gt;
 
