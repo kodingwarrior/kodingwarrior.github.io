@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-  프롬프트 엔지니어링 | KODINGWARRIOR QUEST
+  개발자 경험 관련 레퍼런스 | KODINGWARRIOR QUEST
 
 
 </title>
@@ -77,7 +77,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>프롬프트 엔지니어링</h1>
+<h1>개발자 경험 관련 레퍼런스</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -92,47 +92,57 @@
 
 <article id="wiki-content">
 
-    <p>입력으로는 <strong>인공지능이 수행해야 할 과제</strong>를 던져주고, 인공지능이 출력으로서 이에 대한 <strong>해답 후보</strong>를 제공해준다. 데이터셋에 있는 것 중 해답에 가까운 것을 제공하는 것에 가깝기 때문에, 정답이 아닌 경우도 있다. 그렇기 때문에 비판적인 판단이 필요하다.</p>
+    <h2 id="tree-sitter">Tree Sitter</h2>
 
-<p>프롬프트 엔지니어링에 대한 자료는 <a href="https://github.com/dair-ai/Prompt-Engineering-Guide">여기서</a> 확인할 수 있다.</p>
+<p>Tree Sitter 자체는 문법을 정의하고, 그 문법을 기반으로 소스코드를 파싱하는 파서를 생성할 수 있게 해주는 프레임워크라고 볼 수 있다. 이를 이용해서 생성된 파싱트리는 Scheme이라는 LISP 언어 기반의 질의어로 트리 구조를 탐색하거나 조작할 수 있게 해준다.</p>
 
-<p>ChatGPT/Github Copilot의 급부상으로 인해 인공지능을 활용한 생산성 향상에 대해 많은 논의가 되고 있으며, 관련자료를 확보하는대로 문서를 주기적으로 갱신하게 될 것 같다.</p>
+<p>Tree Sitter는 소스코드를 <code class="highlighter-rouge">개행 문자가 포함되어있는 1차원 문자열</code>로 바라보던 관점을 <code class="highlighter-rouge">AST</code>, 즉 <code class="highlighter-rouge">트리</code> 라는 관점으로 바라볼 수 있게 해준다.
+어떤 언어든 모두 각 언어마다 각 언어로 작성된 소스코드를 AST로 변환해주는 라이브러리가 있지만, Tree Sitter는 완전 다른 접근이다.
+트리시터를 기반으로 파서가 정의되어 있다면, 트리시터 기반의 파서로 생성된 파싱트리에 대한 질의는 언어에 상관없이 동일한 경험을 제공할 수 있다.</p>
 
-<p>여태까지는 인공지능을 공부해야할 필요성을 잘 느끼지는 못했었지만, 프롬프트 엔지니어링을 잘 활용하는 것이 제텔카스텐으로 생산성을 극대화하는 것 이상으로 도움이 될 것 같아서 지속적으로 관심을 가지고 있다.</p>
-
-<h2 id="이용가능한-서비스">이용가능한 서비스</h2>
+<h3 id="tree-sitter를-응용할-수-있는-사례">Tree Sitter를 응용할 수 있는 사례</h3>
 
 <ul>
-  <li><a href="https://openai.com/blog/chatgpt/">ChatGPT</a>
-    <ul>
-      <li>에디터 전용 플러그인
-        <ul>
-          <li><a href="https://github.com/jackMort/ChatGPT.nvim">ChatGPT.nvim</a></li>
-          <li><a href="https://marketplace.visualstudio.com/items?itemName=gencay.vscode-chatgpt">VSCode + ChatGPT</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="https://www.perplexity.ai/">Perplexity</a> - 2023년 1월 29일 기준으로, ChatGPT에서 제시해주는 해답 후보가 어느 출처에서 나온 것인지 알 방법이 없다. Perplexity AI는 해답을 제시하면서 그 해답이 어느 출처에 기반한 것인지 같이 제공해준다.</li>
-  <li><a href="https://github.com/features/copilot">Github Copilot</a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>
-    <ul>
-      <li>에디터 전용 플러그인
-        <ul>
-          <li><a href="https://github.com/github/copilot.vim">copilot.vim</a> - vim/neovim 둘 다 사용이 가능하다.</li>
-          <li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">VS Code + Github Copilot</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li>코드가 정의된 위치를 바꿔치기 (트리에서 sibling끼리 위치를 바꿔준다고 생각하면 이해하기 편하다)</li>
+  <li>주석에 포함되어 있는 소스코드의 문법 강조</li>
 </ul>
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Github Copilot에 대한 <a href="https://arxiv.org/abs/2210.15157">논문</a>도 있다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<h3 id="tree-sitter를-응용한-프로젝트">Tree Sitter를 응용한 프로젝트</h3>
+
+<ul>
+  <li><a href="https://github.com/ast-grep/ast-grep">ast-grep</a> - <code class="highlighter-rouge">tree-sitter</code>의 쿼리를 응용해서 AST를 기반으로 패턴을 검색하거나, 매칭되는 것을 찾아서 대체할 수 있게 해준다.</li>
+  <li><a href="https://github.com/Wilfred/difftastic">difftastic</a> - Rust 기반으로 RIIR (Rewrite It In Rust) 프로젝트로 구현된 diff 도구이다. delta와 크게 차이없어 보이지만, diff 안에서의 소스 코드 구문 강조는 <code class="highlighter-rouge">tree-sitter</code> 기반으로 구현되어 있다.</li>
+  <li><a href="https://github.com/getgrit/gritql">GritQL</a> - ast-grep과 비슷한 프로젝트로, <code class="highlighter-rouge">tree-sitter</code>를 이용해서 AST를 기반으로 쿼리를 날릴 수 있게 해준다.</li>
+</ul>
+
+<h2 id="language-server">Language Server</h2>
+
+<p>Language Server는 특정 언어에 대한 지원을 제공하는 서버이다. 이 서버는 LSP라는 프로토콜을 사용하는 클라이언트와 통신하며, 클라이언트가 요청하는 작업을 수행한다. 더 나은 경험을 제공해주기 위해서 랭귀지 서버는 백그라운드에서 상시 실행되면서 LSP 클라이언트의 요청을 처리하는데, 여기서 LSP 클라이언트는 에디터나 IDE를 말한다.</p>
+
+<p>Language Server Protocol은 Microsoft에서 제안한 프로토콜로, 에디터/IDE와 랭귀지 서버 간의 통신을 위한 표준을 제공한다. LSP에 대한 설명은 <a href="https://microsoft.github.io/language-server-protocol/">여기</a>에서 확인할 수 있다.</p>
+
+<p>즉, 랭귀지 서버가 구현되어 있다면, 에디터/IDE가 어떻게 구현되어 있든 상관없이 랭귀지 서버를 통해 통일된 경험을 제공할 수 있다.</p>
+
+<p>랭귀지 서버는 다음과 같은 기능을 제공한다</p>
+
+<ul>
+  <li>코드 완성</li>
+  <li>코드 정의로 이동</li>
+  <li>코드 참조 찾기</li>
+  <li>코드 하이라이팅</li>
+  <li>코드 포맷팅</li>
+  <li>코드 분석 (에러, 경고, 힌트 등)</li>
+</ul>
+
+<p>IDE에서 기대할만한 기능들은 다 제공해준다고 볼 수 있다.
+여기다 덧붙여서 마크다운/HTML/AsciiDoc/LaTeX 같은 마크업 언어도 랭귀지 서버를 이용하면 좀 더 풍부한 경험을 제공받을 수 있다.</p>
+
+<h3 id="language-server를-응용한-프로젝트">Language Server를 응용한 프로젝트</h3>
+
+<ul>
+  <li><a href="https://vale.sh/">Vale</a> - 마크다운 문서에 대한 스타일 가이드를 제공해준다. 구글/어도비/마이크로소프트 등에서 제안하는 스타일 가이드를 그대로 적용할 수도 있으며, 사용자가 직접 스타일 가이드를 정의해서 사용할 수도 있다. 주로, 적절하지 못한 표현이 들어가 있을때 경고를 띄워주는데, 이런 경험이 랭귀지 서버를 이용해서 구현되어 있다. VSCode, Emacs, Neovim 등 대부분의 에디터에서 사용할 수 있다.</li>
+  <li><a href="https://github.com/aca/korean-language-server">korean language server</a> - 한국어 맞춤법 검사기를 랭귀지 서버에 연결한 프로젝트이다. 어떤 에디터를 사용하든, 한국어 맞춤법 검사를 랭귀지 서버를 통해 이용할 수 있다.</li>
+</ul>
 
 </article>
 
@@ -275,8 +285,12 @@ window.addEventListener("load", function(event) {
                 </div>
                 <div class="toc-aside">
                     
-<ul><li><a href="#section">이용가능한 서비스
-</a></li></ul>
+<ul><li><a href="#tree-sitter">Tree Sitter
+</a></li><ul><li><a href="#tree-sitter----">Tree Sitter를 응용할 수 있는 사례
+</a></li><li><a href="#tree-sitter--">Tree Sitter를 응용한 프로젝트
+</a></li></ul><li><a href="#language-server">Language Server
+</a></li><ul><li><a href="#language-server--">Language Server를 응용한 프로젝트
+</a></li></ul></ul>
 
                 </div>
             </div>

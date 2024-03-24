@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-  프롬프트 엔지니어링 | KODINGWARRIOR QUEST
+  Flutter 레퍼런스 | KODINGWARRIOR QUEST
 
 
 </title>
@@ -77,7 +77,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>프롬프트 엔지니어링</h1>
+<h1>Flutter 레퍼런스</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -92,47 +92,34 @@
 
 <article id="wiki-content">
 
-    <p>입력으로는 <strong>인공지능이 수행해야 할 과제</strong>를 던져주고, 인공지능이 출력으로서 이에 대한 <strong>해답 후보</strong>를 제공해준다. 데이터셋에 있는 것 중 해답에 가까운 것을 제공하는 것에 가깝기 때문에, 정답이 아닌 경우도 있다. 그렇기 때문에 비판적인 판단이 필요하다.</p>
+    <h2 id="플러그인-목록">플러그인 목록</h2>
 
-<p>프롬프트 엔지니어링에 대한 자료는 <a href="https://github.com/dair-ai/Prompt-Engineering-Guide">여기서</a> 확인할 수 있다.</p>
+<p>아카이빙의 목적도 강하기 때문에, 플러그인의 사용 유무를 표시하고, 사용해본 후의 평가를 아래와 같이 표시한다.</p>
 
-<p>ChatGPT/Github Copilot의 급부상으로 인해 인공지능을 활용한 생산성 향상에 대해 많은 논의가 되고 있으며, 관련자료를 확보하는대로 문서를 주기적으로 갱신하게 될 것 같다.</p>
-
-<p>여태까지는 인공지능을 공부해야할 필요성을 잘 느끼지는 못했었지만, 프롬프트 엔지니어링을 잘 활용하는 것이 제텔카스텐으로 생산성을 극대화하는 것 이상으로 도움이 될 것 같아서 지속적으로 관심을 가지고 있다.</p>
-
-<h2 id="이용가능한-서비스">이용가능한 서비스</h2>
+<blockquote>
+  <p>❓ - 아직 안 써봄 <br />
+🤔 - 좋은지 모르겠음 <br />
+👍 - 제법 쓸만함 <br />
+👎 - 그렇게 좋지 않음</p>
+</blockquote>
 
 <ul>
-  <li><a href="https://openai.com/blog/chatgpt/">ChatGPT</a>
-    <ul>
-      <li>에디터 전용 플러그인
-        <ul>
-          <li><a href="https://github.com/jackMort/ChatGPT.nvim">ChatGPT.nvim</a></li>
-          <li><a href="https://marketplace.visualstudio.com/items?itemName=gencay.vscode-chatgpt">VSCode + ChatGPT</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><a href="https://www.perplexity.ai/">Perplexity</a> - 2023년 1월 29일 기준으로, ChatGPT에서 제시해주는 해답 후보가 어느 출처에서 나온 것인지 알 방법이 없다. Perplexity AI는 해답을 제시하면서 그 해답이 어느 출처에 기반한 것인지 같이 제공해준다.</li>
-  <li><a href="https://github.com/features/copilot">Github Copilot</a><sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>
-    <ul>
-      <li>에디터 전용 플러그인
-        <ul>
-          <li><a href="https://github.com/github/copilot.vim">copilot.vim</a> - vim/neovim 둘 다 사용이 가능하다.</li>
-          <li><a href="https://marketplace.visualstudio.com/items?itemName=GitHub.copilot">VS Code + Github Copilot</a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
+  <li>🤔 <a href="https://github.com/felangel/mason">mason</a> - 플러터 코드를 템플릿 기반으로 찍어낼 수 있게 하는 툴인데, 템플릿을 잘 정의해놓으면 터미널에서 명령어를 딱 한번 치는 것 만으로도 빠르게 만들 수 있다. 메타프로그래밍 목적으로 사용하는 것 같지만, Lisp 계열 언어를 사용해본 사람의 기준으론 그렇게 좋은지는 모르겠다</li>
+  <li>❓<a href="https://github.com/chulwoo-park/timelines">Timelines</a></li>
+  <li>❓<a href="https://github.com/FadyFayezYounan/easy_date_timeline">EasyDateTimeline</a></li>
+  <li>👍 <a href="https://github.com/fluttercommunity/flutter_launcher_icons/">flutter_launcher_icons</a> - 앱 아이콘을 한번에 바꿔주는 플러그인. <code class="highlighter-rouge">pubspec.yaml</code> 파일에 설정을 추가하고, <code class="highlighter-rouge">flutter pub get</code>을 실행한 후, <code class="highlighter-rouge">flutter pub run flutter_launcher_icons</code>을 실행하면 된다.</li>
+  <li>❓<a href="https://github.com/adar2378/pin_code_fields">Pin Code Fields</a> - OTP 입력을 위한 플러그인</li>
 </ul>
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>Github Copilot에 대한 <a href="https://arxiv.org/abs/2210.15157">논문</a>도 있다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<h2 id="툴링">툴링</h2>
+
+<ul>
+  <li>👍 <a href="https://github.com/OlegAlexander/lakos">lakos</a> - Dart 소스 코드 간의 의존관계를 의존성 그래프로 시각화해준다</li>
+</ul>
+
+<h2 id="그-외">그 외</h2>
+
+<p><a href="https://github.com/lohanidamodar/flutter_ui_challenges">Flutter UI Challenge</a></p>
 
 </article>
 
@@ -275,7 +262,9 @@ window.addEventListener("load", function(event) {
                 </div>
                 <div class="toc-aside">
                     
-<ul><li><a href="#section">이용가능한 서비스
+<ul><li><a href="#section">플러그인 목록
+</a></li><li><a href="#section-1">툴링
+</a></li><li><a href="#section-2">그 외
 </a></li></ul>
 
                 </div>
