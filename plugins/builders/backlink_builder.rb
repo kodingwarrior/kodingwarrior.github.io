@@ -65,6 +65,10 @@ class Builders::BacklinkBuilder < SiteBuilder
           {
             name: 'oop',
             children: [],
+          },
+          {
+            name: 'reference',
+            children: [],
           }
         ],
       },
