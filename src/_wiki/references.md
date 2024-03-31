@@ -5,5 +5,6 @@ layout: wiki
 tags: reference
 ---
 
-[[references/flutter]]{Flutter} - 플러터 관련된 자료 수집
-[[references/devex]]{DevEx} - 개발자 경험 관련된 자료 수집
+* [[references/flutter]]{플러터 개발 관련 자료}
+* [[references/devex]]{개발자 경험 관련 자료}
+* [[references/personal]]{개인 학습 자료}

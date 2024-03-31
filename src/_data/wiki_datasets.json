@@ -1,6 +1,10 @@
 {
   "nodes": [
     {
+      "id": "references/personal",
+      "group": 1
+    },
+    {
       "id": "references/flutter",
       "group": 1
     },
@@ -305,6 +309,11 @@
     {
       "source": "references",
       "target": "references/devex",
+      "value": 1
+    },
+    {
+      "source": "references",
+      "target": "references/personal",
       "value": 1
     },
     {
