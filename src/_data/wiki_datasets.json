@@ -5,6 +5,10 @@
       "group": 1
     },
     {
+      "id": "quarterly/2024-Q1",
+      "group": 1
+    },
+    {
       "id": "references/flutter",
       "group": 1
     },
@@ -297,6 +301,11 @@
   ],
   "links": [
     {
+      "source": "#archive",
+      "target": "quarterly/2024-Q1",
+      "value": 100
+    },
+    {
       "source": "#reference",
       "target": "references",
       "value": 100
@@ -405,6 +414,11 @@
       "source": "#archive",
       "target": "archive",
       "value": 100
+    },
+    {
+      "source": "archive",
+      "target": "quarterly/2024-Q1",
+      "value": 1
     },
     {
       "source": "archive",
