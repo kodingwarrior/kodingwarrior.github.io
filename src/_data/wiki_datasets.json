@@ -1,6 +1,10 @@
 {
   "nodes": [
     {
+      "id": "workbench/dotfiles",
+      "group": 1
+    },
+    {
       "id": "references/personal",
       "group": 1
     },
@@ -300,6 +304,11 @@
     }
   ],
   "links": [
+    {
+      "source": "#productivity",
+      "target": "workbench/dotfiles",
+      "value": 100
+    },
     {
       "source": "#archive",
       "target": "quarterly/2024-Q1",
@@ -633,6 +642,11 @@
     {
       "source": "workbench",
       "target": "workbench/cheatsheet",
+      "value": 1
+    },
+    {
+      "source": "workbench",
+      "target": "workbench/dotfiles",
       "value": 1
     },
     {
