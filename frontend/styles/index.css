@@ -180,7 +180,7 @@ hr {
 }
 
 article pre {
-  @apply bg-slate-200 p-4 overflow-x-auto;
+  @apply bg-slate-200 p-4 whitespace-normal overflow-x-scroll;
 }
 
 article blockquote {
