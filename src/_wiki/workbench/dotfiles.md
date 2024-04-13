@@ -71,7 +71,24 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:<fork한 리
 
 ### 타임슬롯 리마인더
 
+
 하루 시간을 여러 개의 슬롯으로 분할하고,  각 타임슬롯의 시작 시간/종료 시간마다 nvim-notify를 이용해서 알림을 주는 스크립트입니다.
+
+<hr/>
+
+<div class="flex flex-col lg:flex-row lg:justify-center gap-x-4 gap-y-4">
+<center>
+	<iframe src="https://social.silicon.moe/@kodingwarrior/110683948620729734/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" height="720" allowfullscreen="allowfullscreen"></iframe>
+</center>
+
+<center>
+<iframe src="https://social.silicon.moe/@kodingwarrior/110683962938056431/embed" class="mastodon-embed" style="max-width: 100%; border: 0" width="400" height="775" allowfullscreen="allowfullscreen"></iframe>
+</center>
+</div>
+
+<hr/>
+
+
 
 소스코드는 [여기](https://github.com/malkoG/dotfiles/blob/main/private_dot_config/nvim/init.lua#L9-L30)에서 확인할 수 있습니다.
 
@@ -84,3 +101,4 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:<fork한 리
 * [커밋 메시지 수정](https://github.com/malkoG/dotfiles/blob/main/private_dot_config/nvim/lua/utilities/prompt-engineering.lua#L21-L56)
   * 요약 : "커밋 메시지를 이렇게 작성했지만, 이렇게 쓰는게 맞는지 모르겠어요. `git diff --cached` 에서 파악되는 내용을 기반으로, 커밋 메시지를 좀 더 적절하게 수정해주세요"
 
+<script src="https://social.silicon.moe/embed.js" async="async"></script>
