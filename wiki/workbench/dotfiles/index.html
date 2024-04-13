@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-  Vim vs Neovim | KODINGWARRIOR QUEST
+  Dotfiles 해설본 | KODINGWARRIOR QUEST
 
 
 </title>
@@ -77,7 +77,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>Vim vs Neovim</h1>
+<h1>Dotfiles 해설본</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -91,75 +91,138 @@
 </div>
 
 <article id="wiki-content">
-        
-<pre class="mx-0 md:mx-8 mb-8 rounded-xl py-6 px-6 bg-lime-100 text-gray-900 overflow-visible break-words"><div class="flex flex-col md:flex-row justify-start items-start md:items-center"><i class="bi w-16 text-4xl mb-2 md:mb-0 bi-info-circle font-extrabold"></i><p class="m-0 p-0 leading-6 md:leading-8 text-sm md:text-lg">혹시 이 글을 읽고 Vim에 관심을 가지게 되셨나요?<br/>Vim에 관심있는 사람들을 위한 Discord 커뮤니티 <br/><a href="https://vim.kr">vim.kr</a> 바로 여러분들을 위한 커뮤니티입니다.</p></div></pre>
 
+    <blockquote>
+  <p>아직까지는 문서화가 제대로 되어 있지 않은 관계로, 직접 이것저것 지워가면서 시행착오를 해야 할 수도 있으니 주의하시길 바랍니다.</p>
+</blockquote>
 
+<p>Dotfiles 구경은 <a href="https://github.com/malkoG/dotfiles">여기</a>에서 할 수 있습니다.</p>
 
-    <p>주변에서 하도 계속 물어봐서 Vim과 Neovim의 결정적인 차이점을 문서로 남긴다. 당장은 생각나는대로 나열했기 때문에, 추후에 내용이 더 추가될 순 있다.</p>
+<h2 id="사용-방법">사용 방법</h2>
 
-<h2 id="s-1">사용하는 언어부터 다르다 (VimScript / Lua)</h2>
+<p>dotfiles는 <a href="https://www.chezmoi.io/">chezmoi</a>라는 CLI 도구를 사용하면서 관리하고 있습니다. 따라서 dotfiles를 그대로 사용하려면, chezmoi를 설치하는 것을 권장합니다.</p>
 
-<p>Vim을 커스터마이징할때는 <strong>VimScript</strong>를 쓰지만, Neovim을 커스터마이징할때는 <strong>lua</strong>를 사용한다.</p>
+<p>chezmoi로 dotfiles를 사용하는 방법은 다음과 같습니다.</p>
 
-<p>개인적으론 VimScript를 선호하진 않는데, vimscript 기반으로 짜여져 있는 플러그인의 소스코드를 읽는 것 자체가 고통스러웠던 경험이기도 했고, vimscript라는 언어 자체가 그닥 가독성이 좋은 편은 아니라고 생각한다. 기능적으로는 모자람이 없을 순 있으나, 읽을때도 고통스러운데 이걸로 스크립트를 짜라면 어지간하면 피할 것 같다.</p>
+<ol>
+  <li>먼저, <a href="github.com/malkoG/dotfiles">dotfiles</a> 리포지토리를 fork 해줍니다.</li>
+  <li>그 다음, chezmoi를 설치합니다.</li>
+  <li>마지막으로, 아래 명령어를 실행합니다.</li>
+</ol>
 
-<p>반면. lua는 vimscript에 비하면 가독성이 적당히 나쁜 편은 아니다. 언어 자체의 기능으로 보자면 Python/Ruby/Javascript 등의 언어와 비교했을때 굉장히 좀 난해하게 느껴질 수는 있다.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> 다만, lua는 macOS에서 사용하는 자동화 툴인 <a href="https://www.hammerspoon.org/">hammerspoon</a>이라던가, 터미널 에뮬레이터인 <a href="https://wezfurlong.org/wezterm/index.html">wezterm</a>이라던가 <strong>Unix 계열의 CLI 프로그램의 configuration을 작성하는데 있어서 사실상 De facto의 역할</strong>을 하고 있다. 언어 자체가 마음에 들지 않는 부분은 어느 정도 있긴 하지만, 가독성이나 개발편의성이 엄청 나쁜 것은 아니기 때문에 거부할 이유는 딱히 없다고 생각하고 쓰고 있다.</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sh <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsLS</span> get.chezmoi.io<span class="si">)</span><span class="s2">"</span> <span class="nt">--</span> init <span class="nt">--apply</span> git@github.com:&lt;fork한 리포지토리&gt; <span class="o">(</span>ex. malkoG/dotfiles<span class="o">)</span>
+</code></pre></div></div>
 
-<h2 id="s-2">luarocks 패키지와 호환이 된다</h2>
+<h2 id="구성">구성</h2>
 
-<p>Neovim을 커스터마이징할때 활용하는 lua는 luarocks라는 패키지매니저가 있기 때문에, 필요하다면 얼마든지 가져다 쓸 수 있다.</p>
-
-<p>luarocks를 이용하는 Neovim 플러그인은 그렇게 많지는 않지만, (실질적인 쓸모의 유무를 떠나서) luarocks를 활용한 플러그인도 종종 보이긴 한다. 확실한건, lua 기반으로 개발되어 온 ecosystem을 등에 업고 언제든지 활용할 수 있다.</p>
-
-<h2 id="s-3">플러그인 생태계도 제법 괜찮은 편이다.</h2>
-<p><strong>telescope</strong> / <strong>nvim-cmp</strong> / <strong>treesitter</strong> 같은 키워드 위주로만 찾아봐도 이걸 응용한 괜찮은 기능의 플러그인들을 많이 살펴볼 수 있다.</p>
-
-<h3 id="telescope">telescope</h3>
-
-<p>Neovim에서 사용할 수 있는 검색엔진이라고 생각해봐도 될 것 같다. 자세한 내용은 <code class="highlighter-rouge">:help telescope</code> 만 봐도 알 수 있겠지만, 파일 검색/패턴 검색 뿐만이 아니라 <strong>query를 넣을 수 있는 것이라면 어떤 것이든 다 해낼 수 있는 요술봉</strong>이라 생각한다.</p>
-
-<p>예를 들면, <strong>git log</strong>를 검색한다던가, 현재 열어놓은 파일의 <strong>git history를 열람</strong>한다던가, <strong>각각의 브랜치</strong>에 대한 git history를 표시하는 등의 git과 관련된 유용한 기능은 이미 네이티브로 들어가 있다.</p>
-
-<p>여기서 좀 더 응용한다면, 아래의 예시와 같이 이용할 수 있다.</p>
 <ul>
-  <li>프로젝트를 구성하는 소스코드의 <strong>클래스/모듈/함수/상수 검색</strong></li>
-  <li>formatter/linter 오류 검색 <strong>(diagnostics)</strong></li>
-  <li>GitHub 리포지토리의 <strong>issue/PR 검색</strong> – <a href="https://github.com/pwntester/octo.nvim">pwntester/octo.nvim</a> 참고</li>
-  <li>throttling만 잘한다면 <strong>웹 요청</strong>이랑도 연결할 수 있다. 개인적으론 <a href="https://github.com/malkoG/aladin.nvim">알라딘 검색 API와 연동하는 실험</a>을 하고 있다.</li>
+  <li><a href="https://github.com/malkoG/dotfiles/blob/main/dot_zshrc">zsh</a> (with oh-my-zsh)
+    <ul>
+      <li>fzf 를 사용한 검색이 많은 비중을 차지하고 있습니다.</li>
+      <li>자주 사용하는 스크립트는 <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/kungfu/scroll.sh">여기</a>에 모아놨습니다.
+        <ul>
+          <li>Todoist API를 사용한 스크립트도 포함되어 있습니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/malkoG/dotfiles/tree/main/private_dot_config/mise">mise</a> : 패키지 매니저 겸 커스텀 스크립트 실행
+    <ul>
+      <li>커스텀 스크립트는 <a href="https://github.com/malkoG/dotfiles/tree/main/private_dot_config/mise/tasks">여기</a>서 확인할 수 있습니다.</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/malkoG/dotfiles/tree/main/private_dot_config/wezterm">wezterm</a> : GPU 가속을 지원하는 터미널 에뮬레이터
+    <ul>
+      <li>lua로 커스터마이징이 가능한 터미널 에뮬레이터입니다.</li>
+    </ul>
+  </li>
+  <li>tmux (with tmuxinator)
+    <ul>
+      <li><a href="https://github.com/malkoG/dotfiles/tree/main/private_dot_config/tmuxinator">tmuixnator</a></li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/malkoG/dotfiles/tree/main/private_dot_config/nvim">neovim</a></li>
+  <li><a href="https://github.com/malkoG/dotfiles/blob/main/dot_gitconfig">gitconfig</a></li>
 </ul>
 
-<h3 id="nvim-cmp">nvim-cmp</h3>
+<h3 id="설치가-필요한-프로그램">설치가 필요한 프로그램</h3>
 
-<p>이름에서 알 수 있듯이, 말 그대로 <strong>자동완성 기능</strong>을 위해 만들어진 플러그인 ecosystem이다. Neovim에서 자동완성 기능을 커스터마이징 해야 한다면, 바로 이 친구를 이용한다면 아주 간단한 문제가 된다.</p>
+<ul>
+  <li><a href="https://github.com/junegunn/fzf">fzf</a>
+    <ul>
+      <li>fuzzy search를 지원하는 강력한 CLI 도구입니다.</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/charmbracelet/gum">gum</a>
+    <ul>
+      <li>텍스트 입력/단일 선택/다중 선택 등 bash 스크립트에서 사용자 입력을 처리하는 데 도움을 주는 도구입니다. Perl/Ruby/Python 등의 스크립트 언어에서 시스템 콜을 호출하는 방식으로도 이용할 수 있습니다.</li>
+      <li>사용 예시는 <a href="https://github.com/malkoG/dotfiles/blob/main/automation/browse_diff.rb">여기</a>에서 확인할 수 있습니다.
+        <ul>
+          <li>예시의 스크립트는, 자세하게 보고 싶은 git log를 선택해서 각각의 diff를 보여주는 스크립트입니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
-<p>pwd 기준의 경로 자동 완성 / emoji / 버퍼 내에서 반복적으로 사용되는 단어 위주의 자동완성 같은 사소한 것부터 <strong>Code Snippet</strong> / <strong>git commit sha1 해쉬</strong> / <strong>GitHub author 자동 완성</strong> / <strong>Language Server와 연동된 auto import</strong> 까지 입맛대로 자동완성 기능을 커스터마이징할 수 있다. 위에서 설명했던 telescope와 마찬가지로 쿼리할 수 있는 것이라면 어떻게든 활용할 수 있기 때문에 가능성은 무궁무진하다.</p>
+<h4 id="riir-cli">RiiR CLI</h4>
 
-<h3 id="treesitter">treesitter</h3>
+<ul>
+  <li><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a> : grep의 대체제로 빠른 검색을 지원합니다.
+    <ul>
+      <li>nvim-telescope의 backend로 사용하고 있습니다.</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/sharkdp/bat">bat</a> : cat의 대체제로 syntax highlighting을 지원합니다.
+    <ul>
+      <li>.gitconfig에서 pager로 설정되어 있습니다.</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/dandavison/delta">delta</a> : diff를 rust 기반으로 구현한 CLI 도구
+    <ul>
+      <li>diff에다가 syntax highlighting을 지원하여 좀 더 가독성을 높여줍니다.
+        <ul>
+          <li>syntax highlighting을 하는 방식 역시 커스터마이징 할 수 있습니다.</li>
+        </ul>
+      </li>
+      <li>.gitconfig에서 diff 툴로 설정되어 있습니다.</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/lsd-rs/lsd">lsd</a> : ls의 대체제로 좀 더 다양한 옵션을 제공합니다. <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/lsd/config.yaml">$XDG_CONFIG/lsd/config.yaml</a>에서 기본으로 적용되는 옵션을 커스터마이징할 수 있습니다.</li>
+</ul>
 
-<p>사실 이게 왜 좋냐고 하냐면 많은 사람들에게 설득하는게 약간 어려운 난제이기도 하다. “굳이?” 라는 생각이 들 수도 있기 때문이다.</p>
+<h4 id="third-party-cli">Third-party CLI</h4>
 
-<p><a href="https://tree-sitter.github.io/tree-sitter/">treesitter</a> 자체는 파서를 만들어주는 제네레이터일 뿐이지만, 트리시터 기반으로 만들어진 파서가 활용도가 높기 때문에 유용함을 알고 있는 사람들은 잘 쓰고 있는 것 같다.</p>
+<ul>
+  <li><a href="https://cli.github.com/">Github CLI</a></li>
+  <li>(Optional) <a href="https://github.com/sachaos/todoist">Todoist CLI</a></li>
+</ul>
 
-<p>예를 들면, 커스텀 룰을 지정해주면 내가 탐험하고자 하는 소스코드의 범위를 탐색하는 것이 간단해진다. 왜냐면, scheme으로 커스텀 룰을 추가하는 것 자체가 일종의 트리 자료구조를 탐색하는 쿼리이기 때문이다.</p>
+<h2 id="neovim에서-사용하는-커스텀-스크립트">Neovim에서 사용하는 커스텀 스크립트</h2>
 
-<p><strong>알고리즘</strong>에 대한 배경지식이 있는 사람들한테는 좀 더 단순하게 설명하기도 하는데, <strong>“treesitter는 2차원 배열로 바라봐야 하는 소스코드를 트리로 바꿔서 생각할 수 있게 해준다.”</strong> 이런 표현을 즐겨쓰는 편이다.</p>
+<h3 id="타임슬롯-리마인더">타임슬롯 리마인더</h3>
 
-<p>이에 대해 좀 더 직관적으로 와닿을 수 있는 예시는 <a href="https://github.com/ziontee113/syntax-tree-surfer">ziontee113/syntax-tree-surfer</a>인데, 함수가 정의되어 있는 위치를 바꾸는 demo 영상을 살펴보자. Syntax tree로 나타내면 두 함수의 위치는 Tree의 관점에서 보면 sibling으로 볼 수 있다. <strong>두 함수가 정의되어 있는 위치를 바꾸는것은 사실상 트리 노드의 위치를 바꾸는 아주 간단한 문제</strong>로 환원이 된다.</p>
+<p>하루 시간을 여러 개의 슬롯으로 분할하고,  각 타임슬롯의 시작 시간/종료 시간마다 nvim-notify를 이용해서 알림을 주는 스크립트입니다.</p>
 
-<h2 id="s-4">그 외에도 두드러지는 점들</h2>
+<p>소스코드는 <a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/nvim/init.lua#L9-L30">여기</a>에서 확인할 수 있습니다.</p>
 
-<p>language server 지원도 나름 나쁘지는 않은 편인데, 제대로 세팅하려면 각각 language server마다 걸맞는 configuration을 해줘야 하는 수고로움이 생길 순 있지만, <a href="https://github.com/neoclide/coc.nvim">coc-nvim</a> 세팅해놔도 개인적으론 크게 문제가 없었다.</p>
+<h3 id="openai-연동">OpenAI 연동</h3>
 
-<p>Helix라는 신흥강자도 생기고 있는 모양이지만, 2023년 11월 기준으로는 크게 확 와닿을 정도로 삶에 혁신을 가져다 줄 만한 변화가 없기 때문에 당문간 관심을 가지는 건 보류</p>
+<p><code class="highlighter-rouge">OPENAI_API_KEY</code>를 세팅해야만 이용할 수 있습니다.</p>
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>lua라는 언어의 불편함에 대해서는 따로 글로 작성하게 될 것 같다. 그렇다고 아예 못 쓰겠다라고 느낄 수준은 아니지만, 여러가지 면에서 인지 부조화를 느끼게 하는 부분이 있다는 것은 부정할 여지가 없다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<ul>
+  <li><a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/nvim/lua/utilities/prompt-engineering.lua#L3-L19">커밋 메시지 자동 작성</a>
+    <ul>
+      <li>요약 : “<code class="highlighter-rouge">git diff --cached</code> 에서 파악되는 내용을 기반으로 커밋 메시지를 작성해주세요”</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/malkoG/dotfiles/blob/main/private_dot_config/nvim/lua/utilities/prompt-engineering.lua#L21-L56">커밋 메시지 수정</a>
+    <ul>
+      <li>요약 : “커밋 메시지를 이렇게 작성했지만, 이렇게 쓰는게 맞는지 모르겠어요. <code class="highlighter-rouge">git diff --cached</code> 에서 파악되는 내용을 기반으로, 커밋 메시지를 좀 더 적절하게 수정해주세요”</li>
+    </ul>
+  </li>
+</ul>
+
 
 </article>
 
@@ -302,14 +365,15 @@ window.addEventListener("load", function(event) {
                 </div>
                 <div class="toc-aside">
                     
-<ul><li><a href="#s-1">사용하는 언어부터 다르다 (VimScript / Lua)
-</a></li><li><a href="#s-2">luarocks 패키지와 호환이 된다
-</a></li><li><a href="#s-3">플러그인 생태계도 제법 괜찮은 편이다.
-</a></li><ul><li><a href="#telescope">telescope
-</a></li><li><a href="#nvim-cmp">nvim-cmp
-</a></li><li><a href="#treesitter">treesitter
-</a></li></ul><li><a href="#s-4">그 외에도 두드러지는 점들
-</a></li></ul>
+<ul><li><a href="#section">사용 방법
+</a></li><li><a href="#section-1">구성
+</a></li><ul><li><a href="#section-2">설치가 필요한 프로그램
+</a></li><ul><li><a href="#riir-cli">RiiR CLI
+</a></li><li><a href="#third-party-cli">Third-party CLI
+</a></li></ul></ul><li><a href="#neovim---">Neovim에서 사용하는 커스텀 스크립트
+</a></li><ul><li><a href="#section-3">타임슬롯 리마인더
+</a></li><li><a href="#openai-">OpenAI 연동
+</a></li></ul></ul>
 
                 </div>
             </div>
