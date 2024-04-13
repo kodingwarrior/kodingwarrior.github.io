@@ -15,7 +15,7 @@ dotfiles는 [chezmoi](https://www.chezmoi.io/)라는 CLI 도구를 사용하면�
 
 chezmoi로 dotfiles를 사용하는 방법은 다음과 같습니다.
 
-1. 먼저, [dotfiles](github.com/malkoG/dotfiles) 리포지토리를 fork 해줍니다.
+1. 먼저, [dotfiles](https://github.com/malkoG/dotfiles) 리포지토리를 fork 해줍니다.
 2. 그 다음, chezmoi를 설치합니다.
 3. 마지막으로, 아래 명령어를 실행합니다.
 
