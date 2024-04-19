@@ -1,4 +1,6 @@
 require "bridgetown"
+require 'front_matter_parser'
+require_relative 'plugins/utils/opengraph/image'
 
 Bridgetown.load_tasks
 
@@ -41,9 +43,39 @@ end
 # Add your own Rake tasks here! You can use `environment` as a prerequisite
 # in order to write automations or other commands requiring a loaded site.
 #
-# task :my_task => :environment do
-#   puts site.root_dir
-#   automation do
-#     say_status :rake, "I'm a Rake tast =) #{site.config.url}"
-#   end
-# end
+task :my_task => :environment do
+  Dir.glob("src/_wiki/**/*.md").reject { _1.include?("templates") }.each do |path|
+    puts "===="
+    puts path
+    loader = FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time, Date, DateTime])
+    parsed = FrontMatterParser::Parser.parse_file(path, loader:)
+
+    front_matter = parsed.front_matter
+
+    title = front_matter['title'].to_s
+    description = front_matter['description'] || "."
+
+    relative_path = path.split("/")[2..].join("/")
+    image_path = relative_path.split('.').first + ".png"
+
+    target_path = "src/assets/wiki/#{image_path}"
+
+    FileUtils.mkdir_p target_path.split('/')[...-1].join('/')
+    image = Utils::Opengraph::Image.new(1200, 800)
+              .text(title, width: 1000, height: 300)
+              .text(description, width: 1000, height: 300)
+              .border_bottom(4)
+              .compose(target_path) do |_title, _description|
+          {
+            x: [100, 100],
+            y: [100, 300]
+          }
+        end
+
+    puts target_path
+  end
+
+  automation do
+    say_status :rake, "I'm a Rake tast =) #{site.config.url}"
+  end
+end
