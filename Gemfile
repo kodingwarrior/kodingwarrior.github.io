@@ -40,3 +40,5 @@ group :development do
 end
 
 gem "bridgetown-lit-renderer", "= 2.1.0.beta2"
+
+gem "ruby-vips", "~> 2.2"
