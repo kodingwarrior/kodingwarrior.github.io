@@ -135,6 +135,10 @@ GEM
       unicode-display_width (>= 2.4.0, < 3.0)
     rubocop-ast (1.30.0)
       parser (>= 3.2.1.0)
+    ruby-lsp (0.14.6)
+      language_server-protocol (~> 3.17.0)
+      prism (>= 0.22.0, < 0.25)
+      sorbet-runtime (>= 0.5.10782)
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     serbea (1.0.1)
@@ -158,6 +162,7 @@ GEM
       tilt (~> 2.0)
       yard (~> 0.9, >= 0.9.24)
     thor (1.2.2)
+    sorbet-runtime (0.5.11351)
     tilt (2.3.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -176,6 +181,7 @@ DEPENDENCIES
   bridgetown-webfinger (~> 0.1.0)
   puma (~> 5.6)
   redcarpet (~> 3.5)
+  ruby-lsp (~> 0.14.6)
   solargraph
 
 BUNDLED WITH

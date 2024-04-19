@@ -35,4 +35,8 @@ gem "bridgetown-webfinger", "~> 0.1.0"
 
 gem "solargraph", :group => :development
 
+group :development do
+  gem "ruby-lsp", "~> 0.14.6"
+end
+
 gem "bridgetown-lit-renderer", "= 2.1.0.beta2"
