@@ -33,14 +33,15 @@ gem "bridgetown-feed", "~> 3.1"
 
 gem "bridgetown-webfinger", "~> 0.1.0"
 
-gem "solargraph", :group => :development
 
 group :development do
   gem "ruby-lsp", "~> 0.14.6"
+  gem "ruby-vips", "~> 2.2"
+  gem "solargraph", :group => :development
 end
 
 gem "bridgetown-lit-renderer", "= 2.1.0.beta2"
 
-gem "ruby-vips", "~> 2.2"
+
 
 gem "front_matter_parser", "~> 1.0"
