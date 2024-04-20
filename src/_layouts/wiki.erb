@@ -2,10 +2,19 @@
 layout: default
 ---
 
-<%= slot :og_image do %>
+<%= slot :og do %>
+  <meta name="twitter:site" content="@kodingwarrior">
+
   <% resource_path = resource.relative_url %>
   <% resource_path = resource_path[..-2] if resource_path.end_with?('/') %>
-  <meta content="/assets/<%= resource_path %>.png" property="og:image">
+  <meta content="wiki: <%= resource.data.title %>" property="og:title" />
+  <meta content="<%= resource.data.description || "." %>" property="og:description" />
+  <meta content="/assets/<%= resource_path %>.png" property="og:image" />
+
+  <meta content="summary" property="twitter:card" />
+  <meta content="wiki: <%= resource.data.title %>" property="twitter:title" />
+  <meta content="<%= resource.data.description || "." %>" property="twitter:description" />
+  <meta content="/assets/<%= resource_path %>.png" property="twitter:image" />
 <% end %>
 
 <%= slot :toc do %>
