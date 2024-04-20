@@ -29,7 +29,7 @@ gem "redcarpet", "~> 3.5"
 # (you can optionally limit this to the "development" group)
 gem "puma", "~> 5.6"
 
-gem "bridgetown-feed", "~> 2.1", :group => :bridgetown_plugins
+gem "bridgetown-feed", "~> 3.1"
 
 gem "bridgetown-webfinger", "~> 0.1.0"
 
