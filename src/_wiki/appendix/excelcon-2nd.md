@@ -1,5 +1,6 @@
 ---
 title: 제 2회 EXCELCON - Neovim으로 생산성 퀀텀점프하기
+description: 어쩌다가 Neovim으로 생산성이 올라가게 되었는지 발표하게 되었습니다.
 date: 2023-05-19
 layout: wiki
 tags: archive productivity vim
