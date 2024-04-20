@@ -42,3 +42,5 @@ end
 gem "bridgetown-lit-renderer", "= 2.1.0.beta2"
 
 gem "ruby-vips", "~> 2.2"
+
+gem "front_matter_parser", "~> 1.0"
