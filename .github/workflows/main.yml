@@ -14,6 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install libvips
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run:
+          # we only need the library
+          sudo apt-get install --fix-missing -qq -o Acquire::Retries=3 libvips 
+            
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
