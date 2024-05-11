@@ -5,6 +5,22 @@
       "group": 1
     },
     {
+      "id": "Repository",
+      "group": 1
+    },
+    {
+      "id": "Factory",
+      "group": 1
+    },
+    {
+      "id": "DomainDrivenDesign",
+      "group": 1
+    },
+    {
+      "id": "Aggregate",
+      "group": 1
+    },
+    {
       "id": "references/personal",
       "group": 1
     },
@@ -308,6 +324,26 @@
       "source": "#productivity",
       "target": "workbench/dotfiles",
       "value": 100
+    },
+    {
+      "source": "#software-engineering",
+      "target": "DomainDrivenDesign",
+      "value": 100
+    },
+    {
+      "source": "DomainDrivenDesign",
+      "target": "Repository",
+      "value": 1
+    },
+    {
+      "source": "DomainDrivenDesign",
+      "target": "Factory",
+      "value": 1
+    },
+    {
+      "source": "DomainDrivenDesign",
+      "target": "Aggregate",
+      "value": 1
     },
     {
       "source": "#archive",
