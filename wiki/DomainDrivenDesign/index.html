@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-  2023 Q4 Review | KODINGWARRIOR QUEST
+  도메인 주도 설계 (WIP) | KODINGWARRIOR QUEST
 
 
 </title>
@@ -13,21 +13,21 @@
 
 <meta name="twitter:site" content="@kodingwarrior" />
 
-<meta content="https://kodingwarrior.github.io/wiki/quarterly/2023-Q4" property="og:url" />
+<meta content="https://kodingwarrior.github.io/wiki/DomainDrivenDesign" property="og:url" />
 
-<meta content="wiki: 2023 Q4 Review" property="og:title" />
+<meta content="wiki: 도메인 주도 설계 (WIP)" property="og:title" />
 
 <meta content="." property="og:description" />
 
-<meta content="/assets//wiki/quarterly/2023-Q4.png" property="og:image" />
+<meta content="/assets//wiki/DomainDrivenDesign.png" property="og:image" />
 
 <meta content="summary_large_image" property="twitter:card" />
 
-<meta content="wiki: 2023 Q4 Review" property="twitter:title" />
+<meta content="wiki: 도메인 주도 설계 (WIP)" property="twitter:title" />
 
 <meta content="." property="twitter:description" />
 
-<meta content="https://kodingwarrior.github.io/assets/wiki/quarterly/2023-Q4.png" property="twitter:image" />
+<meta content="https://kodingwarrior.github.io/assets/wiki/DomainDrivenDesign.png" property="twitter:image" />
 
 
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -98,7 +98,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>2023 Q4 Review</h1>
+<h1>도메인 주도 설계 (WIP)</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -113,71 +113,15 @@
 
 <article id="wiki-content">
 
-    <p>4/4 분기 회고를 쓰고 있는 시점에서 2023년 회고를 쓸까말까 고민을 엄청 많이 했었는데, 1년치 계획을 꼼꼼하게 세우기에는 내 몸이 따라와주지 않을 것을 너무나도 잘 알게 되어서 그냥 안하기로 했다. 오늘내일하면서 살고 있는 입장에서 회고할만한 내용이 그렇게 있을 것 같지도 않고, 향후 n년 계획을 세우는 것도 딱히 의미있는 것 같지는 않아서, 앞으로도 적당히 분기 단위로 회고하는게 맞는 것 같다. 흐름을 유지하기라도 하면 아무래도 상관없으니까.</p>
+    <h2 id="용어-정리">용어 정리</h2>
 
-<h1 id="timeline">Timeline</h1>
-
-<ul>
-  <li><strong>2023-11-25</strong> : 너굴콘 회고 밋업 참여
-    <ul>
-      <li>대충 아는 사람들이 참여하는 네트워킹 행사이겠거니하고 참여 신청했는데 진짜로 참여 확정이 되어버려서, 그냥 참여하게 되었다.</li>
-      <li>발표 내용도 그럭저럭 다들 괜찮았고, 생각지 못한 반가운 얼굴들도 알게 되어서 나름 나쁘지는 않은 행사였던 것 같다. 다음 시즌에 발표를 할까말까 약간은 고민된다.</li>
-    </ul>
-  </li>
-  <li><strong>2023-12-16</strong> : 함수형 언어를 좋아하는 개발자를 위한 컨퍼런스인 <strong>LiftIO 2023</strong>에도 오랜만에 참여했다.</li>
-  <li><strong>2023-12-23</strong> : VimEnter 2023 행사 공동 진행도 하고, 겸사겸사 발표도 하게 되었다. <a href="https://vim.kr">vim.kr</a> 모더레이터인 만큼, 어떤 의도를 가지고 커뮤니티를 빌드업했고, 커뮤니티를 통해서 어떤 목적을 이루고 싶은지를 언급하면서 한 10분 정도 오프닝 멘트도 했던 것 같다. 커뮤니티에 대해 가지는 소신을 적긴 하지만 공개적인 석상에서 밝히는건 이게 처음이 아니었을까 싶은 생각이 든다.
-    <ul>
-      <li><strong>행사를 진행했던 사람의 관점</strong>
-        <ul>
-          <li>행사 준비를 좀 어거지로 했던 느낌이 없지는 않지만, 그럭저럭? 행사가 잘 진행된 느낌이다. 내 발표가 마지막이었는데 생각보다 발표시간이 길었어서 원래 예정된 일정보다 많이 늦게 끝나긴 했는데, 클레임이 하나도 없었던게 다행이라면 다행이라고 해야하나…? 일단 참여해주신 분들이 너무 감사하게 느낄 뿐이다.</li>
-          <li>행사를 처음에 준비할때는 가능하면 많은 사람들이 참여했으면 좋겠다라는 생각이 들어서 100명 모집하는걸 계획하고 준비하려고 했었는데, 그보다는 더 적어도 되는 것 같다. 내가 아직까지 역량이 부족한 것도 있고, 생각보다 행사를 진행하는데 고려해야 할 요소들이 많았던 것 같다. 행사를 진행할때 당시에는 대략 30명 정도가 참여했었는데, 다음에 진행한다면 한 60명 정도면 적지는 않다고 생각할 수 있지 않을까? 싶은 생각이 든다.</li>
-        </ul>
-      </li>
-      <li><strong>발표자로 참여했던 사람의 관점</strong>
-        <ul>
-          <li>엑셀콘에서 발표했던 내용과 이어지는 주제로 발표하려고 의도했었다. 엑셀콘에서는 Vim 생태계로 어느 정도까지 할 수 있는지 감이 안 잡히는 사람들을 위해 플러그인 생태계 위주로 퍼포먼스하는 느낌으로 빠르게 휙휙하고 지나가는 식으로 진행했었다. 하지만, Neovim 플러그인 생태계를 소개하는 것 만으로는 내가 느낀 모든 것들을 담아내지는 못해서 아쉬움만 남았었다. 발표시간을 아슬아슬하게 오버했음에도 불구하고.</li>
-          <li>VimEnter에서 발표했던 내용은 엑셀콘과는 약간은 다른 관점에서 접근했다. 플러그인 생태계를 이용해서 생산성을 개선하는 것이 아니라, Neovim이라는 도구 그 자체를 통해서 어떻게 생산성을 개선할 것인지에 대해 진지하게 고찰해보는 것에 초점을 맞췄다.</li>
-          <li>발표시간은 명목상으론 25분 짜리였지만, 정말 멋지고 완벽한 발표를 하고 싶은 마음이 너무 앞서서 슬라이드를 70장 정도 만들었는데<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>, 25분 안에 어떻게든 소화를 잘 할 수 있을 것만 같은 낙관적인 사고 때문에 결국 40분을 넘기는 실수를 저질렀다. 그래도 좋은 발표였다고 해주시는 분들이 많았어서 천만다행인가…</li>
-          <li>고화질로 녹화되서 유튜브에 올라온 경험은 이게 처음인 것 같다. 엑셀콘에서 발표했을 때는 일반 참가자인 다른 사람이 찍어줬어서 그나마 유튜브에 기록으로 남길 수 있었는데, 이번에는 행사를 후원해주신 코드숨 관계자 분께서 녹화를 해주신 덕분에 제일 선명한 발표영상이 기록으로 남게 되었다는 점에는 큰 의미를 두고 싶다.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h1 id="books">Books</h1>
-
-<p>이번에도 책을 많이 읽진 못했다. 집중력이 바닥나서 그런지 중간에 읽다 말았던 책도 있고, 사실상 전부 완독한 책은 겨우 2권 정도 되는 것 같다.</p>
+<h3 id="객체의-생명-주기-관리">객체의 생명 주기 관리</h3>
 
 <ul>
-  <li><a href="https://www.aladin.co.kr/m/mproduct.aspx?ItemId=326340238">타입으로 견고하게, 다형성으로 유연하게</a> : 2017년 쯤에 Haskell 공부할 때, 타입클래스/카인드 부터 좀 어려워서 중간에 내려놓았는데 이제서야 좀 이해가 되는 느낌? 프로그래밍 언어를 공부한다면 빠질 수 없는 타입시스템을 대중이 이해하기 쉽게 잘 설명한 책이라고 생각한다.
-    <ul>
-      <li><a href="https://social.silicon.moe/@reading_kojima/111485253025262439">mastodon</a></li>
-    </ul>
-  </li>
-  <li><a href="https://www.aladin.co.kr/m/mproduct.aspx?ItemId=323600969">스트리트 코더</a> : 소프트웨어를 개발하다보면 데드라인 등등의 사유로 Best Practice에 맞게 개발하지 못하게 되는 일도 종종 있는데, 그럼에도 불구하고 적정 수준에서 타협할 수 있는 안목을 가지게 해주는 것 같다. 이론에 대한 내용은 후반부에 잠깐 등장하는 Threat model, 데드락을 다루는 방법, <strong>CSAPP</strong><sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup>에서 다루는 시스템프로그래밍 지식 외에는 별로 없고 가벼운 마음으로 읽을만하다.
-    <ul>
-      <li><a href="https://social.silicon.moe/@reading_kojima/111565407748134383">mastodon</a></li>
-    </ul>
-  </li>
+  <li>[[Repository]]</li>
+  <li>[[Factory]]</li>
+  <li>[[Aggregate]]</li>
 </ul>
-
-<h1 id="conclusion">Conclusion</h1>
-
-<p>보통은 분기별로 후기를 작성할때 분기기 지나간지 일주일 내로 작성하는게 원칙이었는데, 이번에는 한달 이상 늦게 작성하게 되었다. 월별도 아니고, 그렇다고 너무 늘어지는 연간도 아니고, 그나마 분기마다 작성하는게 내가 견딜만한 마지노선이라고 생각했는데, 아니나 다를까 정말 딱 정확하게 계산된 것 같다.</p>
-
-<p>내가 컨디션이 좋을때를 가정하고 계획을 한다는 것 자체가 내 삶을 갉아먹기도 하고, 정신건강에 더더욱 해롭기도 하고, 컨디션이 나쁘면 이도저도 못하게 되기도 했었다. ADHD/BPD를 동시에 가지고 있는 입장에서는 항상 컨디션이 나쁠 것을 가정하고 시스템을 만들어갈 수 밖에 없다.</p>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:1" role="doc-endnote">
-      <p>엑셀콘에서 발표자료를 만들 때, 초안은 슬라이드가 100장 나왔었다. 30분 안에 슬라이드를 100개 넘길 자신은 없었어서 30초당 한 슬라이드 계산하고 슬라이드를 찍었는데, 줄이고 줄여도 겨우 70장 나왔다. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:2" role="doc-endnote">
-      <p><a href="https://csapp.cs.cmu.edu/">Computer Systems : A Programmers Perspective</a> 라는 아주 유우명한 책이 있다. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 
 </article>
 
@@ -320,10 +264,9 @@ window.addEventListener("load", function(event) {
                 </div>
                 <div class="toc-aside">
                     
-<ul><li><a href="#timeline">Timeline
-</a></li><li><a href="#books">Books
-</a></li><li><a href="#conclusion">Conclusion
-</a></li></ul>
+<ul><li><a href="#section">용어 정리
+</a></li><ul><li><a href="#section-1">객체의 생명 주기 관리
+</a></li></ul></ul>
 
                 </div>
             </div>
