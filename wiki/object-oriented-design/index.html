@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-  Telekasten.nvim | KODINGWARRIOR QUEST
+  객체 지향 디자인 | KODINGWARRIOR QUEST
 
 
 </title>
@@ -13,21 +13,21 @@
 
 <meta name="twitter:site" content="@kodingwarrior" />
 
-<meta content="https://kodingwarrior.github.io/wiki/vim-plugin/telekasten.nvim" property="og:url" />
+<meta content="https://kodingwarrior.github.io/wiki/object-oriented-design" property="og:url" />
 
-<meta content="wiki: Telekasten.nvim" property="og:title" />
+<meta content="wiki: 객체 지향 디자인" property="og:title" />
 
 <meta content="." property="og:description" />
 
-<meta content="/assets//wiki/vim-plugin/telekasten.nvim.png" property="og:image" />
+<meta content="/assets//wiki/object-oriented-design.png" property="og:image" />
 
 <meta content="summary_large_image" property="twitter:card" />
 
-<meta content="wiki: Telekasten.nvim" property="twitter:title" />
+<meta content="wiki: 객체 지향 디자인" property="twitter:title" />
 
 <meta content="." property="twitter:description" />
 
-<meta content="https://kodingwarrior.github.io/assets/wiki/vim-plugin/telekasten.nvim.png" property="twitter:image" />
+<meta content="https://kodingwarrior.github.io/assets/wiki/object-oriented-design.png" property="twitter:image" />
 
 
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -98,7 +98,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>Telekasten.nvim</h1>
+<h1>객체 지향 디자인</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -112,43 +112,37 @@
 </div>
 
 <article id="wiki-content">
-        
-<pre class="mx-0 md:mx-8 mb-8 rounded-xl py-6 px-6 bg-lime-100 text-gray-900 overflow-visible break-words"><div class="flex flex-col md:flex-row justify-start items-start md:items-center"><i class="bi w-16 text-4xl mb-2 md:mb-0 bi-info-circle font-extrabold"></i><p class="m-0 p-0 leading-6 md:leading-8 text-sm md:text-lg">혹시 이 글을 읽고 Vim에 관심을 가지게 되셨나요?<br/>Vim에 관심있는 사람들을 위한 Discord 커뮤니티 <br/><a href="https://vim.kr">vim.kr</a> 바로 여러분들을 위한 커뮤니티입니다.</p></div></pre>
 
+    <h2 id="관련-용어">관련 용어</h2>
 
+<h2 id="reference">Reference</h2>
 
-    <p><del>Neovim에 강력한 검색 기능을 제공하는 킹갓제네럴엠퍼러</del> [[vim-plugin/telescope.nvim]] 기반으로 동작하는 zettelkasten management plugin</p>
+<h3 id="practical-object-oriented-design-in-ruby---sandi-metz">Practical Object Oriented Design in Ruby - Sandi Metz</h3>
 
-<h2 id="keymap">Keymap</h2>
+<p><br /></p>
 
-<div class="language-lua highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- Telekasten</span>
-<span class="n">vim</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">nvim_create_autocmd</span><span class="p">(</span><span class="s1">'FileType'</span><span class="p">,</span> <span class="p">{</span>
-  <span class="n">pattern</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'markdown'</span><span class="p">},</span>
-  <span class="n">group</span> <span class="o">=</span> <span class="n">augroup</span><span class="p">,</span>
-  <span class="n">desc</span> <span class="o">=</span> <span class="s1">'Only works on markdown files'</span><span class="p">,</span>
-  <span class="n">callback</span> <span class="o">=</span> <span class="k">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zf"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').find_notes()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zd"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').find_daily_notes()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zz"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').follow_link()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zT"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').goto_today()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zW"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').goto_thisweek()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zn"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').new_note()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zc"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').show_calendar()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zC"</span><span class="p">,</span> <span class="s2">":CalendarT&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zt"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').toggle_todo()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zb"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').show_backlinks()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
+<blockquote>
+  <p>“객체 지향 디자인은 세상을 이미 정해진 절차들의 묶음으로 생각하지 않고, 객체가 서로 주고 받는 메시지들의 연쇄로 파악할 것을 요구한다.” - p1</p>
+</blockquote>
 
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;z"</span><span class="p">,</span> <span class="s2">":lua require('telekasten').panel()&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
+<p><br /></p>
 
-    <span class="n">map</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;["</span><span class="p">,</span> <span class="s2">"&lt;cmd&gt;:lua require('telekasten').insert_link({ i=true })&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;zt"</span><span class="p">,</span> <span class="s2">"&lt;cmd&gt;:lua require('telekasten').toggle_todo({ i=true })&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'i'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;#"</span><span class="p">,</span> <span class="s2">"&lt;cmd&gt;lua require('telekasten').show_tags({i = true})&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
+<blockquote>
+  <p>“객체지향 디자인의 실패를 코딩 능력 부족으로 생각할지도 모르지만, 사실은 관점의 실패다.” - p2</p>
+</blockquote>
 
-    <span class="c1">-- custom tricky commands</span>
-    <span class="n">map</span><span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s2">"&lt;leader&gt;Zt"</span><span class="p">,</span> <span class="s2">":lua require('telescope.builtin').live_grep(); vim.api.nvim_feedkeys('TODO', 'n', true);&lt;CR&gt;"</span><span class="p">,</span> <span class="n">default_opts</span><span class="p">)</span>
-  <span class="k">end</span>
-<span class="p">})</span>
-</code></pre></div></div>
+<p><br /></p>
+
+<blockquote>
+  <p>“객체지향 디자인은 의존성을 관리하는 것이고, 객체가 변화를 받아들일 수 있도록 의존성을 관리하는 코딩 기술의 묶음이다.” - p3</p>
+</blockquote>
+
+<p><br /></p>
+
+<blockquote>
+  <p>“실용적 디자인은 우리의 애플리케이션에 어떤 일이 벌어질 지 예측하는 것이 아니라, 단지 언젠가 무언가는 변한다는 사실 그리고 지금은 무엇이 변경될지 알 수 없다는 사실을 받아들이는 것이다.” - p5</p>
+</blockquote>
+
 
 </article>
 
@@ -291,8 +285,10 @@ window.addEventListener("load", function(event) {
                 </div>
                 <div class="toc-aside">
                     
-<ul><li><a href="#keymap">Keymap
-</a></li></ul>
+<ul><li><a href="#section">관련 용어
+</a></li><li><a href="#reference">Reference
+</a></li><ul><li><a href="#practical-object-oriented-design-in-ruby---sandi-metz">Practical Object Oriented Design in Ruby - Sandi Metz
+</a></li></ul></ul>
 
                 </div>
             </div>
