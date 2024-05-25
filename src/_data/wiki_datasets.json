@@ -5,6 +5,10 @@
       "group": 1
     },
     {
+      "id": "object-oriented-design",
+      "group": 1
+    },
+    {
       "id": "Repository",
       "group": 1
     },
@@ -323,6 +327,16 @@
     {
       "source": "#productivity",
       "target": "workbench/dotfiles",
+      "value": 100
+    },
+    {
+      "source": "#oop",
+      "target": "object-oriented-design",
+      "value": 100
+    },
+    {
+      "source": "#software-engineering",
+      "target": "object-oriented-design",
       "value": 100
     },
     {
