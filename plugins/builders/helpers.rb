@@ -7,6 +7,19 @@ class Builders::Helpers < SiteBuilder
         </pre>
       HTML
     end
+
+    helper :book_quote do |&block|
+      <<~HTML.html_safe
+        <div class="book-quote-wrapper">
+          <div class="book-quote-label">
+            Note
+          </div>
+          <blockquote class="book-quote">
+            #{helpers.view.capture(&block)}
+          </blockquote>
+        </div>
+      HTML
+    end
   end
 end
 

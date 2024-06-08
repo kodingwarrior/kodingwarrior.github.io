@@ -259,3 +259,15 @@ kbd {
 .wiki-navbar {
   @apply list-none flex justify-center items-center gap-x-8 m-0;
 }
+
+.book-quote-wrapper {
+  @apply relative grid grid-cols-1 mb-4 mt-14;
+}
+
+.book-quote-wrapper .book-quote-label {
+  @apply absolute z-50 -top-6 font-black rounded-md bg-amber-400 px-2 py-1;
+}
+
+.book-quote-wrapper blockquote.book-quote {
+  @apply relative bg-amber-100 py-6 border-l-4 border-amber-300 z-10 tracking-tight italic mx-4 rounded-md;
+}
