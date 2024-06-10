@@ -5,6 +5,10 @@
       "group": 1
     },
     {
+      "id": "duck-typing",
+      "group": 1
+    },
+    {
       "id": "object-oriented-design",
       "group": 1
     },
@@ -331,6 +335,16 @@
     },
     {
       "source": "#oop",
+      "target": "duck-typing",
+      "value": 100
+    },
+    {
+      "source": "#software-engineering",
+      "target": "duck-typing",
+      "value": 100
+    },
+    {
+      "source": "#oop",
       "target": "object-oriented-design",
       "value": 100
     },
@@ -338,6 +352,11 @@
       "source": "#software-engineering",
       "target": "object-oriented-design",
       "value": 100
+    },
+    {
+      "source": "object-oriented-design",
+      "target": "duck-typing",
+      "value": 1
     },
     {
       "source": "#software-engineering",

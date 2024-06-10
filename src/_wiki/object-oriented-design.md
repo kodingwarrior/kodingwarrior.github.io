@@ -8,12 +8,11 @@ tags: oop software-engineering
 
 ## 관련 용어
 
+* [[duck-typing]]{오리 타입(Duck typing)}
 
 ## Reference
 
 ### Practical Object Oriented Design in Ruby - Sandi Metz
-
-<br/>
 
 <%= book_quote do %>
 "객체 지향 디자인은 세상을 이미 정해진 절차들의 묶음으로 생각하지 않고, 객체가 서로 주고 받는 메시지들의 연쇄로 파악할 것을 요구한다." - p1
