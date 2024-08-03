@@ -23,7 +23,9 @@ module Utils
         self
       end
 
-      def text(message, width:, height:, dpi: 300, color: '#2f363d', font: 'Open Sans Bold')
+      def text(message, width:, height:, dpi: 300, color: '#2f363d', font: 'Open Sans Bold', font_size: 12)
+        font_size = font_size || 12 # Default font size if not specified
+        im = Vips::Image.text(message, width: width, height: height, dpi: dpi, font: "#{font}:#{font_size}")
         im = Vips::Image.text(message, width: width, height: height, dpi: dpi, font: font)
         im = im.new_from_image(hex_to_rgb(color)).copy(interpretation: :srgb).bandjoin(im)
         @elements << im
