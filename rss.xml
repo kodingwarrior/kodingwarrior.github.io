@@ -1,4 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.3.1">Bridgetown</generator><link href="https://kodingwarrior.github.io/rss.xml" rel="self" type="application/atom+xml" /><link href="https://kodingwarrior.github.io/" rel="alternate" type="text/html" /><updated>2024-06-30T13:26:52+00:00</updated><id>https://kodingwarrior.github.io/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">이메일 클라이언트 구매 후기 (with hey.com)</title><link href="https://kodingwarrior.github.io/post/2024/03/08/hey-as-productivity-tool" rel="alternate" type="text/html" title="이메일 클라이언트 구매 후기 (with hey.com)" /><published>2024-03-08T00:00:00+00:00</published><updated>2024-03-08T00:00:00+00:00</updated><id>repo://posts.collection/_posts/2024-03-08-hey-as-productivity-tool.md</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2024/03/08/hey-as-productivity-tool">&lt;p&gt;&lt;a href=&quot;/wiki/quarterly/2023-Q4&quot;&gt;2023년도 4/4분기 결산&lt;/a&gt; 에서 쓸까말까하다가 이걸 다 담기에는 4/4분기 결산 퇴고하는걸 미루게 될 것만 같아서 블로그 포스트로 따로 분리하기로 했다. 2023년 9월 쯤부터 유료 이메일 서비스를 구매하면서부터 뉴스레터를 구독하기 시작했던 특이점이 있었는데, 이에 대해서 설명하기에는 분량이 상당히 길어질 수도 있고 커피챗에서도 1시간 이상을 떠들어댈 수 있는 소재이기도 했기 때문이다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://bridgetownrb.com/" version="1.3.1">Bridgetown</generator><link href="https://kodingwarrior.github.io/rss.xml" rel="self" type="application/atom+xml" /><link href="https://kodingwarrior.github.io/" rel="alternate" type="text/html" /><updated>2024-08-03T06:34:41+00:00</updated><id>https://kodingwarrior.github.io/rss.xml</id><title type="html">KODINGWARRIOR QUEST</title><subtitle>고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다.</subtitle><entry><title type="html">어려운 것을 해야겠다는 강박</title><link href="https://kodingwarrior.github.io/post/2024/08/02/do-not-try-unncecessary-hard-things" rel="alternate" type="text/html" title="어려운 것을 해야겠다는 강박" /><published>2024-08-02T00:00:00+00:00</published><updated>2024-08-02T00:00:00+00:00</updated><id>repo://posts.collection/_posts/2024-08-02-do-not-try-unncecessary-hard-things.md</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2024/08/02/do-not-try-unncecessary-hard-things">&lt;p&gt;본론부터 읽고 싶다면 &lt;a href=&quot;#s-1&quot;&gt;여기서부터&lt;/a&gt; 읽으면 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;“어려운 것을 해야 겠다”&lt;/strong&gt;라는 강박은 인정욕이 있는 사람이면 누구나 가지게 된다. 나도 그 중 하나이기도 했고, 여전히 그런 경향을 가지고 있다. 
+지금 와서 생각해보면 미숙한 결정을 내렸다고 생각할 때가 굉장히 많은데, 가령 이런 것들이 있었다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;학부생 시절의 실수&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;엄청나게 멋진 동아리 홈페이지를 만들겠다는 강박
+    &lt;ul&gt;
+      &lt;li&gt;2017년 기준으로, 내가 다니던 학교에서는 동아리 홈페이지가 있는 IT 동아리가 없다시피 했었다. 다른 학교는 있는데, 우리학교는 왜 없지? 라는 생각이 들어서 다른 학교에 있는 개발 동아리가 어떻게 운영되어 왔는지 최대한 찾아보기도 했다. 그 중에는 동아리 위키, 동아리 전용 이슈트래커 등등 멋있어 보이는 것들이 있었다.&lt;/li&gt;
+      &lt;li&gt;내가 다른 학교의 동아리 생태계를 부러워했던 만큼, 나도 역시 다른 학교에서 부러워할 수준의 생태계를 만들고 싶었다. 그 중 대외적으로 어필하기 쉬운 수단 중 하나가 IT 동아리로서의 인프라 구축이었다. 그래서 미디어위키 기반의 위키를 도입하고, 레드마인도 직접 설치해보고, 그 외에도 다양한 도구들을 도입해보기도 했다. 당연히 도입은 실패로 끝났다.&lt;/li&gt;
+      &lt;li&gt;어떤 인프라를 도입하는 것의 당위성이 충분히 설득되기 힘들기도 했고, 정말 필요하게 되는 순간도 없었기 때문이다. 단순히 구글 드라이브로 해결이 되는 것들인데 굳이 미디어위키로 지식 관리 시스템을 도입을 해야 했냐면 지금은 굉장히 후회되는 결정이기도 했다. 그 과정에서 불신의 씨앗이 피어나기도 했다.&lt;/li&gt;
+      &lt;li&gt;홈페이지를 만들려는 시도도 여러번 했지만, &lt;strong&gt;만든다는 것 그 자체에만 의미를 두고, 정말로 필요한걸 만들려고는 하지 않았다.&lt;/strong&gt; 후술할 기술스택 이슈도 있어서 몇번을 갈아엎기도 하고, 이 과정에서도 마찰이 있었다. 결국에는 Github Page에 동아리 소개 페이지를 만드는 것 정도로만 끝냈다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;타 학교와 견줄 수 있는 수준으로 높은 수준의 알고리즘 스터디를 하겠다는 강박
+    &lt;ul&gt;
+      &lt;li&gt;알고리즘 동아리를 대표하고 직접 발품파는 사람이었다보니, &lt;strong&gt;다른 학교에서도 부러워하는 스터디&lt;/strong&gt;, &lt;strong&gt;혼자 공부하는 것과는 다르게 배워갈 수 있는 스터디&lt;/strong&gt;를 운영해야 겠다는 강박이 있었다.&lt;/li&gt;
+      &lt;li&gt;가령, 예를 들자면… Brute Force/DP/Greedy/이분탐색/DFS/BFS/다익스트라/Minimum Spanning Tree 등 기본적인 알고리즘을 공부하는 것이 일반적이지만, 여기다 고급 알고리즘 트랙을 개설해서 확률론적 알고리즘/병렬 이분 탐색/아호-코라식/sqrt decomposition 등 난이도가 비교적 높은 것 위주로 강의자료를 준비했다. &lt;strong&gt;물론, 이렇게 해놓고 대회에서 좋은 성적을 얻진 못했다.&lt;/strong&gt; &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+      &lt;li&gt;사실 나 말고도 비슷한 접근을 했던 사람들도 있었던 모양이다. 그런 사태를 보면서 누군가는 이런 평가를 했었다. &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;A + B 덧셈문제도 포드-풀커슨 알고리즘으로 푸시겠어요&quot;&lt;/code&gt; &lt;sup id=&quot;fnref:2&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; &lt;sup id=&quot;fnref:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:3&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;사회로 진출하고 나서의 실수&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;strong&gt;남들이 시도하지 않는 힙한 기술스택으로 셀프 브랜딩을 해야겠다는 강박&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Rails라던가 Django라던가 기술스택 베이스는 이미 있었지만, 이력서에 적을 프로젝트 만큼은 &lt;a href=&quot;&quot;&gt;Elixir&lt;/a&gt; 기반의 웹 프레임워크인 &lt;a href=&quot;&quot;&gt;Phoenix&lt;/a&gt;로 만들어야겠다는 강박이 있었다. 동아리 홈페이지도 마이너한 스택으로 혼자 개발하려고 했고, 포트폴리오용 프로젝트도 그렇게 접근했다. 실무에서는 혼자 일하는 것이 아니고, 다른 사람들과 같이 일하는 것이기 때문에 &lt;strong&gt;같이 참여하는 사람을 고려하는 것이 중요하다는걸 뒤늦게 깨달았다.&lt;/strong&gt; 마이너한 스택은 필연적으로 리소스가 충분하지 않기 때문에 삽질하는 시간이 심각하게 병목이 되었고, 진행속도는 더디게 되어 완성되는게 없다시피 했다.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;결과적으로는 제대로 된 프로젝트를 하나 만든게 없는 사람&lt;/strong&gt;이 되었고, 이미 알고 있는 기술 스택의 숙련도는 말할 것도 없다. 제품을 잘 만드는 것에는 관심이 없었다. 실전으로 개발할때도 아웃풋이 그닥 좋게 나오지도 못했다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;기술적인 역량을 어필해야겠다는 강박&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;마이크로서비스 아키텍쳐, 디자인 패턴 도입, 테스트 커버리지 100%, kubernetes 기반의 클러스터 구축 등등 맥락에 적절하지 않은 것들을 내 역량을 증명하기 위해서 도입하려고 했던 적이 있다. 물론, 거기에 충분한 대화가 들어가지 않았고, 고집도 있었다. 흔히들 &lt;strong&gt;이력서 주도 개발&lt;/strong&gt;이라고 표현하는 것인데, 비즈니스적인 임팩트가 없는 것은 물론이고 프로젝트에서 그렇게 필요한 것도 아니었다. 단순히, 나를 위한 것 그 이상 그 이하도 아니었다.&lt;/li&gt;
+      &lt;li&gt;한 때는 이러한 시도 조차 하려고 하지 않는 것을 게으른 것으로 취급하기는 했었다. 지금 생각하면 어리석은 생각이었다. &lt;strong&gt;시도하는 것으로 인해 이후에 유지보수 하는 사람들이 기술 부채로 어떻게 고생을 할 것인지, 시도하는 것으로 인해 독보적으로 얻을 수 있는 장점이 무엇인지 신중하게 생각하지 않는 것이 문제&lt;/strong&gt;라는 것을 뒤늦게 깨달았다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;이런 실수들을 반복하다보니, &lt;strong&gt;어려운 것을 해야겠다는 강박&lt;/strong&gt;이라는 것이 여러모로 해로운 것이라는 사실을 깨달았다.
+뭐 이미 지난 세월은 지난 세월이고, 앞으로 그런 실수를 반복하지 않으면 된다. 그러기 위해서는 의식적으로 노력하면 된다.&lt;/p&gt;
+
+&lt;hr id=&quot;s-1&quot; /&gt;
+
+&lt;p&gt;소프트웨어 업계에서는 YAGNI 라는 격언이 있다. &lt;strong&gt;You Ain’t Gonna Need It.&lt;/strong&gt; 즉, 당장 필요하지 않은 기능을 구현하지 말라는 것이다. 이것은 개발자들이 코딩을 할 때, 불필요한 기능을 구현하지 않도록 하기 위한 원칙이다. 여기서 더 나아가서, &lt;strong&gt;어려운 것을 해야겠다는 강박&lt;/strong&gt;도 마찬가지로 적용할 수 있다. &lt;strong&gt;당장 필요한 것도 아닌데, 어려운 것을 해야겠다는 강박으로 인해 불필요한 시간과 에너지를 낭비해서는 안된다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;시간은 한정되어 있고, 그 시간에 사용할 수 있는 리소스도 한정되어 있다. &lt;strong&gt;그 시간 안에 할 수 있는 노력과 의지력의 총량도 당연히 제한되어 있다.&lt;/strong&gt; 쉬운 것들 위주로 해내더라도, 어려운 것들을 해내는 것보다 &lt;strong&gt;더 적은 노력으로 더 많은 임팩트를 낼 수 있다.&lt;/strong&gt; 거기다가 어떻게 리소스를 투입해왔고, 어떤 결과가 나왔는지에 따라 &lt;strong&gt;나에 대한 신뢰도가 달라질 수 있다.&lt;/strong&gt; 어려운 것도 해내는 나의 가치를 애써 증명하기 위해, 어려운 것을 해야겠다는 강박은 버릴 필요가 있다. &lt;strong&gt;당장 필요한 순간에 내가 할 수 있는 것을 잘하고, 단순하게 해결하는 것만으로도 애쓰지 않아도 내 가치는 증명이 된다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;위에서 언급한 실수들이 꼭 나쁜 영향을 준 것은 아니었다. 결과적으로 실패한 경험들이긴 했지만, 그 경험들을 통해 배운 것들이 있었기 때문이다. 함수형 프로그래밍을 일찍이 접하면서 가독성있고 예측이 가능한 코드를 짜는 버릇이 생겼고, 어려운 알고리즘을 공부하면서 어지간한 알고리즘 문제는 쉽게 보이게 되었고, 기술 스택 도입에 실패한 여러 경험을 통해 &lt;strong&gt;기본을 집중해서 잘해야 한다&lt;/strong&gt;는 결론에 도달했기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;실패하는 과정에서 잃은 사람들도 있었지만, &lt;strong&gt;그 과정에서 얻은 사람들도 많았다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;어려운 것을 시도하는 행위 자체는 나의 성장에 도움이 될 수 있기 때문에 분명 가치가 있다. 어려운 것을 시도하다가 실패할 수도 있다. 실패하는 것이 꼭 나쁜 것만은 아니다. 하지만, &lt;strong&gt;어려운 것을 해내는 나의 가치를 증명하기 위해 나만의 리소스가 아닌 것을 희생하는 행위은 지양&lt;/strong&gt;해야 한다.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;이렇게 공부해놓고도 ACM-ICPC 본선에는 진출하지 못했다. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:2&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Ford%E2%80%93Fulkerson_algorithm&quot;&gt;Ford-Fulkerson algorithm&lt;/a&gt; - 간선에 capacity가 있는 그래프에서 최대 유량을 찾는 알고리즘이다. 이분 매칭에 사용되기도 하고, 네트워크 플로우 문제를 푸는데 사용된다. &lt;a href=&quot;#fnref:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:3&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://blog.naver.com/pasdfq/222217957003&quot;&gt;어려운 알고리즘을 권하는 사회&lt;/a&gt; - 이 글도 읽을만한 가치가 있다. &lt;a href=&quot;#fnref:3&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author></entry><entry><title type="html">이메일 클라이언트 구매 후기 (with hey.com)</title><link href="https://kodingwarrior.github.io/post/2024/03/08/hey-as-productivity-tool" rel="alternate" type="text/html" title="이메일 클라이언트 구매 후기 (with hey.com)" /><published>2024-03-08T00:00:00+00:00</published><updated>2024-03-08T00:00:00+00:00</updated><id>repo://posts.collection/_posts/2024-03-08-hey-as-productivity-tool.md</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2024/03/08/hey-as-productivity-tool">&lt;p&gt;&lt;a href=&quot;/wiki/quarterly/2023-Q4&quot;&gt;2023년도 4/4분기 결산&lt;/a&gt; 에서 쓸까말까하다가 이걸 다 담기에는 4/4분기 결산 퇴고하는걸 미루게 될 것만 같아서 블로그 포스트로 따로 분리하기로 했다. 2023년 9월 쯤부터 유료 이메일 서비스를 구매하면서부터 뉴스레터를 구독하기 시작했던 특이점이 있었는데, 이에 대해서 설명하기에는 분량이 상당히 길어질 수도 있고 커피챗에서도 1시간 이상을 떠들어댈 수 있는 소재이기도 했기 때문이다.&lt;/p&gt;
 
 &lt;p&gt;내가 사랑하는 여러가지 것들을 커피챗마다 가서 전도하고 싶은 마음은 굴뚝같지만, 만나고 싶어도 시간이 부족해서 못 만나는 사람, 꼭 만나서 전도해보고 싶은 마음은 굴뚝같지만 만날 시간이 없는 사람 등등을 고려해서 내가 사용하고 있는 유료 이메일 서비스에 대한 간증과 그리고 내가 왜 뉴스레터를 구독하고 있는지에 대해서 두 개의 아티클로 나눠서 설명하게 될 것 같다.&lt;/p&gt;
 
@@ -1332,264 +1399,4 @@ iii) 특정구간에서 계단함수로 나타날 가능성이 있기 때문에,
 
 &lt;p&gt;close 함수는 일반적으로는 descriptor의 레퍼런스 카운트를 줄이는 역할을 한다. close 함수를 호출하여 레퍼런스 카운트가 줄어든 시점에서, 레퍼런스 카운트가 0보다 크면 (concurrent server의 예시에서 볼 수 있듯이) 클라이언트와 연결된 소켓을 parent 프로세스와 child 프로세스 사이에서 공유하고 있을 수 있기 때문에 TCP 연결을 종료하지 않는다. 물론 레퍼런스 카운트가 0이면, 서버의 커널에서 TCP 연결을 종료하기 위해 FIN 메시지를 보내게 된다.&lt;/p&gt;
 
-&lt;p&gt;레퍼런스 카운트가 남아있음에도 불구하고, FIN 메시지를 보내서 연결을 종료하고 싶다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;shutdown&lt;/code&gt; 함수를 이용할 수 있다.&lt;/p&gt;</content><author><name></name></author></entry><entry><title type="html">Unix Network Programming Chapter 3 : Socket Introduction</title><link href="https://kodingwarrior.github.io/post/2018/10/18/unix-network-programming-chapter3" rel="alternate" type="text/html" title="Unix Network Programming Chapter 3 : Socket Introduction" /><published>2018-10-18T07:09:00+00:00</published><updated>2018-10-18T07:09:00+00:00</updated><id>repo://posts.collection/_posts/2018-10-18-Unix-Network-Programming-Chapter3.markdown</id><content type="html" xml:base="https://kodingwarrior.github.io/post/2018/10/18/unix-network-programming-chapter3">&lt;h1 id=&quot;31-introduction&quot;&gt;3.1 Introduction&lt;/h1&gt;
-
-&lt;p&gt;이 챕터에서는 전반적으로 네트워크 프로그래밍에서 주로 활용되는 socket API 를 다룰때 알아둬야 할 내용을 다루고 있다. 소켓 주소 구조체를 다루는 자료구조를 다루는 것부터 시작해서, 1) 프로세스에서 커널로, 2) 커널에서 프로세스로 어떻게 소켓 주소 구조체를 통해 정보를 전달하는지를 다루며,  IP 주소를 나타내는 텍스트 표현법과 소켓 주소 구조체에 저장되는 이진 값 사이의 변환을 해주는 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_addr&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntoa&lt;/code&gt; 함수를 다루면서도 IPv4/IPv6 의 호환을 위해 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_pton&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntop&lt;/code&gt; 유틸리티 함수를 다룬다.&lt;/p&gt;
-
-&lt;h1 id=&quot;32-socket-address-structure&quot;&gt;3.2 Socket Address Structure&lt;/h1&gt;
-&lt;p&gt;IPv4 소켓 주소 구조체는 흔히 &lt;code class=&quot;highlighter-rouge&quot;&gt;인터넷 소켓 주소 구조체&lt;/code&gt; 라고 불리며, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;netinet/in.h&amp;gt;&lt;/code&gt; 헤더 파일에 &lt;code class=&quot;highlighter-rouge&quot;&gt;sockaddr_in&lt;/code&gt; 이라는 구조체로서 정의되어 있다.&lt;/p&gt;
-
-&lt;p&gt;POSIX 표준에서는 아래와 같이 정의되어 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_addr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;in_addr_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* 32 bit IPv4 주소이며, 네트워크 바이트 순서 */&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sockaddr_in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;sin_len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* 구조체의 크기 */&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sa_family_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sin_family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* AF_INET */&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;in_port_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sin_port&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* 포트 번호를 담기 위한 16 bit 변수이며, 네트워크 바이트 순서 */&lt;/span&gt;
-		
-    &lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_addr&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sin_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* 32 bit IPv4 주소이며, 네트워크 바이트 순서 */&lt;/span&gt;
-		
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sin_zero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* 사용되지 않는 패딩 바이트 */&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이를 시각화하면 아래와 같이 나타낼 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+--------------+-----------------+---------------+-----------------------+
-| sin_len : 1B | sin_family : 1B | sin_port : 2B | sin_addr(s_addr) : 4B |
-+--------------+-----------------+---------------+-----------------------+
-|                             sin_zero[] : 8B                            |
-+------------------------------------------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기서 좀 더 설명이 필요한 부분이 있는데,&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sin_len&lt;/code&gt;는 &lt;strong&gt;소켓 주소 구조체 자체의 크기&lt;/strong&gt;를 나타내는 1 바이트 크기의 멤버변수이다. 운영체제에 따라, &lt;code class=&quot;highlighter-rouge&quot;&gt;sin_len&lt;/code&gt; 멤버변수가 정의되어 있지 않기도 하는데, 그럴 경우에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;sin_family&lt;/code&gt; 가 첫번째로 나타나는 멤버변수이며 2 바이트의 크기를 가진다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;s_addr&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sin_family&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sin_port&lt;/code&gt; 멤버변수를 보면 &lt;code class=&quot;highlighter-rouge&quot;&gt;in_addr_t&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;in_port_t&lt;/code&gt; 와 같이 사용자 정의 타입으로 정의되어 있는데, 어떤 시스템에서 이용하더라도 &lt;code class=&quot;highlighter-rouge&quot;&gt;in_port_t&lt;/code&gt; 변수는 2byte, &lt;code class=&quot;highlighter-rouge&quot;&gt;sin_addr&lt;/code&gt; 변수는 4byte 의 크기를 가지는 것을 보장해준다. 비슷한 예시로, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;sys/types.h&amp;gt;&lt;/code&gt; 에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;uint32_t&lt;/code&gt;,  &lt;code class=&quot;highlighter-rouge&quot;&gt;uint8_t&lt;/code&gt; 와 같이 어떤 아키텍쳐를 이용하더라도 항상 변수가 4바이트, 1바이트의 크기를 가지는 것을 보장해주는 자료형이 정의되어 있다.&lt;/li&gt;
-  &lt;li&gt;IPv4 주소와 TCP, UDP 포트 번호는 네트워크 바이트 순서로 저장된다. 네트워크 바이트 순서는 빅 엔디언 방식이며, 이는 3.4 절에서 상세한 정보를 알 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;generic-socket-address-structure&quot;&gt;Generic Socket Address Structure&lt;/h2&gt;
-
-&lt;p&gt;소켓 주소 구조체는 &lt;strong&gt;항상&lt;/strong&gt; 소켓과 관련된 함수의 인자에 주소값으로서 전달이 된다.&lt;/p&gt;
-
-&lt;p&gt;예를 들면, &lt;code class=&quot;highlighter-rouge&quot;&gt;bind&lt;/code&gt; 함수를 보더라도 &lt;code class=&quot;highlighter-rouge&quot;&gt;int bind(int, struct sockaddr*, socklen_t);&lt;/code&gt; 이와 같이 정의되어 있고, 함수에 인자를 넘겨줄 때는 &lt;code class=&quot;highlighter-rouge&quot;&gt;bind(sockfd, (struct sockaddr*) &amp;amp;servaddr, sizeof(servaddr))&lt;/code&gt; 와 같이 넘겨주게 된다. 여기서 &lt;code class=&quot;highlighter-rouge&quot;&gt;struct sockaddr&lt;/code&gt; 구조체를 들여다볼 필요가 있는데, 이는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;sys/socket.h&amp;gt;&lt;/code&gt; 헤더파일에 아래와 같이 정의되어 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sockaddr&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;uint8_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sa_len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;sa_family_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sa_family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* Address family : AF_XXX */&lt;/span&gt;
-    &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;sa_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* protocol-specific address */&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위의 접근방법과 같이 포인터로 형변환을 하는 방식은 ANSI C 에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;void *&lt;/code&gt; 이라는 generic 포인터 타입으로 형변환하는 방식과 같다. generic한 접근에 &lt;code class=&quot;highlighter-rouge&quot;&gt;void *&lt;/code&gt;를 사용하듯 &lt;code class=&quot;highlighter-rouge&quot;&gt;struct sockaddr&lt;/code&gt;는 protocol에 특화된 소켓 주소 구조체를 좀 더 generic한 구조체의 포인터로 캐스팅하는 목적으로 쓰인다고 볼 수 있다.&lt;/p&gt;
-
-&lt;h1 id=&quot;33-value-result-arguments&quot;&gt;3.3 Value-Result Arguments&lt;/h1&gt;
-
-&lt;p&gt;value-result 전달 방식은 함수 내부에서 parameter에 대한 조작을 수행한 후, 함수가 리턴할 때 argument에 parameter에 대한 조작을 수행한 결과가 저장되는 방식을 나타낸다.&lt;/p&gt;
-
-&lt;p&gt;소켓 주소 구조체의 크기에 대한 변수가 어떻게 전달되는지는 1) 프로세스에서 커널로, 2) 커널에서 프로세스로 어느 방향으로 구조체가 전달되느냐에 따라 결정이 된다.&lt;/p&gt;
-
-&lt;p&gt;1) &lt;code class=&quot;highlighter-rouge&quot;&gt;bind&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;connect&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;send&lt;/code&gt; 와 같은 함수는 소켓 주소 구조체를 프로세스에서 커널로 인자를 전달한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sockaddr_in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;cm&quot;&gt;/* fill in serv() */&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sockfd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;serv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;2) 반면, &lt;code class=&quot;highlighter-rouge&quot;&gt;accept&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;recvfrom&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;getsockname&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;getpeername&lt;/code&gt; 과 같은 함수는 소켓 주소 구조체를 커널에서 프로세스로 전달받는다. &lt;code class=&quot;highlighter-rouge&quot;&gt;accept&lt;/code&gt; 의 예시를 들자면, 클라이언트의 연결을 기다리다가 클라이언트와 연결이 되었는데, 이 때 연결된 클라이언트가 어떤 주소를 가지고 있는지 정보를 나타내는 소켓 주소 구조체를 커널에서 프로세스로 전달받아야하고, 그 구조체의 크기가 얼마나 되는지에 대한 정보를 받아야 하는데,  프로세스의 &lt;strong&gt;어느 변수에다가 할당되면 좋겠는지 주소값을 함수의 인자로 넘기는 것&lt;/strong&gt;이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;sockaddr_un&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;cm&quot;&gt;/* unix domain */&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;socklen_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;getpeername&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unixfd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SA&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cli&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;cm&quot;&gt;/* len may have changed */&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;네트워크 프로그래밍에서는 value-result 전달 방식으로 소켓 주소 구조체의 크기를 구하는 일이 흔히 있는 일이며, &lt;code class=&quot;highlighter-rouge&quot;&gt;select&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;getsockopt&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;sysctl&lt;/code&gt; 함수 등을 다루면서 value-result 전달 방식을 계속 접하게 될 것이다.&lt;/p&gt;
-&lt;h1 id=&quot;34-byte-ordering-functions&quot;&gt;3.4 Byte Ordering Functions&lt;/h1&gt;
-
-&lt;p&gt;여러개의 바이트로 구성된 데이터가 메모리에 저장되는 순서는 크게 두 가지로 나뉘어진다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;리틀 엔디안&lt;/code&gt; : LSB가 낮은 메모리 주소에 위치하고, MSB 가 높은 메모리 주소에 위치&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;빅 엔디안&lt;/code&gt; : MSB가 높은 메모리 주소에 위치하고, LSB가 낮은 메모리 주소에 위치&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;메모리 상에서 바이트가 어떻게 정렬되는지는 CPU 제조업체에 따라 다르며, 현재 사용중인 컴퓨터에서 어떤 바이트 순서로 바이트가 정렬되는지는 터미널에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;byteorder&lt;/code&gt; 명령으로 확인할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;네트워킹 프로토콜에서는 네트워크 바이트 순서로 데이터를 저장해서 쓰기 때문에, 네트워크 프로그래밍을 하려면 바이트 순서를 반드시 고려해야 한다.&lt;/p&gt;
-
-&lt;p&gt;호스트 바이트 순서에서 네트워크 바이트 순서로, 네트워크 바이트 순서에서 호스트 바이트 순서로 재정렬을 일일이 하기에는 너무 고통스러울 수 있기 때문에, &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;netinet/in.h&amp;gt;&lt;/code&gt; 헤더파일에 정의되어 있는 다음의 함수들을 이용하는게 훨씬 편리하다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;uint16_t htons(uint16_t)&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;uint32_t htonl(uint32_t)&lt;/code&gt; : 네트워크 바이트 순서로 정렬된 값을 반환한다. host byte order to network byte order를 의미.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;uint16_t ntohs(uint16_t)&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;uint32_t ntohl(uint32_t)&lt;/code&gt; : 호스트 바이트 순서로 정렬된 값을 반환한다. network byte order to host byte order를 의미.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;35-byte-manipulation-functions&quot;&gt;3.5 Byte Manipulation Functions&lt;/h1&gt;
-&lt;p&gt;데이터를 읽어들일 필요없이(각 멤버 변수에 대한 할당을 의미), 멀티바이트 필드를 조작할 수 있는 유틸리티 함수를 알아두는 게 좋다.&lt;/p&gt;
-
-&lt;p&gt;첫번째로는, b로 시작하는 함수인데 ANSI C 표준의 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;string.h&amp;gt;&lt;/code&gt; 헤더파일의 &lt;code class=&quot;highlighter-rouge&quot;&gt;bzero&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;bcopy&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;bcmp&lt;/code&gt; 함수가 꽤 쓸만하다. 비록 문자열을 다루는게 아니지만, 소켓 주소 구조체를 byte string 이라는 관점에서 본다면, 소켓 주소 구조체를 다루기 위해 바이트 단위로 접근할 수 있는 유용한 함수들이기도 하다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;void bzero(void* dest, size_t nbytes)&lt;/code&gt; : 인자로 주어진 구조체를 n bytes 만큼 0으로 채운다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;void bcopy(const void *src, void *dest, size_t nbytes)&lt;/code&gt; : n bytes 만큼 src 에서 dest 로 값을 복사한다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int bcmp(const void *ptr1, const void *ptr2, size_t nbytes)&lt;/code&gt; : 두 포인터가 가리키는 값이 n bytes 만큼 비교해서 동일하다면 0 를 반환한다. 동일하지 않다면 0이 아닌 값을 반환한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;두번째로는, mem 으로 시작하는 함수가 있는데, 위와 차이가 있긴 하지만 거의 동일하다.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;void* memset(void *dest, int c, size_t len)&lt;/code&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;bzero&lt;/code&gt; 와 동일하지만, 바이트 단위로 어떤 값으로 초기화할 것이냐의 차이가 있다. 0 으로 초기화할 수도 있고, -1로 초기화할 수도 있다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;void* memcpy(void *dest, const void *src, size_t nbytes)&lt;/code&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;bcopy&lt;/code&gt; 와 인자 전달 순서가 다르다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int memcmp(const void *ptr1, const void *ptr2, size_t nbytes)&lt;/code&gt; : byte string 을 비교했을 때, 두 string 이 동일하다면 0, ptr1이 ptr2보다 크거나 작다면 음수 혹은 양수를 반환한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;36-inet_aton-inet_addr-and-inet_ntoa-functions&quot;&gt;3.6 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_aton&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_addr&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntoa&lt;/code&gt; Functions&lt;/h1&gt;
-
-&lt;p&gt;IPv4 주소를 표현하는 방법으로는 사람이 읽어들일 수 있는 ASCII 문자열로 표현하는 방법과, 네트워크 바이트 순서의 32비트 정수로 나타내는 방법이 있다. 각 표현방법을 다른 표현방법으로 변환시킬 수 있는 유틸리티 함수가 있으며, 이는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;arpa/inet.h&amp;gt;&lt;/code&gt; 헤더파일에 정의되어 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int inet_aton(const char *strptr, struct in_addr *addrptr);&lt;/code&gt; : ASCII 문자열로 나타낸 주소를 네트워크 바이트 순서의 32비트 정수로 변환하여 addrptr 포인터가 가리키는 값에 저장한다. 문자열이 올바르면 1, 오류가 발생하면 0를 반환한다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;in_addr_t inet_addr(const char *strptr);&lt;/code&gt; : &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_aton&lt;/code&gt;과 거의 같지만, deprecated 되었다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;char *inet_ntoa(struct in_addr inaddr);&lt;/code&gt; : 네트워크 바이트 순서의 32비트 정수로 나타낸 주소를 dotted-decimal(십진법으로 나타낸 주소) 문자열로 변환후, 문자열에 대한 포인터를 반환한다. 이 때, 문자열은 static memory 에 저장되어 있으며, 이 함수는 &lt;code class=&quot;highlighter-rouge&quot;&gt;reentrant&lt;/code&gt; 하지 않다. 함수의 인자에 구조체에 대한 포인터가 아닌 구조체를 넘겨준다는 점을 주목하자.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;37-inet_pton-and-inet_ntop-functions&quot;&gt;3.7 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_pton&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntop&lt;/code&gt; Functions&lt;/h1&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inet_pton&lt;/code&gt; 과 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntop&lt;/code&gt; 은 3.6절에서 설명한 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_aton&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntoa&lt;/code&gt; 함수처럼 동작하지만, IPv4 주소 뿐만 아니라 IPv6 주소에 대해서도 적용할 수 있는 버전이라 볼 수 있다. 이도 역시 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;arpa/inet.h&amp;gt;&lt;/code&gt; 헤더파일에 정의되어 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;int inet_pton(int family, const char *strptr, void *addrptr)&lt;/code&gt; : 문자열로 나타낸 IP 주소(strptr)를 네트워크 바이트 순서의 비트스트링으로 변환 후 포인터(addrptr)로 가리킨 변수에 저장한다. 성공하면 1을 반환하고, 유효하지 않은 주소표기법일 경우 0, 오류가 발생하면 -1을 반환한다.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;const char *inet_ntop(int family, const void *addrptr, char *strptr, size_t len)&lt;/code&gt; : 위의 함수와 반대방향의 변환을 수행하는 함수이며, 변환에 성공하면 결과에 대한 포인터를 반환하고, 성공하지 못하면 NULL 포인터를 반환한다.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;len&lt;/code&gt; 변수는 목적지가 되는 strptr 의 길이를 의미하며, caller의 버퍼를 오버플로우 하지 않도록 방지하기 위한 목적으로 쓰인다. &lt;code class=&quot;highlighter-rouge&quot;&gt;len&lt;/code&gt; 변수를 어떻게 넘겨줄지는 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;netinet/in.h&amp;gt;&lt;/code&gt; 헤더파일에 관련된 상수가 정의되어 있다. &lt;code class=&quot;highlighter-rouge&quot;&gt;len&lt;/code&gt; 변수가 비트스트링으로 주어진 네트워크 주소를 ASCII 문자열로 변환하기에 너무 적은 수일 경우 NULL 포인터를 반환하며, &lt;code class=&quot;highlighter-rouge&quot;&gt;errno&lt;/code&gt; 변수에는 &lt;code class=&quot;highlighter-rouge&quot;&gt;ENOSPC&lt;/code&gt; 라는 상수가 세팅된다.&lt;/li&gt;
-      &lt;li&gt;여기서 &lt;code class=&quot;highlighter-rouge&quot;&gt;strptr&lt;/code&gt; 포인터에는 널포인터가 들어가면 안된다. 비트스트링으로 나타낸 네트워크 주소를 문자열로 나타낸 결과가 strptr 가 가리키는 값에 세팅되어야 하기 때문에, 위의 함수를 호출하기 전에 목적지의 주소에 적당한 크기의 메모리를 할당해야한다. 위의 함수에서 변환이 성공하면, &lt;code class=&quot;highlighter-rouge&quot;&gt;strptr&lt;/code&gt; 주소가 반환된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위의 두 함수에서 &lt;code class=&quot;highlighter-rouge&quot;&gt;family&lt;/code&gt; 인자에는 AF_INET, AF_INET6가 들어갈 수 있으며,  &lt;code class=&quot;highlighter-rouge&quot;&gt;family&lt;/code&gt;가 지원되지 않을 경우, &lt;code class=&quot;highlighter-rouge&quot;&gt;errno&lt;/code&gt; 변수에 &lt;code class=&quot;highlighter-rouge&quot;&gt;EAFNOSUPPORT&lt;/code&gt; 라는 상수를 세팅하고, 오류를 반환한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;inet_pton&lt;/code&gt; 함수와 &lt;code class=&quot;highlighter-rouge&quot;&gt;inet_ntop&lt;/code&gt; 함수를 IPv4 주소만 지원하도록 직접 구현한다면 아래와 같이 구현할 수 있을 것이다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;inet_pton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addrptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;family&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AF_INET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_addr&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inet_aton&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in_val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;memcpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addrptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;in_val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;in_addr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;  
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EAFNOSUPPORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;inet_ntop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addrptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u_char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u_char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;addrptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;family&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AF_INET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INET_ADDRSTRLEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-
-		&lt;span class=&quot;n&quot;&gt;snprintf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;sizeof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;%d.%d.%d.%d&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ENOSPC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;strcpy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EAFNOSUPPORT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NULL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h1 id=&quot;39-readn-writen-and-readline-functions&quot;&gt;3.9 &lt;code class=&quot;highlighter-rouge&quot;&gt;readn&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;writen&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;readline&lt;/code&gt; Functions&lt;/h1&gt;
-
-&lt;p&gt;일반적인 파일 IO와는 달리 TCP 소켓과 같은 스트림 소켓에 &lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt; 시스템콜이나 &lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt; 시스템콜을 이용하여 IO를 수행하는것은 왠만하면 금지되어 있다. 커널에서 소켓에 대해 입출력을 수행할때, 버퍼의 크기가 제한되어 있기 때문이다. &lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt; 시스템콜, &lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt; 시스템콜을 이용하여 IO를 수행했을때, 이만큼 IO를 해달라고 커널에 요청한 수에 비해 실제로 IO를 수행한 바이트의 수(이는 &lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt; 함수의 결과로 반환된다.) 가 적을 수 있으며, 이는 에러를 의미하는 것이 아니다. 따라서, IO를 완전하게 끝내기 위해서, IO를 수행하다가 남은 나머지 부분을 처리할때까지 다시 &lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt; 를 수행하도록 해야할 것이다.&lt;/p&gt;
-
-&lt;p&gt;실제로 유닉스 일부 버전에서는 4096 바이트가 넘도록 파이프를 통해 write 를 수행하는 행위를 금지하고 있다.&lt;/p&gt;
-
-&lt;p&gt;socket 에 대해서도 &lt;code class=&quot;highlighter-rouge&quot;&gt;read&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;write&lt;/code&gt; 를 수행할 수 있도록 하기 위해, 책에서는 아래와 같이 유틸리티 함수&lt;code class=&quot;highlighter-rouge&quot;&gt;readn&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;writen&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;readline&lt;/code&gt; 를 정의하고 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;readn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	
-	&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EINTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// read 시스템콜을 수행하는 도중에 인터럽트가 발생한 경우(read 도중에 인터럽트가 발생하면 errno 에 EINTR 가 세팅된다.)&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 다시 read 를 호출하도록 초기화한다.&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-			&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// EOF 를 만난 경우&lt;/span&gt;
-		
-		&lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 얼마나 더 읽어들여야하는지 남은 바이트 수를 갱신한다.&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nread&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 읽어들인 수만큼 포인터를 전진시킨다.&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;writen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nwritten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	
-	&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwritten&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nwritten&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EINTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-				&lt;span class=&quot;n&quot;&gt;nwritten&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 다시 write 를 호출하도록 초기화한다.&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;nleft&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nwritten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-		&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nwritten&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;readline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;ssize_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	
-	&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vptr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxlen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-		&lt;span class=&quot;nl&quot;&gt;again:&lt;/span&gt;
-			&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;&apos;\n&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-					&lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errno&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EINTR&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-					&lt;span class=&quot;k&quot;&gt;goto&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;again&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-				&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-			&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ptr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author></entry></feed>
+&lt;p&gt;레퍼런스 카운트가 남아있음에도 불구하고, FIN 메시지를 보내서 연결을 종료하고 싶다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;shutdown&lt;/code&gt; 함수를 이용할 수 있다.&lt;/p&gt;</content><author><name></name></author></entry></feed>
