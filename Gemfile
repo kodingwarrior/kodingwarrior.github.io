@@ -27,7 +27,7 @@ gem "redcarpet", "~> 3.5"
 
 # Puma is a Rack-compatible server used by Bridgetown
 # (you can optionally limit this to the "development" group)
-gem "puma", "~> 5.6"
+gem "puma", "~> 6.0"
 
 gem "bridgetown-feed", "~> 3.1"
 
@@ -35,7 +35,7 @@ gem "bridgetown-webfinger", "~> 0.1.0"
 
 
 group :development do
-  gem "ruby-lsp", "~> 0.14.6"
+  gem "ruby-lsp", "~> 0.18.3"
   gem "ruby-vips", "~> 2.2"
   gem "solargraph", :group => :development
 end
