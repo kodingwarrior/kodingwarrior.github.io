@@ -10,6 +10,7 @@ tags: archive
 
 * [[quarterly/2024-Q1]]{2024 Q1 Review}
 * [[quarterly/2024-Q2]]{2024 Q2 Review}
+* [[quarterly/2024-Q3]]{2024 Q3 Review}
 
 ## 2023
 {:#s-2}
