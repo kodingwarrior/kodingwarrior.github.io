@@ -11,11 +11,11 @@
   - Rails 8.0에 표준으로 들어가게 될 라이브러리인데 찍먹을 하고 있는 중
 
 
-SolidQueue를 이용하려면 여러개의 Actor를 구성해야 함. 
+SolidQueue를 이용하려면 여러개의 Actor를 구성해야 함.
 - Worker : 큐에 밀려있는 것들을 ready to run 상태로 바꾸고 그것을 처리하는 역할.
-  - SolidQueue::ReadyExecution 인스턴스를 만드는 역할 
+  - SolidQueue::ReadyExecution 인스턴스를 만드는 역할
 - Dispatchers : ready to run인 상태인 작업들을 선택하고 이것들을 SolidQueue::ScheduledExecution 인스턴스로 만드는 역할.
-- Scheduler : recurring task를 관리하는 역할이며, due가 다가왔을때 큐에 밀어넣는 역할 
+- Scheduler : recurring task를 관리하는 역할이며, due가 다가왔을때 큐에 밀어넣는 역할
 - Supervisor : worker, dispatcher가 configuration에 따라 잘 동작하고 있는지 감시하는 역할. heartbeat를 관리하고, 필요하다면 멈추거나 시작할 수 있음.
 
 
@@ -23,8 +23,8 @@ Solid Queue's supervisor will fork a separate process for each supervised worker
 
 
 
-#### Solid Queue 구성 요소 
-Solid Queue를 통해서 만들어지는 테이블은 아래와 같음 
+#### Solid Queue 구성 요소
+Solid Queue를 통해서 만들어지는 테이블은 아래와 같음
 - solid_queue_blocked_executions
 - solid_queue_claimed_executions
 - solid_queue_failed_executions
@@ -33,7 +33,7 @@ Solid Queue를 통해서 만들어지는 테이블은 아래와 같음
 - solid_queue_processes
 - solid_queue_ready_executions
 - solid_queue_recurring_executions
-- solid_queue_recurring_tasks 
+- solid_queue_recurring_tasks
 - solid_queue_scheduled_executions
 - solid_queue_semaphores
 
@@ -76,7 +76,7 @@ SolidQueue-1.0.0 Register Dispatcher (49.8ms)  pid: 24237, hostname: "81a99adfc3
 /**
 *
 * Worker
-* 
+*
 */
 
   SolidQueue::Process Create (24.0ms)  INSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["kind", "Worker"], ["last_heartbeat_at", "2024-10-03 05:21:08.251287"], ["supervisor_id", 1], ["pid", 24240], ["hostname", "81a99adfc3a7"], ["metadata", "{\"polling_interval\":0.1,\"queues\":\"*\",\"thread_pool_size\":3}"], ["created_at", "2024-10-03 05:21:08.261007"], ["name", "worker-cecda23c162b5f064ef2"]]
@@ -103,7 +103,7 @@ SolidQueue-1.0.0 Unblock jobs (16.3ms)  limit: 500, size: 0
 ```
 
 
-주기적으로 heartbeat를 보내는 과정에서 실행되는 쿼리 
+주기적으로 heartbeat를 보내는 과정에서 실행되는 쿼리
 ```
   TRANSACTION (0.5ms)  BEGIN
   SolidQueue::Process Load (3.8ms)  SELECT "solid_queue_processes".* FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = $1 LIMIT $2 FOR UPDATE  [["id", 1], ["LIMIT", 1]]
@@ -160,7 +160,7 @@ GuestsCleanupJob.set(wait_until: Date.tomorrow.noon).perform_later(guest)
 SolidQueue 자체로는 대시보드를 제공하지는 않지만, mission_control-jobs 라는 것을 대시보드로 활용할 수 있다.
 
 
-#### CronJob 돌리기 
+#### CronJob 돌리기
 
 ```
 Solid Queue supports defining recurring tasks that run at specific times in the future, on a regular basis like cron jobs. These are managed by the scheduler process and are defined in their own configuration file. By default, the file is located in config/recurring.yml, but you can set a different path using the environment variable SOLID_QUEUE_RECURRING_SCHEDULE or by using the --recurring_schedule_file option with bin/jobs
@@ -181,7 +181,93 @@ production:
 
 
 
+RecurringTask가 중복으로 들어가는 이슈가 있음.
+그럴때는 SolidQueue::RecurringTask 모델을 뒤적뒤적 거려서 삭제하는 방향으로 해결할 수 있음
 
 
 
 
+
+2024-10-15
+------
+
+## Flutter
+
+Flutter에서 stack 안쪽에 있는 위젯에 터치 이벤트를 전달하고 싶을때는 IgnorePointer를 사용하면 된다.
+
+IgnorePointer는 자식 위젯에게 터치 이벤트를 전달하지 않는다. 그래서 stack 위젯 안쪽에 있는 위젯에게 터치 이벤트를 전달하고 싶을때 사용하면 된다.
+
+IgnorePointer는 본래는 hit test 결과를 무시하는 것이지만, 스냅 이벤트, 터치 이벤트 등등 이벤트 전파를 의도적으로 무시해야하는 경우에는 반드시 쓰는 것을 고려해볼 필요가 있다.
+
+Stack은 특성상 가장 맨 뒤에 진열된 위젯이 가장 위에서 보이게 되며 그에 따라서, 터치 이벤트도 가장 위에 있는 위젯부터 전파되게 된다. 그래서 stack 위젯 안쪽에 있는 위젯에게 터치 이벤트를 전달해야 한다면, 가장 위쪽에 있는 위젯에다가 IgnorePointer를 먹여줘야만 하는 상황이 오게 된다.
+
+```dart
+      children: [
+        Container(
+          height: imageCarouselHeight,
+          child: Container(
+              width: double.infinity,
+              height: imageCarouselHeight,
+              // image changes when swiping
+              child: PageView.builder(
+                itemCount: images.length,
+                pageSnapping: true,
+                onPageChanged: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return images[index];
+                },
+              )),
+        ),
+        IgnorePointer(
+          child: Container(
+            width: double.infinity,
+            height: imageCarouselHeight,
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black.withOpacity(0.5), Colors.transparent],
+            )),
+          ),
+        ),
+        IgnorePointer(
+          child: Container(
+              width: double.infinity,
+              height: imageCarouselHeight,
+              child: Column(children: [
+                // remaining index and total images
+                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SGContainer(
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      borderRadius: BorderRadius.circular(100),
+                      color: Colors.black.withOpacity(0.5),
+                      child: Row(
+                        children: [
+                          SGTypography.body(
+                            "${currentIndex + 1}",
+                            color: Colors.white,
+                            weight: FontWeight.bold,
+                          ),
+                          SGTypography.body(
+                            " / ${images.length}",
+                            color: Colors.white.withOpacity(0.5),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 12),
+              ])),
+        ),
+      ],
+
+```
