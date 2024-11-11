@@ -274,3 +274,7 @@ Stack은 특성상 가장 맨 뒤에 진열된 위젯이 가장 위에서 보이
 
 
 
+2024-11-11
+---
+
+* (Linux) bash shell을 쓰고 있는 환경에서는 export 명령어가 통하지 않는다. 환경변수를 미리 세팅하는게 불가피한 상황은 일어나는데, 이런 문제를 어떻게 해결하는 것일까? 정답은 `env` 명령어에 있다. 예시: `env PGPASSWORD=password psql -d postgres -c "CREATE DATABASE foo_bar"`
