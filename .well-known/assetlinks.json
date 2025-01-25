@@ -1,0 +1,11 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dev.fedi_pipe.app",
+      "sha256_cert_fingerprints":
+        ["2B:C0:42:03:E8:35:3B:E9:63:9F:68:5B:84:90:9B:04:5C:D7:16:02:65:2C:89:9D:53:17:20:12:B6:C3:01:99"]
+    }
+  }
+]
