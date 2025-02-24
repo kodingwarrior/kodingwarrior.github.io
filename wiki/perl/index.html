@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>
-  2023-01-19 | KODINGWARRIOR QUEST
+  Perl에 대한 조각지식 | KODINGWARRIOR QUEST
 
 
 </title>
@@ -13,21 +13,21 @@
 
 <meta name="twitter:site" content="@kodingwarrior" />
 
-<meta content="https://kodingwarrior.github.io/wiki/daily/2023-01-19" property="og:url" />
+<meta content="https://kodingwarrior.github.io/wiki/perl" property="og:url" />
 
-<meta content="wiki: 2023-01-19" property="og:title" />
+<meta content="wiki: Perl에 대한 조각지식" property="og:title" />
 
 <meta content="." property="og:description" />
 
-<meta content="/assets//wiki/daily/2023-01-19.png" property="og:image" />
+<meta content="/assets//wiki/perl.png" property="og:image" />
 
 <meta content="summary_large_image" property="twitter:card" />
 
-<meta content="wiki: 2023-01-19" property="twitter:title" />
+<meta content="wiki: Perl에 대한 조각지식" property="twitter:title" />
 
 <meta content="." property="twitter:description" />
 
-<meta content="https://kodingwarrior.github.io/assets/wiki/daily/2023-01-19.png" property="twitter:image" />
+<meta content="https://kodingwarrior.github.io/assets/wiki/perl.png" property="twitter:image" />
 
 
 <link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
@@ -98,7 +98,7 @@
     const url_combine_tw = url_default_tw_txt + title_this_page + url_default_tw_url + url_this_page;
 </script>
 
-<h1>2023-01-19</h1>
+<h1>Perl에 대한 조각지식</h1>
 
 <div class="flex justify-end mb-6">
     <!-- Facebook share button -->
@@ -113,19 +113,20 @@
 
 <article id="wiki-content">
 
-    <p>[[projects/neural-bridge]] 의 PoC를 올릴 수 있게된 기념적인 날이다. 혼자라도 축포를 쏘고 싶은 기분이다. 오늘을 기점으로 좀 더 풍성한 위키 형식의 제텔카스텐을 채워나갈 수 있을 것만 같다.</p>
+    <ul>
+  <li>1987년 <a href="https://en.wikipedia.org/wiki/Larry_Wall">래리 월</a>이 개발한 프로그래밍 언어</li>
+  <li>텍스트 처리 및 시스템 관리를 위한 스크립트 언어로 널리 사용된다.</li>
+  <li>[[Git]]이 설치되어 있는 환경이라면, Perl은 반드시 깔려있다고 보면 된다.</li>
+  <li>awk, sed가 익숙하지 않다면, perl -E 옵션으로 one-liner 스크립트를 사용해서 텍스트를 효율적으로 처리하는 트릭이 가능하다.</li>
+</ul>
 
-<h3 id="frontend">Frontend</h3>
+<h2 id="참고할만한-링크">참고할만한 링크</h2>
 
-<h4 id="force-graph"><a href="https://github.com/vasturiano/force-graph">force-graph</a></h4>
-
-<p>[[projects/neural-bridge]] 를 작업하면서, 문서와 문서가 이어져 있는 모습을 어떻게 시각화할까 고민하다가 제법 괜찮은 JS 라이브러리를 발견했다.</p>
-
-<p>요약하자면, <strong>그래프로 표현될 수 있는 데이터를 HTML 캔버스 위에다 시각화해주는 라이브러리</strong>라고 할 수 있다.</p>
-
-<p>Roam Research에서 telekasten 기반으로 옮겨가던 와중, <code class="highlighter-rouge">그래프 구조를 시각화해주는 기능을 어떻게 구현할 수 있을까</code> 라는 고민이 들었었는데, 레퍼런스로 참고하려고 벼르고 있던 <a href="https://github.com/anaclumos/extracranial/blob/main/src/pages/3d/index.tsx#L23">어떤 리포지토리의 소스코드</a> 를 보면서 단서를 얻을 수 있었다. 해당 소스코드는 react 위에서 동작하는 코드이긴 하지만, 굳이 react를 쓰지 않더라도 독립적으로 사용할 수 있는 것 같다.</p>
-
-<p>자바스크립트를 최대한 적게 쓰는 것을 지향하는 프로젝트 특성상 제법 괜찮은 라이브러리인 것 같다.</p>
+<ul>
+  <li>누구나 정장을 대여할 수 있는 서비스, 열린 옷장 웹 시스템도 Perl로 구축되어 있다. <a href="https://github.com/opencloset/opencloset">소스코드</a></li>
+  <li>Brandon Gregg의 <a href="https://github.com/brendangregg/FlameGraph">Flame Graph</a></li>
+  <li>Perl one-liner 스크립트를 짜고 싶은 사람들을 위한 <a href="https://learnbyexample.github.io/learn_perl_oneliners/one-liner-introduction.html">튜토리얼</a></li>
+</ul>
 
 </article>
 
@@ -268,8 +269,8 @@ window.addEventListener("load", function(event) {
                 </div>
                 <div class="toc-aside">
                     
-<ul><li><a href="#frontend">Frontend
-</a></li><ul><li><a href="#force-graphhttpsgithubcomvasturianoforce-graph">force-graph </a></li></ul></ul>
+<ul><li><a href="#section">참고할만한 링크
+</a></li></ul>
 
                 </div>
             </div>
