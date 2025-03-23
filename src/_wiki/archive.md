@@ -5,8 +5,12 @@ layout: wiki
 tags: archive
 ---
 
-## 2024
+## 2025
 {:#s-1}
+* [[quarterly/2025-Q1]]{2025 Q1 Review}
+
+## 2024
+{:#s-2}
 
 * [[quarterly/2024-Q1]]{2024 Q1 Review}
 * [[quarterly/2024-Q2]]{2024 Q2 Review}
@@ -14,10 +18,11 @@ tags: archive
 * [[quarterly/2024-Q4]]{2024 Q4 Review}
 
 ## 2023
-{:#s-2}
+{:#s-3}
 
 * [[quarterly/2023-Q1]]{2023 Q1 Review}
 * [[quarterly/2023-Q2]]{2023 Q2 Review}
 * [[quarterly/2023-Q3]]{2023 Q3 Review}
 * [[quarterly/2023-Q4]]{2023 Q4 Review}
+
 
