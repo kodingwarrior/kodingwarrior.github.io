@@ -1,0 +1,66 @@
+---
+layout: page
+title: Posts from Hackers' Pub
+permalink: /hackerspub/
+---
+
+<% actor = site.data["hackerspub_actor"] %>
+<% posts = collections.hackerspub_posts.resources.sort_by { |resource| resource.data.date || Time.at(0) }.reverse %>
+
+<% if actor %>
+  <div class="bg-slate-100 border border-slate-200 rounded-lg p-5 mb-8 flex items-start gap-4">
+    <% if actor["avatarUrl"] %>
+      <img src="<%= actor["avatarUrl"] %>" alt="Hackers.pub avatar" class="w-16 h-16 rounded-full shadow" loading="lazy" />
+    <% end %>
+    <div>
+      <h2 class="text-xl font-semibold mb-1"><%= actor["bio"] ? "About" : "Hackers.pub" %></h2>
+      <% if actor["bio"] %>
+        <p class="text-sm text-slate-600 whitespace-pre-line"><%= actor["bio"] %></p>
+      <% elsif site.data["hackerspub_handle"] %>
+        <p class="text-sm text-slate-600">
+          Posts syndicated from <code><%= site.data["hackerspub_handle"] %></code>.
+        </p>
+      <% else %>
+        <p class="text-sm text-slate-600">
+          Posts syndicated from Hackers.pub.
+        </p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<% if posts.empty? %>
+  <p>No Hackers.pub posts are available. Run the build with network access enabled to fetch articles.</p>
+<% else %>
+  <ul class="space-y-6 list-none">
+    <% posts.each do |post| %>
+      <li class="border-b border-slate-200 pb-6 list-none">
+        <h2 class="text-2xl font-semibold">
+          <a href="<%= post.relative_url %>" class="hover:text-purple-600 transition-colors">
+            <%= post.data.title %>
+          </a>
+        </h2>
+        <div class="text-sm text-slate-500 mt-1 flex items-center gap-2">
+          <% if post.data.date %>
+            <span><%= post.data.date.strftime("%B %d, %Y") %></span>
+          <% end %>
+          <% if post.data.language %>
+            <span aria-hidden="true">•</span>
+            <span><%= post.data.language %></span>
+          <% end %>
+        </div>
+        <% if post.data.summary %>
+          <p class="text-slate-600 mt-3"><%= post.data.summary %></p>
+        <% end %>
+        <a
+          href="<%= post.data.original_url %>"
+          class="inline-block text-purple-700 hover:text-purple-900 text-sm font-medium mt-3"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View on Hackers.pub ->
+        </a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
