@@ -35,6 +35,10 @@ collections:
     future: true
     sort_by: date
     sort_direction: descending
+  hackerspub_posts:
+    output: true
+    sort_by: date
+    sort_direction: descending
 
 feed:
   path: rss.xml

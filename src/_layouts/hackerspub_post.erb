@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<% title = resource.data.title || resource.data.slug %>
+<% published_at = resource.data.date %>
+<% language = resource.data.language %>
+<% formatted_date = published_at&.strftime("%B %d, %Y") %>
+
+<article class="">
+  <h1 class="text-4xl font-bold pt-5 pb-3"><%= title %></h1>
+
+  <div class="flex items-center text-sm text-gray-600 pb-5 border-b mb-8">
+    <% if formatted_date %>
+      <span><%= formatted_date %></span>
+    <% end %>
+    <% if language %>
+      <span class="mx-3 block font-bold text-slate-500">.</span>
+      <span><%= language %></span>
+    <% end %>
+  </div>
+
+  <% if resource.content %>
+    <div class="prose prose-lg max-w-none">
+      <%= helpers.raw resource.content %>
+    </div>
+  <% end %>
+
+  <div class="mt-8 pt-6 border-t">
+    <a
+      href="<%= resource.data.original_url %>"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+    >
+      hackers.pub에서 보기 ->
+    </a>
+  </div>
+</article>
