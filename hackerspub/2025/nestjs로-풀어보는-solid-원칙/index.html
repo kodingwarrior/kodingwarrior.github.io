@@ -1,0 +1,1284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+  NestJS로 풀어보는 SOLID 원칙 | KODINGWARRIOR QUEST
+
+
+</title>
+
+<meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
+
+<link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
+
+<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.6HMMI3WE.css" />
+<script src="/_bridgetown/static/frontend/javascript/index.HB33KXMV.js" defer></script>
+
+
+  </head>
+  <body class="hackerspub_post ">
+    
+<nav>
+  <ul>
+    <li><a href="/">/home</a></li>
+    <li><a href="/about">/about</a></li>
+    <li><a href="/posts">/posts</a></li>
+    <li><a href="/wiki">/wiki</a></li>
+    <li><a href="/hackerspub">/hackerspub</a></li>
+  </ul>
+</nav>
+
+
+    <div class="article-wrapper">
+        <main class="z-20">
+          <article>
+            
+<article class="">
+  <h1 class="text-4xl font-bold pt-5 pb-3">NestJS로 풀어보는 SOLID 원칙</h1>
+
+  <div class="flex items-center text-sm text-gray-600 pb-5 border-b mb-8">
+      <span>September 22, 2025</span>
+      <span class="mx-3 block font-bold text-slate-500">.</span>
+      <span>ko</span>
+  </div>
+
+    <div class="prose prose-lg max-w-none">
+      <div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Disclaimer</p><p>이 글은 NestJS를 공부하면서 객체지향 프로그래밍 원칙과의 연결점을 스스로 정리한 내용입니다. Spring 같은 프레임워크를 이해할 때 객체지향 개념이 중요한 것처럼, NestJS 역시 객체지향 설계를 염두에 두면 훨씬 더 깊이 이해할 수 있을 것 같다는 관점에서 작성되었습니다.</p>
+</div>
+<p>소프트웨어는 시간이 지날수록 점점 복잡해지고, 원래 의도와 다르게 무너질 위험에 쉽게 노출됩니다. “한 클래스가 너무 많은 일을 한다”, “새로운 기능 하나 추가하려는데 기존 코드를 몽땅 뜯어고쳐야 한다”, “교체 가능한 구현체인데도 특정 코드에 딱 달라붙어버렸다”… 이런 상황을 겪어본 개발자는 많을 겁니다.</p>
+<p>이러한 문제를 피하기 위해 정리된 다섯 가지 핵심 규칙이 바로 <strong>SOLID 원칙</strong>입니다. 이 개념은 소프트웨어 엔지니어 <strong>Robert C. Martin(일명 Uncle Bob)</strong> 이 다섯 가지 원칙을 하나의 묶음으로 제시하면서 널리 알려졌습니다. 이후로 사실상 “좋은 코드”를 판단하는 표준처럼 자리 잡았습니다.</p>
+<p>하지만 SOLID는 객체지향 프로그래밍 전용 규칙이 아닙니다. 함수형 프로그래밍에도 적용할 수 있고, React 같은 UI 라이브러리, 오픈소스 프레임워크 내부 구조를 설계할 때도 그대로 통하는 <strong>일반적인 소프트웨어 설계 원칙</strong> 입니다. 이번 글에서는 NestJS를 예시로 삼아, 각 원칙이 어떤 문제를 해결하고 실제 코드에 어떻게 녹여낼 수 있는지 살펴보겠습니다.</p>
+<hr>
+<h2 id="019970a5-7aba-76f4-99fb-d666fc92578f--srp-단일-책임-원칙">SRP – 단일 책임 원칙 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--srp-단일-책임-원칙"><span aria-hidden="true"></span></a></h2>
+<p>SRP는 <em>“한 클래스는 오직 하나의 책임만 가져야 한다”</em> 는 원칙으로, 여러 기능이 한곳에 얽히면 서로 다른 이유로 동시에 수정되어야 하므로 유지보수가 어려워집니다. NestJS가 Controller, Service, Repository를 나누는 구조를 제공하는 것도 사실 이 원칙을 실현하기 위함입니다.</p>
+<p>❌ 위반 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Controller</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">users</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UserController</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  constructor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">private</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> readonly</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> repo</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">Repository</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">&#x3C;</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">User</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">&gt;)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  @</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Get</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">:id</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  async</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> getUser</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Param</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">id</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">    const </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> =</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;"> await</span><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;"> this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">repo</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">findOneBy</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">({ </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> });</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    if</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> (</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">!</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">?.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">isActive</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;"> throw</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> new</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> Error</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">Inactive user</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> { </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">, </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">name</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">name</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> };</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<p>✅ 개선 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Controller</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">users</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UserController</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  constructor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">private</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> readonly</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> userService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">UserService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  @</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Get</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">:id</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  getUser</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Param</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">id</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;"> this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">userService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">findOne</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Injectable</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UserService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  constructor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">private</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> readonly</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> repo</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">Repository</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">&#x3C;</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">User</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">&gt;)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  async</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> findOne</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">    const </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> =</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;"> await</span><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;"> this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">repo</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">findOneBy</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">({ </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> });</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    if</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> (</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">!</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">?.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">isActive</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;"> throw</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> new</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> Error</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">Inactive user</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> user</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">;</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<h3 id="019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유">개선 이유 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유"><span aria-hidden="true"></span></a></h3>
+<p>Controller는 요청과 응답만 담당하고, Service는 비즈니스 로직만 다루며, Repository는 데이터베이스 접근에만 집중하게 나누면 각 계층이 독립적으로 바뀔 수 있고 코드의 응집도와 유지보수성이 높아집니다.</p>
+<p>📊 다이어그램</p>
+
+
+
+
+<svg width="910pt" height="294pt" viewbox="0.00 0.00 909.89 294.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 290)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-290 905.887,-290 905.887,4 -4,4" />
+<g id="clust1" class="cluster">
+<title>cluster_after</title>
+<path fill="none" stroke="#000000" d="M20,-8C20,-8 881.887,-8 881.887,-8 887.887,-8 893.887,-14 893.887,-20 893.887,-20 893.887,-127 893.887,-127 893.887,-133 887.887,-139 881.887,-139 881.887,-139 20,-139 20,-139 14,-139 8,-133 8,-127 8,-127 8,-20 8,-20 8,-14 14,-8 20,-8" />
+<text text-anchor="middle" x="450.9435" y="-122.4" font-family="Times,serif" font-size="14.00" fill="#000000">After</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_before</title>
+<path fill="none" stroke="#000000" d="M20,-147C20,-147 584.4088,-147 584.4088,-147 590.4088,-147 596.4088,-153 596.4088,-159 596.4088,-159 596.4088,-266 596.4088,-266 596.4088,-272 590.4088,-278 584.4088,-278 584.4088,-278 20,-278 20,-278 14,-278 8,-272 8,-266 8,-266 8,-159 8,-159 8,-153 14,-147 20,-147" />
+<text text-anchor="middle" x="302.2044" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#000000">Before</text>
+</g>
+
+<g id="node1" class="node">
+<title>R1</title>
+<ellipse fill="none" stroke="#000000" cx="58.1464" cy="-34" rx="42.2932" ry="18" />
+<text text-anchor="middle" x="58.1464" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node2" class="node">
+<title>C1</title>
+<ellipse fill="none" stroke="#000000" cx="270.6301" cy="-34" rx="91.0507" ry="18" />
+<text text-anchor="middle" x="270.6301" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller: 요청/응답</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>R1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M100.3803,-34C120.2721,-34 144.9365,-34 169.2597,-34" />
+<polygon fill="#000000" stroke="#000000" points="169.2805,-37.5001 179.2805,-34 169.2804,-30.5001 169.2805,-37.5001" />
+</g>
+
+<g id="node3" class="node">
+<title>S1</title>
+<ellipse fill="none" stroke="#000000" cx="540.362" cy="-34" rx="99.2894" ry="18" />
+<text text-anchor="middle" x="540.362" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Service: 비즈니스 로직</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>C1&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M356.3456,-27.6653C382.0613,-27.2117 410.539,-27.1297 437.2539,-27.4192" />
+<polygon fill="#000000" stroke="#000000" points="437.3532,-30.9206 447.3969,-27.5483 437.4424,-23.9212 437.3532,-30.9206" />
+</g>
+
+<g id="node6" class="node">
+<title>Res1</title>
+<ellipse fill="none" stroke="#000000" cx="540.362" cy="-88" rx="48.0935" ry="18" />
+<text text-anchor="middle" x="540.362" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>C1&#45;&gt;Res1</title>
+<path fill="none" stroke="#000000" d="M334.8949,-46.8657C381.5884,-56.2137 444.0062,-68.7097 487.7479,-77.4667" />
+<polygon fill="#000000" stroke="#000000" points="487.121,-80.9106 497.6135,-79.4418 488.4951,-74.0468 487.121,-80.9106" />
+</g>
+
+<g id="edge7" class="edge">
+<title>S1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M447.3969,-40.4517C421.3216,-40.8344 392.9261,-40.8489 366.6755,-40.4951" />
+<polygon fill="#000000" stroke="#000000" points="366.3987,-36.9904 356.3456,-40.3347 366.29,-43.9896 366.3987,-36.9904" />
+</g>
+
+<g id="node4" class="node">
+<title>Repo1</title>
+<ellipse fill="none" stroke="#000000" cx="729.1717" cy="-34" rx="53.3302" ry="18" />
+<text text-anchor="middle" x="729.1717" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Repository</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>S1&#45;&gt;Repo1</title>
+<path fill="none" stroke="#000000" d="M632.5545,-27.2516C644.7384,-27.2335 656.9714,-27.3653 668.4413,-27.6471" />
+<polygon fill="#000000" stroke="#000000" points="668.639,-31.1543 678.737,-27.9481 668.8436,-24.1573 668.639,-31.1543" />
+</g>
+
+<g id="edge6" class="edge">
+<title>Repo1&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M678.737,-40.0519C667.4761,-40.437 655.1403,-40.6627 642.619,-40.7292" />
+<polygon fill="#000000" stroke="#000000" points="642.5478,-37.2292 632.5545,-40.7484 642.5611,-44.2292 642.5478,-37.2292" />
+</g>
+
+<g id="node5" class="node">
+<title>DB1</title>
+<path fill="none" stroke="#000000" d="M886.0378,-48.7273C886.0378,-50.5331 870.8877,-52 852.2369,-52 833.5861,-52 818.436,-50.5331 818.436,-48.7273 818.436,-48.7273 818.436,-19.2727 818.436,-19.2727 818.436,-17.4669 833.5861,-16 852.2369,-16 870.8877,-16 886.0378,-17.4669 886.0378,-19.2727 886.0378,-19.2727 886.0378,-48.7273 886.0378,-48.7273" />
+<path fill="none" stroke="#000000" d="M886.0378,-48.7273C886.0378,-46.9214 870.8877,-45.4545 852.2369,-45.4545 833.5861,-45.4545 818.436,-46.9214 818.436,-48.7273" />
+<text text-anchor="middle" x="852.2369" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Database</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>Repo1&#45;&gt;DB1</title>
+<path fill="none" stroke="#000000" d="M778.8723,-27.3622C788.6702,-27.1743 798.8841,-27.2224 808.4689,-27.5065" />
+<polygon fill="#000000" stroke="#000000" points="808.4423,-31.0081 818.5732,-27.9074 808.7199,-24.0136 808.4423,-31.0081" />
+</g>
+
+<g id="edge5" class="edge">
+<title>DB1&#45;&gt;Repo1</title>
+<path fill="none" stroke="#000000" d="M818.5732,-40.0926C809.3887,-40.5571 799.154,-40.7754 788.9821,-40.7476" />
+<polygon fill="#000000" stroke="#000000" points="788.9098,-37.2468 778.8723,-40.6378 788.8337,-44.2463 788.9098,-37.2468" />
+</g>
+
+<g id="node7" class="node">
+<title>R</title>
+<ellipse fill="none" stroke="#000000" cx="58.1464" cy="-173" rx="42.2932" ry="18" />
+<text text-anchor="middle" x="58.1464" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node8" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="#000000" cx="270.6301" cy="-173" rx="134.1749" ry="18" />
+<text text-anchor="middle" x="270.6301" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserController: 요청+로직+DB</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>R&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M100.3803,-173C108.2907,-173 116.9558,-173 126.0541,-173" />
+<polygon fill="#000000" stroke="#000000" points="126.0815,-176.5001 136.0815,-173 126.0815,-169.5001 126.0815,-176.5001" />
+</g>
+
+<g id="node9" class="node">
+<title>DB</title>
+<path fill="none" stroke="#000000" d="M574.1629,-187.7273C574.1629,-189.5331 559.0128,-191 540.362,-191 521.7113,-191 506.5612,-189.5331 506.5612,-187.7273 506.5612,-187.7273 506.5612,-158.2727 506.5612,-158.2727 506.5612,-156.4669 521.7113,-155 540.362,-155 559.0128,-155 574.1629,-156.4669 574.1629,-158.2727 574.1629,-158.2727 574.1629,-187.7273 574.1629,-187.7273" />
+<path fill="none" stroke="#000000" d="M574.1629,-187.7273C574.1629,-185.9214 559.0128,-184.4545 540.362,-184.4545 521.7113,-184.4545 506.5612,-185.9214 506.5612,-187.7273" />
+<text text-anchor="middle" x="540.362" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Database</text>
+</g>
+
+<g id="edge10" class="edge">
+<title>C&#45;&gt;DB</title>
+<path fill="none" stroke="#000000" d="M395.2319,-166.2674C431.4621,-166.1443 468.6859,-166.6741 496.3636,-167.8567" />
+<polygon fill="#000000" stroke="#000000" points="496.3257,-171.3588 506.4819,-168.3419 496.6611,-164.3669 496.3257,-171.3588" />
+</g>
+
+<g id="node10" class="node">
+<title>Res</title>
+<ellipse fill="none" stroke="#000000" cx="540.362" cy="-227" rx="48.0935" ry="18" />
+<text text-anchor="middle" x="540.362" y="-222.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge12" class="edge">
+<title>C&#45;&gt;Res</title>
+<path fill="none" stroke="#000000" d="M345.4073,-187.9703C390.682,-197.0342 447.3131,-208.3717 487.8546,-216.4881" />
+<polygon fill="#000000" stroke="#000000" points="487.3058,-219.9476 497.7984,-218.4788 488.68,-213.0838 487.3058,-219.9476" />
+</g>
+
+<g id="edge11" class="edge">
+<title>DB&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M506.4819,-177.6581C480.532,-179.0551 442.9081,-179.7524 405.3041,-179.75" />
+<polygon fill="#000000" stroke="#000000" points="405.238,-176.25 395.2319,-179.7326 405.2258,-183.25 405.238,-176.25" />
+</g>
+</g>
+</svg>
+<hr>
+<h2 id="019970a5-7aba-76f4-99fb-d666fc92578f--ocp-개방-폐쇄-원칙">OCP – 개방-폐쇄 원칙 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--ocp-개방-폐쇄-원칙"><span aria-hidden="true"></span></a></h2>
+<p>OCP는 <em>“소프트웨어 개체는 확장에는 열려 있고, 변경에는 닫혀 있어야 한다”</em> 는 원칙입니다. 즉, 새로운 기능을 넣더라도 기존 코드를 직접 수정하지 않고 확장 방식으로 처리할 수 있어야 한다는 뜻입니다.</p>
+<p>❌ 위반 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Injectable</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UserService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  async</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> findOne</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">    console</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">[LOG] fetching user </span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">id</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> { </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">id</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> };</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<p>✅ 개선 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Injectable</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> LoggingInterceptor</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> implements</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> NestInterceptor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  intercept</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">context</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">ExecutionContext</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">,</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> next</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">CallHandler</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">    const </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> =</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> context</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">switchToHttp</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">().</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">getRequest</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">();</span></span>
+<span class="line"><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">    console</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">[LOG] </span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">method</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;"> ${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">url</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> next</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">handle</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">();</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Module</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">({</span></span>
+<span class="line"><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">  providers</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: [{ </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">provide</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">APP_INTERCEPTOR</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">, </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">useClass</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">LoggingInterceptor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }],</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">})</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> AppModule</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span></code></pre>
+<h3 id="019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-1">개선 이유 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-1"><span aria-hidden="true"></span></a></h3>
+<p>UserService는 오직 사용자 로직만 담당하도록 두고, 로깅은 Interceptor로 분리하면 로깅 전략을 바꾸거나 새로운 로깅 방식을 추가할 때 기존 코드를 건드리지 않고 확장만으로 대응할 수 있습니다.</p>
+<p>📊 다이어그램</p>
+
+
+
+
+<svg width="904pt" height="294pt" viewbox="0.00 0.00 903.96 294.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 290)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-290 899.9616,-290 899.9616,4 -4,4" />
+<g id="clust1" class="cluster">
+<title>cluster_after</title>
+<path fill="none" stroke="#000000" d="M20,-8C20,-8 875.9616,-8 875.9616,-8 881.9616,-8 887.9616,-14 887.9616,-20 887.9616,-20 887.9616,-127 887.9616,-127 887.9616,-133 881.9616,-139 875.9616,-139 875.9616,-139 20,-139 20,-139 14,-139 8,-133 8,-127 8,-127 8,-20 8,-20 8,-14 14,-8 20,-8" />
+<text text-anchor="middle" x="447.9808" y="-122.4" font-family="Times,serif" font-size="14.00" fill="#000000">After</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_before</title>
+<path fill="none" stroke="#000000" d="M20,-147C20,-147 691.399,-147 691.399,-147 697.399,-147 703.399,-153 703.399,-159 703.399,-159 703.399,-266 703.399,-266 703.399,-272 697.399,-278 691.399,-278 691.399,-278 20,-278 20,-278 14,-278 8,-272 8,-266 8,-266 8,-159 8,-159 8,-153 14,-147 20,-147" />
+<text text-anchor="middle" x="355.6995" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#000000">Before</text>
+</g>
+
+<g id="node1" class="node">
+<title>R1</title>
+<ellipse fill="none" stroke="#000000" cx="58.1464" cy="-34" rx="42.2932" ry="18" />
+<text text-anchor="middle" x="58.1464" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node2" class="node">
+<title>I1</title>
+<ellipse fill="none" stroke="#000000" cx="222.412" cy="-34" rx="86.2387" ry="18" />
+<text text-anchor="middle" x="222.412" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoggingInterceptor</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>R1&#45;&gt;I1</title>
+<path fill="none" stroke="#000000" d="M100.4488,-34C108.4606,-34 117.1396,-34 126.0489,-34" />
+<polygon fill="#000000" stroke="#000000" points="126.1826,-37.5001 136.1826,-34 126.1825,-30.5001 126.1826,-37.5001" />
+</g>
+
+<g id="node3" class="node">
+<title>C1</title>
+<ellipse fill="none" stroke="#000000" cx="442.0804" cy="-34" rx="50.9599" ry="18" />
+<text text-anchor="middle" x="442.0804" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>I1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M308.6003,-34C332.8868,-34 358.7927,-34 381.2574,-34" />
+<polygon fill="#000000" stroke="#000000" points="381.3187,-37.5001 391.3187,-34 381.3187,-30.5001 381.3187,-37.5001" />
+</g>
+
+<g id="node4" class="node">
+<title>S1</title>
+<ellipse fill="none" stroke="#000000" cx="661.7489" cy="-34" rx="73.7079" ry="18" />
+<text text-anchor="middle" x="661.7489" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Service: 로직만</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>C1&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M490.2876,-28.3007C517.293,-27.2667 551.6476,-26.9959 582.5025,-27.4882" />
+<polygon fill="#000000" stroke="#000000" points="582.7517,-30.9935 592.8165,-27.6845 582.885,-23.9948 582.7517,-30.9935" />
+</g>
+
+<g id="node6" class="node">
+<title>I2</title>
+<ellipse fill="none" stroke="#000000" cx="661.7489" cy="-88" rx="86.2387" ry="18" />
+<text text-anchor="middle" x="661.7489" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoggingInterceptor</text>
+</g>
+
+<g id="edge7" class="edge">
+<title>C1&#45;&gt;I2</title>
+<path fill="none" stroke="#000000" d="M483.9154,-44.2841C515.5475,-52.06 559.5852,-62.8856 595.9229,-71.8183" />
+<polygon fill="#000000" stroke="#000000" points="595.4047,-75.2951 605.9511,-74.2835 597.0758,-68.4974 595.4047,-75.2951" />
+</g>
+
+<g id="edge6" class="edge">
+<title>S1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M592.8165,-40.3155C563.1516,-40.9747 528.8426,-40.8838 500.4576,-40.043" />
+<polygon fill="#000000" stroke="#000000" points="500.4001,-36.5392 490.2876,-39.6993 500.1636,-43.5352 500.4001,-36.5392" />
+</g>
+
+<g id="node5" class="node">
+<title>DB1</title>
+<path fill="none" stroke="#000000" d="M865.7158,-48.7273C865.7158,-50.5331 850.5657,-52 831.9149,-52 813.2641,-52 798.114,-50.5331 798.114,-48.7273 798.114,-48.7273 798.114,-19.2727 798.114,-19.2727 798.114,-17.4669 813.2641,-16 831.9149,-16 850.5657,-16 865.7158,-17.4669 865.7158,-19.2727 865.7158,-19.2727 865.7158,-48.7273 865.7158,-48.7273" />
+<path fill="none" stroke="#000000" d="M865.7158,-48.7273C865.7158,-46.9214 850.5657,-45.4545 831.9149,-45.4545 813.2641,-45.4545 798.114,-46.9214 798.114,-48.7273" />
+<text text-anchor="middle" x="831.9149" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Database</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>S1&#45;&gt;DB1</title>
+<path fill="none" stroke="#000000" d="M730.4714,-27.3622C749.7209,-27.0952 770.1315,-27.3047 787.5587,-27.9906" />
+<polygon fill="#000000" stroke="#000000" points="787.8342,-31.5072 797.987,-28.4791 788.1618,-24.5149 787.8342,-31.5072" />
+</g>
+
+<g id="edge5" class="edge">
+<title>DB1&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M797.987,-39.5209C781.4481,-40.4336 760.8076,-40.838 740.6342,-40.7341" />
+<polygon fill="#000000" stroke="#000000" points="740.5041,-37.2328 730.4714,-40.6378 740.4378,-44.2325 740.5041,-37.2328" />
+</g>
+
+<g id="node7" class="node">
+<title>Res1</title>
+<ellipse fill="none" stroke="#000000" cx="831.9149" cy="-88" rx="48.0935" ry="18" />
+<text text-anchor="middle" x="831.9149" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>I2&#45;&gt;Res1</title>
+<path fill="none" stroke="#000000" d="M748.3274,-88C756.8714,-88 765.3952,-88 773.5541,-88" />
+<polygon fill="#000000" stroke="#000000" points="773.6677,-91.5001 783.6677,-88 773.6676,-84.5001 773.6677,-91.5001" />
+</g>
+
+<g id="node8" class="node">
+<title>R</title>
+<ellipse fill="none" stroke="#000000" cx="58.1464" cy="-173" rx="42.2932" ry="18" />
+<text text-anchor="middle" x="58.1464" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node9" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="#000000" cx="222.412" cy="-173" rx="50.9599" ry="18" />
+<text text-anchor="middle" x="222.412" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>R&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M100.4488,-173C118.99,-173 141.1043,-173 161.3787,-173" />
+<polygon fill="#000000" stroke="#000000" points="161.4711,-176.5001 171.4711,-173 161.471,-169.5001 161.4711,-176.5001" />
+</g>
+
+<g id="node10" class="node">
+<title>S</title>
+<ellipse fill="none" stroke="#000000" cx="442.0804" cy="-173" rx="97.5984" ry="18" />
+<text text-anchor="middle" x="442.0804" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Service: 로직 + 로깅</text>
+</g>
+
+<g id="edge10" class="edge">
+<title>C&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M270.6191,-167.3007C291.3764,-166.5059 316.4755,-166.162 340.99,-166.269" />
+<polygon fill="#000000" stroke="#000000" points="341.0524,-169.7695 351.0765,-166.339 341.101,-162.7696 341.0524,-169.7695" />
+</g>
+
+<g id="node12" class="node">
+<title>Res</title>
+<ellipse fill="none" stroke="#000000" cx="442.0804" cy="-227" rx="48.0935" ry="18" />
+<text text-anchor="middle" x="442.0804" y="-222.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge14" class="edge">
+<title>C&#45;&gt;Res</title>
+<path fill="none" stroke="#000000" d="M264.247,-183.2841C300.585,-192.2169 353.2946,-205.1742 391.8952,-214.6632" />
+<polygon fill="#000000" stroke="#000000" points="391.3373,-218.1302 401.8837,-217.1186 393.0083,-211.3326 391.3373,-218.1302" />
+</g>
+
+<g id="edge13" class="edge">
+<title>S&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M351.0765,-179.661C327.3557,-179.8872 302.4271,-179.6822 280.8959,-179.0462" />
+<polygon fill="#000000" stroke="#000000" points="280.7315,-175.5387 270.6191,-178.6993 280.4954,-182.5348 280.7315,-175.5387" />
+</g>
+
+<g id="node11" class="node">
+<title>DB</title>
+<path fill="none" stroke="#000000" d="M695.5498,-187.7273C695.5498,-189.5331 680.3997,-191 661.7489,-191 643.0981,-191 627.948,-189.5331 627.948,-187.7273 627.948,-187.7273 627.948,-158.2727 627.948,-158.2727 627.948,-156.4669 643.0981,-155 661.7489,-155 680.3997,-155 695.5498,-156.4669 695.5498,-158.2727 695.5498,-158.2727 695.5498,-187.7273 695.5498,-187.7273" />
+<path fill="none" stroke="#000000" d="M695.5498,-187.7273C695.5498,-185.9214 680.3997,-184.4545 661.7489,-184.4545 643.0981,-184.4545 627.948,-185.9214 627.948,-187.7273" />
+<text text-anchor="middle" x="661.7489" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Database</text>
+</g>
+
+<g id="edge11" class="edge">
+<title>S&#45;&gt;DB</title>
+<path fill="none" stroke="#000000" d="M533.0137,-166.3396C562.2136,-166.0602 593.2511,-166.4341 617.5332,-167.4614" />
+<polygon fill="#000000" stroke="#000000" points="617.6839,-170.9727 627.8414,-167.9603 618.0224,-163.9809 617.6839,-170.9727" />
+</g>
+
+<g id="edge12" class="edge">
+<title>DB&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M627.8414,-178.0397C605.0534,-179.2986 573.7264,-179.8625 543.2884,-179.7315" />
+<polygon fill="#000000" stroke="#000000" points="543.0377,-176.2297 533.0137,-179.6604 542.9892,-183.2296 543.0377,-176.2297" />
+</g>
+</g>
+</svg>
+<hr>
+<h2 id="019970a5-7aba-76f4-99fb-d666fc92578f--lsp-리스코프-치환-원칙">LSP – 리스코프 치환 원칙 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--lsp-리스코프-치환-원칙"><span aria-hidden="true"></span></a></h2>
+<p>LSP는 <em>“상위 타입을 사용하는 코드는 하위 타입으로 교체하더라도 정상적으로 동작해야 한다”</em> 는 원칙입니다. MIT의 <strong>Barbara Liskov</strong> 교수가 1987년 발표한 개념으로, 인터페이스를 구현한 객체라면 언제든 안정적으로 대체 가능해야 한다는 점을 강조합니다.</p>
+<p>❌ 위반 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> StripeGateway</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  pay</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">amount</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">number</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">):</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;"> `</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">Paid </span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">amount</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;"> via Stripe</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">;</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> TossGateway</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> extends</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> StripeGateway</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  pay</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">amount</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">number</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">):</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    throw</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> new</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> Error</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">Toss unavailable ❌</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<p>✅ 개선 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> interface</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> PaymentGateway</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  pay</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">amount</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">number</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">):</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">;</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> StripeGateway</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> implements</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> PaymentGateway</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  pay</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">amount</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">number</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;"> `</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">Paid </span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">amount</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;"> via Stripe</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">;</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> TossGateway</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> implements</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> PaymentGateway</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  pay</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">amount</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">number</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;"> `</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">Paid </span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">amount</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;"> via Toss</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">;</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<h3 id="019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-2">개선 이유 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-2"><span aria-hidden="true"></span></a></h3>
+<p>PaymentService는 인터페이스인 PaymentGateway에만 의존하고, 실제 구현체는 계약(pay 메서드)만 지키면 언제든 교체 가능하므로, 코드의 일관성과 신뢰성이 보장됩니다.</p>
+<p>📊 다이어그램</p>
+
+
+
+
+<svg width="1235pt" height="294pt" viewbox="0.00 0.00 1234.92 294.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 290)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-290 1230.918,-290 1230.918,4 -4,4" />
+<g id="clust1" class="cluster">
+<title>cluster_after</title>
+<path fill="none" stroke="#000000" d="M20,-8C20,-8 1206.918,-8 1206.918,-8 1212.918,-8 1218.918,-14 1218.918,-20 1218.918,-20 1218.918,-127 1218.918,-127 1218.918,-133 1212.918,-139 1206.918,-139 1206.918,-139 20,-139 20,-139 14,-139 8,-133 8,-127 8,-127 8,-20 8,-20 8,-14 14,-8 20,-8" />
+<text text-anchor="middle" x="613.459" y="-122.4" font-family="Times,serif" font-size="14.00" fill="#000000">After</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_before</title>
+<path fill="none" stroke="#000000" d="M20,-147C20,-147 1025.7564,-147 1025.7564,-147 1031.7564,-147 1037.7564,-153 1037.7564,-159 1037.7564,-159 1037.7564,-266 1037.7564,-266 1037.7564,-272 1031.7564,-278 1025.7564,-278 1025.7564,-278 20,-278 20,-278 14,-278 8,-272 8,-266 8,-266 8,-159 8,-159 8,-153 14,-147 20,-147" />
+<text text-anchor="middle" x="522.8782" y="-261.4" font-family="Times,serif" font-size="14.00" fill="#000000">Before</text>
+</g>
+
+<g id="node1" class="node">
+<title>R1</title>
+<ellipse fill="none" stroke="#000000" cx="58.1464" cy="-34" rx="42.2932" ry="18" />
+<text text-anchor="middle" x="58.1464" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node2" class="node">
+<title>C1</title>
+<ellipse fill="none" stroke="#000000" cx="226.0222" cy="-34" rx="50.9599" ry="18" />
+<text text-anchor="middle" x="226.0222" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>R1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M100.5085,-34C119.9578,-34 143.3913,-34 164.718,-34" />
+<polygon fill="#000000" stroke="#000000" points="164.9916,-37.5001 174.9915,-34 164.9915,-30.5001 164.9916,-37.5001" />
+</g>
+
+<g id="node3" class="node">
+<title>S1</title>
+<ellipse fill="none" stroke="#000000" cx="425.538" cy="-34" rx="73.5734" ry="18" />
+<text text-anchor="middle" x="425.538" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">PaymentService</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>C1&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M274.0651,-28.1313C295.6561,-27.3217 321.7144,-27.0699 346.0846,-27.3758" />
+<polygon fill="#000000" stroke="#000000" points="346.3529,-30.8805 356.4076,-27.5411 346.465,-23.8814 346.3529,-30.8805" />
+</g>
+
+<g id="node9" class="node">
+<title>Res1</title>
+<ellipse fill="none" stroke="#000000" cx="425.538" cy="-88" rx="48.0935" ry="18" />
+<text text-anchor="middle" x="425.538" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge10" class="edge">
+<title>C1&#45;&gt;Res1</title>
+<path fill="none" stroke="#000000" d="M266.3972,-44.9277C298.3168,-53.5669 342.9897,-65.6579 376.8819,-74.831" />
+<polygon fill="#000000" stroke="#000000" points="376.0137,-78.2219 386.5809,-77.4561 377.8426,-71.465 376.0137,-78.2219" />
+</g>
+
+<g id="edge9" class="edge">
+<title>S1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M356.4076,-40.4589C332.8576,-40.92 306.7856,-40.8333 284.1839,-40.1988" />
+<polygon fill="#000000" stroke="#000000" points="284.1739,-36.6967 274.0651,-39.8687 283.9456,-43.693 284.1739,-36.6967" />
+</g>
+
+<g id="node4" class="node">
+<title>G</title>
+<ellipse fill="none" stroke="#000000" cx="722.4592" cy="-34" rx="117.5441" ry="18" />
+<text text-anchor="middle" x="722.4592" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">PaymentGateway 인터페이스</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>S1&#45;&gt;G</title>
+<path fill="none" stroke="#000000" d="M495.5282,-28.1698C527.4201,-27.3435 566.0917,-27.0739 602.4074,-27.3611" />
+<polygon fill="#000000" stroke="#000000" points="602.5476,-30.8624 612.5802,-27.4568 602.6136,-23.8628 602.5476,-30.8624" />
+</g>
+
+<g id="edge8" class="edge">
+<title>G&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M612.5802,-40.5432C577.0941,-40.9316 538.448,-40.7729 505.5452,-40.0669" />
+<polygon fill="#000000" stroke="#000000" points="505.6081,-36.5675 495.5282,-39.8302 505.4427,-43.5655 505.6081,-36.5675" />
+</g>
+
+<g id="node5" class="node">
+<title>Stripe1</title>
+<ellipse fill="none" stroke="#000000" cx="992.012" cy="-34" rx="68.3343" ry="18" />
+<text text-anchor="middle" x="992.012" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">StripeGateway</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>G&#45;&gt;Stripe1</title>
+<path fill="none" stroke="#000000" d="M840.2969,-34C864.8669,-34 890.2001,-34 912.9599,-34" />
+<polygon fill="#000000" stroke="#000000" points="913.2241,-37.5001 923.2241,-34 913.2241,-30.5001 913.2241,-37.5001" />
+</g>
+
+<g id="node6" class="node">
+<title>Toss1</title>
+<ellipse fill="none" stroke="#000000" cx="992.012" cy="-88" rx="63.6813" ry="18" />
+<text text-anchor="middle" x="992.012" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">TossGateway</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>G&#45;&gt;Toss1</title>
+<path fill="none" stroke="#000000" d="M793.9868,-48.3292C836.2593,-56.7978 889.2679,-67.4171 929.8004,-75.537" />
+<polygon fill="#000000" stroke="#000000" points="929.3297,-79.0122 939.8224,-77.5448 930.7047,-72.1486 929.3297,-79.0122" />
+</g>
+
+<g id="node7" class="node">
+<title>ExtAPI3</title>
+<path fill="none" stroke="#000000" d="M1211.1639,-48.7273C1211.1639,-50.5331 1194.136,-52 1173.1736,-52 1152.2111,-52 1135.1832,-50.5331 1135.1832,-48.7273 1135.1832,-48.7273 1135.1832,-19.2727 1135.1832,-19.2727 1135.1832,-17.4669 1152.2111,-16 1173.1736,-16 1194.136,-16 1211.1639,-17.4669 1211.1639,-19.2727 1211.1639,-19.2727 1211.1639,-48.7273 1211.1639,-48.7273" />
+<path fill="none" stroke="#000000" d="M1211.1639,-48.7273C1211.1639,-46.9214 1194.136,-45.4545 1173.1736,-45.4545 1152.2111,-45.4545 1135.1832,-46.9214 1135.1832,-48.7273" />
+<text text-anchor="middle" x="1173.1736" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">Stripe API</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>Stripe1&#45;&gt;ExtAPI3</title>
+<path fill="none" stroke="#000000" d="M1060.5014,-34C1082.0888,-34 1105.459,-34 1125.2892,-34" />
+<polygon fill="#000000" stroke="#000000" points="1125.3082,-37.5001 1135.3082,-34 1125.3082,-30.5001 1125.3082,-37.5001" />
+</g>
+
+<g id="node8" class="node">
+<title>ExtAPI4</title>
+<path fill="none" stroke="#000000" d="M1207.6669,-102.7273C1207.6669,-104.5331 1192.2064,-106 1173.1736,-106 1154.1407,-106 1138.6802,-104.5331 1138.6802,-102.7273 1138.6802,-102.7273 1138.6802,-73.2727 1138.6802,-73.2727 1138.6802,-71.4669 1154.1407,-70 1173.1736,-70 1192.2064,-70 1207.6669,-71.4669 1207.6669,-73.2727 1207.6669,-73.2727 1207.6669,-102.7273 1207.6669,-102.7273" />
+<path fill="none" stroke="#000000" d="M1207.6669,-102.7273C1207.6669,-100.9214 1192.2064,-99.4545 1173.1736,-99.4545 1154.1407,-99.4545 1138.6802,-100.9214 1138.6802,-102.7273" />
+<text text-anchor="middle" x="1173.1736" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Toss API</text>
+</g>
+
+<g id="edge7" class="edge">
+<title>Toss1&#45;&gt;ExtAPI4</title>
+<path fill="none" stroke="#000000" d="M1055.6281,-88C1079.7439,-88 1106.6655,-88 1128.6532,-88" />
+<polygon fill="#000000" stroke="#000000" points="1128.6979,-91.5001 1138.6979,-88 1128.6979,-84.5001 1128.6979,-91.5001" />
+</g>
+
+<g id="node10" class="node">
+<title>R</title>
+<ellipse fill="none" stroke="#000000" cx="58.1464" cy="-173" rx="42.2932" ry="18" />
+<text text-anchor="middle" x="58.1464" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node11" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="#000000" cx="226.0222" cy="-173" rx="50.9599" ry="18" />
+<text text-anchor="middle" x="226.0222" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge11" class="edge">
+<title>R&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M100.5085,-173C119.9578,-173 143.3913,-173 164.718,-173" />
+<polygon fill="#000000" stroke="#000000" points="164.9916,-176.5001 174.9915,-173 164.9915,-169.5001 164.9916,-176.5001" />
+</g>
+
+<g id="node12" class="node">
+<title>S</title>
+<ellipse fill="none" stroke="#000000" cx="425.538" cy="-173" rx="73.5734" ry="18" />
+<text text-anchor="middle" x="425.538" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">PaymentService</text>
+</g>
+
+<g id="edge12" class="edge">
+<title>C&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M274.0651,-167.1313C295.6561,-166.3217 321.7144,-166.0699 346.0846,-166.3758" />
+<polygon fill="#000000" stroke="#000000" points="346.3529,-169.8805 356.4076,-166.5411 346.465,-162.8814 346.3529,-169.8805" />
+</g>
+
+<g id="node16" class="node">
+<title>Res</title>
+<ellipse fill="none" stroke="#000000" cx="425.538" cy="-227" rx="48.0935" ry="18" />
+<text text-anchor="middle" x="425.538" y="-222.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge18" class="edge">
+<title>C&#45;&gt;Res</title>
+<path fill="none" stroke="#000000" d="M266.3972,-183.9277C298.3168,-192.5669 342.9897,-204.6579 376.8819,-213.831" />
+<polygon fill="#000000" stroke="#000000" points="376.0137,-217.2219 386.5809,-216.4561 377.8426,-210.465 376.0137,-217.2219" />
+</g>
+
+<g id="edge17" class="edge">
+<title>S&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M356.4076,-179.4589C332.8576,-179.92 306.7856,-179.8333 284.1839,-179.1988" />
+<polygon fill="#000000" stroke="#000000" points="284.1739,-175.6967 274.0651,-178.8687 283.9456,-182.693 284.1739,-175.6967" />
+</g>
+
+<g id="node13" class="node">
+<title>Stripe</title>
+<ellipse fill="none" stroke="#000000" cx="722.4592" cy="-173" rx="78.1482" ry="18" />
+<text text-anchor="middle" x="722.4592" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">StripeGateway ✅</text>
+</g>
+
+<g id="edge13" class="edge">
+<title>S&#45;&gt;Stripe</title>
+<path fill="none" stroke="#000000" d="M499.6978,-173C540.4867,-173 591.3575,-173 634.1844,-173" />
+<polygon fill="#000000" stroke="#000000" points="634.3201,-176.5001 644.3201,-173 634.32,-169.5001 634.3201,-176.5001" />
+</g>
+
+<g id="node14" class="node">
+<title>Toss</title>
+<ellipse fill="none" stroke="#000000" cx="722.4592" cy="-227" rx="126.2715" ry="18" />
+<text text-anchor="middle" x="722.4592" y="-222.8" font-family="Times,serif" font-size="14.00" fill="#000000">TossGateway ❌: 계약 위반</text>
+</g>
+
+<g id="edge14" class="edge">
+<title>S&#45;&gt;Toss</title>
+<path fill="none" stroke="#000000" d="M484.9108,-183.7979C527.6493,-191.5706 586.0188,-202.1861 634.2021,-210.949" />
+<polygon fill="#000000" stroke="#000000" points="633.8551,-214.4432 644.3201,-212.7891 635.1077,-207.5562 633.8551,-214.4432" />
+</g>
+
+<g id="node15" class="node">
+<title>ExtAPI1</title>
+<path fill="none" stroke="#000000" d="M1030.0024,-187.7273C1030.0024,-189.5331 1012.9745,-191 992.012,-191 971.0496,-191 954.0217,-189.5331 954.0217,-187.7273 954.0217,-187.7273 954.0217,-158.2727 954.0217,-158.2727 954.0217,-156.4669 971.0496,-155 992.012,-155 1012.9745,-155 1030.0024,-156.4669 1030.0024,-158.2727 1030.0024,-158.2727 1030.0024,-187.7273 1030.0024,-187.7273" />
+<path fill="none" stroke="#000000" d="M1030.0024,-187.7273C1030.0024,-185.9214 1012.9745,-184.4545 992.012,-184.4545 971.0496,-184.4545 954.0217,-185.9214 954.0217,-187.7273" />
+<text text-anchor="middle" x="992.012" y="-168.8" font-family="Times,serif" font-size="14.00" fill="#000000">Stripe API</text>
+</g>
+
+<g id="edge15" class="edge">
+<title>Stripe&#45;&gt;ExtAPI1</title>
+<path fill="none" stroke="#000000" d="M800.7872,-173C847.0189,-173 904.0668,-173 943.7637,-173" />
+<polygon fill="#000000" stroke="#000000" points="943.9701,-176.5001 953.9701,-173 943.9701,-169.5001 943.9701,-176.5001" />
+</g>
+
+<g id="edge16" class="edge">
+<title>Toss&#45;&gt;S</title>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M627.9521,-215.0645C598.5014,-210.8703 565.9762,-205.7504 536.3243,-200 519.8277,-196.8008 502.0908,-192.7548 485.7497,-188.7751" />
+<polygon fill="#ff0000" stroke="#ff0000" points="486.3265,-185.3125 475.7791,-186.314 484.6489,-192.1085 486.3265,-185.3125" />
+<text text-anchor="middle" x="547.8239" y="-208.2" font-family="Times,serif" font-size="14.00" fill="#000000">에러</text>
+</g>
+</g>
+</svg>
+<hr>
+<h2 id="019970a5-7aba-76f4-99fb-d666fc92578f--isp-인터페이스-분리-원칙">ISP – 인터페이스 분리 원칙 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--isp-인터페이스-분리-원칙"><span aria-hidden="true"></span></a></h2>
+<p>ISP는 <em>“클라이언트는 자신이 사용하지 않는 메서드에 의존하지 않아야 한다”</em> 는 원칙으로, 거대한 인터페이스가 불필요한 의존을 강제하는 문제를 막고자 합니다. NestJS에서는 Guard, Pipe, Interceptor, Filter 등이 이 원칙을 잘 반영합니다.</p>
+<p>❌ 위반 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UglyRequestHandler</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  handle</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">):</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    try</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;">      this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">authenticate</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;">      this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">validate</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;">      this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">      const </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">result</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> =</span><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;"> this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">execute</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">      return</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> { </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">statusCode</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2F798A, #4C9A91); --shiki-dark:#4C9A91;">201</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">, </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">message</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">회원가입 성공</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">, </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">data</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">result</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> };</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">    }</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;"> catch</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> (</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">err</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">      return</span><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;"> this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">catchError</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">err</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">    }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  private</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> authenticate</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span><span style="color:light-dark(#A0ADA0, #758575DD); --shiki-dark:#758575DD;"> /* ... */</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  private</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> validate</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span><span style="color:light-dark(#A0ADA0, #758575DD); --shiki-dark:#758575DD;"> /* ... */</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  private</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span><span style="color:light-dark(#A0ADA0, #758575DD); --shiki-dark:#758575DD;"> /* ... */</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  private</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> execute</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">req</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span><span style="color:light-dark(#A0ADA0, #758575DD); --shiki-dark:#758575DD;"> /* ... */</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  private</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> catchError</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">err</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">any</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span><span style="color:light-dark(#A0ADA0, #758575DD); --shiki-dark:#758575DD;"> /* ... */</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<p>✅ 개선 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Controller</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">auth</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">UseFilters</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">HttpExceptionFilter</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> AuthController</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  constructor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">private</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> readonly</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> authService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">AuthService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  @</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">UseGuards</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">GuestOnlyGuard</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  @</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">UsePipes</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">new</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> ValidationPipe</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">())</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  @</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">UseInterceptors</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">LoggingInterceptor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  @</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Post</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">signup</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  async</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> signup</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Body</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> dto</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">CreateUserDto</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">    return</span><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;"> this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">authService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">signup</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">dto</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<h3 id="019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-3">개선 이유 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-3"><span aria-hidden="true"></span></a></h3>
+<p>인증은 Guard, 검증은 Pipe, 로깅은 Interceptor, 에러 처리는 Filter가 담당하도록 분리하면 각 기능을 독립적으로 교체하거나 확장할 수 있고, 컨트롤러는 핵심 흐름만 관리할 수 있어 불필요한 의존이 사라집니다.</p>
+<p>📊 다이어그램</p>
+
+
+
+
+<svg width="1240pt" height="335pt" viewbox="0.00 0.00 1239.50 335.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 331)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-331 1235.5022,-331 1235.5022,4 -4,4" />
+<g id="clust1" class="cluster">
+<title>cluster_after</title>
+<path fill="none" stroke="#000000" d="M23.0996,-8C23.0996,-8 1211.5022,-8 1211.5022,-8 1217.5022,-8 1223.5022,-14 1223.5022,-20 1223.5022,-20 1223.5022,-168 1223.5022,-168 1223.5022,-174 1217.5022,-180 1211.5022,-180 1211.5022,-180 23.0996,-180 23.0996,-180 17.0996,-180 11.0996,-174 11.0996,-168 11.0996,-168 11.0996,-20 11.0996,-20 11.0996,-14 17.0996,-8 23.0996,-8" />
+<text text-anchor="middle" x="617.3009" y="-163.4" font-family="Times,serif" font-size="14.00" fill="#000000">After</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_handler</title>
+<path fill="none" stroke="#000000" d="M189.3207,-16C189.3207,-16 1105.8472,-16 1105.8472,-16 1111.8472,-16 1117.8472,-22 1117.8472,-28 1117.8472,-28 1117.8472,-135 1117.8472,-135 1117.8472,-141 1111.8472,-147 1105.8472,-147 1105.8472,-147 189.3207,-147 189.3207,-147 183.3207,-147 177.3207,-141 177.3207,-135 177.3207,-135 177.3207,-28 177.3207,-28 177.3207,-22 183.3207,-16 189.3207,-16" />
+<text text-anchor="middle" x="647.584" y="-130.4" font-family="Times,serif" font-size="14.00" fill="#000000">Handler (구성요소)</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_before</title>
+<path fill="none" stroke="#000000" d="M20,-188C20,-188 440.1337,-188 440.1337,-188 446.1337,-188 452.1337,-194 452.1337,-200 452.1337,-200 452.1337,-307 452.1337,-307 452.1337,-313 446.1337,-319 440.1337,-319 440.1337,-319 20,-319 20,-319 14,-319 8,-313 8,-307 8,-307 8,-200 8,-200 8,-194 14,-188 20,-188" />
+<text text-anchor="middle" x="230.0668" y="-302.4" font-family="Times,serif" font-size="14.00" fill="#000000">Before</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_ugly</title>
+<path fill="none" stroke="#000000" d="M123.3002,-202C123.3002,-202 330.978,-202 330.978,-202 336.978,-202 342.978,-208 342.978,-214 342.978,-214 342.978,-267 342.978,-267 342.978,-273 336.978,-279 330.978,-279 330.978,-279 123.3002,-279 123.3002,-279 117.3002,-279 111.3002,-273 111.3002,-267 111.3002,-267 111.3002,-214 111.3002,-214 111.3002,-208 117.3002,-202 123.3002,-202" />
+<text text-anchor="middle" x="227.1391" y="-262.4" font-family="Times,serif" font-size="14.00" fill="#000000">UglyRequestHandler</text>
+</g>
+
+<g id="node1" class="node">
+<title>R1</title>
+<path fill="none" stroke="#000000" d="M68.2512,-63C68.2512,-63 31.049,-63 31.049,-63 25.049,-63 19.049,-57 19.049,-51 19.049,-51 19.049,-39 19.049,-39 19.049,-33 25.049,-27 31.049,-27 31.049,-27 68.2512,-27 68.2512,-27 74.2512,-27 80.2512,-33 80.2512,-39 80.2512,-39 80.2512,-51 80.2512,-51 80.2512,-57 74.2512,-63 68.2512,-63" />
+<text text-anchor="middle" x="49.6501" y="-40.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node4" class="node">
+<title>M</title>
+<path fill="none" stroke="#000000" d="M256.7767,-63C256.7767,-63 197.5015,-63 197.5015,-63 191.5015,-63 185.5015,-57 185.5015,-51 185.5015,-51 185.5015,-39 185.5015,-39 185.5015,-33 191.5015,-27 197.5015,-27 197.5015,-27 256.7767,-27 256.7767,-27 262.7767,-27 268.7767,-33 268.7767,-39 268.7767,-39 268.7767,-51 268.7767,-51 268.7767,-57 262.7767,-63 256.7767,-63" />
+<text text-anchor="middle" x="227.1391" y="-40.8" font-family="Times,serif" font-size="14.00" fill="#000000">Middleware</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>R1&#45;&gt;M</title>
+<path fill="none" stroke="#000000" d="M80.5663,-45C106.6223,-45 144.4584,-45 175.1617,-45" />
+<polygon fill="#000000" stroke="#000000" points="175.2734,-48.5001 185.2734,-45 175.2733,-41.5001 175.2734,-48.5001" />
+</g>
+
+<g id="node2" class="node">
+<title>Res1</title>
+<path fill="none" stroke="#000000" d="M1203.3306,-114C1203.3306,-114 1158.0188,-114 1158.0188,-114 1152.0188,-114 1146.0188,-108 1146.0188,-102 1146.0188,-102 1146.0188,-90 1146.0188,-90 1146.0188,-84 1152.0188,-78 1158.0188,-78 1158.0188,-78 1203.3306,-78 1203.3306,-78 1209.3306,-78 1215.3306,-84 1215.3306,-90 1215.3306,-90 1215.3306,-102 1215.3306,-102 1215.3306,-108 1209.3306,-114 1203.3306,-114" />
+<text text-anchor="middle" x="1180.6747" y="-91.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="node3" class="node">
+<title>DB1</title>
+<path fill="none" stroke="#000000" d="M1214.4756,-56.7273C1214.4756,-58.5331 1199.3255,-60 1180.6747,-60 1162.0239,-60 1146.8738,-58.5331 1146.8738,-56.7273 1146.8738,-56.7273 1146.8738,-27.2727 1146.8738,-27.2727 1146.8738,-25.4669 1162.0239,-24 1180.6747,-24 1199.3255,-24 1214.4756,-25.4669 1214.4756,-27.2727 1214.4756,-27.2727 1214.4756,-56.7273 1214.4756,-56.7273" />
+<path fill="none" stroke="#000000" d="M1214.4756,-56.7273C1214.4756,-54.9214 1199.3255,-53.4545 1180.6747,-53.4545 1162.0239,-53.4545 1146.8738,-54.9214 1146.8738,-56.7273" />
+<text text-anchor="middle" x="1180.6747" y="-37.8" font-family="Times,serif" font-size="14.00" fill="#000000">Database</text>
+</g>
+
+<g id="node10" class="node">
+<title>Repo</title>
+<path fill="none" stroke="#000000" d="M1083.4897,-60C1083.4897,-60 1029.6121,-60 1029.6121,-60 1023.6121,-60 1017.6121,-54 1017.6121,-48 1017.6121,-48 1017.6121,-36 1017.6121,-36 1017.6121,-30 1023.6121,-24 1029.6121,-24 1029.6121,-24 1083.4897,-24 1083.4897,-24 1089.4897,-24 1095.4897,-30 1095.4897,-36 1095.4897,-36 1095.4897,-48 1095.4897,-48 1095.4897,-54 1089.4897,-60 1083.4897,-60" />
+<text text-anchor="middle" x="1056.5509" y="-37.8" font-family="Times,serif" font-size="14.00" fill="#000000">Repository</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>DB1&#45;&gt;Repo</title>
+<path fill="none" stroke="#000000" d="M1146.9059,-48.0833C1134.2438,-48.7236 1119.5826,-48.9027 1105.8023,-48.6205" />
+<polygon fill="#000000" stroke="#000000" points="1105.5832,-45.1126 1095.4839,-48.3148 1105.3758,-52.1095 1105.5832,-45.1126" />
+</g>
+
+<g id="node5" class="node">
+<title>G</title>
+<path fill="none" stroke="#000000" d="M435.4634,-65.6019C435.4634,-65.6019 383.149,-65.6019 383.149,-65.6019 377.149,-65.6019 371.149,-59.6019 371.149,-53.6019 371.149,-53.6019 371.149,-36.3981 371.149,-36.3981 371.149,-30.3981 377.149,-24.3981 383.149,-24.3981 383.149,-24.3981 435.4634,-24.3981 435.4634,-24.3981 441.4634,-24.3981 447.4634,-30.3981 447.4634,-36.3981 447.4634,-36.3981 447.4634,-53.6019 447.4634,-53.6019 447.4634,-59.6019 441.4634,-65.6019 435.4634,-65.6019" />
+<text text-anchor="middle" x="409.3062" y="-49.2" font-family="Times,serif" font-size="14.00" fill="#000000">Guard</text>
+<text text-anchor="middle" x="409.3062" y="-32.4" font-family="Times,serif" font-size="14.00" fill="#000000">인증/인가</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>M&#45;&gt;G</title>
+<path fill="none" stroke="#000000" d="M268.9319,-45C296.3432,-45 332.2775,-45 360.9264,-45" />
+<polygon fill="#000000" stroke="#000000" points="361.1224,-48.5001 371.1223,-45 361.1223,-41.5001 361.1224,-48.5001" />
+</g>
+
+<g id="node6" class="node">
+<title>I1</title>
+<path fill="none" stroke="#000000" d="M600.1073,-63C600.1073,-63 495.4765,-63 495.4765,-63 489.4765,-63 483.4765,-57 483.4765,-51 483.4765,-51 483.4765,-39 483.4765,-39 483.4765,-33 489.4765,-27 495.4765,-27 495.4765,-27 600.1073,-27 600.1073,-27 606.1073,-27 612.1073,-33 612.1073,-39 612.1073,-39 612.1073,-51 612.1073,-51 612.1073,-57 606.1073,-63 600.1073,-63" />
+<text text-anchor="middle" x="547.7919" y="-40.8" font-family="Times,serif" font-size="14.00" fill="#000000">Interceptor (Before)</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>G&#45;&gt;I1</title>
+<path fill="none" stroke="#000000" d="M447.5146,-45C455.6001,-45 464.3974,-45 473.3111,-45" />
+<polygon fill="#000000" stroke="#000000" points="473.3928,-48.5001 483.3928,-45 473.3927,-41.5001 473.3928,-48.5001" />
+</g>
+
+<g id="node7" class="node">
+<title>P</title>
+<path fill="none" stroke="#000000" d="M689.9494,-65.6019C689.9494,-65.6019 659.9494,-65.6019 659.9494,-65.6019 653.9494,-65.6019 647.9494,-59.6019 647.9494,-53.6019 647.9494,-53.6019 647.9494,-36.3981 647.9494,-36.3981 647.9494,-30.3981 653.9494,-24.3981 659.9494,-24.3981 659.9494,-24.3981 689.9494,-24.3981 689.9494,-24.3981 695.9494,-24.3981 701.9494,-30.3981 701.9494,-36.3981 701.9494,-36.3981 701.9494,-53.6019 701.9494,-53.6019 701.9494,-59.6019 695.9494,-65.6019 689.9494,-65.6019" />
+<text text-anchor="middle" x="674.9494" y="-49.2" font-family="Times,serif" font-size="14.00" fill="#000000">Pipe</text>
+<text text-anchor="middle" x="674.9494" y="-32.4" font-family="Times,serif" font-size="14.00" fill="#000000">검증</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>I1&#45;&gt;P</title>
+<path fill="none" stroke="#000000" d="M612.1157,-45C620.8532,-45 629.572,-45 637.6118,-45" />
+<polygon fill="#000000" stroke="#000000" points="637.7344,-48.5001 647.7343,-45 637.7343,-41.5001 637.7344,-48.5001" />
+</g>
+
+<g id="node8" class="node">
+<title>C</title>
+<path fill="none" stroke="#000000" stroke-width="3" d="M799.2671,-61C799.2671,-61 750.1759,-61 750.1759,-61 744.1759,-61 738.1759,-55 738.1759,-49 738.1759,-49 738.1759,-37 738.1759,-37 738.1759,-31 744.1759,-25 750.1759,-25 750.1759,-25 799.2671,-25 799.2671,-25 805.2671,-25 811.2671,-31 811.2671,-37 811.2671,-37 811.2671,-49 811.2671,-49 811.2671,-55 805.2671,-61 799.2671,-61" />
+<text text-anchor="middle" x="774.7215" y="-38.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>P&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M702.2126,-44.4535C710.1747,-44.2939 719.1123,-44.1147 727.9211,-43.9381" />
+<polygon fill="#000000" stroke="#000000" points="728.2088,-47.4332 738.1366,-43.7334 728.0684,-40.4346 728.2088,-47.4332" />
+</g>
+
+<g id="node9" class="node">
+<title>S</title>
+<path fill="none" stroke="#000000" d="M924.3517,-60C924.3517,-60 890.3965,-60 890.3965,-60 884.3965,-60 878.3965,-54 878.3965,-48 878.3965,-48 878.3965,-36 878.3965,-36 878.3965,-30 884.3965,-24 890.3965,-24 890.3965,-24 924.3517,-24 924.3517,-24 930.3517,-24 936.3517,-30 936.3517,-36 936.3517,-36 936.3517,-48 936.3517,-48 936.3517,-54 930.3517,-60 924.3517,-60" />
+<text text-anchor="middle" x="907.3741" y="-37.8" font-family="Times,serif" font-size="14.00" fill="#000000">Service</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>C&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M811.3206,-36.6169C828.8858,-35.6715 849.9582,-35.4708 867.8845,-36.0649" />
+<polygon fill="#000000" stroke="#000000" points="867.8825,-39.5681 878.0255,-36.5069 868.1874,-32.5747 867.8825,-39.5681" />
+</g>
+
+<g id="node11" class="node">
+<title>I2</title>
+<path fill="none" stroke="#000000" d="M955.1353,-114C955.1353,-114 859.6129,-114 859.6129,-114 853.6129,-114 847.6129,-108 847.6129,-102 847.6129,-102 847.6129,-90 847.6129,-90 847.6129,-84 853.6129,-78 859.6129,-78 859.6129,-78 955.1353,-78 955.1353,-78 961.1353,-78 967.1353,-84 967.1353,-90 967.1353,-90 967.1353,-102 967.1353,-102 967.1353,-108 961.1353,-114 955.1353,-114" />
+<text text-anchor="middle" x="907.3741" y="-91.8" font-family="Times,serif" font-size="14.00" fill="#000000">Interceptor (After)</text>
+</g>
+
+<g id="edge12" class="edge">
+<title>C&#45;&gt;I2</title>
+<path fill="none" stroke="#000000" d="M811.3206,-57.6228C824.0316,-62.7014 838.5793,-68.5137 852.4424,-74.0526" />
+<polygon fill="#000000" stroke="#000000" points="851.3146,-77.371 861.8995,-77.8311 853.9118,-70.8706 851.3146,-77.371" />
+</g>
+
+<g id="edge11" class="edge">
+<title>S&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M878.0255,-47.9356C861.4367,-49.1021 840.3125,-49.5174 821.4944,-49.1296" />
+<polygon fill="#000000" stroke="#000000" points="821.4189,-45.626 811.3206,-48.8313 821.2136,-52.623 821.4189,-45.626" />
+</g>
+
+<g id="edge7" class="edge">
+<title>S&#45;&gt;Repo</title>
+<path fill="none" stroke="#000000" d="M936.491,-36.519C956.6551,-35.2198 983.9888,-34.9182 1007.4819,-35.6142" />
+<polygon fill="#000000" stroke="#000000" points="1007.5012,-39.1172 1017.6235,-35.9887 1007.7595,-32.1219 1007.5012,-39.1172" />
+</g>
+
+<g id="edge8" class="edge">
+<title>Repo&#45;&gt;DB1</title>
+<path fill="none" stroke="#000000" d="M1095.4839,-35.6852C1108.6279,-35.1678 1123.387,-35.1118 1136.8811,-35.5169" />
+<polygon fill="#000000" stroke="#000000" points="1136.7744,-39.0154 1146.9059,-35.9167 1137.0533,-32.0209 1136.7744,-39.0154" />
+</g>
+
+<g id="edge10" class="edge">
+<title>Repo&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M1017.6235,-48.0113C995.8058,-48.9892 968.6643,-48.9962 946.7708,-48.0322" />
+<polygon fill="#000000" stroke="#000000" points="946.6641,-44.5215 936.491,-47.481 946.2892,-51.5115 946.6641,-44.5215" />
+</g>
+
+<g id="node12" class="node">
+<title>F</title>
+<path fill="none" stroke="#000000" d="M1097.6443,-114C1097.6443,-114 1015.4575,-114 1015.4575,-114 1009.4575,-114 1003.4575,-108 1003.4575,-102 1003.4575,-102 1003.4575,-90 1003.4575,-90 1003.4575,-84 1009.4575,-78 1015.4575,-78 1015.4575,-78 1097.6443,-78 1097.6443,-78 1103.6443,-78 1109.6443,-84 1109.6443,-90 1109.6443,-90 1109.6443,-102 1109.6443,-102 1109.6443,-108 1103.6443,-114 1097.6443,-114" />
+<text text-anchor="middle" x="1056.5509" y="-91.8" font-family="Times,serif" font-size="14.00" fill="#000000">Exception Filter</text>
+</g>
+
+<g id="edge13" class="edge">
+<title>I2&#45;&gt;F</title>
+<path fill="none" stroke="#000000" d="M967.1905,-96C975.6041,-96 984.279,-96 992.7634,-96" />
+<polygon fill="#000000" stroke="#000000" points="992.9877,-99.5001 1002.9877,-96 992.9877,-92.5001 992.9877,-99.5001" />
+</g>
+
+<g id="edge14" class="edge">
+<title>F&#45;&gt;Res1</title>
+<path fill="none" stroke="#000000" d="M1109.9109,-96C1118.5996,-96 1127.5204,-96 1135.9739,-96" />
+<polygon fill="#000000" stroke="#000000" points="1136.0065,-99.5001 1146.0065,-96 1136.0065,-92.5001 1136.0065,-99.5001" />
+</g>
+
+<g id="node13" class="node">
+<title>R</title>
+<path fill="none" stroke="#000000" d="M68.2512,-286C68.2512,-286 31.049,-286 31.049,-286 25.049,-286 19.049,-280 19.049,-274 19.049,-274 19.049,-262 19.049,-262 19.049,-256 25.049,-250 31.049,-250 31.049,-250 68.2512,-250 68.2512,-250 74.2512,-250 80.2512,-256 80.2512,-262 80.2512,-262 80.2512,-274 80.2512,-274 80.2512,-280 74.2512,-286 68.2512,-286" />
+<text text-anchor="middle" x="49.6501" y="-263.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node16" class="node">
+<title>U</title>
+<path fill="none" stroke="#000000" stroke-width="3" d="M322.8171,-246C322.8171,-246 131.4611,-246 131.4611,-246 125.4611,-246 119.4611,-240 119.4611,-234 119.4611,-234 119.4611,-222 119.4611,-222 119.4611,-216 125.4611,-210 131.4611,-210 131.4611,-210 322.8171,-210 322.8171,-210 328.8171,-210 334.8171,-216 334.8171,-222 334.8171,-222 334.8171,-234 334.8171,-234 334.8171,-240 328.8171,-246 322.8171,-246" />
+<text text-anchor="middle" x="227.1391" y="-223.8" font-family="Times,serif" font-size="14.00" fill="#000000">인증 + 검증 + 로깅 + 실행 + 에러</text>
+</g>
+
+<g id="edge15" class="edge">
+<title>R&#45;&gt;U</title>
+<path fill="none" stroke="#000000" d="M80.5663,-261.0325C96.442,-257.4547 116.6909,-252.8913 137.035,-248.3064" />
+<polygon fill="#000000" stroke="#000000" points="138.0252,-251.6711 147.0111,-246.0581 136.4862,-244.8424 138.0252,-251.6711" />
+</g>
+
+<g id="node14" class="node">
+<title>Res</title>
+<path fill="none" stroke="#000000" d="M431.9621,-246C431.9621,-246 386.6503,-246 386.6503,-246 380.6503,-246 374.6503,-240 374.6503,-234 374.6503,-234 374.6503,-222 374.6503,-222 374.6503,-216 380.6503,-210 386.6503,-210 386.6503,-210 431.9621,-210 431.9621,-210 437.9621,-210 443.9621,-216 443.9621,-222 443.9621,-222 443.9621,-234 443.9621,-234 443.9621,-240 437.9621,-246 431.9621,-246" />
+<text text-anchor="middle" x="409.3062" y="-223.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="node15" class="node">
+<title>DB</title>
+<path fill="none" stroke="#000000" d="M83.451,-228.7273C83.451,-230.5331 68.3009,-232 49.6501,-232 30.9993,-232 15.8492,-230.5331 15.8492,-228.7273 15.8492,-228.7273 15.8492,-199.2727 15.8492,-199.2727 15.8492,-197.4669 30.9993,-196 49.6501,-196 68.3009,-196 83.451,-197.4669 83.451,-199.2727 83.451,-199.2727 83.451,-228.7273 83.451,-228.7273" />
+<path fill="none" stroke="#000000" d="M83.451,-228.7273C83.451,-226.9214 68.3009,-225.4545 49.6501,-225.4545 30.9993,-225.4545 15.8492,-226.9214 15.8492,-228.7273" />
+<text text-anchor="middle" x="49.6501" y="-209.8" font-family="Times,serif" font-size="14.00" fill="#000000">Database</text>
+</g>
+
+<g id="edge17" class="edge">
+<title>DB&#45;&gt;U</title>
+<path fill="none" stroke="#000000" d="M83.4522,-222.1011C91.2078,-223.144 99.8865,-224.1537 109.0342,-225.0944" />
+<polygon fill="#000000" stroke="#000000" points="108.8285,-228.591 119.123,-226.0864 109.5135,-221.6246 108.8285,-228.591" />
+</g>
+
+<g id="edge18" class="edge">
+<title>U&#45;&gt;Res</title>
+<path fill="none" stroke="#000000" d="M334.9491,-228C345.331,-228 355.4127,-228 364.6293,-228" />
+<polygon fill="#000000" stroke="#000000" points="364.6375,-231.5001 374.6375,-228 364.6375,-224.5001 364.6375,-231.5001" />
+</g>
+
+<g id="edge16" class="edge">
+<title>U&#45;&gt;DB</title>
+<path fill="none" stroke="#000000" d="M119.123,-212.8734C110.1968,-212.3042 101.544,-211.8516 93.5497,-211.5459" />
+<polygon fill="#000000" stroke="#000000" points="93.5564,-208.0445 83.4522,-211.2314 93.3383,-215.0412 93.5564,-208.0445" />
+</g>
+</g>
+</svg>
+<hr>
+<h2 id="019970a5-7aba-76f4-99fb-d666fc92578f--dip-의존-역전-원칙">DIP – 의존 역전 원칙 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--dip-의존-역전-원칙"><span aria-hidden="true"></span></a></h2>
+<p>DIP는 <em>“고수준 모듈은 저수준 모듈에 의존하지 않고, 추상화에 의존해야 한다”</em> 는 원칙입니다. 구체 구현체에 묶여버리면 교체가 어려워지고, 시스템 전체가 쉽게 깨지기 때문에 등장한 개념입니다.</p>
+<p>❌ 위반 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Injectable</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UserService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  async</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> createUser</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">name</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">    console</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">User created:</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">,</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> name</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span></code></pre>
+<p>✅ 개선 사례</p>
+<pre class="shiki shiki-themes vitesse-light vitesse-dark" style="background-color:light-dark(#ffffff, #121212); --shiki-dark-bg:#121212; color:light-dark(#393a34, #dbd7caee); --shiki-dark:#dbd7caee;"><code><span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> interface</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> LoggerPort</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">message</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">):</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> void</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">;</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Injectable</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> ConsoleLogger</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> implements</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> LoggerPort</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">  log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">message</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">    console</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">message</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Injectable</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">()</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> UserService</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  constructor</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">private</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> readonly</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;"> logger</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">LoggerPort</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;">  async</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;"> createUser</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">name</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;">string</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">)</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {</span></span>
+<span class="line"><span style="color:light-dark(#A65E2B, #C99076); --shiki-dark:#C99076;">    this</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">logger</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">.</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">log</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">(</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">User created: </span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">${</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">name</span><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">}</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">`</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">);</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">  }</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">@</span><span style="color:light-dark(#59873A, #80A665); --shiki-dark:#80A665;">Module</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">({</span></span>
+<span class="line"><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">  providers</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: [{ </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">provide</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#B56959, #C98A7D); --shiki-dark:#C98A7D;">LOGGER</span><span style="color:light-dark(#B5695977, #C98A7D77); --shiki-dark:#C98A7D77;">'</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">, </span><span style="color:light-dark(#998418, #B8A965); --shiki-dark:#B8A965;">useClass</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">: </span><span style="color:light-dark(#B07D48, #BD976A); --shiki-dark:#BD976A;">ConsoleLogger</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> }],</span></span>
+<span class="line"><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;">})</span></span>
+<span class="line"><span style="color:light-dark(#1E754F, #4D9375); --shiki-dark:#4D9375;">export</span><span style="color:light-dark(#AB5959, #CB7676); --shiki-dark:#CB7676;"> class</span><span style="color:light-dark(#2E8F82, #5DA994); --shiki-dark:#5DA994;"> AppModule</span><span style="color:light-dark(#999999, #666666); --shiki-dark:#666666;"> {}</span></span></code></pre>
+<h3 id="019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-4">개선 이유 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--개선-이유-4"><span aria-hidden="true"></span></a></h3>
+<p>UserService는 <code>LoggerPort</code>라는 추상화에만 의존하고, 실제 구현은 DI 컨테이너에서 주입되므로 언제든 다른 로거(ConsoleLogger, WinstonLogger, LogtapeLogger, FileLogger 등)로 교체할 수 있어 코드가 훨씬 유연해집니다.</p>
+<p>📊 다이어그램</p>
+
+
+
+
+<svg width="703pt" height="354pt" viewbox="0.00 0.00 702.93 354.00">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 350)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-350 698.9284,-350 698.9284,4 -4,4" />
+<g id="clust1" class="cluster">
+<title>cluster_after</title>
+<path fill="none" stroke="#000000" d="M20,-8C20,-8 674.9284,-8 674.9284,-8 680.9284,-8 686.9284,-14 686.9284,-20 686.9284,-20 686.9284,-181 686.9284,-181 686.9284,-187 680.9284,-193 674.9284,-193 674.9284,-193 20,-193 20,-193 14,-193 8,-187 8,-181 8,-181 8,-20 8,-20 8,-14 14,-8 20,-8" />
+<text text-anchor="middle" x="347.4642" y="-176.4" font-family="Times,serif" font-size="14.00" fill="#000000">After</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_before</title>
+<path fill="none" stroke="#000000" d="M20,-201C20,-201 494.124,-201 494.124,-201 500.124,-201 506.124,-207 506.124,-213 506.124,-213 506.124,-326 506.124,-326 506.124,-332 500.124,-338 494.124,-338 494.124,-338 20,-338 20,-338 14,-338 8,-332 8,-326 8,-326 8,-213 8,-213 8,-207 14,-201 20,-201" />
+<text text-anchor="middle" x="257.062" y="-321.4" font-family="Times,serif" font-size="14.00" fill="#000000">Before</text>
+</g>
+
+<g id="node1" class="node">
+<title>R1</title>
+<path fill="none" stroke="#000000" d="M65.1516,-106C65.1516,-106 27.9494,-106 27.9494,-106 21.9494,-106 15.9494,-100 15.9494,-94 15.9494,-94 15.9494,-82 15.9494,-82 15.9494,-76 21.9494,-70 27.9494,-70 27.9494,-70 65.1516,-70 65.1516,-70 71.1516,-70 77.1516,-76 77.1516,-82 77.1516,-82 77.1516,-94 77.1516,-94 77.1516,-100 71.1516,-106 65.1516,-106" />
+<text text-anchor="middle" x="46.5505" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node2" class="node">
+<title>C1</title>
+<path fill="none" stroke="#000000" d="M174.4187,-106C174.4187,-106 125.3275,-106 125.3275,-106 119.3275,-106 113.3275,-100 113.3275,-94 113.3275,-94 113.3275,-82 113.3275,-82 113.3275,-76 119.3275,-70 125.3275,-70 125.3275,-70 174.4187,-70 174.4187,-70 180.4187,-70 186.4187,-76 186.4187,-82 186.4187,-82 186.4187,-94 186.4187,-94 186.4187,-100 180.4187,-106 174.4187,-106" />
+<text text-anchor="middle" x="149.8731" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>R1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M77.2709,-88C85.3945,-88 94.3495,-88 103.1147,-88" />
+<polygon fill="#000000" stroke="#000000" points="103.2557,-91.5001 113.2557,-88 103.2557,-84.5001 103.2557,-91.5001" />
+</g>
+
+<g id="node3" class="node">
+<title>S1</title>
+<path fill="none" stroke="#000000" d="M321.3783,-106C321.3783,-106 260.5683,-106 260.5683,-106 254.5683,-106 248.5683,-100 248.5683,-94 248.5683,-94 248.5683,-82 248.5683,-82 248.5683,-76 254.5683,-70 260.5683,-70 260.5683,-70 321.3783,-70 321.3783,-70 327.3783,-70 333.3783,-76 333.3783,-82 333.3783,-82 333.3783,-94 333.3783,-94 333.3783,-100 327.3783,-106 321.3783,-106" />
+<text text-anchor="middle" x="290.9733" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">UserService</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>C1&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M186.5772,-81.9942C202.3328,-81.2441 221.0398,-81.0611 238.2361,-81.445" />
+<polygon fill="#000000" stroke="#000000" points="238.6081,-84.9575 248.708,-81.7573 238.8169,-77.9607 238.6081,-84.9575" />
+</g>
+
+<g id="node8" class="node">
+<title>Res1</title>
+<path fill="none" stroke="#000000" d="M313.6292,-160C313.6292,-160 268.3174,-160 268.3174,-160 262.3174,-160 256.3174,-154 256.3174,-148 256.3174,-148 256.3174,-136 256.3174,-136 256.3174,-130 262.3174,-124 268.3174,-124 268.3174,-124 313.6292,-124 313.6292,-124 319.6292,-124 325.6292,-130 325.6292,-136 325.6292,-136 325.6292,-148 325.6292,-148 325.6292,-154 319.6292,-160 313.6292,-160" />
+<text text-anchor="middle" x="290.9733" y="-137.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge9" class="edge">
+<title>C1&#45;&gt;Res1</title>
+<path fill="none" stroke="#000000" d="M186.5772,-102.0469C204.8787,-109.051 227.1627,-117.5793 246.4352,-124.955" />
+<polygon fill="#000000" stroke="#000000" points="245.3215,-128.2762 255.9119,-128.5818 247.8235,-121.7386 245.3215,-128.2762" />
+</g>
+
+<g id="edge8" class="edge">
+<title>S1&#45;&gt;C1</title>
+<path fill="none" stroke="#000000" d="M248.708,-94.2427C232.3311,-94.862 213.5173,-94.9143 196.7288,-94.3996" />
+<polygon fill="#000000" stroke="#000000" points="196.7053,-90.8961 186.5772,-94.0058 196.434,-97.8909 196.7053,-90.8961" />
+</g>
+
+<g id="node4" class="node">
+<title>L</title>
+<path fill="none" stroke="#0000ff" stroke-width="2" d="M522.9465,-106C522.9465,-106 411.4151,-106 411.4151,-106 405.4151,-106 399.4151,-100 399.4151,-94 399.4151,-94 399.4151,-82 399.4151,-82 399.4151,-76 405.4151,-70 411.4151,-70 411.4151,-70 522.9465,-70 522.9465,-70 528.9465,-70 534.9465,-76 534.9465,-82 534.9465,-82 534.9465,-94 534.9465,-94 534.9465,-100 528.9465,-106 522.9465,-106" />
+<path fill="none" stroke="#0000ff" stroke-width="2" d="M526.9398,-110C526.9398,-110 407.4218,-110 407.4218,-110 401.4218,-110 395.4218,-104 395.4218,-98 395.4218,-98 395.4218,-78 395.4218,-78 395.4218,-72 401.4218,-66 407.4218,-66 407.4218,-66 526.9398,-66 526.9398,-66 532.9398,-66 538.9398,-72 538.9398,-78 538.9398,-78 538.9398,-98 538.9398,-98 538.9398,-104 532.9398,-110 526.9398,-110" />
+<text text-anchor="middle" x="467.1808" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#0000ff">LoggerPort 인터페이스</text>
+</g>
+
+<g id="edge3" class="edge">
+<title>S1&#45;&gt;L</title>
+<path fill="none" stroke="#000000" d="M333.1794,-82.1408C348.8275,-81.4718 367.1557,-81.1796 385.1449,-81.2642" />
+<polygon fill="#000000" stroke="#000000" points="385.3482,-84.7661 395.3784,-81.3538 385.4095,-77.7663 385.3482,-84.7661" />
+</g>
+
+<g id="edge7" class="edge">
+<title>L&#45;&gt;S1</title>
+<path fill="none" stroke="#000000" d="M395.3784,-94.6462C378.0411,-94.8692 359.8312,-94.7328 343.5618,-94.2368" />
+<polygon fill="#000000" stroke="#000000" points="343.3,-90.7251 333.1794,-93.8592 343.0455,-97.7205 343.3,-90.7251" />
+</g>
+
+<g id="node5" class="node">
+<title>Impl1</title>
+<path fill="none" stroke="#000000" d="M666.309,-52C666.309,-52 587.6796,-52 587.6796,-52 581.6796,-52 575.6796,-46 575.6796,-40 575.6796,-40 575.6796,-28 575.6796,-28 575.6796,-22 581.6796,-16 587.6796,-16 587.6796,-16 666.309,-16 666.309,-16 672.309,-16 678.309,-22 678.309,-28 678.309,-28 678.309,-40 678.309,-40 678.309,-46 672.309,-52 666.309,-52" />
+<text text-anchor="middle" x="626.9943" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">ConsoleLogger</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>L&#45;&gt;Impl1</title>
+<path fill="none" stroke="#000000" d="M532.6442,-65.8803C543.5997,-62.1785 554.93,-58.3501 565.7738,-54.686" />
+<polygon fill="#000000" stroke="#000000" points="567.2176,-57.8926 575.571,-51.3756 564.9768,-51.261 567.2176,-57.8926" />
+</g>
+
+<g id="node6" class="node">
+<title>Impl2</title>
+<path fill="none" stroke="#000000" d="M666.8626,-106C666.8626,-106 587.126,-106 587.126,-106 581.126,-106 575.126,-100 575.126,-94 575.126,-94 575.126,-82 575.126,-82 575.126,-76 581.126,-70 587.126,-70 587.126,-70 666.8626,-70 666.8626,-70 672.8626,-70 678.8626,-76 678.8626,-82 678.8626,-82 678.8626,-94 678.8626,-94 678.8626,-100 672.8626,-106 666.8626,-106" />
+<text text-anchor="middle" x="626.9943" y="-83.8" font-family="Times,serif" font-size="14.00" fill="#000000">WinstonLogger</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>L&#45;&gt;Impl2</title>
+<path fill="none" stroke="#000000" d="M539.1398,-88C547.7392,-88 556.4627,-88 564.9065,-88" />
+<polygon fill="#000000" stroke="#000000" points="565.0402,-91.5001 575.0401,-88 565.0401,-84.5001 565.0402,-91.5001" />
+</g>
+
+<g id="node7" class="node">
+<title>Impl3</title>
+<path fill="none" stroke="#000000" d="M666.2949,-160C666.2949,-160 587.6937,-160 587.6937,-160 581.6937,-160 575.6937,-154 575.6937,-148 575.6937,-148 575.6937,-136 575.6937,-136 575.6937,-130 581.6937,-124 587.6937,-124 587.6937,-124 666.2949,-124 666.2949,-124 672.2949,-124 678.2949,-130 678.2949,-136 678.2949,-136 678.2949,-148 678.2949,-148 678.2949,-154 672.2949,-160 666.2949,-160" />
+<text text-anchor="middle" x="626.9943" y="-137.8" font-family="Times,serif" font-size="14.00" fill="#000000">LogtapeLogger</text>
+</g>
+
+<g id="edge6" class="edge">
+<title>L&#45;&gt;Impl3</title>
+<path fill="none" stroke="#000000" d="M532.6442,-110.1197C543.5997,-113.8215 554.93,-117.6499 565.7738,-121.314" />
+<polygon fill="#000000" stroke="#000000" points="564.9768,-124.739 575.571,-124.6244 567.2176,-118.1074 564.9768,-124.739" />
+</g>
+
+<g id="node9" class="node">
+<title>R</title>
+<path fill="none" stroke="#000000" d="M65.1516,-248C65.1516,-248 27.9494,-248 27.9494,-248 21.9494,-248 15.9494,-242 15.9494,-236 15.9494,-236 15.9494,-224 15.9494,-224 15.9494,-218 21.9494,-212 27.9494,-212 27.9494,-212 65.1516,-212 65.1516,-212 71.1516,-212 77.1516,-218 77.1516,-224 77.1516,-224 77.1516,-236 77.1516,-236 77.1516,-242 71.1516,-248 65.1516,-248" />
+<text text-anchor="middle" x="46.5505" y="-225.8" font-family="Times,serif" font-size="14.00" fill="#000000">Request</text>
+</g>
+
+<g id="node10" class="node">
+<title>C</title>
+<path fill="none" stroke="#000000" d="M174.4187,-248C174.4187,-248 125.3275,-248 125.3275,-248 119.3275,-248 113.3275,-242 113.3275,-236 113.3275,-236 113.3275,-224 113.3275,-224 113.3275,-218 119.3275,-212 125.3275,-212 125.3275,-212 174.4187,-212 174.4187,-212 180.4187,-212 186.4187,-218 186.4187,-224 186.4187,-224 186.4187,-236 186.4187,-236 186.4187,-242 180.4187,-248 174.4187,-248" />
+<text text-anchor="middle" x="149.8731" y="-225.8" font-family="Times,serif" font-size="14.00" fill="#000000">Controller</text>
+</g>
+
+<g id="edge10" class="edge">
+<title>R&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M77.2709,-230C85.3945,-230 94.3495,-230 103.1147,-230" />
+<polygon fill="#000000" stroke="#000000" points="103.2557,-233.5001 113.2557,-230 103.2557,-226.5001 103.2557,-233.5001" />
+</g>
+
+<g id="node11" class="node">
+<title>S</title>
+<path fill="none" stroke="#000000" d="M347.1299,-250.6019C347.1299,-250.6019 234.8167,-250.6019 234.8167,-250.6019 228.8167,-250.6019 222.8167,-244.6019 222.8167,-238.6019 222.8167,-238.6019 222.8167,-221.3981 222.8167,-221.3981 222.8167,-215.3981 228.8167,-209.3981 234.8167,-209.3981 234.8167,-209.3981 347.1299,-209.3981 347.1299,-209.3981 353.1299,-209.3981 359.1299,-215.3981 359.1299,-221.3981 359.1299,-221.3981 359.1299,-238.6019 359.1299,-238.6019 359.1299,-244.6019 353.1299,-250.6019 347.1299,-250.6019" />
+<text text-anchor="middle" x="290.9733" y="-234.2" font-family="Times,serif" font-size="14.00" fill="#000000">UserService:</text>
+<text text-anchor="middle" x="290.9733" y="-217.4" font-family="Times,serif" font-size="14.00" fill="#000000">console.log 직접 호출</text>
+</g>
+
+<g id="edge11" class="edge">
+<title>C&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M186.5772,-223.9942C194.6457,-223.61 203.4883,-223.3746 212.5056,-223.2879" />
+<polygon fill="#000000" stroke="#000000" points="212.7407,-226.7872 222.7287,-223.2532 212.7169,-219.7873 212.7407,-226.7872" />
+</g>
+
+<g id="node13" class="node">
+<title>Res</title>
+<path fill="none" stroke="#000000" d="M313.6292,-305C313.6292,-305 268.3174,-305 268.3174,-305 262.3174,-305 256.3174,-299 256.3174,-293 256.3174,-293 256.3174,-281 256.3174,-281 256.3174,-275 262.3174,-269 268.3174,-269 268.3174,-269 313.6292,-269 313.6292,-269 319.6292,-269 325.6292,-275 325.6292,-281 325.6292,-281 325.6292,-293 325.6292,-293 325.6292,-299 319.6292,-305 313.6292,-305" />
+<text text-anchor="middle" x="290.9733" y="-282.8" font-family="Times,serif" font-size="14.00" fill="#000000">Response</text>
+</g>
+
+<g id="edge15" class="edge">
+<title>C&#45;&gt;Res</title>
+<path fill="none" stroke="#000000" d="M186.4779,-245.2131C198.0338,-249.9827 210.8603,-255.2427 222.6452,-260 230.4663,-263.1572 238.8058,-266.4848 246.8741,-269.6841" />
+<polygon fill="#000000" stroke="#000000" points="245.5873,-272.9389 256.1737,-273.363 248.1624,-266.4298 245.5873,-272.9389" />
+</g>
+
+<g id="edge14" class="edge">
+<title>S&#45;&gt;C</title>
+<path fill="none" stroke="#000000" d="M222.7287,-236.7468C213.9571,-236.7712 205.138,-236.6563 196.8144,-236.4022" />
+<polygon fill="#000000" stroke="#000000" points="196.7051,-232.8954 186.5772,-236.0058 196.4342,-239.8902 196.7051,-232.8954" />
+</g>
+
+<g id="node12" class="node">
+<title>Console</title>
+<path fill="none" stroke="#000000" d="M498.0673,-244.7273C498.0673,-246.5331 484.2235,-248 467.1808,-248 450.1381,-248 436.2943,-246.5331 436.2943,-244.7273 436.2943,-244.7273 436.2943,-215.2727 436.2943,-215.2727 436.2943,-213.4669 450.1381,-212 467.1808,-212 484.2235,-212 498.0673,-213.4669 498.0673,-215.2727 498.0673,-215.2727 498.0673,-244.7273 498.0673,-244.7273" />
+<path fill="none" stroke="#000000" d="M498.0673,-244.7273C498.0673,-242.9214 484.2235,-241.4545 467.1808,-241.4545 450.1381,-241.4545 436.2943,-242.9214 436.2943,-244.7273" />
+<text text-anchor="middle" x="467.1808" y="-225.8" font-family="Times,serif" font-size="14.00" fill="#000000">Console</text>
+</g>
+
+<g id="edge12" class="edge">
+<title>S&#45;&gt;Console</title>
+<path fill="none" stroke="#000000" d="M359.3519,-223.4027C381.8205,-223.0495 406.0932,-223.3091 425.9096,-224.1814" />
+<polygon fill="#000000" stroke="#000000" points="425.9581,-227.6885 436.1259,-224.7111 426.3206,-220.6979 425.9581,-227.6885" />
+</g>
+
+<g id="edge13" class="edge">
+<title>Console&#45;&gt;S</title>
+<path fill="none" stroke="#000000" d="M436.1259,-235.2889C417.5324,-236.4167 392.9916,-236.8916 369.3895,-236.7136" />
+<polygon fill="#000000" stroke="#000000" points="369.3918,-233.2135 359.3519,-236.5973 369.3107,-240.213 369.3918,-233.2135" />
+</g>
+</g>
+</svg>
+<hr>
+<h2 id="019970a5-7aba-76f4-99fb-d666fc92578f--마치며">마치며 <a class="header-anchor" href="#019970a5-7aba-76f4-99fb-d666fc92578f--마치며"><span aria-hidden="true"></span></a></h2>
+<p>SOLID는 오래 살아남는 코드를 위한 다섯 가지 약속입니다. 책임을 분리해 응집도를 높이고(SRP), 기존 코드를 건드리지 않고 확장할 수 있도록 만들며(OCP), 계약을 지켜 일관성을 유지하고(LSP), 불필요한 의존을 줄이고(ISP), 추상화를 통해 교체 가능성을 확보합니다(DIP).</p>
+<p>세부적인 구현은 둘째치더라도 NestJS는 Guard, Pipe, Interceptor, DI Container 등 이미 SOLID를 녹여낼 수 있는 구조적 도구들을 제공합니다. SOLID는 특정 프레임워크의 패턴이 아니라, 현대 소프트웨어 전반에 <strong>알게 모르게 스며들어 있는 보편적 원칙</strong>이라고 할 수 있습니다.</p>
+<hr>
+<p>글을 읽으시다가 사실과 다른 부분이 보이거나 설명이 모호해 보이는 지점, 혹은 보완하면 더 나아질 것 같은 아이디어가 떠오르신다면, 사소한 것이라도 편하게 지적해 주세요—빠르게 반영하며 글과 코드를 함께 다듬어 보겠습니다.</p>
+
+    </div>
+
+  <div class="mt-8 pt-6 border-t">
+    <a
+      href="https://hackers.pub/@kodingwarrior/2025/nestjs%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EB%8A%94-solid-%EC%9B%90%EC%B9%99"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+    >
+      hackers.pub에서 보기 ->
+    </a>
+  </div>
+</article>
+
+          </article>
+        </main>
+
+        <div class="sticky left-0 w-screen top-4 z-10 hidden 2xl:block">
+            <div class="toc-layer">
+                <div class="toc-aside">
+                </div>
+                <div class="toc-padding">
+                </div>
+                <div class="toc-aside">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="flex justify-start sm:justify-center flex-col sm:flex-row">
+  <a class="my-2 mx-3 no-underline" href="/rss.xml">
+    <i class="bi bi-rss-fill text-2xl"></i> Feed
+  </a>
+  <a class="my-2 mx-3 no-underline" href="mailto:rijgndqw012@gmail.com">
+    <i class="bi bi-envelope-fill text-2xl"></i> Email
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://twitter.com/kodingwarrior">
+    <i class="bi bi-twitter text-2xl"></i> Twitter
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://github.com/kodingwarrior/kodingwarrior.github.io">
+    <i class="bi bi-github text-2xl"></i> Github
+  </a>
+</footer>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127979309-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127979309-1');
+    </script>
+  </body>
+</html>

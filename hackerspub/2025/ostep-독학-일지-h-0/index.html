@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+  OSTEP 독학 일지 - H.0. | KODINGWARRIOR QUEST
+
+
+</title>
+
+<meta name="description" content="고생을 사서 하는 개발자의 여정은 앞으로도 계속됩니다." />
+
+<link type="application/atom+xml" rel="alternate" href="https://kodingwarrior.github.io/rss.xml" title="KODINGWARRIOR QUEST" />
+
+<link rel="stylesheet" href="/_bridgetown/static/frontend/javascript/index.6HMMI3WE.css" />
+<script src="/_bridgetown/static/frontend/javascript/index.HB33KXMV.js" defer></script>
+
+
+  </head>
+  <body class="hackerspub_post ">
+    
+<nav>
+  <ul>
+    <li><a href="/">/home</a></li>
+    <li><a href="/about">/about</a></li>
+    <li><a href="/posts">/posts</a></li>
+    <li><a href="/wiki">/wiki</a></li>
+    <li><a href="/hackerspub">/hackerspub</a></li>
+  </ul>
+</nav>
+
+
+    <div class="article-wrapper">
+        <main class="z-20">
+          <article>
+            
+<article class="">
+  <h1 class="text-4xl font-bold pt-5 pb-3">OSTEP 독학 일지 - H.0.</h1>
+
+  <div class="flex items-center text-sm text-gray-600 pb-5 border-b mb-8">
+      <span>August 04, 2025</span>
+      <span class="mx-3 block font-bold text-slate-500">.</span>
+      <span>ko</span>
+  </div>
+
+    <div class="prose prose-lg max-w-none">
+      <p>update: 2025-08-04</p>
+<blockquote>
+<p>본 글은 Operating Systems : Three Easy Pieces라는 교재를 독학하는 여정을 기록으로 남기기 위한 시리즈 글입니다.</p>
+</blockquote>
+<p>2019년 이후로 개발 경력을 시작한 지, 6년. 전공자이지만, 다시 OS 기초 공부를 시작한다. 새로운 도전, 챌린징한 도전을 원하고 있는 입장에서 좀 더 나은 환경의 회사를 노리고 취업을 준비하고 있는데, 그러려면 더더욱 기본기로 승부를 해야 한다. <strong>&quot;기본기란 무엇인가?&quot;</strong> 라는 질문에 대해서는 많은 해석의 여지는 있을 수 있겠지만, 경력이라는 숫자는 제외하고, 최소한 <strong>&quot;다른 신입 개발자들이랑 공정한 환경에서 승부 했을 때 내가 경쟁력을 가질 수 있는 것인가?&quot;</strong> 라는 물음에는 당당하지는 못하겠다.</p>
+<p>요즘은 더더욱 신입 개발자들의 수준이 상향 평준화 되어 있는데, 너무 안일하게 가만히 있다가는.... 과거의 영광만 남아있고, 경력자라는 자아만 비대하고 신입 개발자에게 본보기가 되기도 어려운 사람으로 남게 되리라는 불안감도 있다.</p>
+<h3 id="0198759c-6176-7eb7-b19d-5acc81007f3b--어쩌다-처음부터-다시-공부하게-되었는가">어쩌다 처음부터 다시 공부하게 되었는가? <a class="header-anchor" href="#0198759c-6176-7eb7-b19d-5acc81007f3b--어쩌다-처음부터-다시-공부하게-되었는가"><span aria-hidden="true"></span></a></h3>
+<p>다시, 돌아와서. 한참 전에 운영체제 수업을 들었는데도 불구하고 다시 운영체제를 처음부터 다시 공부하는 것도 참 비효율적이긴 하다. 비효율적인데 어쩔 수 없다. 기술 면접에서 나오는 단골 질문 <strong>&quot;XX란 무엇인가요?&quot;</strong>, <strong>&quot;XX에 대해서 설명해보세요&quot;</strong> 같은 질문에 똑 부러지게 설명하기가 어렵다는 것을 인정한다.</p>
+<p>운영체제 수업도 분명 열심히 들었고, 학점도 A+ 받고, 코딩 과제는 더더욱 자신 있었던 항목이었어서 무난하게 패스 해 오긴 했는데, 수업을 들은 지 8년이 지난 지금, 머릿속에 남은 게 거의 없다. 개발 경력을 시작한 6년 전 이후로, 취업 준비 활동도 본격적으로 하는 게 이번이 처음인데, 굵은 원서 책을 붙잡고 공부하는 것도 굉장히 오랜만이다. 시간이 지나서 학습 능력이 더 둔화된 것 같지만, 한계는 극복해야겠지.</p>
+<p>체계적으로 학습하기엔 주의력이 산만했다 같은 변명으로 넘기고 싶지도 않고, 다른 사람들이랑 경쟁할 때 공정한 조건에서 경쟁하고 당당하게 인정받겠다는 것이 내 원칙이다.</p>
+<h3 id="0198759c-6176-7eb7-b19d-5acc81007f3b--그래서-계획은-어떻게-되는가">그래서 계획은 어떻게 되는가? <a class="header-anchor" href="#0198759c-6176-7eb7-b19d-5acc81007f3b--그래서-계획은-어떻게-되는가"><span aria-hidden="true"></span></a></h3>
+<p><a href="https://hackers.pub/@simnalamburt">simnalamburt</a>님을 포함해서 몇몇 지인들이 자주 추천하는 책이 <a href="https://pages.cs.wisc.edu/~remzi/OSTEP">OSTEP</a>이라서, 이 교재를 기준으로 독학을 진행 중이다. 이론이 빼곡하게 적힌 두꺼운 책을 집중해서 읽는 것도 굉장히 오랜만이다. 초심으로 돌아가서 제대로 경쟁한다 생각해야지.</p>
+<p>물론, 과제를 먼저 진행하고 모르는 건 교재를 찾아보는 식으로 진행하게 될 것 같다. 과제는 이 책에 포함된 과제 프로젝트인 xv6인데, MIT에서 운영  체제 엔지니어링 코스의 교육 목적으로 개발된 운영 체제이다. 모자란 부분을 의도적으로 뚫어놓고, 그 빈자리를 스텝 바이 스텝으로 채워 가는 전형적인 프로젝트 과제다.</p>
+<p>xv6 실습을 진행하면서 모르는 것도 찾아보고 직접 내 힘으로 만들어보는 과정에서의 OS가 어떻게 만들어지는 것인지, OS 자체가 구체적으로 어떻게 동작하는지 체화하는 루틴을 가져보고자 한다. 그러면서 <strong>CS 면접 단골 문제</strong>도 겸사겸사 공략하는 방향으로 전략을 세웠다.</p>
+<p>xv6 과제에 대한 목차는 여기에 공개가 되어 있다.</p>
+<p><a href="https://pages.cs.wisc.edu/~remzi/OSTEP/lab-projects-xv6.pdf">https://pages.cs.wisc.edu/~remzi/OSTEP/lab-projects-xv6.pdf</a></p>
+<p>앞으로 연재할 글들은 xv6 프로젝트의 세부 과제들을 한 단계, 한 단계 공략하면서 연재하게 될 것 같다. 이렇게 목차만 훑어봤고, 자세한 내용은 각각 직접 부딫혀 보면서 알게 될 것 같다. 앞에 H가 붙은 이유는 OSTEP에서 xv6 과제에 대한 설명이 Appendix H에 붙어있어서 그렇게 이름이 붙은 것 같다.</p>
+<ul>
+<li>
+<p>H.1 Intro Project</p>
+</li>
+<li>
+<p>H.2 Processes and Scheduling</p>
+</li>
+<li>
+<p>H.3 Intro to Virtual Memory</p>
+</li>
+<li>
+<p>H.4 Copy-on-write Mappings</p>
+</li>
+<li>
+<p>H.5 Memory mappings</p>
+</li>
+<li>
+<p>H.6 Kernel Threads</p>
+</li>
+<li>
+<p>H.7 Advanced Kernel Threads</p>
+</li>
+<li>
+<p>H.8 Extent-based File System</p>
+</li>
+<li>
+<p>H.9 Fast File System</p>
+</li>
+<li>
+<p>H.10 Journaling File System</p>
+</li>
+<li>
+<p>H.11 File System Checker</p>
+</li>
+</ul>
+<h3 id="0198759c-6176-7eb7-b19d-5acc81007f3b--앞으로의-방향성은">앞으로의 방향성은? <a class="header-anchor" href="#0198759c-6176-7eb7-b19d-5acc81007f3b--앞으로의-방향성은"><span aria-hidden="true"></span></a></h3>
+<p>다음에 이어질 글들을 머릿속에 어떤 방향으로 써 갈 지는 확고해졌다.</p>
+<p>실은, 이 글을 쓰고 있는 지금, 2025년 8월 4일 기준으로 진행 중에 있는 <strong>OSSCA 2025</strong><sup class="footnote-ref"><a href="#fn-0198759c-6176-7eb7-b19d-5acc81007f3b-1" id="fnref-0198759c-6176-7eb7-b19d-5acc81007f3b-1">[1]</a></sup>멘토링 과정 중간 레포트를 쓰다가 <strong>&quot;이런 글을 한번 써볼까?&quot;</strong> 하고 영감을 받은 데 서부터 충동적으로 시작했다. 내가 어떤 사고의 흐름으로 이슈를 남겼는지 배경을 설명하고, 내가 어떤 문제 의식에서 이슈를 잡고 풀 리퀘스트를 올렸는지, 그리고 풀 리퀘스트가 머지 되기 까지 어떤 일들이 있었는지 서사를 기록하는 과정에서 머릿속에 희미하게 남아있던 스냅샷을 좀 더 명확한 형태로 남길 수 있었고, 이런 포맷으로 글을 꾸준히 남기면 어떨까 싶은 생각이 들었다. 따라서, 방향성은 명확하다.</p>
+<p><strong>공부한 내용을 기계적으로 정리하는 글을 쓰지는 않고 싶다.</strong> 요약 정리하는  블로그를 운영할까 싶기는 했었지만, 기계적으로 정리하는 것은 시간도 많이 걸릴 뿐만 아니라, 머릿 속에 남는 일도 적다. 단순히, 개조식으로 정리한 글들은 기억을 덤프 뜨기에는 좋기는 하지만, 여러 개념들이 유기적으로 이어지게 다듬어지지는 않는다.</p>
+<p>프로젝트 과제의 각 스텝을 밟아 가면서 쓰는 글인 만큼, <strong>나름대로의 서사가 있는 흐름의 글을 쓰고 싶다.</strong> 단순히 글을 쓰는 사람 입장에서가 아니라, 글을 읽는 입장에서도 재밌게 읽을 수 있는 스토리를 써가고 싶다. 어떤 것을 만드는 과정에서 어떤 우여곡절이 있었고, 그 과정에서 어떤 것들을 발견했고, 그것들을 어떻게 내 것으로 만드는 과정을 정제된 기록으로서 남겨두면 어디 가서 썰 풀기도 좋을 만한 소재가 되지 않을까? 라는 생각도 든다. 기술 면접도 어떻게 보면 <strong>&quot;내가 제일 자신 없는 종목&quot;</strong> 이라기 보다는 <strong>&quot;내가 아는 거 썰 풀기 좋은 시간&quot;</strong> 이라고 발상을 바꿔볼 수도 있을 것 같다.</p>
+<p>사실은 취업준비도 해야 하니까~  겸사겸사 해보면 나쁘지 않잖아~</p>
+<p>겸사겸사 이런 글이 게시될 해커스펍에도 읽을 만한 글 늘릴 수 있고 좋잖아~</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-0198759c-6176-7eb7-b19d-5acc81007f3b-1" class="footnote-item"><p>OpenSource Software Contribution Academy <a href="#fnref-0198759c-6176-7eb7-b19d-5acc81007f3b-1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+
+  <div class="mt-8 pt-6 border-t">
+    <a
+      href="https://hackers.pub/@kodingwarrior/2025/ostep-%EB%8F%85%ED%95%99-%EC%9D%BC%EC%A7%80-h-0"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+    >
+      hackers.pub에서 보기 ->
+    </a>
+  </div>
+</article>
+
+          </article>
+        </main>
+
+        <div class="sticky left-0 w-screen top-4 z-10 hidden 2xl:block">
+            <div class="toc-layer">
+                <div class="toc-aside">
+                </div>
+                <div class="toc-padding">
+                </div>
+                <div class="toc-aside">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="flex justify-start sm:justify-center flex-col sm:flex-row">
+  <a class="my-2 mx-3 no-underline" href="/rss.xml">
+    <i class="bi bi-rss-fill text-2xl"></i> Feed
+  </a>
+  <a class="my-2 mx-3 no-underline" href="mailto:rijgndqw012@gmail.com">
+    <i class="bi bi-envelope-fill text-2xl"></i> Email
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://twitter.com/kodingwarrior">
+    <i class="bi bi-twitter text-2xl"></i> Twitter
+  </a>
+  <a class="my-2 mx-3 no-underline" href="https://github.com/kodingwarrior/kodingwarrior.github.io">
+    <i class="bi bi-github text-2xl"></i> Github
+  </a>
+</footer>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127979309-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-127979309-1');
+    </script>
+  </body>
+</html>
