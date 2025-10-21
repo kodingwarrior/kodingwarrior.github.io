@@ -93,19 +93,59 @@ body > header img {
   max-width: 100%;
 }
 
-body > nav ul {
+.primary-nav {
   margin: 2rem 0;
+}
+
+.primary-nav ul {
+  margin: 0;
   padding: 0;
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  font-size: 1.3rem;
-  font-weight: bold;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
-body > nav a {
+.primary-nav li {
+  display: flex;
+}
+
+.primary-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 9999px;
   text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.primary-nav a:hover,
+.primary-nav a:focus {
+  background-color: rgba(214, 64, 69, 0.12);
+  outline: none;
+}
+
+.primary-nav i {
+  font-size: 1.35rem;
+}
+
+.primary-nav .nav-label {
+  display: none;
+}
+
+.primary-nav li.is-active a {
+  background-color: var(--action-color);
+  color: #fff;
+  box-shadow: 0 0.25rem 0.5rem rgba(214, 64, 69, 0.25);
+}
+
+.primary-nav li.is-active .nav-label {
+  display: inline;
 }
 
 main {
