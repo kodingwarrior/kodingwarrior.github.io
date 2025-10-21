@@ -1,10 +1,25 @@
-
-<nav>
+<nav class="primary-nav">
+  <% current_path = resource.respond_to?(:relative_url) ? resource.relative_url : resource.relative_permalink %>
+  <% current_path = current_path.sub(%r{/+$}, '') if current_path %>
+  <% current_path = '/' if current_path.nil? || current_path.empty? %>
+  <% nav_items = [
+    { path: '/', label: 'Home', icon: 'bi-house' },
+    { path: '/about/', label: 'About', icon: 'bi-person' },
+    { path: '/posts/', label: 'Posts', icon: 'bi-pencil-square' },
+    { path: '/wiki/', label: 'Wiki', icon: 'bi-book' },
+    { path: "/hackerspub/", label: "Hackers' Pub", icon: 'bi-globe2' }
+  ] %>
   <ul>
-    <li><a href="/">/home</a></li>
-    <li><a href="/about">/about</a></li>
-    <li><a href="/posts">/posts</a></li>
-    <li><a href="/wiki">/wiki</a></li>
-    <li><a href="/hackerspub">/hackerspub</a></li>
+    <% nav_items.each do |item| %>
+      <% item_path = item[:path].sub(%r{/+$}, '') %>
+      <% item_path = '/' if item_path.empty? %>
+      <% active = current_path == item_path %>
+      <li class="<%= 'is-active' if active %>">
+        <a href="<%= item[:path] %>" aria-label="<%= item[:label] %>" <%= 'aria-current="page"' if active %>>
+          <i class="bi <%= item[:icon] %>" aria-hidden="true"></i>
+          <span class="nav-label"><%= item[:label] %></span>
+        </a>
+      </li>
+    <% end %>
   </ul>
 </nav>
