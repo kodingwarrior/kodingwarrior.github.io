@@ -148,6 +148,26 @@ body > header img {
   display: inline;
 }
 
+@media (min-width: 320px) {
+  .primary-nav {
+    margin: 1.5rem 0;
+  }
+
+  .primary-nav ul {
+    gap: 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .primary-nav a {
+    gap: 0.35rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .primary-nav i {
+    font-size: 1.1rem;
+  }
+}
+
 main {
   margin: 2rem auto 2rem;
   max-width: 65rem;
