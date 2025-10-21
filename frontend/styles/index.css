@@ -148,7 +148,7 @@ body > header img {
   display: inline;
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .primary-nav {
     margin: 1.5rem 0;
   }
